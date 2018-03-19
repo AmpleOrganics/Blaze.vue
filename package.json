@@ -1,0 +1,65 @@
+{
+  "name": "blaze-vue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "test": "vue-cli-service test",
+    "lint": "vue-cli-service lint",
+    "dist": "bili src/blaze-plugin.js --plugin vue --vue.css dist/styles.css --format es"
+  },
+  "dependencies": {
+    "lodash.orderby": "^4.6.0",
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
+    "@vue/cli-plugin-unit-mocha": "^3.0.0-beta.6",
+    "@vue/cli-service": "^3.0.0-beta.6",
+    "@vue/eslint-config-standard": "^3.0.0-beta.6",
+    "@vue/test-utils": "^1.0.0-beta.10",
+    "bili": "^3.0.7",
+    "chai": "^4.1.2",
+    "node-sass": "^4.7.2",
+    "rollup-plugin-vue": "^3.0.0",
+    "sass-loader": "^6.0.6",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/recommended",
+      "@vue/standard"
+    ],
+    "rules": {
+      "generator-star-spacing": "off",
+
+      "vue/max-attributes-per-line": [2, {
+        "singleline": 2,
+        "multiline": {
+          "max": 1,
+          "allowFirstLine": false
+        }
+      }],
+      "vue/attributes-order": "off"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
