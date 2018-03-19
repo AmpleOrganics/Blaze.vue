@@ -1,19 +1,20 @@
 {
   "name": "blaze-vue",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.3",
+  "private": false,
+  "main": "dist/blaze-vue.cjs.js",
+  "module": "dist/blaze-vue.es.js",
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
+    "build:demo": "vue-cli-service build",
     "test": "vue-cli-service test",
     "lint": "vue-cli-service lint",
-    "dist": "bili src/blaze-plugin.js --plugin vue --vue.css dist/styles.css --format es"
+    "build": "bili src/blaze-plugin.js --plugin vue --plugin uglify --format cjs,es",
+    "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "lodash.orderby": "^4.6.0",
-    "vue": "^2.5.16",
-    "vue-router": "^3.0.1"
-  },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
@@ -23,10 +24,16 @@
     "@vue/test-utils": "^1.0.0-beta.10",
     "bili": "^3.0.11",
     "chai": "^4.1.2",
+    "lodash.orderby": "^4.6.0",
     "node-sass": "^4.7.2",
+    "rollup-plugin-uglify": "^3.0.0",
     "rollup-plugin-vue": "^3.0.0",
-    "sass-loader": "^6.0.6",
+    "sass-loader": "^6.0.7",
+    "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.0"
   },
   "babel": {
     "presets": [
@@ -41,7 +48,8 @@
     ],
     "rules": {
       "generator-star-spacing": "off",
-      "vue/max-attributes-per-line": [2,
+      "vue/max-attributes-per-line": [
+        2,
         {
           "singleline": 2,
           "multiline": {
