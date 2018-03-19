@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import Table from '@/components/AoTable.vue'
 import { expect } from 'chai'
 

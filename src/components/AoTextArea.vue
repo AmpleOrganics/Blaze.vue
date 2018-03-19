@@ -1,6 +1,7 @@
 <template>
   <div class="form-group">
     <label :for="name">{{ label }}</label>
+    <!-- eslint-disable-next-line -->
     <textarea
       class="form-control"
       @input="inputEvent($event.target.value)"
@@ -13,7 +14,7 @@
       :required="required"
       :readonly="readonly"
       :disabled="disabled"
-    />
+    ></textarea>
   </div>
 </template>
 
@@ -107,13 +108,13 @@ label {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 
-  &[disabled], &[readonly]{
+  &:disabled, &:readonly {
     background-color: #ebecef;
     border-color: #d7d9df;
     opacity: 1;
   }
 
-  &[disabled] {
+  &:disabled {
     cursor: not-allowed;
   }
 }

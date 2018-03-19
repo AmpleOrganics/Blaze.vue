@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "lodash.orderby": "^4.6.0",
-    "vue": "^2.5.13",
+    "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
@@ -21,7 +21,7 @@
     "@vue/cli-service": "^3.0.0-beta.6",
     "@vue/eslint-config-standard": "^3.0.0-beta.6",
     "@vue/test-utils": "^1.0.0-beta.10",
-    "bili": "^3.0.7",
+    "bili": "^3.0.11",
     "chai": "^4.1.2",
     "node-sass": "^4.7.2",
     "rollup-plugin-vue": "^3.0.0",
@@ -36,20 +36,20 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "plugin:vue/recommended",
+      "plugin:vue/strongly-recommended",
       "@vue/standard"
     ],
     "rules": {
       "generator-star-spacing": "off",
-
-      "vue/max-attributes-per-line": [2, {
-        "singleline": 2,
-        "multiline": {
-          "max": 1,
-          "allowFirstLine": false
+      "vue/max-attributes-per-line": [2,
+        {
+          "singleline": 2,
+          "multiline": {
+            "max": 1,
+            "allowFirstLine": false
+          }
         }
-      }],
-      "vue/attributes-order": "off"
+      ]
     }
   },
   "postcss": {
