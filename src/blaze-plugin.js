@@ -12,7 +12,7 @@ import AoSectionHeader from './components/AoSectionHeader.vue'
 import AoSelect from './components/AoSelect.vue'
 import AoSpinner from './components/AoSpinner.vue'
 import AoTable from './components/AoTable.vue'
-// import AoTextArea from './components/AoTextArea.vue'
+import AoTextArea from './components/AoTextArea.vue'
 
 const Blaze = {
   install (Vue, options) {
@@ -30,7 +30,7 @@ const Blaze = {
     Vue.component(AoSelect.name, AoSelect)
     Vue.component(AoSpinner.name, AoSpinner)
     Vue.component(AoTable.name, AoTable)
-    // Vue.component(AoTextArea.name, AoTextArea)
+    Vue.component(AoTextArea.name, AoTextArea)
   }
 }
 
