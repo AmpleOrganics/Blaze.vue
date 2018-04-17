@@ -12,7 +12,6 @@
 
 // now when you click your button it will call the function tied to the @formHandler
 export default {
-  name: 'AoForm',
   methods: {
     formSubmit () {
       this.$emit('formHandler')
@@ -20,3 +19,9 @@ export default {
   }
 }
 </script>
+
+<style lang='scss' scoped>
+.ao-form-group {
+  margin-bottom: $spacer;
+}
+</style>

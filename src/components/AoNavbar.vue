@@ -1,25 +1,20 @@
 <template>
-  <div class="navbar-menu">
+  <div class="ao-navbar__menu">
     <ul>
       <slot/>
     </ul>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'AoNavbar'
-}
-</script>
-
 <style lang='scss' scoped>
-  .navbar-menu {
-    padding: 0 16px 16px;
+
+.ao-navbar {
+  &__menu {
+    padding: 0 $spacer ($spacer/2);
 
     & > ul {
       padding: 0;
       list-style-type: none;
-      margin: 0 0 -8px;
 
       & > li {
         display: inline;
@@ -27,20 +22,24 @@ export default {
         cursor: pointer;
 
         & /deep/ .router-link-exact-active, .router-link-active, .active {
-          color: #585d60;
-          background-color: #ebecef;
+          color: $color-gray-20;
+          background-color: $color-gray-80;
         }
 
         & > * {
           text-decoration: none;
-          line-height: 1;
-          border-radius: 3px;
-          display: inline-block;
-          color: #818a91;
-          padding: 8px 10px;
-          margin-bottom: 8px;
+          line-height: $line-height-base;
+          border-radius: $border-radius-base;
+          display: inline-flex;
+          align-items: center;
+          color: $color-gray-30;
+          padding: $spacer-micro $spacer-sm;
+          margin-bottom: $spacer/2;
+          height: $input-height-base;
+          text-transform: capitalize;
         }
       }
     }
   }
+}
 </style>

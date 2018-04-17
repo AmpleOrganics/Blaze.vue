@@ -1,12 +1,8 @@
 <template>
   <div id="demo-container">
-    <ao-section-header
-      :icon-html="'Icon'"
-      :title="'Demo Container'">
+    <ao-section-header :icon-class="'custom-glyph-clients'" :title="'Demo Container'">
       <ao-navbar slot="section-header-navbar">
-        <li
-          v-for="route in routes"
-          :key="route.path">
+        <li v-for="route in routes" :key="route.path">
           <router-link :to="route.path" >{{ route.name }}</router-link>
         </li>
 
@@ -100,15 +96,9 @@
     </ao-card>
 
     <ao-card :title="'Hi I am a Table!'">
-      <ao-paginate
-        slot="card-header-toolbar"
-        @paginate="paginate"/>
-      <ao-table
-        :headers="columnHeaders"
-        @sortTable="sortTable">
-        <tr
-          v-for="user in displayUsers"
-          :key="user.id">
+      <!-- <ao-paginate slot="card-header-toolbar" @paginate="paginate"/> -->
+      <ao-table :headers="columnHeaders" @sortTable="sortTable">
+        <tr v-for="user in displayUsers" :key="user.id">
           <td>{{ user.id }}</td>
           <td>{{ user.first_name }}</td>
           <td>{{ user.last_name }}</td>
@@ -129,17 +119,13 @@
         <p>I am content</p>
       </div>
       <div slot="modal-footer">
-        <ao-button
-          primary
-          @click.native="continueModal">
+        <ao-button primary @click.native="continueModal">
           Continue
         </ao-button>
       </div>
     </ao-modal>
 
-    <ao-alert
-      :show-alert.sync="showAlert"
-      v-if="showAlert">
+    <ao-alert :show-alert.sync="showAlert" v-if="showAlert">
       <span slot="alert-icon">
         Icon
       </span>
@@ -194,22 +180,10 @@ export default {
         { 'id': 10, 'first_name': 'Marge', 'last_name': 'Grey', 'date': '2016-12-06 14:38:38', 'gender': 'Female' }
       ],
       columnHeaders: [
-        {
-          field: 'id',
-          title: 'ID'
-        },
-        {
-          field: 'first_name',
-          title: 'First Name'
-        },
-        {
-          field: 'last_name',
-          title: 'Last Name'
-        },
-        {
-          field: 'gender',
-          title: 'Gender'
-        }
+        { field: 'id', title: 'ID' },
+        { field: 'first_name', title: 'First Name' },
+        { field: 'last_name', title: 'Last Name' },
+        { field: 'gender', title: 'Gender' }
       ],
       description: null,
       loading: false,
@@ -221,11 +195,11 @@ export default {
 
   computed: {
     displayUsers () {
-      const userInfo = this.userInfo
-      const currentPage = userInfo.page
-      const index = currentPage + 1
-      const perPage = userInfo.per_page
-      return this.users.slice(perPage * currentPage, perPage * index)
+      const perPage = this.userInfo.per_page
+      const page = this.userInfo.page === 0 ? 0 : this.userInfo.page - 1
+      const end = (page + 1) * perPage
+      const userList = this.users
+      return userList.slice((page * perPage), end)
     }
   },
 
@@ -266,30 +240,17 @@ export default {
       let direction = reverse ? 'asc' : 'desc'
       this.users = orderBy(this.users, sortBy, direction)
     },
-    paginate (direction) {
-      const userInfo = this.userInfo
-      if (direction === 'next') {
-        if (userInfo.page !== userInfo.total_pages - 1) {
-          userInfo.page = userInfo.page + 1
-        }
-      } else {
-        if (userInfo.page !== 0) {
-          userInfo.page = userInfo.page - 1
-        }
-      }
+    paginate (page, direction) {
+      this.userInfo.page = page
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
+<style lang='scss' scoped>
+#demo-container {
+  padding: $spacer;
 }
 
 a {

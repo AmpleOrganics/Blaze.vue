@@ -1,6 +1,4 @@
-import Vue from 'vue'
 import Button from '@/components/AoButton.vue'
-import { expect } from 'chai'
 
 function mountComponent (Component, options) {
   const Constructor = Vue.extend(Component)
@@ -67,7 +65,7 @@ describe('Button', () => {
     expect(button.caution).to.equal(false)
     expect(button.subtle).to.equal(false)
     expect(button.disabled).to.equal(false)
-    expect(button.computedButtonClass.join(' ')).to.equal('ao-button ao-button--default')
+    expect(button.computedButtonClass.join(' ')).to.equal('ao-button')
   })
 
   it('returns primary props on creation', () => {
@@ -85,7 +83,7 @@ describe('Button', () => {
     expect(button.disabled).to.equal(false)
     expect(button.computedButtonClass
       .join(' '))
-      .to.equal('ao-button ao-button--default ao-button--primary')
+      .to.equal('ao-button ao-button--primary')
   })
 
   it('returns destructive props on creation and disabled', () => {
@@ -104,7 +102,7 @@ describe('Button', () => {
     expect(button.disabled).to.equal(true)
     expect(button.computedButtonClass
       .join(' '))
-      .to.equal('ao-button ao-button--default ao-button--destructive')
+      .to.equal('ao-button ao-button--destructive')
   })
 
   it('returns caution props on creation', () => {
@@ -122,7 +120,7 @@ describe('Button', () => {
     expect(button.disabled).to.equal(false)
     expect(button.computedButtonClass
       .join(' '))
-      .to.equal('ao-button ao-button--default ao-button--caution')
+      .to.equal('ao-button ao-button--caution')
   })
 
   it('returns subtle props on creation', () => {
@@ -140,6 +138,6 @@ describe('Button', () => {
     expect(button.disabled).to.equal(false)
     expect(button.computedButtonClass
       .join(' '))
-      .to.equal('ao-button ao-button--default ao-button--subtle')
+      .to.equal('ao-button ao-button--subtle')
   })
 })

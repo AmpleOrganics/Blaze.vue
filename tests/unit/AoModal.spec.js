@@ -1,6 +1,4 @@
-import Vue from 'vue'
 import Modal from '@/components/AoModal.vue'
-import { expect } from 'chai'
 
 function mountComponent (component, options) {
   const Constructor = Vue.extend(component)
@@ -44,7 +42,7 @@ describe('Modal', () => {
     expect(modal.size).to.equal('md')
     expect(modal.destructive).to.equal(false)
     expect(modal.caution).to.equal(false)
-    expect(modal.computedHeaderClass.join(' ')).to.equal('ao-modal-header--default')
+    expect(modal.computedHeaderClass.join(' ')).to.equal('ao-modal__header--default')
     expect(modal.computedModalSize).to.equal('ao-modal--md')
   })
 
@@ -61,7 +59,7 @@ describe('Modal', () => {
     expect(modal.caution).to.equal(false)
     expect(modal.computedHeaderClass.join(' '))
       .to
-      .equal('ao-modal-header--default ao-modal-header--destructive')
+      .equal('ao-modal__header--default ao-modal__header--destructive')
     expect(modal.computedModalSize).to.equal('ao-modal--md')
   })
 
@@ -77,7 +75,7 @@ describe('Modal', () => {
     expect(modal.caution).to.equal(true)
     expect(modal.computedHeaderClass.join(' '))
       .to
-      .equal('ao-modal-header--default ao-modal-header--caution')
+      .equal('ao-modal__header--default ao-modal__header--caution')
     expect(modal.computedModalSize).to.equal('ao-modal--md')
   })
 })

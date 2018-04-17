@@ -1,0 +1,129 @@
+// Variables
+
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+
+//
+// Color system
+//
+
+$color-ao-primary:            #00a38b;
+$color-ao-primary-dark:       darken($color-ao-primary, 5);
+$color-ao-dark:               #292F3B;
+
+$color-caution:               #f9c228;
+$color-destructive:           #d93240;
+
+$color-white:                 #fff;
+
+// Ample Shades of Gray
+$color-gray-10:               #474a4c;
+$color-gray-20:               #585d60;
+$color-gray-30:               #818a91;
+$color-gray-50:               #cccccc;
+$color-gray-60:               #dcdedf;
+$color-gray-80:               #ebecef;
+$color-gray-90:               #f7f7f9;
+
+//
+// Spacing & Sizing
+//
+
+$spacer:                      1rem;
+$spacer-sm:                   .75rem;
+$spacer-xs:                   .5rem;
+$spacer-lg:                   1.5rem;
+$spacer-micro:                .25rem;
+
+//
+// Typography
+//
+
+$font-family-primary:         'Lato', arial, sans-serif;
+
+$font-size-base:              16px; // This becomes 1rem
+$font-size-xs:                12px;
+$font-size-sm:                14px;
+$font-size-lg:                20px;
+$font-size-xl:                28px;
+$font-size-xxl:               34px;
+
+$font-weight-light:           200;
+$font-weight-bold:            700;
+
+$font-color-base:             $color-gray-10;
+$font-color-secondary:        $color-gray-30;
+
+$line-height-base:            1.4;
+
+//
+// Layout
+//
+
+$layout-background-color:    $color-gray-90;
+
+$zindex-dropdown:             1000;
+$zindex-sticky:               1020;
+$zindex-fixed:                1030;
+$zindex-alert:                1035;
+$zindex-spinner:              1035;
+$zindex-modal-backdrop:       1040;
+$zindex-modal:                1050;
+$zindex-tooltip:              1070;
+$zindex-popover:              1060;
+
+//
+// Ornamental
+//
+
+$border-radius-base:          3px;
+
+$shadow:                      0px 1px 20px rgba(0,0,0,0.15);
+$shadow-dramatic:             0px 5px 40px rgba(0,0,0,0.35);
+$shadow-subtle:               0px 2px 3px rgba(0, 0, 0, 0.05);
+
+$shadow-inset:                inset 0 2px 3px rgba(0, 0, 0, 0.05);
+
+$transition-base:             0.2s ease;
+
+//
+// Inputs & Buttons
+//
+
+$input-color:                 $color-gray-20;
+$input-height-base:           2.25rem;
+$input-height-sm:             2rem;
+$input-height-lg:             2.5rem;
+// ^ This value will help us ensure consistent heights of inputs and buttons
+$input-border-width:          1px;
+$input-border-color:          $color-gray-60;
+$input-border-radius:         $border-radius-base;
+
+$input-focus-border-color:    $color-ao-primary;
+$input-focus-shadow:          0 0 0 1px transparentize($color-ao-primary, 0.5);
+
+$input-label-margin:          0 0 $spacer-xs;
+
+// 
+// Tranisition/Animation Mixins
+// 
+
+@mixin slide-fade {
+  .slide-fade {
+    &-enter-active,
+    &-leave-active {
+        transition: all $transition-base;
+    }
+
+    &-enter,
+    &-leave-to {
+        transform: translateY(-20px);
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+  }
+}

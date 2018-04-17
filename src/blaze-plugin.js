@@ -1,3 +1,4 @@
+import App from './App.vue'
 import AoAlert from './components/AoAlert.vue'
 import AoButton from './components/AoButton.vue'
 import AoCard from './components/AoCard.vue'
@@ -16,21 +17,21 @@ import AoTextArea from './components/AoTextArea.vue'
 
 const Blaze = {
   install (Vue, options) {
-    Vue.component(AoAlert.name, AoAlert)
-    Vue.component(AoButton.name, AoButton)
-    Vue.component(AoCard.name, AoCard)
-    Vue.component(AoCheckbox.name, AoCheckbox)
-    Vue.component(AoForm.name, AoForm)
-    Vue.component(AoInput.name, AoInput)
-    Vue.component(AoModal.name, AoModal)
-    Vue.component(AoNavbar.name, AoNavbar)
-    Vue.component(AoPaginate.name, AoPaginate)
-    Vue.component(AoRadio.name, AoRadio)
-    Vue.component(AoSectionHeader.name, AoSectionHeader)
-    Vue.component(AoSelect.name, AoSelect)
-    Vue.component(AoSpinner.name, AoSpinner)
-    Vue.component(AoTable.name, AoTable)
-    Vue.component(AoTextArea.name, AoTextArea)
+    Vue.component('AoAlert', AoAlert)
+    Vue.component('AoButton', AoButton)
+    Vue.component('AoCard', AoCard)
+    Vue.component('AoCheckbox', AoCheckbox)
+    Vue.component('AoForm', AoForm)
+    Vue.component('AoInput', AoInput)
+    Vue.component('AoModal', AoModal)
+    Vue.component('AoNavbar', AoNavbar)
+    Vue.component('AoPaginate', AoPaginate)
+    Vue.component('AoRadio', AoRadio)
+    Vue.component('AoSectionHeader', AoSectionHeader)
+    Vue.component('AoSelect', AoSelect)
+    Vue.component('AoSpinner', AoSpinner)
+    Vue.component('AoTable', AoTable)
+    Vue.component('AoTextArea', AoTextArea)
   }
 }
 

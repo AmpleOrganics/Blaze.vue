@@ -1,6 +1,4 @@
-import Vue from 'vue'
 import Alert from '@/components/AoAlert.vue'
-import { expect } from 'chai'
 
 function mountComponent (Component, options) {
   const Constructor = Vue.extend(Component)
@@ -40,7 +38,7 @@ describe('Alert', () => {
       }
     })
     expect(alert.showAlert).to.equal(false)
-    expect(alert.computedAlertIconClass.join(' ')).to.equal('ao-alert-icon ao-alert-icon--default')
+    expect(alert.computedAlertIconClass.join(' ')).to.equal('ao-alert__icon ao-alert__icon--default')
   })
 
   it('returns destructive props on creation', () => {
@@ -54,7 +52,7 @@ describe('Alert', () => {
     expect(alert.destructive).to.equal(true)
     expect(alert.computedAlertIconClass
       .join(' '))
-      .to.equal('ao-alert-icon ao-alert-icon--default ao-alert-icon--destructive')
+      .to.equal('ao-alert__icon ao-alert__icon--default ao-alert__icon--destructive')
   })
 
   it('returns caution props on creation', () => {
@@ -68,6 +66,6 @@ describe('Alert', () => {
     expect(alert.caution).to.equal(true)
     expect(alert.computedAlertIconClass
       .join(' '))
-      .to.equal('ao-alert-icon ao-alert-icon--default ao-alert-icon--caution')
+      .to.equal('ao-alert__icon ao-alert__icon--default ao-alert__icon--caution')
   })
 })

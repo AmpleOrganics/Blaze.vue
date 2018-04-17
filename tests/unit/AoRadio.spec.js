@@ -1,6 +1,4 @@
-import Vue from 'vue'
 import AoRadio from '@/components/AoRadio.vue'
-import { expect } from 'chai'
 
 function mountComponent (Component, options) {
   const Constructor = Vue.extend(Component)
@@ -28,7 +26,9 @@ describe('AoRadio', () => {
   it('sets a value as expected', () => {
     const radio = mountComponent(AoRadio, {
       propsData: {
-        val: 'Test'
+        val: 'Test',
+        name: 'test',
+        value: 'Test'
       }
     })
     expect(radio.$el.querySelectorAll('input')[0].value).to.equal('Test')

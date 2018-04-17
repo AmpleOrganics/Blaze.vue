@@ -1,0 +1,49 @@
+// Elements
+//
+// Styles for basic HTML elements
+
+html {
+  font-size: $font-size-base;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: 1rem;
+  line-height: $line-height-base;
+  background-color: $layout-background-color;
+  -webkit-font-smoothing: antialiased;
+  color: $font-color-base;
+}
+
+h1 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-light;
+}
+
+h2 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-light;
+}
+
+a {
+  color: $color-ao-primary;
+}
+
+p {
+  margin-bottom: $spacer;
+}
+
+label {
+  margin-bottom: $spacer;
+  display: inline-block;
+  font-weight: $font-weight-bold;
+}
+
+// copy and pasted fomr webapp needed these in User Management in multiple areas
+// feel free to change
+hr {
+  margin-top: 22px;
+  margin-bottom: 22px;
+  border: 0;
+  border-top: 1px solid #dcdedf;
+}
