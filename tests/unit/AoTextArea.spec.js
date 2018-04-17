@@ -1,6 +1,4 @@
-import Vue from 'vue'
 import TextArea from '@/components/AoTextArea.vue'
-import { expect } from 'chai'
 
 function mountComponent (Component, options) {
   const Constructor = Vue.extend(Component)

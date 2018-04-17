@@ -1,9 +1,8 @@
 <template>
-  <div class="form-group">
+  <div class="ao-form-group">
     <label :for="name">{{ label }}</label>
-    <!-- eslint-disable-next-line -->
     <textarea
-      class="form-control"
+      class="ao-form-control"
       @input="inputEvent($event.target.value)"
       :value="value"
       :placeholder="placeholder"
@@ -14,13 +13,12 @@
       :required="required"
       :readonly="readonly"
       :disabled="disabled"
-    ></textarea>
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AoTextArea',
   props: {
     value: {
       type: String,
@@ -82,7 +80,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.form-group {
+@import '../assets/styles/settings/_variables.scss';
+
+.ao-form-group {
   margin-bottom: 15px;
 }
 
@@ -93,7 +93,7 @@ label {
   font-weight: bold;
 }
 
-.form-control {
+.ao-form-control {
   display: block;
   width: 100%;
   max-width: 100%;
@@ -101,20 +101,20 @@ label {
   font-size: 16px;
   line-height: 1.4em;
   color: #585d60;
-  background-color: #fff;
+  background-color: $color-white;
   background-image: none;
   border: 1px solid #ccc;
   border-radius: 3px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 
-  &:disabled, &:readonly {
+  &disabled, &readonly{
     background-color: #ebecef;
     border-color: #d7d9df;
     opacity: 1;
   }
 
-  &:disabled {
+  &[disabled] {
     cursor: not-allowed;
   }
 }

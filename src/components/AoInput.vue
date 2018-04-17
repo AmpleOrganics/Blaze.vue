@@ -1,9 +1,9 @@
 <template>
-  <div class="form-group">
+  <div class="ao-form-group">
     <label :for="name">{{ label }}</label>
-    <div :class="{ 'input-group': hasInputGroup }">
+    <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
-        class="form-control"
+        class="ao-form-control"
         :type="type"
         @input="updateValue($event.target.value)"
         :placeholder="placeholder"
@@ -19,14 +19,12 @@
         :step="step"
       >
       <span
-        class="input-group-addon"
+        class="ao-input-group__addon"
         v-if="hasIconAddon"
         v-html="iconHtml"
         :class="iconClass"
       />
-      <span
-        class="input-group-addon"
-        v-if="hasAddOn">
+      <span class="ao-input-group__addon" v-if="hasAddOn">
         {{ addOn }}
       </span>
     </div>
@@ -35,7 +33,6 @@
 
 <script>
 export default {
-  name: 'AoInput',
   props: {
     type: {
       type: String,
@@ -147,31 +144,38 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.form-group {
-  margin-bottom: 15px;
+
+.ao-form-group {
+  margin-bottom: $spacer;
 }
 
 label {
   display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin: $input-label-margin;
+  font-weight: $font-weight-bold;
 }
 
-.form-control {
+.ao-form-control {
   display: block;
   width: 100%;
   max-width: 100%;
-  height: 36px;
-  font-size: 16px;
-  line-height: 1.4em;
-  color: #585d60;
-  background-color: #fff;
+  height: $input-height-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $input-color;
+  background-color: $color-white;
   background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+  padding: $spacer-micro  $spacer-sm;
+  transition: border-color $transition-base;
+
+  &:active:not([disabled]), &:focus {
+    outline: 0;
+    box-shadow: $input-focus-shadow;
+    border-color: $input-focus-border-color;
+  }
 
   &[disabled], &[readonly]{
     background-color: #ebecef;
@@ -184,16 +188,12 @@ label {
   }
 }
 
-.input-group {
-  position: relative;
+.ao-input-group {
   display: table;
   border-collapse: separate;
 
-  & .form-control {
+  & .ao-form-control {
     display: table-cell;
-    position: relative;
-    z-index: 2;
-    float: left;
     width: 100%;
     margin-bottom: 0;
 
@@ -202,33 +202,28 @@ label {
       border-top-right-radius: 0;
     }
   }
-}
-.input-group-addon {
-  padding: 6px 12px;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1;
-  color: #585d60;
-  text-align: center;
-  background-color: #dcdedf;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  width: 1%;
-  white-space: nowrap;
-  vertical-align: middle;
-  display: table-cell;
 
-  &:last-child {
-    border-left: 0;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-  }
-}
+  &__addon {
+    align-items: center;
+    height: $input-height-base;
+    padding: $spacer-micro $spacer-sm;
+    font-size: $font-size-base;
+    font-weight: normal;
+    color: $color-gray-20;
+    text-align: center;
+    background-color: $color-gray-80;
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
 
-.is-danger {
-  color: red;
-  input {
-    border: 1px solid red;
+    &:last-child {
+      border-left: 0;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
   }
 }
 </style>

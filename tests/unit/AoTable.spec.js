@@ -1,5 +1,4 @@
 import Table from '@/components/AoTable.vue'
-import { expect } from 'chai'
 
 describe('Table', () => {
   it('defines headers to be a array', () => {

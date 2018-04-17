@@ -3,29 +3,17 @@
     <container class="demo-container">
       <h2>Normal Container - Three Columns</h2>
       <grid>
-        <grid-item
-          size="1/3"
-          class="demo-item">grid-item size="1/3"</grid-item>
-        <grid-item
-          size="1/3"
-          class="demo-item">grid-item size="1/3"</grid-item>
-        <grid-item
-          size="1/3"
-          class="demo-item">grid-item size="1/3"</grid-item>
+        <grid-item size="1/3" class="demo-item">grid-item size="1/3"</grid-item>
+        <grid-item size="1/3" class="demo-item">grid-item size="1/3"</grid-item>
+        <grid-item size="1/3" class="demo-item">grid-item size="1/3"</grid-item>
       </grid>
     </container>
 
-    <container
-      width="100%"
-      class="demo-container">
+    <container width="100%" class="demo-container">
       <h2>Normal Container - Five Uneven Columns</h2>
       <grid :rwd="{mobile: 'stack'}">
-        <grid-item
-          size="1/10"
-          class="demo-item">grid-item size="1/10"</grid-item>
-        <grid-item
-          size="2/10"
-          class="demo-item">grid-item size="2/10"</grid-item>
+        <grid-item size="1/10" class="demo-item">grid-item size="1/10"</grid-item>
+        <grid-item size="2/10" class="demo-item">grid-item size="2/10"</grid-item>
         <grid-item
           size="4/10"
           :rwd="{mobile: '1/1'}"
@@ -33,21 +21,15 @@
         >
           grid-item size="4/10 // MOBILE 1/1"
         </grid-item>
-        <grid-item
-          size="2/10"
-          class="demo-item">grid-item size="2/10"</grid-item>
-        <grid-item
-          size="1/10"
-          class="demo-item">grid-item size="1/10"</grid-item>
+        <grid-item size="2/10" class="demo-item">grid-item size="2/10"</grid-item>
+        <grid-item size="1/10" class="demo-item">grid-item size="1/10"</grid-item>
       </grid>
     </container>
 
     <container class="demo-container">
       <h2>Normal Container - Single Column</h2>
       <grid>
-        <grid-item
-          size="1/1"
-          class="demo-item">grid-item size="1/1"</grid-item>
+        <grid-item size="1/1" class="demo-item">grid-item size="1/1"</grid-item>
       </grid>
     </container>
 

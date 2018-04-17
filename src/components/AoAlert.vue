@@ -1,28 +1,32 @@
 <template>
-  <div
-    class="ao-alert-container"
-    v-if="showAlert">
-    <div class="ao-alert">
-      <div :class="computedAlertIconClass">
-        <slot name="alert-icon"/>
-      </div>
-      <div class="ao-alert-message">
-        <slot/>
+  <transition name="slide-fade">
+    <div class="ao-alert__container" v-if="showAlert">
+      <div class="ao-alert">
+        <div :class="computedAlertIconClass">
+          <span :class="iconClass"/>
+        </div>
+        <div class="ao-alert__message">
+          <slot/>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
-import { filterClasses } from './utilities/component_utilities.js'
+import { filterClasses } from './utils/component_utilities.js'
 
 export default {
-  name: 'AoAlert',
   props: {
     showAlert: {
       type: Boolean,
       required: true,
       default: false
+    },
+
+    iconClass: {
+      type: String,
+      default: null
     },
 
     destructive: {
@@ -39,63 +43,78 @@ export default {
   computed: {
     computedAlertIconClass () {
       const activeClasses = {
-        'ao-alert-icon': true,
-        'ao-alert-icon--default': true,
-        'ao-alert-icon--destructive': this.destructive,
-        'ao-alert-icon--caution': this.caution
+        'ao-alert__icon': true,
+        'ao-alert__icon--default': true,
+        'ao-alert__icon--destructive': this.destructive,
+        'ao-alert__icon--caution': this.caution
       }
       return filterClasses(activeClasses)
     }
   },
 
   mounted () {
-    setTimeout(() => {
-      this.$emit('update:showAlert', false)
-    }, 4000)
+    this.autoCloseAlert()
+  },
+
+  methods: {
+    autoCloseAlert () {
+      setTimeout(() => {
+        this.$emit('update:showAlert', false)
+      }, 4000)
+    }
   }
+
 }
 </script>
 
 <style lang='scss' scoped>
-.ao-alert-container {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  z-index: 500;
-  width: 100%;
-  top: 0;
-}
+@include slide-fade;
+$ao-alert-height: 5rem;
 
 .ao-alert {
   display: flex;
-  border: 1px solid #000;
-  color: #474a4c;
   background-color: white;
-}
+  width: 75%;
+  box-shadow: $shadow;
+  min-height: $ao-alert-height;
 
-.ao-alert-message {
-  padding: 15px;
-  align-items: center;
-}
-
-.ao-alert-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &--default {
-    background-color: #00A38B;
-    color: #000;
+  &__container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: $zindex-alert;
+    width: 100%;
+    top: 0;
   }
 
-  &--destructive {
-    background-color: #d93240;
-    color: #fff;
+  &__message {
+    padding: $spacer-lg $spacer-lg;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    color: $font-color-secondary;
   }
 
-  &--caution {
-    background-color: #f9d615;
-    color: #726103;
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $ao-alert-height;
+
+    &--default {
+      background-color: $color-ao-primary;
+      color: #fff;
+    }
+
+    &--destructive {
+      background-color: $color-destructive;
+      color: #fff;
+    }
+
+    &--caution {
+      background-color: $color-caution;
+      color: #fff;
+    }
   }
 }
 </style>

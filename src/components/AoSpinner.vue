@@ -1,30 +1,25 @@
 <template>
-  <div class="spinner">
-    <div class="spinner-icon"/>
+  <div class="ao-spinner">
+    <div class="ao-spinner__icon"/>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'AoSpinner'
-}
-</script>
-
 <style lang='scss' scoped>
-.spinner {
+
+.ao-spinner {
   pointer-events: none;
-  top: 60px;
+  top: $spacer-lg;
   z-index: 501;
   display: block;
   position: fixed;
-  right: 15px;
+  right: $spacer-lg;
 
-  & .spinner-icon {
+  &__icon {
     width: 40px;
     height: 40px;
     border: solid 4px transparent;
-    border-top-color: #00A38B;
-    border-left-color: #00A38B;
+    border-top-color: $color-ao-primary;
+    border-left-color: $color-ao-primary;
     border-radius: 50%;
     animation: progress-spinner 600ms linear infinite;
   }

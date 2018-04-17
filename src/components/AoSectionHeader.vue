@@ -1,14 +1,14 @@
 <template>
-  <div class="section-header">
-    <div class="section-header-area">
+  <div class="ao-section-header">
+    <div class="ao-section-header__area">
       <span
-        class="section-header-icon"
+        class="ao-section-header__icon"
         v-if="hasIcon"
         :class="iconClass"
         v-html="iconHtml"
       />
-      <h2 class="section-header-title">{{ title }}</h2>
-      <div class="section-header-toolbar">
+      <h1 class="ao-section-header__title">{{ title }}</h1>
+      <div class="ao-section-header__toolbar">
         <slot name="section-header-toolbar"/>
       </div>
     </div>
@@ -18,7 +18,6 @@
 
 <script>
 export default {
-  name: 'AoSectionHeader',
   props: {
     title: {
       type: String,
@@ -46,37 +45,35 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-  .section-header {
-    background-color: #fff;
-    border: 1px solid #dcdedf;
-    border-radius: 3px;
-    padding: 0;
-    margin-bottom: 15px;
-  }
 
-  .section-header-area {
+.ao-section-header {
+  background-color: $color-white;
+  border: 1px solid $color-gray-60;
+  border-radius: $border-radius-base;
+  padding: 0;
+  margin-bottom: $spacer;
+
+  &__area {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 15px;
+    padding: $spacer;
   }
 
-  .section-header-icon {
-    float: left;
+  &__icon {
     line-height: 1.1;
-    font-size: 28px;
-    color: #00A38B;
-    margin: 0 12px 0 0;
+    font-size: $font-size-xl;
+    color: $color-ao-primary;
+    margin: 0 $spacer-sm 0 0;
   }
 
-  .section-header-title {
+  &__title {
     margin: 0;
-    font-size: 28px;
-    font-weight: 200;
-    display: inline-block;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-light;
   }
 
-  .section-header-toolbar {
+  &__toolbar {
     margin-left: auto;
 
     & .form-group {
@@ -84,13 +81,14 @@ export default {
     }
 
     & * {
-      margin-left: 10px;
+      margin-left: $spacer-sm;
     }
   }
 
-  .section-header-navbar {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
+  &__navbar {
+    padding-left: $spacer;
+    padding-right: $spacer;
+    padding-bottom: $spacer;
   }
+}
 </style>

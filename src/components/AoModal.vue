@@ -1,6 +1,6 @@
 <template>
   <transition name="slide-fade">
-    <div class="modal-mask">
+    <div class="ao-modal__mask">
       <div
         class="ao-modal"
         @click.self="closeModal"
@@ -13,16 +13,14 @@
           :class="computedModalSize"
           @click.self="closeModal"
         >
-          <div class="modal-content">
-            <div
-              class="ao-modal-header"
-              :class="computedHeaderClass">
+          <div class="ao-modal__content">
+            <div class="ao-modal__header" :class="computedHeaderClass">
               <slot name="modal-header"/>
             </div>
-            <div class="ao-modal-body">
+            <div class="ao-modal__body">
               <slot name="modal-body"/>
             </div>
-            <div class="ao-modal-footer">
+            <div class="ao-modal__footer">
               <div class="row">
                 <slot name="modal-footer"/>
               </div>
@@ -35,15 +33,14 @@
 </template>
 
 <script>
-import { filterClasses } from './utilities/component_utilities.js'
+import { filterClasses } from './utils/component_utilities.js'
 
 export default {
-  name: 'AoModal',
   props: {
     // availible sizes include: 'sm', 'md', 'lg' pertaining to small medium large bootstrap classes
     size: {
       type: String,
-      required: true,
+      required: false,
       default: 'md'
     },
 
@@ -61,9 +58,9 @@ export default {
   computed: {
     computedHeaderClass () {
       const activeClasses = {
-        'ao-modal-header--default': true,
-        'ao-modal-header--destructive': this.destructive,
-        'ao-modal-header--caution': this.caution
+        'ao-modal__header--default': true,
+        'ao-modal__header--destructive': this.destructive,
+        'ao-modal__header--caution': this.caution
       }
       return filterClasses(activeClasses)
     },
@@ -91,103 +88,79 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.modal-mask {
-  position: fixed;
-  z-index: 500;
-  top: 0;
-  left: 0;
-  bottom:0;
-  right:0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  overflow: auto;
-}
-
-.modal-content {
-  background-color: #fff;
-  border: 1px solid #999;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  background-clip: padding-box;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-}
+@include slide-fade;
 
 .ao-modal {
   padding-top: 2em;
   z-index: 501;
   height: 100%;
+
   &:focus {
     outline: 0px;
   }
-}
 
-.ao-modal--md {
-  .modal-content{
+  &__mask {
+    position: fixed;
+    z-index: $zindex-modal-backdrop;
+    top: 0;
+    left: 0;
+    bottom:0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+  }
+
+  &__header  {
+    margin: 0;
+    padding: $spacer;
+    text-align: center;
+    color: $color-white;
+
+    &--default {
+      background-color: $color-ao-primary;
+    }
+
+    &--destructive {
+      background-color: $color-destructive;
+    }
+
+    &--caution {
+      background-color: $color-caution;
+    }
+  }
+
+  &__header /deep/ div > h2 {
+    margin: 0;
+    line-height: $line-height-base;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+  }
+
+  &__content {
+    background-color: $color-white;
+    border-radius: 6px;
+    background-clip: padding-box;
+    border-radius: $border-radius-base;
+    box-shadow: $shadow-dramatic;
+  }
+
+  &__body {
+    position: relative;
+    padding: $spacer;
+  }
+
+  &__footer {
+    padding: $spacer;
+    text-align: right;
+    border-top: 1px solid $color-gray-60;
+  }
+
+  &--md &__content {
     max-width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: auto;
+    margin-right: auto;
   }
-}
-
-.modal-dialog {
-  position: relative;
-  width: auto;
-  margin: 10px;
-}
-
-.ao-modal-header  {
-  margin: 0;
-  line-height: 1.42857;
-  padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
-  text-align: center;
-
-  &--default {
-    background-color: #00A38B;
-    color: #ffffff;
-  }
-
-  &--destructive {
-    background-color: #d93240;
-    color: #fff;
-  }
-
-  &--caution {
-    background-color: #f9d615;
-    color: #fff;
-  }
-}
-
-.ao-modal-header /deep/ div > h2 {
-  margin: 0;
-  line-height: 1.42857;
-}
-
-.ao-modal-body {
-  position: relative;
-  padding: 15px;
-}
-
-.ao-modal-footer {
-  padding: 15px;
-  text-align: right;
-  border-top: 1px solid #e5e5e5;
-}
-
-.slide-fade-enter-active {
-  transition: all 0.3s ease;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter, .slide-fade-leave-to {
-  transform: translateY(-20px);
-  opacity: 0;
 }
 </style>

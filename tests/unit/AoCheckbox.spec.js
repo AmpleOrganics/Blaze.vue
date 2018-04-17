@@ -1,6 +1,4 @@
-import Vue from 'vue'
 import Checkbox from '@/components/AoCheckbox.vue'
-import { expect } from 'chai'
 
 function mountComponent (Component, options) {
   const Constructor = Vue.extend(Component)

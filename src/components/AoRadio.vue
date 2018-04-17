@@ -1,5 +1,5 @@
 <template>
-  <label>
+  <label class="ao-checkbox">
     <input
       type="radio"
       v-model="checked"
@@ -17,7 +17,6 @@
 
 <script>
 export default {
-  name: 'AoRadio',
   props: {
     value: {
       type: [String, Number],
@@ -62,3 +61,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.ao-checkbox {
+  &:not(:last-of-type) {
+    margin-right: $spacer-sm;
+  }
+}
+</style>

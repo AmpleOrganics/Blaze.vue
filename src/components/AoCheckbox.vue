@@ -1,5 +1,8 @@
 <template>
-  <div class="checkbox">
+  <div
+    class="ao-checkbox"
+    :disabled="disabled"
+  >
     <label>
       <input
         type="checkbox"
@@ -17,18 +20,16 @@
 
 <script>
 export default {
-  name: 'AoCheckbox',
   props: {
     value: {
-      type: [Array, Boolean, Number],
+      type: [Array, Boolean, Number, Object],
       default: null
     },
 
-    // Used for explicit values from the parent for array usage, else it's only boolean usage
     checkboxValue: {
+      type: [String, Number, Boolean, Object],
       required: false,
-      default: null,
-      type: [String, Number, Boolean]
+      default: null
     },
 
     checkboxLabel: {
@@ -86,7 +87,7 @@ input[type='checkbox'] {
   padding: 0;
 }
 
-.checkbox {
+.ao-checkbox {
   position: relative;
   display: block;
   margin-bottom: 10px;
