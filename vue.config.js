@@ -23,7 +23,7 @@ module.exports = {
       .use('sass-resources-loader')
       .loader('sass-resources-loader')
       .options({
-        resources: path.resolve('./src/styles/settings/_vatiables.scss')
+        resources: path.resolve('./src/styles/settings/_variables.scss')
       })
   }
 }

@@ -39,7 +39,11 @@ label {
   font-weight: $font-weight-bold;
 }
 
-// copy and pasted fomr webapp needed these in User Management in multiple areas
+strong {
+  font-weight: $font-weight-bold
+}
+
+// copy and pasted from webapp needed these in User Management in multiple areas
 // feel free to change
 hr {
   margin-top: 22px;
