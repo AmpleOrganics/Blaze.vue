@@ -1,6 +1,6 @@
 <template>
   <div class="ao-form-group">
-    <label :for="name">{{ label }}</label>
+    <label v-show="showLabel" :for="name">{{ label }}</label>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
         class="ao-form-control"
@@ -53,6 +53,11 @@ export default {
       type: String,
       required: true,
       default: null
+    },
+
+    showLabel: {
+      type: Boolean,
+      default: true
     },
 
     name: {

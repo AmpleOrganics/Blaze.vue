@@ -21,6 +21,8 @@
         <ao-input
           :type="'text'"
           :label="'Name'"
+          :show-label="false"
+          :placeholder="'Name'"
           v-model="name"
         />
         <p>My name: {{ name }}</p>
