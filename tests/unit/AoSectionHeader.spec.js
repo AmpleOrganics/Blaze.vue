@@ -1,4 +1,5 @@
 import SectionHeader from '@/components/AoSectionHeader.vue'
+import { expect } from 'chai'
 
 describe('SectionHeader', () => {
   it('defines title prop to be a string', () => {

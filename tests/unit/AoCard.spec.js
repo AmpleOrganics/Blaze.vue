@@ -1,4 +1,5 @@
 import Card from '@/components/AoCard.vue'
+import { expect } from 'chai'
 
 describe('Card', () => {
   it('defines title prop to be a string', () => {

@@ -1,4 +1,6 @@
 import Modal from '@/components/AoModal.vue'
+import { expect } from 'chai'
+import Vue from 'vue'
 
 function mountComponent (component, options) {
   const Constructor = Vue.extend(component)
