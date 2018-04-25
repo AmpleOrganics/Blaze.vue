@@ -29,9 +29,6 @@
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16"
   },
-  "peerDependencies": {
-    "vue": "^2.5.0"
-  },
   "babel": {
     "presets": [
       "@vue/app"
@@ -66,5 +63,8 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "dependencies": {
+    "vue": "^2.5.16"
+  }
 }
