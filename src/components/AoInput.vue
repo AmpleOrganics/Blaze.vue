@@ -40,7 +40,7 @@ export default {
       default: 'text',
       validator: function (inputType) {
         // Used to determine if the input type prop used is found in this array and therefore valid
-        return ['text', 'number', 'tel', 'email', 'password'].indexOf(inputType) !== -1
+        return ['text', 'number', 'tel', 'email', 'password', 'date'].indexOf(inputType) !== -1
       }
     },
 
