@@ -1,4 +1,6 @@
 import Alert from '@/components/AoAlert.vue'
+import { expect } from 'chai'
+import Vue from 'vue'
 
 function mountComponent (Component, options) {
   const Constructor = Vue.extend(Component)

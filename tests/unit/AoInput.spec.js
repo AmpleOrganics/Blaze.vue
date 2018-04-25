@@ -1,4 +1,6 @@
 import Input from '@/components/AoInput.vue'
+import { expect } from 'chai'
+import Vue from 'vue'
 
 function mountComponent (Component, options) {
   const Constructor = Vue.extend(Component)

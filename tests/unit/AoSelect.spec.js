@@ -1,4 +1,6 @@
 import Select from '@/components/AoSelect.vue'
+import { expect } from 'chai'
+import Vue from 'vue'
 
 function mountComponent (Component, options) {
   const Constructor = Vue.extend(Component)
