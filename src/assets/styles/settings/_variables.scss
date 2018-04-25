@@ -100,6 +100,8 @@ $input-border-width:          1px;
 $input-border-color:          $color-gray-60;
 $input-border-radius:         $border-radius-base;
 
+$input-border-color-error:    $color-destructive;
+
 $input-focus-border-color:    $color-ao-primary;
 $input-focus-shadow:          0 0 0 1px transparentize($color-ao-primary, 0.5);
 
