@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import App from './App.vue'
 import AoAlert from './components/AoAlert.vue'
 import AoButton from './components/AoButton.vue'
