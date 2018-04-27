@@ -4,7 +4,7 @@
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
         class="ao-form-control"
-        :class="{'ao-input--has-error': hasError }"
+        :class="{'ao-form-control--has-error': hasError }"
         :type="type"
         @input="updateValue($event.target.value)"
         :placeholder="placeholder"
