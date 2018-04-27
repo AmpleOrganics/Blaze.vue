@@ -4,7 +4,7 @@
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
         class="ao-form-control"
-        :class="{'has-error': hasError }"
+        :class="{'ao-input--has-error': hasError }"
         :type="type"
         @input="updateValue($event.target.value)"
         :placeholder="placeholder"
@@ -192,6 +192,10 @@ label {
   &[disabled] {
     cursor: not-allowed;
   }
+
+  &--has-error {
+    border-color: $input-border-color-error;
+  }
 }
 
 .ao-input-group {
@@ -233,7 +237,4 @@ label {
   }
 }
 
-.has-error {
-  border-color: red
-}
 </style>
