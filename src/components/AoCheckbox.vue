@@ -13,7 +13,7 @@
         :required="required"
         :disabled="disabled"
       >
-      <span>{{ checkboxLabel }}</span>
+      <span v-show="showLabel">{{ checkboxLabel }}</span>
     </label>
   </div>
 </template>
@@ -30,6 +30,11 @@ export default {
       type: [String, Number, Boolean, Object],
       required: false,
       default: null
+    },
+
+    showLabel: {
+      type: Boolean,
+      default: true
     },
 
     checkboxLabel: {
