@@ -5,6 +5,7 @@ import AoButton from './components/AoButton.vue'
 import AoCard from './components/AoCard.vue'
 import AoCheckbox from './components/AoCheckbox.vue'
 import AoForm from './components/AoForm.vue'
+import AoInfoPair from './components/AoInfoPair.vue'
 import AoInput from './components/AoInput.vue'
 import AoModal from './components/AoModal.vue'
 import AoNavbar from './components/AoNavbar.vue'
@@ -23,6 +24,7 @@ const Blaze = {
     Vue.component('AoCard', AoCard)
     Vue.component('AoCheckbox', AoCheckbox)
     Vue.component('AoForm', AoForm)
+    Vue.component('AoInfoPair', AoInfoPair)
     Vue.component('AoInput', AoInput)
     Vue.component('AoModal', AoModal)
     Vue.component('AoNavbar', AoNavbar)
