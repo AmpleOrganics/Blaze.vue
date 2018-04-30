@@ -58,7 +58,7 @@ export default {
 <style lang='scss' scoped>
 .ao-pagination {
   display: flex;
-  border: 1px solid $color-gray-50;
+  border: 1px solid $input-border-color;
   border-radius: $border-radius-base;
 
   &__button {
@@ -70,7 +70,7 @@ export default {
     color: $color-gray-20;
 
     &:last-child {
-      border-left: 1px solid $color-gray-50;
+      border-left: 1px solid $input-border-color;
     }
 
     &:hover {
