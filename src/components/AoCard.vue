@@ -24,11 +24,10 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-$border-card-base: 1px solid $color-gray-60;
 
 .ao-card {
   background-color: #fff;
-  border: $border-card-base;
+  border: 1px solid $ui-border-color-base;
   border-radius: $border-radius-base;
   margin-bottom: $spacer;
   padding: 0;
@@ -43,7 +42,7 @@ $border-card-base: 1px solid $color-gray-60;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    border-bottom: $border-card-base;
+    border-bottom: 1px solid $ui-border-color-base;
 
     &__toolbar {
       display: flex;
