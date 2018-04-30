@@ -47,11 +47,9 @@ strong {
   font-weight: $font-weight-bold
 }
 
-// copy and pasted from webapp needed these in User Management in multiple areas
-// feel free to change
 hr {
-  margin-top: 22px;
-  margin-bottom: 22px;
+  margin-top: $spacer;
+  margin-bottom: $spacer;
   border: 0;
-  border-top: 1px solid #dcdedf;
+  border-top: 1px solid $ui-border-color-base;
 }
