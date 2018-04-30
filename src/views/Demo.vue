@@ -61,11 +61,11 @@
         />
 
         <ao-info-pair :label="'Info Pair Label'">
-          <div slot="value">
+          <p slot="value">
             123 Address St.
             <br>
             Toronto, ON
-          </div>
+          </p>
         </ao-info-pair>
 
         <p>Liking Books is: {{ likeBooks }}</p>

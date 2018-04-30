@@ -1,11 +1,10 @@
 <template>
-  <p class="ao-info-pair">
-    <span class="ao-info-pair__label">{{ label }}</span>
-    <br>
-    <span class="ao-info-pair__value">
+  <div class="ao-info-pair">
+    <h4 class="ao-info-pair__label">{{ label }}</h4>
+    <div class="ao-info-pair__value">
       <slot name="value"/>
-    </span>
-  </p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -22,8 +21,11 @@ export default {
 <style lang='scss' scoped>
 
 .ao-info-pair {
+  margin-bottom: $spacer;
   
   &__label {
+    margin-bottom: 0;
+    margin-top: 0;
     font-weight: $font-weight-bold;
     font-size: $font-size-xs;
     text-transform: uppercase;
