@@ -59,6 +59,15 @@
           v-model="likeBooks"
           :checkbox-label="'Books'"
         />
+
+        <ao-info-pair :label="'Info Pair Label'">
+          <div slot="value">
+            123 Address St.
+            <br>
+            Toronto, ON
+          </div>
+        </ao-info-pair>
+
         <p>Liking Books is: {{ likeBooks }}</p>
 
         <ao-radio
