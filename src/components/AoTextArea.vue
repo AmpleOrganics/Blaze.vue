@@ -80,42 +80,13 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import '../assets/styles/settings/_variables.scss';
 
-.ao-form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: inline-block;
-  max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+@include shared-input-styles;
 
 .ao-form-control {
-  display: block;
-  width: 100%;
-  max-width: 100%;
   height: auto;
-  font-size: 16px;
-  line-height: 1.4em;
-  color: #585d60;
-  background-color: $color-white;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-
-  &disabled, &readonly{
-    background-color: #ebecef;
-    border-color: #d7d9df;
-    opacity: 1;
-  }
-
-  &[disabled] {
-    cursor: not-allowed;
-  }
+  min-height: $input-height-base;
+  min-width: 100%;
 }
+
 </style>
