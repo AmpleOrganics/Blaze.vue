@@ -51,6 +51,7 @@ export default {
 
       & .form-group {
         display: inline-block;
+        margin-bottom: 0;
       }
 
       & > * {
