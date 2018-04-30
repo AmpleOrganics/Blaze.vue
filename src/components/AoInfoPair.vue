@@ -2,7 +2,7 @@
   <div class="ao-info-pair">
     <h4 class="ao-info-pair__label">{{ label }}</h4>
     <div class="ao-info-pair__value">
-      <slot name="value"/>
+      <slot/>
     </div>
   </div>
 </template>

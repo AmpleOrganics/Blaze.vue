@@ -61,7 +61,7 @@
         />
 
         <ao-info-pair :label="'Info Pair Label'">
-          <p slot="value">
+          <p>
             123 Address St.
             <br>
             Toronto, ON
