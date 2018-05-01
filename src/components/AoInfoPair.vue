@@ -22,7 +22,7 @@ export default {
 
 .ao-info-pair {
   margin-bottom: $spacer;
-  
+
   &__label {
     margin-bottom: 0;
     margin-top: 0;

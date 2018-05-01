@@ -1,6 +1,9 @@
 <template>
   <div id="demo-container">
-    <ao-section-header :icon-class="'custom-glyph-clients'" :title="'Demo Container'">
+    <ao-section-header
+      :icon-class="'custom-glyph-clients'"
+      :title="'Demo Container'"
+      :subtitle="'Created at 123456789'">
       <ao-navbar slot="section-header-navbar">
         <li v-for="route in routes" :key="route.path">
           <router-link :to="route.path" >{{ route.name }}</router-link>
