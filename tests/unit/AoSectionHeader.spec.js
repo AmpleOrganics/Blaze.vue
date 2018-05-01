@@ -9,6 +9,13 @@ describe('SectionHeader', () => {
     expect(sectionHeaderTitle.required).to.equal(true)
   })
 
+  it('defines subtitle prop to be a string', () => {
+    const sectionHeaderSubtitle = SectionHeader.props.subtitle
+    expect(sectionHeaderSubtitle.type.name).to.equal('String')
+    expect(sectionHeaderSubtitle.default).to.equal(null)
+    expect(sectionHeaderSubtitle.required).to.equal(false)
+  })
+
   it('defines iconHtml prop to be a string', () => {
     const iconHtml = SectionHeader.props.iconHtml
     expect(iconHtml.type.name).to.equal('String')
