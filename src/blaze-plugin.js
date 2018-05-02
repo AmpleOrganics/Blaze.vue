@@ -16,6 +16,7 @@ import AoSelect from './components/AoSelect.vue'
 import AoSpinner from './components/AoSpinner.vue'
 import AoTable from './components/AoTable.vue'
 import AoTextArea from './components/AoTextArea.vue'
+import AoTextStyle from './components/AoTextStyle.vue'
 
 const Blaze = {
   install (Vue, options) {
@@ -35,6 +36,7 @@ const Blaze = {
     Vue.component('AoSpinner', AoSpinner)
     Vue.component('AoTable', AoTable)
     Vue.component('AoTextArea', AoTextArea)
+    Vue.component('AoTextStyle', AoTextStyle)
   }
 }
 

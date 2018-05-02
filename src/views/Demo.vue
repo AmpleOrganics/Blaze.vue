@@ -20,6 +20,9 @@
     </ao-section-header>
 
     <ao-card :title="'Title of Card'">
+      <p>
+        <ao-text-style error small>text</ao-text-style>
+      </p>
       <ao-form @formHandler="saveForm">
         <ao-input
           :type="'text'"
