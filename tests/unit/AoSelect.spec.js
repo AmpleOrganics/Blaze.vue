@@ -20,7 +20,7 @@ describe('Select', () => {
     expect(selectName.default).to.equal(null)
   })
 
-  it('defines iconHtml prop to be a boolean', () => {
+  it('defines iconHtml prop to be a string', () => {
     const iconHtml = Select.props.iconHtml
     expect(iconHtml.type.name).to.equal('String')
     expect(iconHtml.default).to.equal(null)
@@ -43,6 +43,13 @@ describe('Select', () => {
     expect(required.type.name).to.equal('Boolean')
     expect(typeof required.default).to.equal('boolean')
     expect(required.default).to.equal(false)
+  })
+
+  it('defines hasError prop to be a boolean', () => {
+    const hasError = Select.props.hasError
+    expect(hasError.type.name).to.equal('Boolean')
+    expect(typeof hasError.default).to.equal('boolean')
+    expect(hasError.default).to.equal(false)
   })
 
   it('defines disabled prop to be a boolean', () => {

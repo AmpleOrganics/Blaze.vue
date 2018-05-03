@@ -30,6 +30,7 @@
           :show-label="false"
           :placeholder="'Name'"
           v-model="name"
+          :has-error="true"
         />
         <p>My name: {{ name }}</p>
 
@@ -93,6 +94,7 @@
           :options="pets"
           :label="'Nice Pets'"
           :default="nicePets"
+          :has-error="true"
         />
         <p>I like this pet: {{ nicePets }}</p>
 

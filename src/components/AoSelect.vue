@@ -11,6 +11,7 @@
         :required="required"
         :disabled="disabled"
         v-model="selected"
+        :class="{'ao-form-control--has-error': hasError }"
       >
         <option
           v-for="option in computedOptions"
@@ -78,6 +79,11 @@ export default {
     },
 
     disabled: {
+      type: Boolean,
+      default: false
+    },
+
+    hasError: {
       type: Boolean,
       default: false
     }
