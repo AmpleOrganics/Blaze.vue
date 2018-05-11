@@ -65,6 +65,20 @@ describe('TextArea', () => {
     expect(rows.type.name).to.equal('Number')
   })
 
+  it('defines hasError prop to be a boolean and to be false by default', () => {
+    const hasError = TextArea.props.hasError
+    expect(hasError.type.name).to.equal('Boolean')
+    expect(typeof hasError.default).to.equal('boolean')
+    expect(hasError.default).to.equal(false)
+  })
+
+  it('defines showLabel prop to be a boolean and to be false by default', () => {
+    const showLabel = TextArea.props.showLabel
+    expect(showLabel.type.name).to.equal('Boolean')
+    expect(typeof showLabel.default).to.equal('boolean')
+    expect(showLabel.default).to.equal(true)
+  })
+
   it('renders with default values', () => {
     const textarea = mountComponent(TextArea, {
       propsData: {

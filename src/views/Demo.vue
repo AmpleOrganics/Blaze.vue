@@ -46,6 +46,14 @@
         />
         <p>My age: {{ age }}</p>
 
+        <ao-file-upload
+          :label="'File'"
+          :reference="'file'"
+          @change="updateFile($event)"
+        />
+
+        <p>Filename: {{ file }}</p>
+
         <label>Favorite Programming Languages?</label>
         <ao-checkbox
           v-model="programmingLanguages"
@@ -184,6 +192,7 @@ export default {
       programmingLanguages: [],
       likeBooks: false,
       nicePets: 'cat',
+      file: '',
       pets: [
         { name: 'Dog', value: 'dog' },
         { name: 'Cat', value: 'cat' },
@@ -272,15 +281,42 @@ export default {
       this.showAlert = true
       this.toggleModal()
     },
+
     sortTable (sortBy, reverse) {
       let direction = reverse ? 'asc' : 'desc'
       this.users = orderBy(this.users, sortBy, direction)
     },
+
     paginate (page, direction) {
       this.userInfo.page = page
       this.page = page
       console.log(this.page)
+    },
+
+    updateFile (val) {
+      this.file = val.name
     }
+
+    // submitFile () {
+    // Store all form data in data object such as document
+    //   let doc = this.document
+    //   let data = new FormData()
+
+    //   for (let key in doc) {
+    //     if (key === 'file') {
+    //       data.append(key, doc[key], doc[key].filename)
+    //     }
+    //     data.append(key, doc[key])
+    //   }
+
+    //   axios.post(`${yourUrl}`, data, {headers: {
+    //     'Content-Type': 'multipart/form-data'
+    //   }}).then(response => {
+    //      do stuff
+    //   }).catch((error) => {
+    //     console.log(error)
+    //   })
+    // }
   }
 }
 </script>

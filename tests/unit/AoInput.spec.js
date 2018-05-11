@@ -84,6 +84,20 @@ describe('Input', () => {
     expect(disabled.default).to.equal(false)
   })
 
+  it('defines hasError prop to be a boolean', () => {
+    const hasError = Input.props.hasError
+    expect(hasError.type.name).to.equal('Boolean')
+    expect(typeof hasError.default).to.equal('boolean')
+    expect(hasError.default).to.equal(false)
+  })
+
+  it('defines showLabel prop to be a boolean', () => {
+    const showLabel = Input.props.showLabel
+    expect(showLabel.type.name).to.equal('Boolean')
+    expect(typeof showLabel.default).to.equal('boolean')
+    expect(showLabel.default).to.equal(true)
+  })
+
   it('defines min prop to be a number', () => {
     const min = Input.props.min
     expect(min.type.name).to.equal('Number')
@@ -165,5 +179,16 @@ describe('Input', () => {
     })
     expect(input.type).to.equal('password')
     expect(input.$el.querySelector('input').getAttribute('type')).to.equal('password')
+  })
+
+  it('defines search field to be valid', () => {
+    const input = mountComponent(Input, {
+      propsData: {
+        type: 'search',
+        label: 'Label'
+      }
+    })
+    expect(input.type).to.equal('search')
+    expect(input.$el.querySelector('input').getAttribute('type')).to.equal('search')
   })
 })
