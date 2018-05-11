@@ -121,6 +121,7 @@ export default {
   border-radius: $border-radius-base;
   min-height: $input-height-base;
   box-shadow: $shadow-subtle;
+  outline: none;
 
   //Default styles, overridden by special classes
   background-color: $color-white;
