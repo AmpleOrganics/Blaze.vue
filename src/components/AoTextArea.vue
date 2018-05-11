@@ -1,7 +1,10 @@
 <template>
   <div class="ao-form-group">
-    <label :for="name">{{ label }}</label>
+    <label
+      v-show="showLabel"
+      :for="name">{{ label }}</label>
     <textarea
+      :class="{'ao-form-control--has-error': hasError }"
       :value="value"
       :placeholder="placeholder"
       :name="name"
@@ -68,6 +71,16 @@ export default {
     rows: {
       type: Number,
       default: 5
+    },
+
+    hasError: {
+      type: Boolean,
+      default: false
+    },
+
+    showLabel: {
+      type: Boolean,
+      default: true
     }
   },
 
