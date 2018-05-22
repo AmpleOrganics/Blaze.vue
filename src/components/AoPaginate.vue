@@ -1,9 +1,15 @@
 <template>
   <div class="ao-pagination">
-    <a class="ao-pagination__button" @click="changePage('prev')">
+    <a
+      class="ao-pagination__button"
+      @click="changePage('prev')"
+      :disabled="page === 1">
       &laquo;
     </a>
-    <a class="ao-pagination__button" @click="changePage('next')">
+    <a
+      class="ao-pagination__button"
+      @click="changePage('next')"
+      :disabled="page === totalPages">
       &raquo;
     </a>
   </div>
@@ -68,6 +74,13 @@ export default {
     justify-content: center;
     align-items: center;
     color: $color-gray-20;
+
+    &[disabled] {
+      cursor: not-allowed !important;
+      opacity: 0.65;
+      filter: alpha(opacity=65);
+      box-shadow: none;
+    }
 
     &:last-child {
       border-left: 1px solid $input-border-color;

@@ -118,7 +118,10 @@
     </ao-card>
 
     <ao-card :title="'Hi I am a Table!'">
-      <!-- <ao-paginate slot="card-header-toolbar" @paginate="paginate"/> -->
+      <ao-paginate
+        slot="card-header-toolbar"
+        :total-pages="3"
+        @paginate="paginate"/>
       <ao-table :headers="columnHeaders" @sortTable="sortTable">
         <tr v-for="user in displayUsers" :key="user.id">
           <td>{{ user.id }}</td>
@@ -211,7 +214,8 @@ export default {
       loading: false,
       showModal: false,
       showAlert: false,
-      routes: this.$router.options.routes
+      routes: this.$router.options.routes,
+      page: 1
     }
   },
 
@@ -264,6 +268,8 @@ export default {
     },
     paginate (page, direction) {
       this.userInfo.page = page
+      this.page = page
+      console.log(this.page)
     }
   }
 }
