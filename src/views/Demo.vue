@@ -100,7 +100,10 @@
 
         <ao-text-area v-model="description" />
         <p>Description: {{ description }}</p>
-
+        <ao-input
+          :label="'Search Example (does not search anything)'"
+          :placeholder="'Search'"
+          :type="'search'"/>
         <ao-button
           primary
           :type="'submit'"
