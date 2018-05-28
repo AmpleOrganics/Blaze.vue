@@ -1,5 +1,6 @@
 import '@/assets/styles/style.scss'
 import AoAlert from './components/AoAlert.vue'
+import AoBadge from './components/AoBadge.vue'
 import AoButton from './components/AoButton.vue'
 import AoCard from './components/AoCard.vue'
 import AoCheckbox from './components/AoCheckbox.vue'
@@ -20,6 +21,7 @@ import AoTextStyle from './components/AoTextStyle.vue'
 const Blaze = {
   install (Vue) {
     Vue.component('AoAlert', AoAlert)
+    Vue.component('AoBadge', AoBadge)
     Vue.component('AoButton', AoButton)
     Vue.component('AoCard', AoCard)
     Vue.component('AoCheckbox', AoCheckbox)

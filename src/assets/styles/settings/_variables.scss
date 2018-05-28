@@ -12,10 +12,16 @@ $color-ao-primary:            #00a38b;
 $color-ao-primary-dark:       darken($color-ao-primary, 5);
 $color-ao-dark:               #292F3B;
 
-$color-caution:               #f9c228;
-$color-destructive:           #d93240;
-
 $color-white:                 #fff;
+$color-green:                 #17a66c;
+$color-blue:                  #00b0e4;
+$color-yellow:                #f9c228;
+$color-red:                   #d93240;
+
+$color-success:               $color-green;
+$color-info:                  $color-blue;
+$color-caution:               $color-yellow;
+$color-destructive:           $color-red;
 
 // Ample Shades of Gray
 $color-gray-10:               #474a4c;
