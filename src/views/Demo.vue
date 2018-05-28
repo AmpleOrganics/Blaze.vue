@@ -100,7 +100,7 @@
           :default="nicePets"
           :has-error="true"
         />
-        <p>I like this pet: {{ nicePets }}</p>
+        <p>I like this pet: {{ nicePets }} <ao-badge/></p>
 
         <ao-text-area v-model="description" />
         <p>Description: {{ description }}</p>
