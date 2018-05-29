@@ -69,13 +69,14 @@ export default {
 <style lang='scss' scoped>
 
 @include slide-fade;
-$ao-alert-height: 5rem;
+
+$ao-alert-height: 3.75rem;
 
 .ao-alert {
   display: flex;
   background-color: $color-white;
   width: 75%;
-  box-shadow: $shadow;
+  box-shadow: $shadow, $shadow-subtle;
   min-height: $ao-alert-height;
 
   &__container {
@@ -88,11 +89,10 @@ $ao-alert-height: 5rem;
   }
 
   &__message {
-    padding: $spacer-lg $spacer-lg;
+    padding: $spacer;
     display: flex;
     align-items: center;
     flex-grow: 1;
-    color: $font-color-secondary;
   }
 
   &__icon {
@@ -100,7 +100,7 @@ $ao-alert-height: 5rem;
     justify-content: center;
     align-items: center;
     width: $ao-alert-height;
-    background-color: $color-primary;
+    background-color: $color-success;
     color: $color-white;
 
     &--destructive {
