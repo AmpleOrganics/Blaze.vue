@@ -144,10 +144,8 @@
       v-if="showModal"
       :size="'md'"
       @modalClose="toggleModal"
+      :header-text="'I am the modal title'"
     >
-      <div slot="modal-header">
-        <h2>I am the modal title</h2>
-      </div>
       <div slot="modal-body">
         <p>I am content</p>
       </div>

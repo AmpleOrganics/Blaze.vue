@@ -14,10 +14,8 @@
           @click.self="closeModal"
         >
           <div class="ao-modal__content">
-            <div
-              :class="computedHeaderClass"
-              class="ao-modal__header">
-              <slot name="modal-header"/>
+            <div class="ao-modal__header" :class="computedHeaderClass">
+              <h2>{{ headerText }}</h2>
             </div>
             <div class="ao-modal__body">
               <slot name="modal-body"/>
@@ -40,9 +38,15 @@ import { filterClasses } from './utils/component_utilities.js'
 export default {
   props: {
     // availible sizes include: 'sm', 'md', 'lg' pertaining to small medium large bootstrap classes
+
+    headerText: {
+      type: String,
+      required: true,
+      default: ''
+    },
+
     size: {
       type: String,
-      required: false,
       default: 'md'
     },
 
