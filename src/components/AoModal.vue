@@ -14,7 +14,9 @@
           @click.self="closeModal"
         >
           <div class="ao-modal__content">
-            <div class="ao-modal__header" :class="computedHeaderClass">
+            <div
+              :class="computedHeaderClass"
+              class="ao-modal__header">
               <h2>{{ headerText }}</h2>
             </div>
             <div class="ao-modal__body">
