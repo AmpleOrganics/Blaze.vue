@@ -16,7 +16,7 @@ describe('Badge', () => {
     expect(typeof success.default).to.equal('boolean')
     expect(success.default).to.equal(false)
   })
-  
+
   it('defines info prop to be a boolean and to default to false', () => {
     const info = Badge.props.info
     expect(info.type.name).to.equal('Boolean')

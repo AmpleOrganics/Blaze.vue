@@ -143,8 +143,8 @@
     <ao-modal
       v-if="showModal"
       :size="'md'"
-      @modalClose="toggleModal"
       :header-text="'I am the modal title'"
+      @modalClose="toggleModal"
     >
       <div slot="modal-body">
         <p>I am content</p>

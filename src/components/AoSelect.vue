@@ -1,7 +1,7 @@
 <template>
   <div class="ao-form-group">
     <label
-      v-if="label"
+      v-show="showLabel"
       for="name">
       {{ label }}
     </label>
@@ -44,7 +44,13 @@ export default {
   props: {
     label: {
       type: String,
+      required: true,
       default: null
+    },
+
+    showLabel: {
+      type: Boolean,
+      default: true
     },
 
     name: {
