@@ -1,6 +1,8 @@
 <template>
   <div class="ao-card">
-    <div class="ao-card__header" v-if="title">
+    <div
+      v-if="title"
+      class="ao-card__header">
       <h2 class="ao-card__title">{{ title }}</h2>
       <div class="ao-card__header__toolbar">
         <slot name="card-header-toolbar"/>

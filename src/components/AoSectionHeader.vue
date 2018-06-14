@@ -3,9 +3,9 @@
     <div class="ao-section-header__top-block">
       <div class="ao-section-header__title-block">
         <span
-          class="ao-section-header__icon"
           v-if="hasIcon"
           :class="iconClass"
+          class="ao-section-header__icon"
           v-html="iconHtml"
         />
         <h1 class="ao-section-header__title">{{ title }}</h1>
@@ -13,7 +13,9 @@
           <slot name="section-header-toolbar"/>
         </div>
       </div>
-      <div v-if="subtitle" class="ao-section-header__subtitle">
+      <div
+        v-if="subtitle"
+        class="ao-section-header__subtitle">
         <p>{{ subtitle }}</p>
       </div>
     </div>

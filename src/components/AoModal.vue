@@ -2,19 +2,21 @@
   <transition name="slide-fade">
     <div class="ao-modal__mask">
       <div
+        ref="modal"
         class="ao-modal"
+        tabindex="0"
         @click.self="closeModal"
         @keyup.esc.stop="closeModal"
-        tabindex="0"
-        ref="modal"
       >
         <div
-          class="modal-dialog"
           :class="computedModalSize"
+          class="modal-dialog"
           @click.self="closeModal"
         >
           <div class="ao-modal__content">
-            <div class="ao-modal__header" :class="computedHeaderClass">
+            <div
+              :class="computedHeaderClass"
+              class="ao-modal__header">
               <slot name="modal-header"/>
             </div>
             <div class="ao-modal__body">

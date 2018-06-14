@@ -1,15 +1,15 @@
 <template>
   <div class="ao-pagination">
     <a
+      :disabled="page === 1"
       class="ao-pagination__button"
-      @click="changePage('prev')"
-      :disabled="page === 1">
+      @click="changePage('prev')">
       &laquo;
     </a>
     <a
+      :disabled="page === totalPages"
       class="ao-pagination__button"
-      @click="changePage('next')"
-      :disabled="page === totalPages">
+      @click="changePage('next')">
       &raquo;
     </a>
   </div>

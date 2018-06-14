@@ -2,8 +2,6 @@
   <div class="ao-form-group">
     <label :for="name">{{ label }}</label>
     <textarea
-      class="ao-form-control"
-      @input="inputEvent($event.target.value)"
       :value="value"
       :placeholder="placeholder"
       :name="name"
@@ -13,6 +11,8 @@
       :required="required"
       :readonly="readonly"
       :disabled="disabled"
+      class="ao-form-control"
+      @input="inputEvent($event.target.value)"
     />
   </div>
 </template>

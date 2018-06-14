@@ -1,12 +1,12 @@
 <template>
   <div class="ao-form-group">
-    <label v-show="showLabel" :for="name">{{ label }}</label>
+    <label
+      v-show="showLabel"
+      :for="name">{{ label }}</label>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
-        class="ao-form-control"
         :class="{'ao-form-control--has-error': hasError }"
         :type="type"
-        @input="updateValue($event.target.value)"
         :placeholder="placeholder"
         :name="name"
         :value="value"
@@ -18,14 +18,18 @@
         :readonly="readonly"
         :disabled="disabled"
         :step="step"
+        class="ao-form-control"
+        @input="updateValue($event.target.value)"
       >
       <span
-        class="ao-input-group__addon"
         v-if="hasIconAddon"
-        v-html="iconHtml"
         :class="iconClass"
+        class="ao-input-group__addon"
+        v-html="iconHtml"
       />
-      <span class="ao-input-group__addon" v-if="hasAddOn">
+      <span
+        v-if="hasAddOn"
+        class="ao-input-group__addon">
         {{ addOn }}
       </span>
     </div>

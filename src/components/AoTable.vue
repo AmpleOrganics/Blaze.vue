@@ -1,13 +1,15 @@
 <template>
   <div class="ao-table--responsive">
-    <table class="ao-table ao-table--striped" :class=" { 'ao-table--clickable': isClickable }">
+    <table
+      :class=" { 'ao-table--clickable': isClickable }"
+      class="ao-table ao-table--striped">
       <thead>
         <tr>
           <th
             v-for="columnHeader in headers"
             :key="columnHeader.field"
-            @click="sortByHeader(columnHeader.field, columnHeader.sortable)"
             :class="isSortableClass(columnHeader.sortable)"
+            @click="sortByHeader(columnHeader.field, columnHeader.sortable)"
           >
             <span>{{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)"/></span>
           </th>
