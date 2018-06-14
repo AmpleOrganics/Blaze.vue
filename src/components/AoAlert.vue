@@ -1,6 +1,8 @@
 <template>
   <transition name="slide-fade">
-    <div class="ao-alert__container" v-if="showAlert">
+    <div
+      v-if="showAlert"
+      class="ao-alert__container">
       <div class="ao-alert">
         <div :class="computedAlertIconClass">
           <span :class="iconClass"/>

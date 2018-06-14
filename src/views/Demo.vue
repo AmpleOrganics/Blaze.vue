@@ -5,7 +5,9 @@
       :title="'Demo Container'"
       :subtitle="'Created at 123456789'">
       <ao-navbar slot="section-header-navbar">
-        <li v-for="route in routes" :key="route.path">
+        <li
+          v-for="route in routes"
+          :key="route.path">
           <router-link :to="route.path" >{{ route.name }}</router-link>
         </li>
 
@@ -21,7 +23,9 @@
 
     <ao-card :title="'Title of Card'">
       <p>
-        <ao-text-style error small>text</ao-text-style>
+        <ao-text-style
+          error
+          small>text</ao-text-style>
       </p>
       <ao-form @formHandler="saveForm">
         <ao-input
@@ -105,8 +109,8 @@
           :placeholder="'Search'"
           :type="'search'"/>
         <ao-button
-          primary
           :type="'submit'"
+          primary
         >
           Save
         </ao-button>
@@ -122,8 +126,12 @@
         slot="card-header-toolbar"
         :total-pages="3"
         @paginate="paginate"/>
-      <ao-table :headers="columnHeaders" @sortTable="sortTable">
-        <tr v-for="user in displayUsers" :key="user.id">
+      <ao-table
+        :headers="columnHeaders"
+        @sortTable="sortTable">
+        <tr
+          v-for="user in displayUsers"
+          :key="user.id">
           <td>{{ user.id }}</td>
           <td>{{ user.first_name }}</td>
           <td>{{ user.last_name }}</td>
@@ -144,13 +152,17 @@
         <p>I am content</p>
       </div>
       <div slot="modal-footer">
-        <ao-button primary @click.native="continueModal">
+        <ao-button
+          primary
+          @click.native="continueModal">
           Continue
         </ao-button>
       </div>
     </ao-modal>
 
-    <ao-alert :show-alert.sync="showAlert" v-if="showAlert">
+    <ao-alert
+      v-if="showAlert"
+      :show-alert.sync="showAlert">
       <span slot="alert-icon">
         Icon
       </span>

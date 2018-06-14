@@ -1,17 +1,17 @@
 <template>
   <div
-    class="ao-checkbox"
     :disabled="disabled"
+    class="ao-checkbox"
   >
     <label>
       <input
-        type="checkbox"
         :name="name"
         :value="checkboxValue"
         v-model="checked"
-        @change="choose"
         :required="required"
         :disabled="disabled"
+        type="checkbox"
+        @change="choose"
       >
       <span v-show="showLabel">{{ checkboxLabel }}</span>
     </label>

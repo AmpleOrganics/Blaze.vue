@@ -1,13 +1,13 @@
 <template>
   <label class="ao-checkbox">
     <input
-      type="radio"
       v-model="checked"
       :value="val"
       :name="name"
-      @change="toggle"
       :disabled="disabled"
       :required="required"
+      type="radio"
+      @change="toggle"
     >
     <span>
       <slot/>

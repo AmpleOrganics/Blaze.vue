@@ -1,17 +1,19 @@
 <template>
   <div class="ao-form-group">
-    <label v-if="label" for="name">
+    <label
+      v-if="label"
+      for="name">
       {{ label }}
     </label>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <select
-        class="ao-form-control"
         :name="name"
-        @input="updateValue($event.target.value)"
         :required="required"
         :disabled="disabled"
         v-model="selected"
         :class="{'ao-form-control--has-error': hasError }"
+        class="ao-form-control"
+        @input="updateValue($event.target.value)"
       >
         <option
           v-for="option in computedOptions"
@@ -23,12 +25,14 @@
         </option>
       </select>
       <span
-        class="ao-input-group__addon"
         v-if="hasIconAddon"
-        v-html="iconHtml"
         :class="iconClass"
+        class="ao-input-group__addon"
+        v-html="iconHtml"
       />
-      <span class="ao-input-group__addon" v-if="hasAddOn">
+      <span
+        v-if="hasAddOn"
+        class="ao-input-group__addon">
         {{ addOn }}
       </span>
     </div>
