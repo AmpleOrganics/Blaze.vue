@@ -9,7 +9,9 @@
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "build:lib": "vue-cli-service build --target lib --name blaze-vue src/blaze-plugin.js",
-    "prepublishOnly": "npm run build:lib && sh .post-build-copy.sh"
+    "prepublishOnly": "npm run build:lib && sh .post-build-copy.sh",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "files": [
     "dist"
@@ -27,7 +29,8 @@
     "sass-loader": "^6.0.7",
     "sass-resources-loader": "^1.3.3",
     "vue-router": "^3.0.1",
-    "vue-template-compiler": "^2.5.16"
+    "vue-template-compiler": "^2.5.16",
+    "vuepress": "^0.10.1"
   },
   "babel": {
     "presets": [
