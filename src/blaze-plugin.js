@@ -1,5 +1,4 @@
-// eslint-disable-next-line
-import App from './App.vue'
+import '@/assets/styles/style.scss'
 import AoAlert from './components/AoAlert.vue'
 import AoButton from './components/AoButton.vue'
 import AoCard from './components/AoCard.vue'
@@ -19,7 +18,7 @@ import AoTextArea from './components/AoTextArea.vue'
 import AoTextStyle from './components/AoTextStyle.vue'
 
 const Blaze = {
-  install (Vue, options) {
+  install (Vue) {
     Vue.component('AoAlert', AoAlert)
     Vue.component('AoButton', AoButton)
     Vue.component('AoCard', AoCard)

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-// import Blaze from '../dist/blaze-vue.es.js'
 import Blaze from './blaze-plugin'
 
 Vue.use(Blaze)

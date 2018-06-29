@@ -8,5 +8,6 @@ module.exports = {
         data: fs.readFileSync('./src/assets/styles/settings/_variables.scss', 'utf-8')
       }
     }
-  }
+  },
+  parallel: true
 }
