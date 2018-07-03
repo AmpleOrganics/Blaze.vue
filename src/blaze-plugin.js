@@ -3,6 +3,7 @@ import AoAlert from './components/AoAlert.vue'
 import AoBadge from './components/AoBadge.vue'
 import AoBreadcrumbs from './components/AoBreadcrumbs.vue'
 import AoButton from './components/AoButton.vue'
+import AoCallout from './components/AoCallout.vue'
 import AoCard from './components/AoCard.vue'
 import AoCheckbox from './components/AoCheckbox.vue'
 import AoDropdown from './components/AoDropdown.vue'
@@ -29,6 +30,7 @@ const Blaze = {
     Vue.component('AoBadge', AoBadge)
     Vue.component('AoBreadcrumbs', AoBreadcrumbs)
     Vue.component('AoButton', AoButton)
+    Vue.component('AoCallout', AoCallout)
     Vue.component('AoCard', AoCard)
     Vue.component('AoCheckbox', AoCheckbox)
     Vue.component('AoDropdown', AoDropdown)
