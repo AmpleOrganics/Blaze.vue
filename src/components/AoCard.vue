@@ -8,6 +8,9 @@
         <slot name="card-header-toolbar"/>
       </div>
     </div>
+    <div class="ao-card__callout">
+      <slot name="card-callout"/>
+    </div>
     <div class="ao-card__body">
       <slot/>
     </div>
@@ -68,6 +71,10 @@ export default {
       margin-left: $spacer-sm;
       margin-bottom: 0 !important;
     }
+  }
+
+  &__callout /deep/ .ao-callout {
+    margin-bottom: 0;
   }
 }
 </style>
