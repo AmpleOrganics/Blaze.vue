@@ -5,7 +5,6 @@ describe('Badge', () => {
   it('defines text prop to be valid and to default to null', () => {
     const text = Badge.props.text
     expect(text.type.name).to.equal('String')
-    expect(typeof text.default).to.equal('string')
     expect(text.default).to.equal(null)
     expect(text.required).to.equal(true)
   })
