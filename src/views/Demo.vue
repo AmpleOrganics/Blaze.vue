@@ -388,6 +388,29 @@
           </tr>
         </ao-table>
       </ao-card>
+      <ao-card title="Callouts">
+        <ao-callout
+          slot="cardCallout"
+          caution>
+          I am a card callout! I am passed into the cardCallout slot and am flush with the card.
+        </ao-callout>
+        <ao-callout>
+          <p>This is default callout</p>
+        </ao-callout>
+        <ao-callout info>
+          <p>This is an info callout</p>
+          <p>The last element in any callout is given a margin-bottom of 0.</p>
+        </ao-callout>
+        <ao-callout success>
+          <p>This is a success callout</p>
+        </ao-callout>
+      </ao-card>
+      <ao-callout caution>
+        <p>This is a caution callout</p>
+      </ao-callout>
+      <ao-callout destructive>
+        <p>This is a destructive callout</p>
+      </ao-callout>
 
       <ao-modal
         v-if="showModal"
