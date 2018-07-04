@@ -15,6 +15,9 @@
     <tbody :class=" { clickable: isClickable }">
       <slot />
     </tbody>
+    <tfoot v-if="hasTableFooterSlot">
+      <slot name="table-footer"/>
+    </tfoot>
   </table>
 </template>
 
@@ -50,6 +53,12 @@ export default {
       lastSelectedHeader: this.sortBy,
       sortProxy: this.sortBy,
       orderProxy: this.order
+    }
+  },
+
+  computed: {
+    hasTableFooterSlot () {
+      return !!this.$slots['table-footer']
     }
   },
 
@@ -110,8 +119,8 @@ export default {
     background-color: $color-gray-90;
   }
 
-  & > tbody /deep/ tr > td {
-    padding: 8px;
+  & /deep/ tr > td {
+    padding: .5rem;
     vertical-align: middle;
     border-top: 1px solid $color-gray-60;
   }
@@ -127,6 +136,10 @@ export default {
     border-bottom: 2px solid $color-grey-light;
     padding: 8px;
     line-height: 1.4;
+  }
+
+  & tfoot /deep/ tr > td {
+    border-top-width: 2px;
   }
 
   &__th--sortable > span {
