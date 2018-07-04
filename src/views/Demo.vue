@@ -223,6 +223,11 @@
             <td>{{ user.last_name }}</td>
             <td>{{ user.gender }}</td>
           </tr>
+          <tr slot="table-footer">
+            <td colspan="2"/>
+            <td><strong>Total</strong></td>
+            <td><strong>1000</strong></td>
+          </tr>
         </ao-table>
       </ao-card>
 
