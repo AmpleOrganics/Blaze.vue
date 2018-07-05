@@ -51,8 +51,7 @@ export default {
 
 <style lang='scss' scoped>
 
-@import '../assets/styles/mixins/shared-input-styles.scss';
-
+@import '../shared-input-styles.scss';
 @include shared-input-styles;
 
 </style>
