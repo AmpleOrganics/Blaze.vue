@@ -1,14 +1,16 @@
 <template>
   <div class="ao-form-group">
-    <label v-show="showLabel" :for="name">{{ label }}</label>
+    <label
+      v-show="showLabel"
+      :for="name">{{ label }}</label>
     <input
-      class="ao-form-control"
       :class="{'ao-form-control--has-error': hasError }"
-      type="file"
-      @change="updateFile($event.target.files)"
       :name="name"
       :required="required"
       :disabled="disabled"
+      class="ao-form-control"
+      type="file"
+      @change="updateFile($event.target.files)"
     >
   </div>
 </template>
