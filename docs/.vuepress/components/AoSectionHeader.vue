@@ -53,6 +53,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+@import '../../../src/assets/styles/settings/_variables.scss';
 
 .ao-section-header {
   background-color: $color-white;
