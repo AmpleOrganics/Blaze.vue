@@ -1,6 +1,6 @@
 {
   "name": "blaze-vue",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "private": false,
   "main": "dist/blaze-vue.common.js",
   "scripts": {
