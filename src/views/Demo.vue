@@ -176,7 +176,12 @@
           :name="'file1'"
           @change="updateFile($event)"/>
 
-        <p>Filename: {{ file }}</p>
+        <ao-input
+          :type="'number'"
+          :label="'Age'"
+          v-model="age"
+          :step="5"/>
+        <p>My age: {{ age }}</p>
 
         <label>Favorite Programming Languages?</label>
         <ao-checkbox
@@ -332,13 +337,11 @@
 
           <ao-select
             v-model="nicePets"
-            :label="'Pets'"
-            :placeholder="'Select One'"
-            :invalid="true">
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="elephant">Elephant</option>
-          </ao-select>
+            :options="pets"
+            :label="'Nice Pets'"
+            :default="nicePets"
+            :has-error="true"
+          />
           <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
 
           <ao-text-area v-model="description" />
@@ -411,7 +414,36 @@
       <ao-callout destructive>
         <p>This is a destructive callout</p>
       </ao-callout>
-
+      <ao-card title="Buttons">
+        <ao-button>Default</ao-button>
+        <ao-button primary>Primary</ao-button>
+        <ao-button caution>Caution</ao-button>
+        <ao-button destructive>Destructive</ao-button>
+        <ao-button subtle>Subtle</ao-button>
+        <hr>
+        <ao-button nano>Nano</ao-button>
+        <ao-button small>Small</ao-button>
+        <ao-button>Normal</ao-button>
+        <ao-button large>Large</ao-button>
+        <hr>
+        <ao-button jumbo>Jumbo</ao-button>
+        <hr>
+        <p>
+          <ao-button :naked="true">Naked</ao-button>
+          <ao-button link>Link</ao-button>
+          <ao-button text-only>Text Only</ao-button>
+          <span>, and how about some </span>
+          <ao-button
+            text-only
+            link>link AND text only??</ao-button>
+        </p>
+      </ao-card>
+      <ao-card title="Text">
+        <p>Normal Text</p>
+        <p><a href="#">Link</a></p>
+        <p><ao-text-style error>Error</ao-text-style></p>
+        <p><ao-text-style small>Small</ao-text-style></p>
+      </ao-card>
       <ao-modal
         v-if="showModal"
         :header-text="'I am the modal title'"

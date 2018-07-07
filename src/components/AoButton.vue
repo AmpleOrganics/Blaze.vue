@@ -62,6 +62,16 @@ export default {
       default: false
     },
 
+    link: {
+      type: Boolean,
+      default: false
+    },
+
+    textOnly: {
+      type: Boolean,
+      default: false
+    },
+
     disabled: {
       type: Boolean,
       default: false
@@ -84,6 +94,8 @@ export default {
         'ao-button--naked': this.naked,
         'ao-button--small': this.small,
         'ao-button--large': this.large,
+        'ao-button--link': this.link,
+        'ao-button--text-only': this.textOnly,
         'ao-button--jumbo': this.jumbo
       }
       return filterClasses(activeClasses)
@@ -107,6 +119,22 @@ export default {
      color: darken($color, $darken-delta);
    }
  }
+}
+
+/*
+*  `naked`, `link`, and `text-only` share a base set of styles that remove
+*   borders, backgrounds, and box-shadows
+*/
+@mixin naked-shared {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+@mixin naked-hover-shared {
+  border-color: transparent;
+  background-color: transparent;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
 .ao-button {
@@ -199,5 +227,39 @@ export default {
    height: 80px;
    margin-left: 0;
  }
+
+   /*
+    * `link`: use when you want the button text to seem like link text.
+    * Note: It will still have the sizing and spacing of a button, which is
+    * only desireable if it should be lining up with other buttons. If it
+    * is supposed to look like a normal text link, add `textOnly` prop as well.
+  */
+  &--link {
+    @include naked-shared;
+    color: $font-color-link;
+    font-weight: normal;
+
+    &:hover, :active {
+      @include naked-hover-shared;
+      color: $font-color-link-hover;
+      text-decoration: underline;
+    }
+  }
+
+  /*
+  * `textOnly`: Kills padding and min-height so it is identical to normal text
+  * Good to use with `link` when you want a button to look just like a normal link.
+  */
+  &--text-only {
+    @include naked-shared;
+    font-weight: normal;
+    padding: 0;
+    min-height: auto;
+    vertical-align: baseline;
+
+    &:hover, :active {
+      @include naked-hover-shared;
+    }
+  }
 }
 </style>
