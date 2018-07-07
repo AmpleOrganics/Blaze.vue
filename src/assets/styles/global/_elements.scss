@@ -30,7 +30,13 @@ small {
 }
 
 a {
-  color: $color-primary;
+  color: $font-color-link;
+  text-decoration: none;
+
+  &:hover {
+    color: $font-color-link-hover;
+    text-decoration: underline;
+  }
 }
 
 p {
