@@ -209,7 +209,7 @@ export default {
   }
 
   &--small {
-    height: $input-height-sm;
+    min-height: $input-height-sm;
     font-size: $font-size-xs;
     padding-left: $spacer-xs;
     padding-right: $spacer-xs;

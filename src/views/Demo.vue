@@ -20,7 +20,23 @@
         <ao-button @click.native="toggleModal">Open Modal</ao-button>
       </div>
     </ao-section-header>
+    <ao-card title="Buttons">
+      <ao-button>Default</ao-button>
+      <ao-button primary>Primary</ao-button>
+      <ao-button caution>Caution</ao-button>
+      <ao-button destructive>Destructive</ao-button>
+      <ao-button subtle>Subtle</ao-button>
+      <hr>
+      <ao-button nano>Nano</ao-button>
+      <ao-button small>Small</ao-button>
+      <ao-button>Normal</ao-button>
+      <ao-button large>Large</ao-button>
+      <hr>
+      <ao-button jumbo>Jumbo</ao-button>
+      <hr>
+      <ao-button naked>Naked</ao-button>
 
+    </ao-card>
     <ao-card :title="'Title of Card'">
       <p>
         <ao-text-style
