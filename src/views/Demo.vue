@@ -22,6 +22,26 @@
     </ao-section-header>
 
     <ao-card :title="'Title of Card'">
+      <ao-tooltip
+        top
+        text="Tooltip with some really long tezxt">
+        <ao-button primary>Hover Me!</ao-button>
+      </ao-tooltip>
+      <ao-tooltip
+        bottom
+        text="Tooltip with some really long tezxt">
+        <ao-button primary>Hover Me!</ao-button>
+      </ao-tooltip>
+      <ao-tooltip
+        left
+        text="Tooltip with some really long tezxt">
+        <ao-button primary>Hover Me!</ao-button>
+      </ao-tooltip>
+      <ao-tooltip
+        right
+        text="Tooltip with some really long tezxt">
+        <ao-button primary>Hover Me!</ao-button>
+      </ao-tooltip>
       <p>
         <ao-text-style
           error
@@ -89,15 +109,17 @@
 
         <p>Liking Books is: {{ likeBooks }}</p>
 
+        <ao-tooltip top text="this is an option!">
         <ao-radio
-          v-for="radio in radios"
-          :key="radio.value"
-          :val="radio.value"
-          :name="radio.name"
-          v-model="selectedRadio"
-        >
-          {{ radio.value }}
-        </ao-radio>
+            v-for="radio in radios"
+            :key="radio.value"
+            :val="radio.value"
+            :name="radio.name"
+            v-model="selectedRadio"
+          >
+            {{ radio.value }}
+          </ao-radio>
+        </ao-tooltip>
 
         <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
 
