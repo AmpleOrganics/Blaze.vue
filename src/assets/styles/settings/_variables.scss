@@ -27,7 +27,8 @@ $color-destructive:           $color-red;
 $color-gray-10:               #474a4c;
 $color-gray-20:               #585d60;
 $color-gray-30:               #818a91;
-$color-gray-50:               #ccc;
+$color-gray-40:               #aaaaaa;
+$color-gray-50:               #cccccc;
 $color-gray-60:               #dcdedf;
 $color-gray-80:               #ebecef;
 $color-gray-90:               #f7f7f9;
@@ -79,6 +80,7 @@ $zindex-modal-backdrop:       1030;
 $zindex-modal:                1031;
 $zindex-alert:                1040;
 $zindex-spinner:              1050;
+$zindex-tooltip:              1060;
 
 $header-toolbar-height:       60px;
 

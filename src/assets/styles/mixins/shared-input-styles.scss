@@ -84,4 +84,10 @@
       font-weight: $font-weight-bold;
     }
   }
+
+  .ao-form-group__label {
+    & .ao-tooltip {
+      margin-left: $spacer-micro;
+    }
+  }
 }

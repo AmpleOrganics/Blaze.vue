@@ -1,8 +1,12 @@
 <template>
   <div class="ao-form-group">
-    <label
+    <div
       v-show="showLabel"
-      :for="name">{{ label }}</label>
+      class="ao-form-group__label">
+      <label
+        :for="name">{{ label }}</label>
+      <slot name="tooltip"/>
+    </div>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
         :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
