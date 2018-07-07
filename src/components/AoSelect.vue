@@ -5,7 +5,8 @@
       :disabled="disabled">
       {{ label }}
     </label>
-    <div>
+    <slot name="selectLabelTooltip"/>
+    <div :class="{ 'ao-input-group': hasInputGroup }">
       <select
         v-model="selected"
         :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
