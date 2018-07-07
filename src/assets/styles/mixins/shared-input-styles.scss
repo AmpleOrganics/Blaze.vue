@@ -4,6 +4,7 @@
   .ao-form-control {
     display: block;
     width: 100%;
+    min-width: 60px;
     max-width: 100%;
     height: $input-height-base;
     font-family: $font-family-primary;
