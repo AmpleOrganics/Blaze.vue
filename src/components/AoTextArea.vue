@@ -1,9 +1,13 @@
 <template>
   <!-- investigate min max length -->
   <div class="ao-form-group">
-    <label
+    <div
       v-show="showLabel"
-      :for="name">{{ label }}</label>
+      class="ao-form-group__label">
+      <label
+        :for="name">{{ label }}</label>
+      <slot name="tooltip"/>
+    </div>
     <textarea
       :class="{'ao-form-control--invalid': invalid }"
       :value="value"

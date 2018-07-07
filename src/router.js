@@ -23,6 +23,7 @@ import Spinner from '../docs/components/Spinner.vue'
 import Table from '../docs/components/Table.vue'
 import TextArea from '../docs/components/TextArea.vue'
 import TextStyle from '../docs/components/TextStyle.vue'
+import Tooltip from '../docs/components/Tooltip.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,7 @@ export default new Router({
     { name: 'spinner', path: '/spinner', component: Spinner, meta: { title: 'Spinner' } },
     { name: 'table', path: '/table', component: Table, meta: { title: 'Table' } },
     { name: 'textarea', path: '/textarea', component: TextArea, meta: { title: 'Text Area' } },
-    { name: 'textstyle', path: '/textstyle', component: TextStyle, meta: { title: 'Text Style' } }
+    { name: 'textstyle', path: '/textstyle', component: TextStyle, meta: { title: 'Text Style' } },
+    { name: 'tooltip', path: '/tooltip', component: Tooltip, meta: { title: 'Tooltip' } }
   ]
 })
