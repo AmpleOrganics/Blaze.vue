@@ -78,4 +78,22 @@ describe('Button', () => {
     })
     expect(button.classes()).toContain('ao-button--jumbo')
   })
+
+  it('link', () => {
+    const button = mount(Button, {
+      propsData: {
+        link: true
+      }
+    })
+    expect(button.classes()).toContain('ao-button--link')
+  })
+
+  it('textOnly', () => {
+    const button = mount(Button, {
+      propsData: {
+        textOnly: true
+      }
+    })
+    expect(button.classes()).toContain('ao-button--text-only')
+  })
 })
