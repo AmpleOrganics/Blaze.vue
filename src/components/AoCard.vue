@@ -11,6 +11,11 @@
     <div class="ao-card__body">
       <slot/>
     </div>
+    <div
+      v-if="!!this.$slots.cardFooter"
+      class="ao-card__footer">
+      <slot name="cardFooter"/>
+    </div>
   </div>
 </template>
 
@@ -28,7 +33,7 @@ export default {
 <style lang='scss' scoped>
 
 .ao-card {
-  background-color: #fff;
+  background-color: $color-white;
   border: 1px solid $ui-border-color-base;
   border-radius: $border-radius-base;
   margin-bottom: $spacer;
@@ -43,7 +48,7 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: $spacer;
     border-bottom: 1px solid $ui-border-color-base;
 
     &__toolbar {
@@ -68,6 +73,25 @@ export default {
     font-size: $font-size-xl;
     font-weight: $font-weight-light;
     display: inline-block;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding: $spacer;
+    border-top: 1px solid $ui-border-color-base;
+
+    & .form-group {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    & > * {
+      margin-left: $spacer-sm;
+      margin-bottom: 0 !important;
+    }
   }
 }
 </style>

@@ -127,6 +127,10 @@
       <pre>{{ saveData }}</pre>
 
       <ao-spinner v-if="loading" />
+      <ao-button slot="cardFooter">Buttons In The</ao-button>
+      <ao-button
+        slot="cardFooter"
+        primary>Card Footer!</ao-button>
     </ao-card>
 
     <ao-card :title="'Hi I am a Table!'">
