@@ -3,7 +3,7 @@
     :class="[computedClasses]"
   >
     <slot/>
-    <div class="ao-tooltip__text-container">
+    <div class="ao-tooltip__tip-container">
       <span class="ao-tooltip__text">{{ text }}</span>
       <div class="ao-tooltip__triangle"/>
     </div>
@@ -67,7 +67,7 @@ $tooltip-background-color: $color-gray-10;
   display: inline-block;
 
   &__text {
-    display: inline-block;
+    display: none;
     position: absolute;
     background: $tooltip-background-color;
     font-size: $font-size-sm;
@@ -75,9 +75,10 @@ $tooltip-background-color: $color-gray-10;
     opacity: 0;
     padding: $spacer-micro $spacer-micro*2;
     border-radius: $border-radius-base;
+    white-space: nowrap;
   }
 
-  &__text-container {
+  &__tip-container {
     position: absolute;
     width: 0;
     height: 0;
@@ -86,11 +87,13 @@ $tooltip-background-color: $color-gray-10;
   &:hover {
     .ao-tooltip__text,
     .ao-tooltip__triangle {
+      display: inline-block;
       opacity: 1;
     }
   }
 
   &__triangle {
+    display: none;
     position: absolute;
     opacity: 0;
     width: 0;
@@ -100,7 +103,7 @@ $tooltip-background-color: $color-gray-10;
     border-color: $tooltip-background-color transparent transparent transparent;
   }
 
-  &--left &__text-container {
+  &--left &__tip-container {
     left: 0;
     top: 50%;
 
@@ -115,8 +118,8 @@ $tooltip-background-color: $color-gray-10;
       transform: rotate(-90deg) translate(($tooltip-distance/2), 50%);
     }
   }
- 
-  &--right &__text-container {
+
+  &--right &__tip-container {
     right: 0;
     top: 50%;
 
@@ -130,7 +133,7 @@ $tooltip-background-color: $color-gray-10;
     }
   }
 
-  &--top &__text-container {
+  &--top &__tip-container {
     top: 0;
     right: 50%;
 
@@ -146,7 +149,7 @@ $tooltip-background-color: $color-gray-10;
     }
   }
 
-  &--bottom &__text-container {
+  &--bottom &__tip-container {
     bottom: 0;
     right: 50%;
 

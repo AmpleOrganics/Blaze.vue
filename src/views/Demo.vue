@@ -24,22 +24,22 @@
     <ao-card :title="'Title of Card'">
       <ao-tooltip
         top
-        text="Tooltip with some really long tezxt">
+        text="Tooltip with some really long text">
         <ao-button primary>Hover Me!</ao-button>
       </ao-tooltip>
       <ao-tooltip
         bottom
-        text="Tooltip with some really long tezxt">
+        text="Tooltip with some really long text">
         <ao-button primary>Hover Me!</ao-button>
       </ao-tooltip>
       <ao-tooltip
         left
-        text="Tooltip with some really long tezxt">
+        text="Tooltip with some really long text">
         <ao-button primary>Hover Me!</ao-button>
       </ao-tooltip>
       <ao-tooltip
         right
-        text="Tooltip with some really long tezxt">
+        text="Tooltip with some really long text">
         <ao-button primary>Hover Me!</ao-button>
       </ao-tooltip>
       <p>
@@ -109,8 +109,10 @@
 
         <p>Liking Books is: {{ likeBooks }}</p>
 
-        <ao-tooltip top text="this is an option!">
-        <ao-radio
+        <ao-tooltip
+          top
+          text="this is an option!">
+          <ao-radio
             v-for="radio in radios"
             :key="radio.value"
             :val="radio.value"
