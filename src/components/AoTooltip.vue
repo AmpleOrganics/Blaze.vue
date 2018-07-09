@@ -69,7 +69,6 @@ $tooltip-background-color: $color-gray-10;
   display: inline-block;
 
   &__text {
-    display: none;
     position: absolute;
     background: $tooltip-background-color;
     font-size: $font-size-sm;
@@ -89,6 +88,7 @@ $tooltip-background-color: $color-gray-10;
     width: 0;
     height: 0;
     z-index: $zindex-tooltip;
+    overflow: hidden;
   }
 
   &:hover {
@@ -96,6 +96,10 @@ $tooltip-background-color: $color-gray-10;
     .ao-tooltip__triangle {
       display: inline-block;
       opacity: 1;
+    }
+
+    .ao-tooltip__tip-container {
+      overflow: visible;
     }
   }
 
