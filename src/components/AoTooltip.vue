@@ -63,12 +63,16 @@ export default {
 
 $tooltip-distance: 4px;//Defining a consistent distance from the object;
 $tooltip-background-color: $color-gray-10;
+$tooltip-transition: opacity .2s ease-in-out;
 
 .ao-tooltip {
   position: relative;
   display: inline-block;
+  transition: $tooltip-transition;
+  overflow: none;
 
   &__text {
+    visibility: hidden;
     position: absolute;
     background: $tooltip-background-color;
     font-size: $font-size-sm;
@@ -77,6 +81,7 @@ $tooltip-background-color: $color-gray-10;
     padding: $spacer-micro $spacer-micro*2;
     border-radius: $border-radius-base;
     white-space: nowrap;
+    transition: $tooltip-transition;
   }
 
   &__default-icon {
@@ -94,7 +99,7 @@ $tooltip-background-color: $color-gray-10;
   &:hover {
     .ao-tooltip__text,
     .ao-tooltip__triangle {
-      display: inline-block;
+      visibility: visible;
       opacity: 1;
     }
 
@@ -104,11 +109,10 @@ $tooltip-background-color: $color-gray-10;
   }
 
   &__triangle {
-    display: none;
+    visibility: hidden;
     position: absolute;
     opacity: 0;
-    width: 0;
-    height: 0;
+    transition: $tooltip-transition;
     border-style: solid;
     border-width: $tooltip-distance $tooltip-distance 0 $tooltip-distance ;
     border-color: $tooltip-background-color transparent transparent transparent;
