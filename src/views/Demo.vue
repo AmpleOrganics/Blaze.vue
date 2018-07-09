@@ -22,26 +22,39 @@
     </ao-section-header>
 
     <ao-card :title="'Title of Card'">
-      <ao-tooltip
-        top
-        text="Tooltip with some really long text">
-        <ao-button primary>Hover Me!</ao-button>
-      </ao-tooltip>
-      <ao-tooltip
-        bottom
-        text="Tooltip with some really long text">
-        <ao-button primary>Hover Me!</ao-button>
-      </ao-tooltip>
-      <ao-tooltip
-        left
-        text="Tooltip with some really long text">
-        <ao-button primary>Hover Me!</ao-button>
-      </ao-tooltip>
-      <ao-tooltip
-        right
-        text="Tooltip with some really long text">
-        <ao-button primary>Hover Me!</ao-button>
-      </ao-tooltip>
+      <div style="text-align: center;">
+        <p>
+        <ao-tooltip
+          top
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          bottom
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          left
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          right
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip right text="By default, it is this icon"/>
+        </p>
+      </div>
       <p>
         <ao-text-style
           error

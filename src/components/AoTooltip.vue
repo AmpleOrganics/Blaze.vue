@@ -2,7 +2,9 @@
   <div
     :class="[computedClasses]"
   >
-    <slot/>
+    <slot>
+      <i class="ao-tooltip__default-icon glyphicon glyphicon-info-sign"/>
+    </slot>
     <div class="ao-tooltip__tip-container">
       <span class="ao-tooltip__text">{{ text }}</span>
       <div class="ao-tooltip__triangle"/>
@@ -78,10 +80,15 @@ $tooltip-background-color: $color-gray-10;
     white-space: nowrap;
   }
 
+  &__default-icon {
+    color: $color-gray-30;
+  }
+
   &__tip-container {
     position: absolute;
     width: 0;
     height: 0;
+    z-index: $zindex-tooltip;
   }
 
   &:hover {
