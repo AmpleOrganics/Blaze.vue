@@ -68,8 +68,15 @@ $tooltip-transition: opacity .2s ease-in-out;
 .ao-tooltip {
   position: relative;
   display: inline-block;
-  transition: $tooltip-transition;
   overflow: none;
+
+  &__tip-container {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: $zindex-tooltip;
+    overflow: hidden;
+  }
 
   &__text {
     visibility: hidden;
@@ -84,30 +91,6 @@ $tooltip-transition: opacity .2s ease-in-out;
     transition: $tooltip-transition;
   }
 
-  &__default-icon {
-    color: $color-gray-30;
-  }
-
-  &__tip-container {
-    position: absolute;
-    width: 0;
-    height: 0;
-    z-index: $zindex-tooltip;
-    overflow: hidden;
-  }
-
-  &:hover {
-    .ao-tooltip__text,
-    .ao-tooltip__triangle {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .ao-tooltip__tip-container {
-      overflow: visible;
-    }
-  }
-
   &__triangle {
     visibility: hidden;
     position: absolute;
@@ -116,6 +99,20 @@ $tooltip-transition: opacity .2s ease-in-out;
     border-style: solid;
     border-width: $tooltip-distance $tooltip-distance 0 $tooltip-distance ;
     border-color: $tooltip-background-color transparent transparent transparent;
+  }
+
+  &__default-icon {
+    color: $color-gray-30;
+  }
+
+  &:hover &__tip-container {
+    overflow: visible;
+  }
+
+  &:hover &__text,
+  &:hover &__triangle {
+    visibility: visible;
+    opacity: 1;
   }
 
   &--left &__tip-container {
