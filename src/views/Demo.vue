@@ -76,6 +76,7 @@
           :label="'Age'"
           v-model="age"
           :step="5"
+          tooltip="tooltip!"
         />
         <p>My age: {{ age }}</p>
 
@@ -112,7 +113,7 @@
           :checkbox-label="'Books'"
         />
 
-        <ao-info-pair :label="'Info Pair Label'">
+        <ao-info-pair :label="'Info Pair Label'" tooltip="Testing">
           <p>
             123 Address St.
             <br>

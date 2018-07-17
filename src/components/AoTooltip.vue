@@ -61,7 +61,7 @@ export default {
 
 <style lang='scss' scoped>
 
-$tooltip-distance: 4px;//Defining a consistent distance from the object;
+$tooltip-distance: $spacer-micro;//Defining a consistent distance from the object;
 $tooltip-background-color: $color-gray-10;
 $tooltip-transition: opacity .2s ease-in-out;
 
@@ -102,7 +102,8 @@ $tooltip-transition: opacity .2s ease-in-out;
   }
 
   &__default-icon {
-    color: $color-gray-30;
+    color: $color-gray-40;
+    font-size: $font-size-sm;
   }
 
   &:hover &__tip-container {
