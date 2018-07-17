@@ -4,10 +4,7 @@
       <h4 class="ao-info-pair__label-text">
         {{ label }}
       </h4>
-      <ao-tooltip
-        v-if="tooltip"
-        right
-        :text="tooltip"/>
+      <slot name="infoPairLabelTooltip"/>
     </div>
     <div class="ao-info-pair__value">
       <slot/>
@@ -19,10 +16,6 @@
 export default {
   props: {
     label: {
-      type: String,
-      default: null
-    },
-    tooltip: {
       type: String,
       default: null
     }

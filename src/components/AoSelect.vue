@@ -5,6 +5,7 @@
       for="name">
       {{ label }}
     </label>
+    <slot name="selectLabelTooltip"/>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <select
         :name="name"

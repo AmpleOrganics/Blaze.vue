@@ -4,10 +4,7 @@
       <label
         v-show="showLabel"
         :for="name">{{ label }}</label>
-      <ao-tooltip
-        v-if="tooltip"
-        right
-        :text="tooltip"/>
+      <slot name="inputLabelTooltip"/>
     </div>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
@@ -139,11 +136,6 @@ export default {
     hasError: {
       type: Boolean,
       default: false
-    },
-
-    tooltip: {
-      type: String,
-      default: null
     }
   },
 

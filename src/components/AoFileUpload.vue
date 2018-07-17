@@ -3,6 +3,7 @@
     <label
       v-show="showLabel"
       :for="name">{{ label }}</label>
+    <slot name="fileUploadLabelTooltip"/>
     <input
       :class="{'ao-form-control--has-error': hasError }"
       :name="name"

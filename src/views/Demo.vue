@@ -76,8 +76,9 @@
           :label="'Age'"
           v-model="age"
           :step="5"
-          tooltip="tooltip!"
-        />
+        >
+        <ao-tooltip text="TEst" slot="inputLabelTooltip" bottom/>
+        </ao-input>
         <p>My age: {{ age }}</p>
 
         <ao-file-upload
