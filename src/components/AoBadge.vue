@@ -45,33 +45,32 @@ export default {
 
 <style lang="scss" scoped>
 
-  .ao-badge {
-    display: inline;
-    padding: .3em .6em .35em;
-    font-size: $font-size-xs;
-    font-weight: $font-weight-bold;;
-    line-height: 1;
-    color: $color-white;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: $border-radius-base;
-    text-transform: uppercase;
-    background: $color-ao-primary;
+.ao-badge {
+  display: inline;
+  padding: .3em .6em .35em;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;;
+  line-height: 1;
+  color: $color-white;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $border-radius-base;
+  text-transform: uppercase;
+  background: $color-primary;
 
-    &--success {
-      background-color: $color-success;
-    }
-
-    &--info {
-      background-color: $color-info;
-    }
-
-    &--subtle {
-      background: $color-gray-80;
-      color: $color-gray-20;
-    }
-
+  &--success {
+    background-color: $color-success;
   }
 
+  &--info {
+    background-color: $color-info;
+  }
+
+  &--subtle {
+    background: $color-gray-80;
+    color: $color-gray-20;
+  }
+
+}
 </style>

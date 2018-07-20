@@ -2,7 +2,9 @@
   <div class="ao-form-group">
     <label
       v-show="showLabel"
-      :for="name">{{ label }}</label>
+      :for="name">
+      {{ label }}
+    </label>
     <input
       :class="{'ao-form-control--has-error': hasError }"
       :name="name"
@@ -10,8 +12,7 @@
       :disabled="disabled"
       class="ao-form-control"
       type="file"
-      @change="updateFile($event.target.files)"
-    >
+      @change="updateFile($event.target.files)">
   </div>
 </template>
 

@@ -13,14 +13,12 @@
         v-model="selected"
         :class="{'ao-form-control--has-error': hasError }"
         class="ao-form-control"
-        @input="updateValue($event.target.value)"
-      >
+        @input="updateValue($event.target.value)">
         <option
           v-for="option in computedOptions"
           :key="option.value"
           :value="option.value"
-          :selected="selected"
-        >
+          :selected="selected">
           {{ option.name }}
         </option>
       </select>
@@ -28,8 +26,7 @@
         v-if="hasIconAddon"
         :class="iconClass"
         class="ao-input-group__addon"
-        v-html="iconHtml"
-      />
+        v-html="iconHtml"/>
       <span
         v-if="hasAddOn"
         class="ao-input-group__addon">

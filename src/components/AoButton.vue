@@ -2,9 +2,8 @@
   <button
     :type="type"
     :form="formName"
-    :class="[computedButtonClass, computedSize]"
-    :disabled="disabled"
-  >
+    :class="computedButtonClass"
+    :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -28,12 +27,12 @@ export default {
       default: null
     },
 
-    nano: {
+    small: {
       type: Boolean,
-      default: null
+      default: false
     },
 
-    small: {
+    medium: {
       type: Boolean,
       default: false
     },
@@ -88,18 +87,12 @@ export default {
         'ao-button--caution': this.caution,
         'ao-button--subtle': this.subtle,
         'ao-button--naked': this.naked,
+        'ao-button--medium': this.medium,
+        'ao-button--small': this.small,
+        'ao-button--large': this.large,
         'ao-button--jumbo': this.jumbo
       }
       return filterClasses(activeClasses)
-    },
-
-    computedSize () {
-      const sizes = {
-        'ao-button--nano': this.nano,
-        'ao-button--small': this.small,
-        'ao-button--large': this.large
-      }
-      return filterClasses(sizes)
     }
   }
 }
@@ -150,13 +143,13 @@ export default {
   }
 
   &--primary {
-    background-color: $color-ao-primary;
-    border-color: $color-ao-primary;
+    background-color: $color-primary;
+    border-color: $color-primary;
     color: $color-white;
 
     &:hover, &:active {
-      border-color: darken($color-ao-primary, 3%);
-      background-color: darken($color-ao-primary, 3%);
+      border-color: darken($color-primary, 3%);
+      background-color: darken($color-primary, 3%);
       color: $color-white;
     }
   }
@@ -199,12 +192,12 @@ export default {
   &--naked {
     background-color: transparent;
     border-color: transparent;
-    box-shadow: 0 0 0 rgba(0,0,0,0);
+    box-shadow: $no-shadow;
 
     &:hover, :active {
       border-color: transparent;
       background-color: transparent;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
+      box-shadow: $no-shadow;
     }
   }
 
@@ -213,6 +206,11 @@ export default {
     font-size: $font-size-xs;
     padding-left: $spacer-xs;
     padding-right: $spacer-xs;
+  }
+
+  &--medium {
+    padding: $spacer-micro $spacer-xs;
+    min-height: 0;
   }
 
   &--large {
@@ -224,11 +222,6 @@ export default {
     width: 100%;
     height: 80px;
     margin-left: 0;
-  }
-
-  &--nano {
-    padding: 0.25rem 0.50rem;
-    min-height: 0;
   }
 }
 </style>

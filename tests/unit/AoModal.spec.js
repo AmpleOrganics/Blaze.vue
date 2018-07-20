@@ -8,7 +8,7 @@ function mountComponent (component, options) {
 }
 
 describe('Modal', () => {
-  it('defines destrutive prop to be a boolean and to be false by default', () => {
+  it('defines destructive prop to be a boolean and to be false by default', () => {
     const destructive = Modal.props.destructive
     expect(destructive.type.name).to.equal('Boolean')
     expect(typeof destructive.default).to.equal('boolean')
@@ -44,7 +44,7 @@ describe('Modal', () => {
     expect(modal.size).to.equal('md')
     expect(modal.destructive).to.equal(false)
     expect(modal.caution).to.equal(false)
-    expect(modal.computedHeaderClass.join(' ')).to.equal('ao-modal__header--default')
+    expect(modal.computedHeaderClass.join(' ')).to.equal('ao-modal__header')
     expect(modal.computedModalSize).to.equal('ao-modal--md')
   })
 
@@ -61,7 +61,7 @@ describe('Modal', () => {
     expect(modal.caution).to.equal(false)
     expect(modal.computedHeaderClass.join(' '))
       .to
-      .equal('ao-modal__header--default ao-modal__header--destructive')
+      .equal('ao-modal__header ao-modal__header--destructive')
     expect(modal.computedModalSize).to.equal('ao-modal--md')
   })
 
@@ -77,7 +77,7 @@ describe('Modal', () => {
     expect(modal.caution).to.equal(true)
     expect(modal.computedHeaderClass.join(' '))
       .to
-      .equal('ao-modal__header--default ao-modal__header--caution')
+      .equal('ao-modal__header ao-modal__header--caution')
     expect(modal.computedModalSize).to.equal('ao-modal--md')
   })
 })

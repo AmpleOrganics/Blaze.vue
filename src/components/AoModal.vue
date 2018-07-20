@@ -1,22 +1,18 @@
 <template>
   <transition name="slide-fade">
-    <div class="ao-modal__mask">
+    <div class="ao-modal-mask">
       <div
         ref="modal"
         class="ao-modal"
         tabindex="0"
         @click.self="closeModal"
-        @keyup.esc.stop="closeModal"
-      >
+        @keyup.esc.stop="closeModal">
         <div
           :class="computedModalSize"
           class="modal-dialog"
-          @click.self="closeModal"
-        >
+          @click.self="closeModal">
           <div class="ao-modal__content">
-            <div
-              :class="computedHeaderClass"
-              class="ao-modal__header">
+            <div :class="computedHeaderClass">
               <h2>{{ headerText }}</h2>
             </div>
             <div class="ao-modal__body">
@@ -66,7 +62,7 @@ export default {
   computed: {
     computedHeaderClass () {
       const activeClasses = {
-        'ao-modal__header--default': true,
+        'ao-modal__header': true,
         'ao-modal__header--destructive': this.destructive,
         'ao-modal__header--caution': this.caution
       }
@@ -107,28 +103,12 @@ export default {
     outline: 0px;
   }
 
-  &__mask {
-    position: fixed;
-    z-index: $zindex-modal-backdrop;
-    top: 0;
-    left: 0;
-    bottom:0;
-    right:0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow: auto;
-  }
-
   &__header  {
     margin: 0;
     padding: $spacer;
     text-align: center;
     color: $color-white;
-
-    &--default {
-      background-color: $color-ao-primary;
-    }
+    background-color: $color-primary;
 
     &--destructive {
       background-color: $color-destructive;
@@ -170,5 +150,18 @@ export default {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.ao-modal-mask {
+  position: fixed;
+  z-index: $zindex-modal-backdrop;
+  top: 0;
+  left: 0;
+  bottom:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
 }
 </style>

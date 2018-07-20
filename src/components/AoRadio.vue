@@ -7,8 +7,7 @@
       :disabled="disabled"
       :required="required"
       type="radio"
-      @change="toggle"
-    >
+      @change="toggle">
     <span>
       <slot/>
     </span>
