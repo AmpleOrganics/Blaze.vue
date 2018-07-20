@@ -3,7 +3,7 @@
     :disabled="disabled"
     class="ao-checkbox"
   >
-    <label>
+    <label class="ao-checkbox__label">
       <input
         :name="name"
         :value="checkboxValue"
@@ -11,8 +11,8 @@
         :required="required"
         :disabled="disabled"
         type="checkbox"
-        @change="choose"
-      >
+        class="ao-checkbox__input"
+        @change="choose">
       <span v-show="showLabel">{{ checkboxLabel }}</span>
     </label>
   </div>
@@ -86,22 +86,23 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-input[type='checkbox'] {
-  line-height: normal;
-  box-sizing: border-box;
-  padding: 0;
-}
 
 .ao-checkbox {
   position: relative;
   display: block;
   margin-bottom: 10px;
 
-  & > label {
+  &__ {
     min-height: 22px;
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
+  }
+
+  &__input {
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0;
   }
 }
 </style>

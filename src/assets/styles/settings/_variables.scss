@@ -8,9 +8,9 @@
 // Color system
 //
 
-$color-ao-primary:            #00a38b;
-$color-ao-primary-dark:       darken($color-ao-primary, 5);
-$color-ao-dark:               #292F3B;
+$color-primary:            #00a38b;
+$color-primary-dark:       darken($color-primary, 5);
+$color-dark:               #292F3B;
 
 $color-white:                 #fff;
 $color-green:                 #17a66c;
@@ -88,6 +88,7 @@ $ui-border-color-base:        $color-gray-60;
 
 $border-radius-base:          3px;
 
+$no-shadow:                   0 0 0 rgba(0,0,0,0);
 $shadow:                      0px 1px 20px rgba(0,0,0,0.15);
 $shadow-dramatic:             0px 5px 40px rgba(0,0,0,0.35);
 $shadow-subtle:               0px 2px 3px rgba(0, 0, 0, 0.05);
@@ -111,16 +112,16 @@ $input-border-radius:         $border-radius-base;
 
 $input-border-color-error:    $color-destructive;
 
-$input-focus-border-color:    $color-ao-primary;
-$input-focus-shadow:          0 0 0 1px transparentize($color-ao-primary, 0.5);
+$input-focus-border-color:    $color-primary;
+$input-focus-shadow:          0 0 0 1px transparentize($color-primary, 0.5);
 $input-focus-shadow-error:    0 0 1px transparentize($color-destructive, 0.1);
 
 
 $input-label-margin:          0 0 $spacer-xs;
 
-// 
+//
 // Tranisition/Animation Mixins
-// 
+//
 
 @mixin slide-fade {
   .slide-fade {

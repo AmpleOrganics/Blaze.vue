@@ -1,25 +1,22 @@
 <template>
-  <div class="ao-table--responsive">
-    <table
-      :class=" { 'ao-table--clickable': isClickable }"
-      class="ao-table ao-table--striped">
-      <thead>
-        <tr>
-          <th
-            v-for="columnHeader in headers"
-            :key="columnHeader.field"
-            :class="isSortableClass(columnHeader.sortable)"
-            @click="sortByHeader(columnHeader.field, columnHeader.sortable)"
-          >
-            <span>{{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)"/></span>
-          </th>
-        </tr>
-      </thead>
-      <tbody :class=" { clickable: isClickable }">
-        <slot />
-      </tbody>
-    </table>
-  </div>
+  <table
+    :class=" { 'ao-table--clickable': isClickable }"
+    class="ao-table">
+    <thead>
+      <tr>
+        <th
+          v-for="columnHeader in headers"
+          :key="columnHeader.field"
+          :class="isSortableClass(columnHeader.sortable)"
+          @click="sortByHeader(columnHeader.field, columnHeader.sortable)">
+          <span>{{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)"/></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody :class=" { clickable: isClickable }">
+      <slot />
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -87,13 +84,10 @@ export default {
   max-width: 100%;
   margin-bottom: $spacer;
   background: transparent;
+  overflow-x: auto;
+  min-height: 0.01%;
 
-  &--responsive {
-    overflow-x: auto;
-    min-height: 0.01%;
-  }
-
-  &--striped > tbody > tr:nth-of-type(odd) {
+  & > tbody > tr:nth-of-type(odd) {
     background-color: $color-gray-90;
   }
 
@@ -102,7 +96,7 @@ export default {
       cursor: pointer;
     }
 
-    &.ao-table--striped > tbody > tr:hover  {
+    & > tbody > tr:hover  {
       background: $color-gray-80;
     }
   }

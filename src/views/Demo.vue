@@ -25,7 +25,9 @@
       <p>
         <ao-text-style
           error
-          small>text</ao-text-style>
+          small>
+          text
+        </ao-text-style>
       </p>
       <ao-form @formHandler="saveForm">
         <ao-input
@@ -34,23 +36,20 @@
           :show-label="false"
           :placeholder="'Name'"
           v-model="name"
-          :has-error="true"
-        />
+          :has-error="true"/>
         <p>My name: {{ name }}</p>
 
         <ao-input
           :type="'number'"
           :label="'Age'"
           v-model="age"
-          :step="5"
-        />
+          :step="5"/>
         <p>My age: {{ age }}</p>
 
         <ao-file-upload
           :label="'File'"
           :reference="'file'"
-          @change="updateFile($event)"
-        />
+          @change="updateFile($event)"/>
 
         <p>Filename: {{ file }}</p>
 
@@ -58,26 +57,22 @@
         <ao-checkbox
           v-model="programmingLanguages"
           :checkbox-value="'JavaScript'"
-          :checkbox-label="'Javascript'"
-        />
+          :checkbox-label="'Javascript'"/>
         <ao-checkbox
           v-model="programmingLanguages"
           :checkbox-value="'Ruby'"
-          :checkbox-label="'Ruby'"
-        />
+          :checkbox-label="'Ruby'"/>
         <ao-checkbox
           v-model="programmingLanguages"
           :checkbox-value="'PHP'"
           :checkbox-label="'PHP'"
-          disabled
-        />
+          disabled/>
 
         <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
         <label>Do you like books?</label>
         <ao-checkbox
           v-model="likeBooks"
-          :checkbox-label="'Books'"
-        />
+          :checkbox-label="'Books'"/>
 
         <ao-info-pair :label="'Info Pair Label'">
           <p>
@@ -94,8 +89,7 @@
           :key="radio.value"
           :val="radio.value"
           :name="radio.name"
-          v-model="selectedRadio"
-        >
+          v-model="selectedRadio">
           {{ radio.value }}
         </ao-radio>
 
@@ -106,8 +100,7 @@
           :options="pets"
           :label="'Nice Pets'"
           :default="nicePets"
-          :has-error="true"
-        />
+          :has-error="true"/>
         <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
 
         <ao-text-area v-model="description" />
@@ -118,8 +111,7 @@
           :type="'search'"/>
         <ao-button
           :type="'submit'"
-          primary
-        >
+          primary>
           Save
         </ao-button>
       </ao-form>
@@ -152,8 +144,7 @@
       v-if="showModal"
       :size="'md'"
       :header-text="'I am the modal title'"
-      @modalClose="toggleModal"
-    >
+      @modalClose="toggleModal">
       <div slot="modal-body">
         <p>I am content</p>
       </div>
@@ -169,10 +160,7 @@
     <ao-alert
       v-if="showAlert"
       :show-alert.sync="showAlert">
-      <span slot="alert-icon">
-        Icon
-      </span>
-
+      <span slot="alert-icon"> Icon </span>
       <span>I alerted with a message</span>
     </ao-alert>
   </div>

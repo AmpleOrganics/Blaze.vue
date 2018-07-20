@@ -19,14 +19,12 @@
         :disabled="disabled"
         :step="step"
         class="ao-form-control"
-        @input="updateValue($event.target.value)"
-      >
+        @input="updateValue($event.target.value)">
       <span
         v-if="hasIconAddon"
         :class="iconClass"
         class="ao-input-group__addon"
-        v-html="iconHtml"
-      />
+        v-html="iconHtml"/>
       <span
         v-if="hasAddOn"
         class="ao-input-group__addon">

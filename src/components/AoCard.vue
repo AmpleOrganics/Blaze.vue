@@ -4,7 +4,7 @@
       v-if="title"
       class="ao-card__header">
       <h2 class="ao-card__title">{{ title }}</h2>
-      <div class="ao-card__header__toolbar">
+      <div class="ao-card__toolbar">
         <slot name="card-header-toolbar"/>
       </div>
     </div>
@@ -26,25 +26,32 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+  .ao-card {
+    background-color: #fff;
+    border: 1px solid $ui-border-color-base;
+    border-radius: $border-radius-base;
+    margin-bottom: $spacer;
+    padding: 0;
 
-.ao-card {
-  background-color: #fff;
-  border: 1px solid $ui-border-color-base;
-  border-radius: $border-radius-base;
-  margin-bottom: $spacer;
-  padding: 0;
+    &__body {
+      padding: $spacer;
+    }
 
-  &__body {
-    padding: $spacer;
-  }
+    &__header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: 1px solid $ui-border-color-base;
+    }
 
-  &__header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    border-bottom: 1px solid $ui-border-color-base;
+    &__title {
+      margin: 0;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-light;
+      display: inline-block;
+    }
 
     &__toolbar {
       display: flex;
@@ -62,12 +69,4 @@ export default {
       }
     }
   }
-
-  &__title {
-    margin: 0;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-light;
-    display: inline-block;
-  }
-}
 </style>

@@ -40,7 +40,7 @@ describe('Alert', () => {
       }
     })
     expect(alert.showAlert).to.equal(false)
-    expect(alert.computedAlertIconClass.join(' ')).to.equal('ao-alert__icon ao-alert__icon--default')
+    expect(alert.computedAlertIconClass.join(' ')).to.equal('ao-alert__icon')
   })
 
   it('returns destructive props on creation', () => {
@@ -54,7 +54,7 @@ describe('Alert', () => {
     expect(alert.destructive).to.equal(true)
     expect(alert.computedAlertIconClass
       .join(' '))
-      .to.equal('ao-alert__icon ao-alert__icon--default ao-alert__icon--destructive')
+      .to.equal('ao-alert__icon ao-alert__icon--destructive')
   })
 
   it('returns caution props on creation', () => {
@@ -68,6 +68,6 @@ describe('Alert', () => {
     expect(alert.caution).to.equal(true)
     expect(alert.computedAlertIconClass
       .join(' '))
-      .to.equal('ao-alert__icon ao-alert__icon--default ao-alert__icon--caution')
+      .to.equal('ao-alert__icon ao-alert__icon--caution')
   })
 })

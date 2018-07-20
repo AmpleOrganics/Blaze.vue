@@ -18,8 +18,8 @@
     width: 40px;
     height: 40px;
     border: solid 4px transparent;
-    border-top-color: $color-ao-primary;
-    border-left-color: $color-ao-primary;
+    border-top-color: $color-primary;
+    border-left-color: $color-primary;
     border-radius: 50%;
     animation: progress-spinner 600ms linear infinite;
   }

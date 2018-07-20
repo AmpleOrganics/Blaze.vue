@@ -1,7 +1,5 @@
 <template>
-  <span
-    :class="[computedClasses]"
-  >
+  <span :class="[computedClasses]">
     <slot/>
   </span>
 </template>
