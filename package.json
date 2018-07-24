@@ -2,28 +2,26 @@
   "name": "blaze-vue",
   "version": "0.2.0",
   "private": false,
-  "main": "dist/blaze-vue.common.js",
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build:demo": "vue-cli-service build",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+    "build:demo": "vue-cli-service build",
     "build:lib": "vue-cli-service build --target lib --name blaze-vue src/blaze-plugin.js",
     "prepublishOnly": "npm run build:lib && sh .post-build-copy.sh",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "lint:css": "stylelint 'src/**/*.vue'"
   },
-  "files": [
-    "dist"
-  ],
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.5",
     "@vue/cli-plugin-eslint": "^3.0.0-rc.5",
-    "@vue/cli-plugin-unit-mocha": "^3.0.0-rc.5",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.5",
     "@vue/cli-service": "^3.0.0-rc.5",
     "@vue/eslint-config-standard": "^3.0.0-rc.5",
     "@vue/test-utils": "^1.0.0-beta.21",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.0.1",
     "chai": "^4.1.2",
     "lodash.orderby": "^4.6.0",
     "node-sass": "^4.9.2",
@@ -54,5 +52,9 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-scss": "^3.2.0",
     "vue": "^2.5.16"
-  }
+  },
+  "main": "dist/blaze-vue.common.js",
+  "files": [
+    "dist"
+  ]
 }
