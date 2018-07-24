@@ -31,7 +31,7 @@
     &[disabled] {
       cursor: not-allowed;
     }
-    &--has-error {
+    &--invalid {
       border-color: $input-border-color-error;
       &:active:not([disabled]),
       &:focus {

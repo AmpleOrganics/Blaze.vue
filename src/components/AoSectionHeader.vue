@@ -1,4 +1,5 @@
 <template>
+  <!-- rename? -->
   <div class="ao-section-header">
     <div class="ao-section-header__title-block">
       <span
@@ -25,13 +26,11 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
-      default: null
+      required: true
     },
 
     subtitle: {
       type: String,
-      required: false,
       default: null
     },
 

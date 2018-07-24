@@ -12,15 +12,15 @@ describe('FileUpload', () => {
     expect(fileUpload.classes()).toContain('ao-form-group')
   })
 
-  it('hasError', () => {
+  it('invalid', () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
         label: 'test0',
-        hasError: true
+        invalid: true
       }
     })
     expect(fileUpload.text()).toBe('test0')
-    expect(fileUpload.contains('.ao-form-control--has-error')).toBe(true)
+    expect(fileUpload.contains('.ao-form-control--invalid')).toBe(true)
   })
 
   it('disabled', () => {

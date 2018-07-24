@@ -1,19 +1,15 @@
 <template>
-  <div class="ao-form-group">
-    <label
-      v-show="showLabel"
-      :for="name">
-      {{ label }}
-    </label>
+  <label
+    v-show="showLabel"
+    class="ao-form-group">
+    {{ label }}
     <input
-      :class="{'ao-form-control--has-error': hasError }"
+      :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
-      :required="required"
       :disabled="disabled"
-      class="ao-form-control"
       type="file"
       @change="updateFile($event.target.files)">
-  </div>
+  </label>
 </template>
 
 <script>
@@ -21,8 +17,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
-      default: null
+      required: true
     },
 
     showLabel: {
@@ -30,22 +25,12 @@ export default {
       default: true
     },
 
-    name: {
-      type: String,
-      default: null
-    },
-
     disabled: {
       type: Boolean,
       default: false
     },
 
-    hasError: {
-      type: Boolean,
-      default: false
-    },
-
-    required: {
+    invalid: {
       type: Boolean,
       default: false
     }

@@ -1,17 +1,16 @@
 <template>
-  <div
-    :disabled="disabled"
-    class="ao-checkbox">
-    <label class="ao-checkbox__label">
+  <!-- not sure how to refector this into just a label and input TODO: Dan help-->
+  <div class="ao-checkbox">
+    <label
+      :disabled="disabled"
+      class="ao-checkbox__label">
       <input
-        :name="name"
         :value="checkboxValue"
         v-model="checked"
-        :required="required"
         :disabled="disabled"
         type="checkbox"
         class="ao-checkbox__input"
-        @change="choose">
+        @change="check">
       <span v-show="showLabel">{{ checkboxLabel }}</span>
     </label>
   </div>
@@ -20,6 +19,7 @@
 <script>
 export default {
   props: {
+    // both this and checkboxValue needed to avoid vue issue
     value: {
       type: [Array, Boolean, Number, Object],
       default: null
@@ -27,7 +27,6 @@ export default {
 
     checkboxValue: {
       type: [String, Number, Boolean, Object],
-      required: false,
       default: null
     },
 
@@ -38,18 +37,7 @@ export default {
 
     checkboxLabel: {
       type: String,
-      default: null,
       required: true
-    },
-
-    name: {
-      type: String,
-      default: null
-    },
-
-    required: {
-      type: Boolean,
-      default: false
     },
 
     disabled: {
@@ -77,7 +65,7 @@ export default {
   },
 
   methods: {
-    choose (value) {
+    check (value) {
       this.$emit('input', this.checkedModel)
     }
   }

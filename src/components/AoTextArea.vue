@@ -1,18 +1,17 @@
 <template>
+  <!-- investigate min max length -->
   <div class="ao-form-group">
     <label
       v-show="showLabel"
       :for="name">{{ label }}</label>
     <textarea
-      :class="{'ao-form-control--has-error': hasError }"
+      :class="{'ao-form-control--invalid': invalid }"
       :value="value"
       :placeholder="placeholder"
       :name="name"
       :rows="rows"
       :maxlength="maxLength"
       :minlength="minLength"
-      :required="required"
-      :readonly="readonly"
       :disabled="disabled"
       class="ao-form-control"
       @input="inputEvent($event.target.value)"
@@ -53,16 +52,6 @@ export default {
       default: 0
     },
 
-    required: {
-      type: Boolean,
-      default: false
-    },
-
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-
     disabled: {
       type: Boolean,
       default: false
@@ -73,7 +62,7 @@ export default {
       default: 5
     },
 
-    hasError: {
+    invalid: {
       type: Boolean,
       default: false
     },

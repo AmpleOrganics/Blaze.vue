@@ -1,7 +1,6 @@
 <template>
   <table
-    :class=" { 'ao-table--clickable': isClickable }"
-    class="ao-table">
+    :class="[{ 'ao-table--clickable': isClickable }, 'ao-table']">
     <thead>
       <tr>
         <th
@@ -24,29 +23,34 @@ export default {
   props: {
     headers: {
       type: Array,
-      required: false,
       default: null
     },
 
     isClickable: {
       type: Boolean,
-      required: false,
       default: false
+    },
+
+    sortBy: {
+      type: String,
+      default: null
+    },
+
+    order: {
+      type: String,
+      default: 'desc',
+      validator: function (order) {
+        return ['asc', 'desc'].includes(order)
+      }
     }
   },
 
   data () {
     return {
-      sortBy: null,
-      reverse: false,
-      lastSelectedHeader: null
+      lastSelectedHeader: this.sortBy,
+      sortProxy: this.sortBy,
+      orderProxy: this.order
     }
-  },
-
-  created () {
-    this.sortBy = this.headers[0].field
-    this.lastSelectedHeader = this.headers[0].field
-    this.reverse = true
   },
 
   methods: {
@@ -54,23 +58,28 @@ export default {
       // undefined is used so you do not have to set searchable
       if (sortable === true || sortable === undefined) {
         if (header === this.lastSelectedHeader) {
-          this.reverse = !this.reverse
+          this.orderProxy = this.toggleOrder(this.orderProxy)
         } else {
           this.lastSelectedHeader = header
-          this.reverse = true
-          this.sortBy = header
+          this.orderProxy = 'desc'
+          this.sortProxy = header
         }
-        this.$emit('sortTable', this.sortBy, this.reverse)
+        this.$emit('sortTable', this.sortProxy, this.orderProxy)
       }
     },
+
     isSortableClass (sortable) {
-      return sortable === true || sortable === undefined ? 'ao-table__th--sortable' : ''
+      return sortable === true || sortable === undefined ? 'ao-table__th--sortable' : null
     },
 
     isChevroned (name, sortable) {
-      if (name === this.sortBy && (sortable === true || sortable === undefined)) {
-        return this.reverse ? 'glyphicon glyphicon-chevron-down ao-table__sort-icon' : 'glyphicon glyphicon-chevron-up ao-table__sort-icon'
+      if (name === this.sortProxy && (sortable === true || sortable === undefined)) {
+        return this.orderProxy === 'desc' ? 'glyphicon glyphicon-chevron-down ao-table__sort-icon' : 'glyphicon glyphicon-chevron-up ao-table__sort-icon'
       }
+    },
+
+    toggleOrder (order) {
+      return order === 'asc' ? 'desc' : 'asc'
     }
   }
 }
