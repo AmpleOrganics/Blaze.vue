@@ -47,9 +47,9 @@ export default {
 
 .ao-badge {
   display: inline;
-  padding: .3em .6em .35em;
+  padding: 0.3em 0.6em 0.35em;
   font-size: $font-size-xs;
-  font-weight: $font-weight-bold;;
+  font-weight: $font-weight-bold;
   line-height: 1;
   color: $color-white;
   text-align: center;
@@ -71,6 +71,5 @@ export default {
     background: $color-gray-80;
     color: $color-gray-20;
   }
-
 }
 </style>

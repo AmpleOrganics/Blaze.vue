@@ -100,10 +100,10 @@ export default {
   height: 100%;
 
   &:focus {
-    outline: 0px;
+    outline: 0;
   }
 
-  &__header  {
+  &__header {
     margin: 0;
     padding: $spacer;
     text-align: center;
@@ -128,7 +128,6 @@ export default {
 
   &__content {
     background-color: $color-white;
-    border-radius: 6px;
     background-clip: padding-box;
     border-radius: $border-radius-base;
     box-shadow: $shadow-dramatic;
@@ -157,8 +156,8 @@ export default {
   z-index: $zindex-modal-backdrop;
   top: 0;
   left: 0;
-  bottom:0;
-  right:0;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);

@@ -11,7 +11,8 @@
     "build:lib": "vue-cli-service build --target lib --name blaze-vue src/blaze-plugin.js",
     "prepublishOnly": "npm run build:lib && sh .post-build-copy.sh",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "lint:css": "stylelint 'src/**/*.vue'"
   },
   "files": [
     "dist"
@@ -47,6 +48,11 @@
     "not ie <= 8"
   ],
   "dependencies": {
+    "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
+    "stylelint": "^9.3.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.2.0",
     "vue": "^2.5.16"
   }
 }

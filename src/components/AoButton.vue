@@ -32,11 +32,6 @@ export default {
       default: false
     },
 
-    medium: {
-      type: Boolean,
-      default: false
-    },
-
     large: {
       type: Boolean,
       default: false
@@ -87,7 +82,6 @@ export default {
         'ao-button--caution': this.caution,
         'ao-button--subtle': this.subtle,
         'ao-button--naked': this.naked,
-        'ao-button--medium': this.medium,
         'ao-button--small': this.small,
         'ao-button--large': this.large,
         'ao-button--jumbo': this.jumbo
@@ -103,7 +97,6 @@ export default {
 .ao-button {
   display: inline-block;
   margin-bottom: 0;
-  font-weight: bold;
   text-align: center;
   font-weight: $font-weight-bold;
   font-family: $font-family-primary;
@@ -115,12 +108,16 @@ export default {
   min-height: $input-height-base;
   box-shadow: $shadow-subtle;
 
-  //Default styles, overridden by special classes
+ /* Default styles, overridden by special classes */
   background-color: $color-white;
   border-color: $color-gray-50;
   color: $font-color-base;
 
-  //Default hover/active styles, overridden by special classes
+ /* Default hover/active styles, overridden by special classes */
+  &:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+
   &:hover, &:active {
     background-color: darken($color-white, 3%);
     border-color: darken($color-gray-50, 3%);
@@ -136,10 +133,6 @@ export default {
     opacity: 0.65;
     filter: alpha(opacity=65);
     box-shadow: none;
-  }
-
-  &:active {
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   }
 
   &--primary {
@@ -159,7 +152,7 @@ export default {
     border: 1px solid $color-destructive;
     color: $color-white;
 
-    &:hover, &:active{
+    &:hover, &:active {
       background-color: darken($color-destructive, 5%);
       border-color: darken($color-destructive, 5%);
       color: $color-white;
@@ -192,12 +185,12 @@ export default {
   &--naked {
     background-color: transparent;
     border-color: transparent;
-    box-shadow: $no-shadow;
+    box-shadow: $shadow-none;
 
     &:hover, :active {
       border-color: transparent;
       background-color: transparent;
-      box-shadow: $no-shadow;
+      box-shadow: $shadow-none;
     }
   }
 
@@ -206,11 +199,6 @@ export default {
     font-size: $font-size-xs;
     padding-left: $spacer-xs;
     padding-right: $spacer-xs;
-  }
-
-  &--medium {
-    padding: $spacer-micro $spacer-xs;
-    min-height: 0;
   }
 
   &--large {

@@ -87,22 +87,22 @@ export default {
   overflow-x: auto;
   min-height: 0.01%;
 
-  & > tbody > tr:nth-of-type(odd) {
-    background-color: $color-gray-90;
-  }
-
   &--clickable {
     tbody > tr {
       cursor: pointer;
     }
 
-    & > tbody > tr:hover  {
+    & > tbody > tr:hover {
       background: $color-gray-80;
     }
   }
 
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: $color-gray-90;
+  }
+
   & > tbody /deep/ tr > td {
-    padding: .5rem;
+    padding: 0.5rem;
     vertical-align: middle;
     border-top: 1px solid $color-gray-60;
   }
@@ -115,7 +115,7 @@ export default {
   & thead > tr > th {
     color: $color-gray-10;
     vertical-align: bottom;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid $color-grey-light;
     padding: 8px;
     line-height: 1.4;
   }
