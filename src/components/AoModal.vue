@@ -9,7 +9,6 @@
         @keyup.esc.stop="closeModal">
         <div
           :class="computedModalSize"
-          class="modal-dialog"
           @click.self="closeModal">
           <div class="ao-modal__content">
             <div :class="computedHeaderClass">

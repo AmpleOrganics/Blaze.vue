@@ -3,20 +3,17 @@
     <input
       v-model="checked"
       :value="val"
-      :name="name"
       :disabled="disabled"
-      :required="required"
       type="radio"
       @change="toggle">
-    <span>
-      <slot/>
-    </span>
+    <span>{{ label }}</span>
   </label>
 </template>
 
 <script>
 export default {
   props: {
+    // consistant naming and proxy for vue magic
     value: {
       type: [String, Number],
       required: true
@@ -27,19 +24,14 @@ export default {
       required: true
     },
 
-    name: {
-      type: String,
-      required: true
-    },
-
     disabled: {
       type: Boolean,
       default: false
     },
 
-    required: {
-      type: Boolean,
-      default: false
+    label: {
+      type: String,
+      required: true
     }
   },
 

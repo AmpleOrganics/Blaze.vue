@@ -7,7 +7,8 @@ describe('Radio', () => {
       propsData: {
         value: 'Test',
         val: 'Test',
-        name: 'test'
+        name: 'test',
+        label: 'label'
       }
     })
     expect(radio.classes()).toContain('ao-checkbox')
@@ -19,6 +20,7 @@ describe('Radio', () => {
         value: 'Test',
         val: 'Test',
         name: 'test',
+        label: 'Label',
         disabled: true
       }
     })

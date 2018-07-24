@@ -29,92 +29,94 @@
           text
         </ao-text-style>
       </p>
-      <ao-form @formHandler="saveForm">
-        <ao-input
-          :type="'text'"
-          :label="'Name'"
-          :show-label="false"
-          :placeholder="'Name'"
-          v-model="name"
-          :has-error="true"/>
-        <p>My name: {{ name }}</p>
+      <!-- <ao-form @formHandler="saveForm"> -->
+      <ao-input
+        :type="'text'"
+        :label="'Name'"
+        :show-label="false"
+        :placeholder="'Name'"
+        v-model="name"
+        :invalid="true"/>
+      <p>My name: {{ name }}</p>
 
-        <ao-input
-          :type="'number'"
-          :label="'Age'"
-          v-model="age"
-          :step="5"/>
-        <p>My age: {{ age }}</p>
+      <ao-input
+        :type="'number'"
+        :label="'Age'"
+        v-model="age"
+        :step="5"/>
+      <p>My age: {{ age }}</p>
 
-        <ao-file-upload
-          :label="'File'"
-          :reference="'file'"
-          @change="updateFile($event)"/>
+      <ao-file-upload
+        :label="'File'"
+        :reference="'file'"
+        @change="updateFile($event)"/>
 
-        <p>Filename: {{ file }}</p>
+      <p>Filename: {{ file }}</p>
 
-        <label>Favorite Programming Languages?</label>
-        <ao-checkbox
-          v-model="programmingLanguages"
-          :checkbox-value="'JavaScript'"
-          :checkbox-label="'Javascript'"/>
-        <ao-checkbox
-          v-model="programmingLanguages"
-          :checkbox-value="'Ruby'"
-          :checkbox-label="'Ruby'"/>
-        <ao-checkbox
-          v-model="programmingLanguages"
-          :checkbox-value="'PHP'"
-          :checkbox-label="'PHP'"
-          disabled/>
+      <label>Favorite Programming Languages?</label>
+      <ao-checkbox
+        v-model="programmingLanguages"
+        :checkbox-value="'JavaScript'"
+        :checkbox-label="'Javascript'"/>
+      <ao-checkbox
+        v-model="programmingLanguages"
+        :checkbox-value="'Ruby'"
+        :checkbox-label="'Ruby'"/>
+      <ao-checkbox
+        v-model="programmingLanguages"
+        :checkbox-value="'PHP'"
+        :checkbox-label="'PHP'"
+        disabled/>
 
-        <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
-        <label>Do you like books?</label>
-        <ao-checkbox
-          v-model="likeBooks"
-          :checkbox-label="'Books'"/>
+      <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
+      <label>Do you like books?</label>
+      <ao-checkbox
+        v-model="likeBooks"
+        :checkbox-label="'Books'"/>
 
-        <ao-info-pair :label="'Info Pair Label'">
-          <p>
-            123 Address St.
-            <br>
-            Toronto, ON
-          </p>
-        </ao-info-pair>
+      <ao-info-pair :label="'Info Pair Label'">
+        <p>
+          123 Address St.
+          <br>
+          Toronto, ON
+        </p>
+      </ao-info-pair>
 
-        <p>Liking Books is: {{ likeBooks }}</p>
+      <p>Liking Books is: {{ likeBooks }}</p>
 
-        <ao-radio
-          v-for="radio in radios"
-          :key="radio.value"
-          :val="radio.value"
-          :name="radio.name"
-          v-model="selectedRadio">
-          {{ radio.value }}
-        </ao-radio>
+      <ao-radio
+        v-for="radio in radios"
+        :key="radio.value"
+        :val="radio.value"
+        :name="radio.name"
+        :label="radio.value"
+        v-model="selectedRadio"/>
 
-        <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
+      <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
 
-        <ao-select
-          v-model="nicePets"
-          :options="pets"
-          :label="'Nice Pets'"
-          :default="nicePets"
-          :has-error="true"/>
-        <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
+      <ao-select
+        v-model="nicePets"
+        :label="'Pets'"
+        :placeholder="'Select One'"
+        :invalid="true">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="elephant">Elephant</option>
+      </ao-select>
+      <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
 
-        <ao-text-area v-model="description" />
-        <p>Description: {{ description }}</p>
-        <ao-input
-          :label="'Search Example (does not search anything)'"
-          :placeholder="'Search'"
-          :type="'search'"/>
-        <ao-button
-          :type="'submit'"
-          primary>
-          Save
-        </ao-button>
-      </ao-form>
+      <ao-text-area v-model="description" />
+      <p>Description: {{ description }}</p>
+      <ao-input
+        :label="'Search Example (does not search anything)'"
+        :placeholder="'Search'"
+        :type="'search'"/>
+      <ao-button
+        :type="'submit'"
+        primary>
+        Save
+      </ao-button>
+      <!-- </ao-form> -->
 
       <pre>{{ saveData }}</pre>
 
@@ -128,6 +130,8 @@
         @paginate="paginate"/>
       <ao-table
         :headers="columnHeaders"
+        sort-by="id"
+        order="asc"
         @sortTable="sortTable">
         <tr
           v-for="user in displayUsers"
@@ -179,7 +183,7 @@ export default {
       age: 100,
       programmingLanguages: [],
       likeBooks: false,
-      nicePets: 'cat',
+      nicePets: null,
       file: '',
       pets: [
         { name: 'Dog', value: 'dog' },
@@ -270,9 +274,8 @@ export default {
       this.toggleModal()
     },
 
-    sortTable (sortBy, reverse) {
-      let direction = reverse ? 'asc' : 'desc'
-      this.users = orderBy(this.users, sortBy, direction)
+    sortTable (sortBy, order) {
+      this.users = orderBy(this.users, sortBy, order)
     },
 
     paginate (page, direction) {

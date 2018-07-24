@@ -5,8 +5,7 @@ describe('Select', () => {
   it('create', () => {
     const select = mount(Select, {
       propsData: {
-        label: 'test',
-        options: []
+        label: 'test'
       }
     })
     expect(select.text()).toBe('test')
@@ -17,7 +16,6 @@ describe('Select', () => {
     const select = mount(Select, {
       propsData: {
         label: 'test0',
-        options: [],
         disabled: true
       }
     })
@@ -25,14 +23,15 @@ describe('Select', () => {
     expect(select.contains(':disabled')).toBe(true)
   })
 
-  it('options', () => {
+  it('has a placeholder', () => {
     const select = mount(Select, {
       propsData: {
-        label: 'Test',
-        options: ['test', 'test1']
+        label: 'test0',
+        placeholder: 'Select One'
       }
     })
-    expect(select.findAll('option').at(0).element.value).toBe('test')
-    expect(select.findAll('option').at(1).element.value).toBe('test1')
+
+    expect(select.findAll('option').at(0).element.value).toBe('')
+    expect(select.findAll('option').at(0).html()).toContain('Select One')
   })
 })

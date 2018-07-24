@@ -1,9 +1,9 @@
 <template>
-  <div class="ao-navbar">
+  <nav class="ao-navbar">
     <ul>
       <slot/>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <style lang='scss' scoped>

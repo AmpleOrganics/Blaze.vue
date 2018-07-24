@@ -25,15 +25,15 @@ describe('Input', () => {
     expect(input.contains('.custom-glyph-clients')).toBe(true)
   })
 
-  it('hasError', () => {
+  it('id invalid', () => {
     const input = mount(Input, {
       propsData: {
         type: 'text',
         label: 'test1',
-        hasError: true
+        invalid: true
       }
     })
     expect(input.text()).toBe('test1')
-    expect(input.contains('.ao-form-control--has-error')).toBe(true)
+    expect(input.contains('.ao-form-control--invalid')).toBe(true)
   })
 })
