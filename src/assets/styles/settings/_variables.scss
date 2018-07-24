@@ -27,10 +27,11 @@ $color-destructive:           $color-red;
 $color-gray-10:               #474a4c;
 $color-gray-20:               #585d60;
 $color-gray-30:               #818a91;
-$color-gray-50:               #cccccc;
+$color-gray-50:               #ccc;
 $color-gray-60:               #dcdedf;
 $color-gray-80:               #ebecef;
 $color-gray-90:               #f7f7f9;
+$color-grey-light:              #ddd;
 
 //
 // Spacing & Sizing
@@ -88,7 +89,7 @@ $ui-border-color-base:        $color-gray-60;
 
 $border-radius-base:          3px;
 
-$no-shadow:                   0 0 0 rgba(0,0,0,0);
+$shadow-none:                 0 0 0 rgba(0,0,0,0);
 $shadow:                      0px 1px 20px rgba(0,0,0,0.15);
 $shadow-dramatic:             0px 5px 40px rgba(0,0,0,0.35);
 $shadow-subtle:               0px 2px 3px rgba(0, 0, 0, 0.05);

@@ -1,8 +1,7 @@
 <template>
   <div
     :disabled="disabled"
-    class="ao-checkbox"
-  >
+    class="ao-checkbox">
     <label class="ao-checkbox__label">
       <input
         :name="name"
@@ -92,7 +91,7 @@ export default {
   display: block;
   margin-bottom: 10px;
 
-  &__ {
+  &__label {
     min-height: 22px;
     margin-bottom: 0;
     font-weight: normal;

@@ -73,7 +73,7 @@ $ao-alert-height: 5rem;
 
 .ao-alert {
   display: flex;
-  background-color: white;
+  background-color: $color-white;
   width: 75%;
   box-shadow: $shadow;
   min-height: $ao-alert-height;
