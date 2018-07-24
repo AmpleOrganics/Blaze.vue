@@ -5,28 +5,19 @@
       :for="name">{{ label }}</label>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
-        :class="{'ao-form-control--has-error': hasError }"
+        :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
         :type="type"
         :placeholder="placeholder"
         :name="name"
         :value="value"
-        :maxlength="maxlength"
-        :minlength="minlength"
-        :max="max"
-        :min="min"
-        :required="required"
-        :readonly="readonly"
         :disabled="disabled"
         :step="step"
-        class="ao-form-control"
-        @input="updateValue($event.target.value)"
-      >
+        @input="updateValue($event.target.value)">
       <span
         v-if="hasIconAddon"
         :class="iconClass"
         class="ao-input-group__addon"
-        v-html="iconHtml"
-      />
+        v-html="iconHtml"/>
       <span
         v-if="hasAddOn"
         class="ao-input-group__addon">
@@ -41,11 +32,10 @@ export default {
   props: {
     type: {
       type: String,
-      required: true,
       default: 'text',
       validator: function (inputType) {
         // Used to determine if the input type prop used is found in this array and therefore valid
-        return ['text', 'number', 'email', 'password', 'date', 'search'].indexOf(inputType) !== -1
+        return ['text', 'number', 'email', 'password', 'date', 'search'].includes(inputType)
       }
     },
 
@@ -56,8 +46,7 @@ export default {
 
     label: {
       type: String,
-      required: true,
-      default: null
+      required: true
     },
 
     showLabel: {
@@ -90,39 +79,9 @@ export default {
       default: null
     },
 
-    maxlength: {
-      type: Number,
-      default: 100000
-    },
-
-    minlength: {
-      type: Number,
-      default: 0
-    },
-
-    required: {
-      type: Boolean,
-      default: false
-    },
-
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-
     disabled: {
       type: Boolean,
       default: false
-    },
-
-    min: {
-      type: Number,
-      default: 0
-    },
-
-    max: {
-      type: Number,
-      default: 100000
     },
 
     step: {
@@ -130,7 +89,7 @@ export default {
       default: 1
     },
 
-    hasError: {
+    invalid: {
       type: Boolean,
       default: false
     }

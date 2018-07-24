@@ -2,14 +2,12 @@
   <transition name="slide-fade">
     <div
       v-if="showAlert"
-      class="ao-alert__container">
-      <div class="ao-alert">
-        <div :class="computedAlertIconClass">
-          <span :class="iconClass"/>
-        </div>
-        <div class="ao-alert__message">
-          <slot/>
-        </div>
+      class="ao-alert">
+      <div :class="computedAlertIconClass">
+        <span :class="iconClass"/>
+      </div>
+      <div class="ao-alert__message">
+        <slot/>
       </div>
     </div>
   </transition>
@@ -46,7 +44,6 @@ export default {
     computedAlertIconClass () {
       const activeClasses = {
         'ao-alert__icon': true,
-        'ao-alert__icon--default': true,
         'ao-alert__icon--destructive': this.destructive,
         'ao-alert__icon--caution': this.caution
       }
@@ -70,14 +67,16 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+
 @include slide-fade;
-$ao-alert-height: 5rem;
+
+$ao-alert-height: 3.75rem;
 
 .ao-alert {
   display: flex;
-  background-color: white;
+  background-color: $color-white;
   width: 75%;
-  box-shadow: $shadow;
+  box-shadow: $shadow, $shadow-subtle;
   min-height: $ao-alert-height;
 
   &__container {
@@ -90,11 +89,10 @@ $ao-alert-height: 5rem;
   }
 
   &__message {
-    padding: $spacer-lg $spacer-lg;
+    padding: $spacer;
     display: flex;
     align-items: center;
     flex-grow: 1;
-    color: $font-color-secondary;
   }
 
   &__icon {
@@ -102,20 +100,15 @@ $ao-alert-height: 5rem;
     justify-content: center;
     align-items: center;
     width: $ao-alert-height;
-
-    &--default {
-      background-color: $color-ao-primary;
-      color: #fff;
-    }
+    background-color: $color-success;
+    color: $color-white;
 
     &--destructive {
       background-color: $color-destructive;
-      color: #fff;
     }
 
     &--caution {
       background-color: $color-caution;
-      color: #fff;
     }
   }
 }

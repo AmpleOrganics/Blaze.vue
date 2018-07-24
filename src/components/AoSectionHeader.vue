@@ -1,23 +1,20 @@
 <template>
   <div class="ao-section-header">
-    <div class="ao-section-header__top-block">
-      <div class="ao-section-header__title-block">
-        <span
-          v-if="hasIcon"
-          :class="iconClass"
-          class="ao-section-header__icon"
-          v-html="iconHtml"
-        />
-        <h1 class="ao-section-header__title">{{ title }}</h1>
-        <div class="ao-section-header__toolbar">
-          <slot name="section-header-toolbar"/>
-        </div>
+    <div class="ao-section-header__title-block">
+      <span
+        v-if="hasIcon"
+        :class="iconClass"
+        class="ao-section-header__icon"
+        v-html="iconHtml"/>
+      <h1 class="ao-section-header__title">{{ title }}</h1>
+      <div class="ao-section-header__toolbar">
+        <slot name="section-header-toolbar"/>
       </div>
-      <div
-        v-if="subtitle"
-        class="ao-section-header__subtitle">
-        <p>{{ subtitle }}</p>
-      </div>
+    </div>
+    <div
+      v-if="subtitle"
+      class="ao-section-header__subtitle">
+      <p>{{ subtitle }}</p>
     </div>
     <slot name="section-header-navbar"/>
   </div>
@@ -28,13 +25,11 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
-      default: null
+      required: true
     },
 
     subtitle: {
       type: String,
-      required: false,
       default: null
     },
 
@@ -63,12 +58,8 @@ export default {
   background-color: $color-white;
   border: 1px solid $color-gray-60;
   border-radius: $border-radius-base;
-  padding: 0;
+  padding: $spacer;
   margin-bottom: $spacer;
-
-  &__top-block {
-    padding: $spacer;
-  }
 
   &__title-block {
     display: flex;
@@ -80,7 +71,7 @@ export default {
     display: inline-block;
     line-height: 1.1;
     font-size: $font-size-xl;
-    color: $color-ao-primary;
+    color: $color-primary;
     margin: 0 $spacer-sm 0 0;
   }
 
@@ -107,12 +98,6 @@ export default {
     & * + * {
       margin-left: $spacer-sm;
     }
-  }
-
-  &__navbar {
-    padding-left: $spacer;
-    padding-right: $spacer;
-    padding-bottom: $spacer;
   }
 }
 </style>

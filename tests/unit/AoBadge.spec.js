@@ -1,32 +1,47 @@
+import { mount } from '@vue/test-utils'
 import Badge from '@/components/AoBadge.vue'
-import { expect } from 'chai'
 
 describe('Badge', () => {
-  it('defines text prop to be valid and to default to null', () => {
-    const text = Badge.props.text
-    expect(text.type.name).to.equal('String')
-    expect(text.default).to.equal(null)
-    expect(text.required).to.equal(true)
+  it('create', () => {
+    const badge = mount(Badge, {
+      propsData: {
+        text: 'test'
+      }
+    })
+    expect(badge.text()).toBe('test')
+    expect(badge.classes()).toContain('ao-badge')
   })
 
-  it('defines success prop to be a boolean and to default to false', () => {
-    const success = Badge.props.success
-    expect(success.type.name).to.equal('Boolean')
-    expect(typeof success.default).to.equal('boolean')
-    expect(success.default).to.equal(false)
+  it('success', () => {
+    const badge = mount(Badge, {
+      propsData: {
+        text: 'test0',
+        success: true
+      }
+    })
+    expect(badge.text()).toBe('test0')
+    expect(badge.classes()).toContain('ao-badge--success')
   })
 
-  it('defines info prop to be a boolean and to default to false', () => {
-    const info = Badge.props.info
-    expect(info.type.name).to.equal('Boolean')
-    expect(typeof info.default).to.equal('boolean')
-    expect(info.default).to.equal(false)
+  it('info', () => {
+    const badge = mount(Badge, {
+      propsData: {
+        text: 'test1',
+        info: true
+      }
+    })
+    expect(badge.text()).toBe('test1')
+    expect(badge.classes()).toContain('ao-badge--info')
   })
 
-  it('defines subtle prop to be a boolean and to default to false', () => {
-    const subtle = Badge.props.subtle
-    expect(subtle.type.name).to.equal('Boolean')
-    expect(typeof subtle.default).to.equal('boolean')
-    expect(subtle.default).to.equal(false)
+  it('subtle', () => {
+    const badge = mount(Badge, {
+      propsData: {
+        text: 'test2',
+        subtle: true
+      }
+    })
+    expect(badge.text()).toBe('test2')
+    expect(badge.classes()).toContain('ao-badge--subtle')
   })
 })

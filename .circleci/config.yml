@@ -35,4 +35,5 @@ jobs:
 
       # run tests!
       - run: yarn lint --no-fix
+      - run: yarn lint:css
       - run: yarn test

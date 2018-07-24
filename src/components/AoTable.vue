@@ -1,25 +1,21 @@
 <template>
-  <div class="ao-table--responsive">
-    <table
-      :class=" { 'ao-table--clickable': isClickable }"
-      class="ao-table ao-table--striped">
-      <thead>
-        <tr>
-          <th
-            v-for="columnHeader in headers"
-            :key="columnHeader.field"
-            :class="isSortableClass(columnHeader.sortable)"
-            @click="sortByHeader(columnHeader.field, columnHeader.sortable)"
-          >
-            <span>{{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)"/></span>
-          </th>
-        </tr>
-      </thead>
-      <tbody :class=" { clickable: isClickable }">
-        <slot />
-      </tbody>
-    </table>
-  </div>
+  <table
+    :class="[{ 'ao-table--clickable': isClickable }, 'ao-table']">
+    <thead>
+      <tr>
+        <th
+          v-for="columnHeader in headers"
+          :key="columnHeader.field"
+          :class="isSortableClass(columnHeader.sortable)"
+          @click="sortByHeader(columnHeader.field, columnHeader.sortable)">
+          <span class="ao-table__header">{{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)"/></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody :class=" { clickable: isClickable }">
+      <slot />
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -27,29 +23,34 @@ export default {
   props: {
     headers: {
       type: Array,
-      required: false,
       default: null
     },
 
     isClickable: {
       type: Boolean,
-      required: false,
       default: false
+    },
+
+    sortBy: {
+      type: String,
+      default: null
+    },
+
+    order: {
+      type: String,
+      default: 'desc',
+      validator: function (order) {
+        return ['asc', 'desc'].includes(order)
+      }
     }
   },
 
   data () {
     return {
-      sortBy: null,
-      reverse: false,
-      lastSelectedHeader: null
+      lastSelectedHeader: this.sortBy,
+      sortProxy: this.sortBy,
+      orderProxy: this.order
     }
-  },
-
-  created () {
-    this.sortBy = this.headers[0].field
-    this.lastSelectedHeader = this.headers[0].field
-    this.reverse = true
   },
 
   methods: {
@@ -57,23 +58,28 @@ export default {
       // undefined is used so you do not have to set searchable
       if (sortable === true || sortable === undefined) {
         if (header === this.lastSelectedHeader) {
-          this.reverse = !this.reverse
+          this.orderProxy = this.toggleOrder(this.orderProxy)
         } else {
           this.lastSelectedHeader = header
-          this.reverse = true
-          this.sortBy = header
+          this.orderProxy = 'desc'
+          this.sortProxy = header
         }
-        this.$emit('sortTable', this.sortBy, this.reverse)
+        this.$emit('sortTable', this.sortProxy, this.orderProxy)
       }
     },
+
     isSortableClass (sortable) {
-      return sortable === true || sortable === undefined ? 'ao-table__th--sortable' : ''
+      return sortable === true || sortable === undefined ? 'ao-table__th--sortable' : null
     },
 
     isChevroned (name, sortable) {
-      if (name === this.sortBy && (sortable === true || sortable === undefined)) {
-        return this.reverse ? 'glyphicon glyphicon-chevron-down ao-table__sort-icon' : 'glyphicon glyphicon-chevron-up ao-table__sort-icon'
+      if (name === this.sortProxy && (sortable === true || sortable === undefined)) {
+        return this.orderProxy === 'desc' ? 'glyphicon glyphicon-chevron-down ao-table__sort-icon' : 'glyphicon glyphicon-chevron-up ao-table__sort-icon'
       }
+    },
+
+    toggleOrder (order) {
+      return order === 'asc' ? 'desc' : 'asc'
     }
   }
 }
@@ -87,24 +93,21 @@ export default {
   max-width: 100%;
   margin-bottom: $spacer;
   background: transparent;
-
-  &--responsive {
-    overflow-x: auto;
-    min-height: 0.01%;
-  }
-
-  &--striped > tbody > tr:nth-of-type(odd) {
-    background-color: $color-gray-90;
-  }
+  overflow-x: auto;
+  min-height: 0.01%;
 
   &--clickable {
     tbody > tr {
       cursor: pointer;
     }
 
-    &.ao-table--striped > tbody > tr:hover  {
+    & > tbody > tr:hover {
       background: $color-gray-80;
     }
+  }
+
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: $color-gray-90;
   }
 
   & > tbody /deep/ tr > td {
@@ -121,7 +124,7 @@ export default {
   & thead > tr > th {
     color: $color-gray-10;
     vertical-align: bottom;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid $color-grey-light;
     padding: 8px;
     line-height: 1.4;
   }

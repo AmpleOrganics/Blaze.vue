@@ -1,17 +1,14 @@
 <template>
   <div class="ao-form-group">
-    <label
-      v-show="showLabel"
-      :for="name">{{ label }}</label>
+    <label v-show="showLabel">
+      {{ label }}
+    </label>
     <input
-      :class="{'ao-form-control--has-error': hasError }"
+      :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
-      :required="required"
       :disabled="disabled"
-      class="ao-form-control"
       type="file"
-      @change="updateFile($event.target.files)"
-    >
+      @change="updateFile($event.target.files)">
   </div>
 </template>
 
@@ -20,8 +17,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
-      default: null
+      required: true
     },
 
     showLabel: {
@@ -29,24 +25,19 @@ export default {
       default: true
     },
 
-    name: {
-      type: String,
-      default: null
-    },
-
     disabled: {
       type: Boolean,
       default: false
     },
 
-    hasError: {
+    invalid: {
       type: Boolean,
       default: false
     },
 
-    required: {
-      type: Boolean,
-      default: false
+    name: {
+      type: String,
+      required: true
     }
   },
 
@@ -61,6 +52,7 @@ export default {
 <style lang='scss' scoped>
 
 @import '../assets/styles/mixins/shared-input-styles.scss';
+
 @include shared-input-styles;
 
 </style>
