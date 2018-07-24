@@ -2,9 +2,8 @@
   <button
     :type="type"
     :form="formName"
-    :class="[computedButtonClass, computedSize]"
-    :disabled="disabled"
-  >
+    :class="computedButtonClass"
+    :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -25,11 +24,6 @@ export default {
 
     formName: {
       type: String,
-      default: null
-    },
-
-    nano: {
-      type: Boolean,
       default: null
     },
 
@@ -88,18 +82,11 @@ export default {
         'ao-button--caution': this.caution,
         'ao-button--subtle': this.subtle,
         'ao-button--naked': this.naked,
+        'ao-button--small': this.small,
+        'ao-button--large': this.large,
         'ao-button--jumbo': this.jumbo
       }
       return filterClasses(activeClasses)
-    },
-
-    computedSize () {
-      const sizes = {
-        'ao-button--nano': this.nano,
-        'ao-button--small': this.small,
-        'ao-button--large': this.large
-      }
-      return filterClasses(sizes)
     }
   }
 }
@@ -110,7 +97,6 @@ export default {
 .ao-button {
   display: inline-block;
   margin-bottom: 0;
-  font-weight: bold;
   text-align: center;
   font-weight: $font-weight-bold;
   font-family: $font-family-primary;
@@ -121,13 +107,18 @@ export default {
   border-radius: $border-radius-base;
   min-height: $input-height-base;
   box-shadow: $shadow-subtle;
+  cursor: pointer;
 
-  //Default styles, overridden by special classes
+ /* Default styles, overridden by special classes */
   background-color: $color-white;
   border-color: $color-gray-50;
   color: $font-color-base;
 
-  //Default hover/active styles, overridden by special classes
+ /* Default hover/active styles, overridden by special classes */
+  &:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+
   &:hover, &:active {
     background-color: darken($color-white, 3%);
     border-color: darken($color-gray-50, 3%);
@@ -145,18 +136,14 @@ export default {
     box-shadow: none;
   }
 
-  &:active {
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  }
-
   &--primary {
-    background-color: $color-ao-primary;
-    border-color: $color-ao-primary;
+    background-color: $color-primary;
+    border-color: $color-primary;
     color: $color-white;
 
     &:hover, &:active {
-      border-color: darken($color-ao-primary, 3%);
-      background-color: darken($color-ao-primary, 3%);
+      border-color: darken($color-primary, 3%);
+      background-color: darken($color-primary, 3%);
       color: $color-white;
     }
   }
@@ -166,7 +153,7 @@ export default {
     border: 1px solid $color-destructive;
     color: $color-white;
 
-    &:hover, &:active{
+    &:hover, &:active {
       background-color: darken($color-destructive, 5%);
       border-color: darken($color-destructive, 5%);
       color: $color-white;
@@ -199,12 +186,12 @@ export default {
   &--naked {
     background-color: transparent;
     border-color: transparent;
-    box-shadow: 0 0 0 rgba(0,0,0,0);
+    box-shadow: $shadow-none;
 
     &:hover, :active {
       border-color: transparent;
       background-color: transparent;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
+      box-shadow: $shadow-none;
     }
   }
 
@@ -224,11 +211,6 @@ export default {
     width: 100%;
     height: 80px;
     margin-left: 0;
-  }
-
-  &--nano {
-    padding: 0.25rem 0.50rem;
-    min-height: 0;
   }
 }
 </style>

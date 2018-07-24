@@ -4,17 +4,12 @@
       v-if="title"
       class="ao-card__header">
       <h2 class="ao-card__title">{{ title }}</h2>
-      <div class="ao-card__header__toolbar">
+      <div class="ao-card__toolbar">
         <slot name="card-header-toolbar"/>
       </div>
     </div>
     <div class="ao-card__body">
       <slot/>
-    </div>
-    <div
-      v-if="!!this.$slots.cardFooter"
-      class="ao-card__footer">
-      <slot name="cardFooter"/>
     </div>
   </div>
 </template>
@@ -48,24 +43,8 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: $spacer;
+    padding: 15px;
     border-bottom: 1px solid $ui-border-color-base;
-
-    &__toolbar {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-
-      & .form-group {
-        display: inline-block;
-        margin-bottom: 0;
-      }
-
-      & > * {
-        margin-left: $spacer-sm;
-        margin-bottom: 0 !important;
-      }
-    }
   }
 
   &__title {
@@ -75,13 +54,10 @@ export default {
     display: inline-block;
   }
 
-  &__footer {
+  &__toolbar {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row nowrap;
     align-items: center;
-    justify-content: flex-end;
-    padding: $spacer;
-    border-top: 1px solid $ui-border-color-base;
 
     & .form-group {
       display: inline-block;
