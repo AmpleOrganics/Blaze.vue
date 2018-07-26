@@ -9,7 +9,7 @@
           :key="columnHeader.field"
           :class="isSortableClass(columnHeader.sortable)"
           @click="sortByHeader(columnHeader.field, columnHeader.sortable)">
-          <span>{{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)"/></span>
+          <span class="ao-table__header">{{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)"/></span>
         </th>
       </tr>
     </thead>

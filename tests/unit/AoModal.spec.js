@@ -1,83 +1,59 @@
+import { mount } from '@vue/test-utils'
 import Modal from '@/components/AoModal.vue'
-import { expect } from 'chai'
-import Vue from 'vue'
-
-function mountComponent (component, options) {
-  const Constructor = Vue.extend(component)
-  return new Constructor(options).$mount()
-}
 
 describe('Modal', () => {
-  it('defines destructive prop to be a boolean and to be false by default', () => {
-    const destructive = Modal.props.destructive
-    expect(destructive.type.name).to.equal('Boolean')
-    expect(typeof destructive.default).to.equal('boolean')
-    expect(destructive.default).to.equal(false)
-  })
-
-  it('defines caution prop to be a boolean and to be false by default', () => {
-    const caution = Modal.props.caution
-    expect(caution.type.name).to.equal('Boolean')
-    expect(typeof caution.default).to.equal('boolean')
-    expect(caution.default).to.equal(false)
-  })
-
-  it('defines computedHeaderClass as a function', () => {
-    expect(typeof Modal.computed.computedHeaderClass).to.equal('function')
-  })
-
-  it('defines computedModalSize as a function', () => {
-    expect(typeof Modal.computed.computedModalSize).to.equal('function')
-  })
-
-  it('defines closeModal as a function', () => {
-    expect(typeof Modal.methods.closeModal).to.equal('function')
-  })
-
-  it('returns only default values on creation', () => {
-    const modal = mountComponent(Modal, {
+  it('create', () => {
+    const modal = mount(Modal, {
       propsData: {
-        size: 'md'
+        headerText: 'test'
       }
     })
-
-    expect(modal.size).to.equal('md')
-    expect(modal.destructive).to.equal(false)
-    expect(modal.caution).to.equal(false)
-    expect(modal.computedHeaderClass.join(' ')).to.equal('ao-modal__header')
-    expect(modal.computedModalSize).to.equal('ao-modal--md')
+    expect(modal.text()).toBe('test')
+    expect(modal.classes()).toContain('ao-modal-mask') // will need to change
+    expect(modal.contains('.ao-modal--md')).toBe(true)
   })
 
-  it('creates a destructive Modal', () => {
-    const modal = mountComponent(Modal, {
+  it('small size', () => {
+    const modal = mount(Modal, {
       propsData: {
-        size: 'md',
+        headerText: 'test0',
+        size: 'sm'
+      }
+    })
+    expect(modal.text()).toBe('test0')
+    expect(modal.contains('.ao-modal--sm')).toBe(true)
+  })
+
+  it('large size', () => {
+    const modal = mount(Modal, {
+      propsData: {
+        headerText: 'test1',
+        size: 'lg'
+      }
+    })
+    expect(modal.text()).toBe('test1')
+    expect(modal.contains('.ao-modal--lg')).toBe(true)
+  })
+
+  it('destructive', () => {
+    const modal = mount(Modal, {
+      propsData: {
+        headerText: 'test2',
         destructive: true
       }
     })
-
-    expect(modal.size).to.equal('md')
-    expect(modal.destructive).to.equal(true)
-    expect(modal.caution).to.equal(false)
-    expect(modal.computedHeaderClass.join(' '))
-      .to
-      .equal('ao-modal__header ao-modal__header--destructive')
-    expect(modal.computedModalSize).to.equal('ao-modal--md')
+    expect(modal.text()).toBe('test2')
+    expect(modal.contains('.ao-modal__header--destructive')).toBe(true)
   })
 
-  it('creates a caution Modal', () => {
-    const modal = mountComponent(Modal, {
+  it('caution', () => {
+    const modal = mount(Modal, {
       propsData: {
-        size: 'md',
+        headerText: 'test3',
         caution: true
       }
     })
-    expect(modal.size).to.equal('md')
-    expect(modal.destructive).to.equal(false)
-    expect(modal.caution).to.equal(true)
-    expect(modal.computedHeaderClass.join(' '))
-      .to
-      .equal('ao-modal__header ao-modal__header--caution')
-    expect(modal.computedModalSize).to.equal('ao-modal--md')
+    expect(modal.text()).toBe('test3')
+    expect(modal.contains('.ao-modal__header--caution')).toBe(true)
   })
 })
