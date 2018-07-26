@@ -1,5 +1,5 @@
 <template>
-  <span :class="[computedClasses]">
+  <span :class="[computedClasses, 'ao-text']" >
     <slot/>
   </span>
 </template>

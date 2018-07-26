@@ -1,30 +1,26 @@
+import { mount } from '@vue/test-utils'
 import SectionHeader from '@/components/AoSectionHeader.vue'
-import { expect } from 'chai'
 
 describe('SectionHeader', () => {
-  it('defines title prop to be a string', () => {
-    const sectionHeaderTitle = SectionHeader.props.title
-    expect(sectionHeaderTitle.type.name).to.equal('String')
-    expect(sectionHeaderTitle.default).to.equal(null)
-    expect(sectionHeaderTitle.required).to.equal(true)
+  it('create', () => {
+    const sectionHeader = mount(SectionHeader, {
+      propsData: {
+        title: 'Test',
+        subtitle: 'Test'
+      }
+    })
+    expect(sectionHeader.text()).toBe('Test  Test')
+    expect(sectionHeader.classes()).toContain('ao-section-header')
   })
 
-  it('defines subtitle prop to be a string', () => {
-    const sectionHeaderSubtitle = SectionHeader.props.subtitle
-    expect(sectionHeaderSubtitle.type.name).to.equal('String')
-    expect(sectionHeaderSubtitle.default).to.equal(null)
-    expect(sectionHeaderSubtitle.required).to.equal(false)
-  })
-
-  it('defines iconHtml prop to be a string', () => {
-    const iconHtml = SectionHeader.props.iconHtml
-    expect(iconHtml.type.name).to.equal('String')
-    expect(iconHtml.default).to.equal(null)
-  })
-
-  it('defines iconClass prop to be a string', () => {
-    const iconClass = SectionHeader.props.iconClass
-    expect(iconClass.type.name).to.equal('String')
-    expect(iconClass.default).to.equal(null)
+  it('iconClass', () => {
+    const sectionHeader = mount(SectionHeader, {
+      propsData: {
+        title: 'Test',
+        subtitle: 'Test',
+        iconClass: 'custom-glyph-clients'
+      }
+    })
+    expect(sectionHeader.contains('.custom-glyph-clients')).toBe(true)
   })
 })

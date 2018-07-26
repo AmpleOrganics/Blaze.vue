@@ -11,7 +11,8 @@
     "prepublishOnly": "npm run build:lib && sh .post-build-copy.sh",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "lint:css": "stylelint 'src/**/*.vue'"
+    "lint:css": "stylelint 'src/**/*.vue'",
+    "test:unit": "vue-cli-service test:unit"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.5",

@@ -1,10 +1,20 @@
+import { mount } from '@vue/test-utils'
 import Card from '@/components/AoCard.vue'
-import { expect } from 'chai'
 
 describe('Card', () => {
-  it('defines title prop to be a string', () => {
-    const cardTitle = Card.props.title
-    expect(cardTitle.type.name).to.equal('String')
-    expect(cardTitle.default).to.equal(null)
+  it('create', () => {
+    const card = mount(Card)
+    expect(card.text()).toBe('')
+    expect(card.classes()).toContain('ao-card')
+  })
+
+  it('title', () => {
+    const card = mount(Card, {
+      propsData: {
+        title: 'test'
+      }
+    })
+    expect(card.text()).toBe('test')
+    expect(card.classes()).toContain('ao-card')
   })
 })
