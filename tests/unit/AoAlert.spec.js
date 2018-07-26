@@ -1,73 +1,44 @@
+import { mount } from '@vue/test-utils'
 import Alert from '@/components/AoAlert.vue'
-import { expect } from 'chai'
-import Vue from 'vue'
 
-function mountComponent (Component, options) {
-  const Constructor = Vue.extend(Component)
-  return new Constructor(options).$mount()
-}
 describe('Alert', () => {
-  it('defines showAlert prop', () => {
-    const alertShowAlert = Alert.props.showAlert
-    expect(alertShowAlert.type.name).to.equal('Boolean')
-    expect(typeof alertShowAlert.default).to.equal('boolean')
-    expect(alertShowAlert.default).to.equal(false)
-    expect(alertShowAlert.required).to.equal(true)
-  })
-
-  it('defines destructive prop to be a boolean and to default to false', () => {
-    const destructive = Alert.props.destructive
-    expect(destructive.type.name).to.equal('Boolean')
-    expect(typeof destructive.default).to.equal('boolean')
-    expect(destructive.default).to.equal(false)
-  })
-
-  it('defines caution prop to be a boolean and to default to false', () => {
-    const caution = Alert.props.caution
-    expect(caution.type.name).to.equal('Boolean')
-    expect(typeof caution.default).to.equal('boolean')
-    expect(caution.default).to.equal(false)
-  })
-
-  it('defines computedAlertIconClass as a function', () => {
-    expect(typeof Alert.computed.computedAlertIconClass).to.equal('function')
-  })
-
-  it('returns only default values on creation', () => {
-    const alert = mountComponent(Alert, {
+  it('create', () => {
+    const alert = mount(Alert, {
       propsData: {
-        showAlert: false
+        showAlert: true
       }
     })
-    expect(alert.showAlert).to.equal(false)
-    expect(alert.computedAlertIconClass.join(' ')).to.equal('ao-alert__icon')
+    expect(alert.classes()).toContain('ao-alert')
   })
 
-  it('returns destructive props on creation', () => {
-    const alert = mountComponent(Alert, {
+  it('destructive', () => {
+    const alert = mount(Alert, {
       propsData: {
         showAlert: true,
         destructive: true
       }
     })
-    expect(alert.showAlert).to.equal(true)
-    expect(alert.destructive).to.equal(true)
-    expect(alert.computedAlertIconClass
-      .join(' '))
-      .to.equal('ao-alert__icon ao-alert__icon--destructive')
+    expect(alert.contains('.ao-alert__icon--destructive')).toBe(true)
   })
 
-  it('returns caution props on creation', () => {
-    const alert = mountComponent(Alert, {
+  it('caution', () => {
+    const alert = mount(Alert, {
       propsData: {
         showAlert: true,
         caution: true
       }
     })
-    expect(alert.showAlert).to.equal(true)
-    expect(alert.caution).to.equal(true)
-    expect(alert.computedAlertIconClass
-      .join(' '))
-      .to.equal('ao-alert__icon ao-alert__icon--caution')
+
+    expect(alert.contains('.ao-alert__icon--caution')).toBe(true)
+  })
+
+  it('iconClass', () => {
+    const alert = mount(Alert, {
+      propsData: {
+        showAlert: true,
+        iconClass: 'custom-glyph-clients'
+      }
+    })
+    expect(alert.contains('.custom-glyph-clients')).toBe(true)
   })
 })
