@@ -108,7 +108,7 @@ export default {
   }
 
   & > tbody /deep/ tr > td {
-    padding: .5rem;
+    padding: 8px;
     vertical-align: middle;
     border-top: 1px solid $color-gray-60;
   }
