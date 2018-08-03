@@ -22,6 +22,39 @@
     </ao-section-header>
 
     <ao-card :title="'Title of Card'">
+      <div style="text-align: center;">
+        <p>
+        <ao-tooltip
+          top
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          bottom
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          left
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          right
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip right text="By default, it is this icon"/>
+        </p>
+      </div>
       <p>
         <ao-text-style
           error
@@ -43,6 +76,7 @@
           :label="'Age'"
           v-model="age"
           :step="5"
+          tooltip="tooltip!"
         />
         <p>My age: {{ age }}</p>
 
@@ -79,7 +113,7 @@
           :checkbox-label="'Books'"
         />
 
-        <ao-info-pair :label="'Info Pair Label'">
+        <ao-info-pair :label="'Info Pair Label'" tooltip="Testing">
           <p>
             123 Address St.
             <br>
@@ -89,15 +123,19 @@
 
         <p>Liking Books is: {{ likeBooks }}</p>
 
-        <ao-radio
-          v-for="radio in radios"
-          :key="radio.value"
-          :val="radio.value"
-          :name="radio.name"
-          v-model="selectedRadio"
-        >
-          {{ radio.value }}
-        </ao-radio>
+        <ao-tooltip
+          top
+          text="this is an option!">
+          <ao-radio
+            v-for="radio in radios"
+            :key="radio.value"
+            :val="radio.value"
+            :name="radio.name"
+            v-model="selectedRadio"
+          >
+            {{ radio.value }}
+          </ao-radio>
+        </ao-tooltip>
 
         <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
 

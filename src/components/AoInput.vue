@@ -1,8 +1,14 @@
 <template>
   <div class="ao-form-group">
-    <label
-      v-show="showLabel"
-      :for="name">{{ label }}</label>
+    <div class="ao-input__label">
+      <label
+        v-show="showLabel"
+        :for="name">{{ label }}</label>
+      <ao-tooltip
+        v-if="tooltip"
+        right
+        :text="tooltip"/>
+    </div>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
         :class="{'ao-form-control--has-error': hasError }"
@@ -133,6 +139,11 @@ export default {
     hasError: {
       type: Boolean,
       default: false
+    },
+
+    tooltip: {
+      type: String,
+      default: null
     }
   },
 
