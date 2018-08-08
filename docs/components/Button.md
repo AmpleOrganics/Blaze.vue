@@ -17,11 +17,11 @@ This is a customizable button component
 
 ## Props
 
-| Name         | Type     | Default | Description                                                           |
-|:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| primary     | Boolean | false | This prop defines the button to act as a primary action ie. submition, confirmation etc.                     |
-| destructive | Boolean | false | This prop defines the button to act as a destructive action ie. deletion, permenant irreversable action etc. |
-| caution     | Boolean | false | This prop defines the button to act as a cautious action ie. reversable powerful change etc.                 |
+| Name        | Type    | Default | Description |
+|:------------|:--------|:------|:--------------|
+| primary     | Boolean | false | This prop defines the button to act as a primary action ie. submission, confirmation etc.                    |
+| destructive | Boolean | false | This prop defines the button to act as a destructive action ie. deletion, permanent irreversible action etc. |
+| caution     | Boolean | false | This prop defines the button to act as a cautious action ie. reversible powerful change etc.                 |
 | subtle      | Boolean | false | This prop defines the button to be a more subtle version of the default button                               |
 | small       | Boolean | false | This prop defines a small sized button                                                                       |
 | large       | Boolean | false | This prop defines a large sized button                                                                       |
