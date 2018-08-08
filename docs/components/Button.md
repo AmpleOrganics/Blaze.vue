@@ -19,9 +19,9 @@ This is a customizable button component
 
 | Name        | Type    | Description                                                                                                  |
 |-------------|---------|--------------------------------------------------------------------------------------------------------------|
-| primary     | Boolean | This prop defines the button to act as a primary action ie. submition, confirmation etc.                     |
-| destructive | Boolean | This prop defines the button to act as a destructive action ie. deletion, permenant irreversable action etc. |
-| caution     | Boolean | This prop defines the button to act as a cautious action ie. reversable powerful change etc.                 |
+| primary     | Boolean | This prop defines the button to act as a primary action ie. submission, confirmation etc.                     |
+| destructive | Boolean | This prop defines the button to act as a destructive action ie. deletion, permanent irreversible action etc. |
+| caution     | Boolean | This prop defines the button to act as a cautious action ie. reversible powerful change etc.                 |
 | subtle      | Boolean | This prop defines the button to be a more subtle version of the default button                               |
 | small       | Boolean | This prop defines a small sized button                                                                       |
 | large       | Boolean | This prop defines a large sized button                                                                       |
