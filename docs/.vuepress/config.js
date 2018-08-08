@@ -1,42 +1,44 @@
 const fs = require('fs')
 module.exports = {
   locales: {
-    '/': {
-      lang: 'en-US',
-      title: 'Blaze',
-      description: 'Component Library created by Ample Organics'
+    "/": {
+      lang: "en-US",
+      title: "Blaze",
+      description: "Component Library created by Ample Organics"
     }
   },
   serviceWorker: true,
   themeConfig: {
-    repo: 'AmpleOrganics/Blaze.vue',
-    docsDir: 'docs',
-    docsBranch: 'master',
+    repo: "AmpleOrganics/Blaze.vue",
+    docsDir: "docs",
+    docsBranch: "master",
     editLinks: true,
     sidebarDepth: 3,
     locales: {
-      '/': {
-        label: 'English',
-        selectText: 'Languages',
-        lastUpdated: 'Last Updated',
-        editLinkText: 'Edit this page on GitHub',
+      "/": {
+        label: "English",
+        selectText: "Languages",
+        lastUpdated: "Last Updated",
+        editLinkText: "Edit this page on GitHub",
         nav: [
           {
-            text: 'Components',
-            link: '/components/'
+            text: "Components",
+            link: "/components/"
           }
         ],
         sidebar: {
-          '/components/':[
-            '/components/',
+          "/components/": [
+            "/components/",
             {
-              title: 'Components',
+              title: "Components",
               collapsable: false,
               children: [
-                '/components/Button'
+                "/components/Alert",
+                "/components/Badge",
+                "/components/Button",
+                "/components/Checkbox"
               ]
-            },
-
+            }
           ]
         }
       }
@@ -44,9 +46,9 @@ module.exports = {
     css: {
       loaderOptions: {
         scss: {
-          data: fs.readFileSync('./docs/.vuepress/_variables.scss', 'utf-8')
+          data: fs.readFileSync("./docs/.vuepress/_variables.scss", "utf-8")
         }
       }
     }
   }
-}
+};
