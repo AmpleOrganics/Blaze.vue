@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="component-example">
-      <div class="component-example__display"> My favourite character is {{selectedRadio}} </div>
+      <div class="component-example__display"> My favourite character is {{ selectedRadio }} </div>
       <ao-radio
         v-for="radio in radios"
         :key="radio.value"
@@ -16,7 +16,7 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
       radios: [
         { name: 'Tandy', value: 'Tandy' },

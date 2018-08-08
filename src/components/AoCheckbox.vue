@@ -27,7 +27,7 @@ export default {
 
     checkboxValue: {
       type: [String, Number, Boolean, Object],
-      default: null
+      required: true
     },
 
     showLabel: {

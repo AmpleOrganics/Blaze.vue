@@ -11,6 +11,7 @@ This is a customizable checkbox component
 <ao-checkbox
   :checkbox-label="'Label'"
   :show-label="true"
+  :checkbox-value="true"
 />
 ```
 
@@ -18,8 +19,8 @@ This is a customizable checkbox component
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| value | [Array, Boolean, Number, Object] | null | This prop defines if the checkbox is activated or not. |
-| checkboxValue | [String, Number, Boolean, Object] | null | This prop defines the value of the checkbox. |
-| showLabel | Boolean | true | This prop defines if the label should be shown or not. |
-| checkboxLabel | String | - | This prop defines the checkbox label and is required. |
-| disabled | Boolean | false | This prop defines if the checkbox is disabled or not. |
+| value | [Array, Boolean, Number, Object] | null | Defines the value associated with the input (this is also the value that is sent on submit). |
+| checkboxValue | [String, Number, Boolean, Object], required | true | Defines the value associated with the input. |
+| showLabel | Boolean | true | Hide or unhide the text label. |
+| checkboxLabel | String, required | - | Text label next to the checkbox. |
+| disabled | Boolean | false | Disables interaction with the component. |

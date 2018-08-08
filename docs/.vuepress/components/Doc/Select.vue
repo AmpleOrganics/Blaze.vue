@@ -1,18 +1,19 @@
 <template>
   <div>
     <div class="component-example">
-      <div class="component-example__display"> My favourite Pokemon is {{selected}} </div>
+      <div class="component-example__display">My favourite Pokemon is {{ selected }} </div>
       <ao-select
         v-model="selected"
         :label="label"
         :placeholder="placeholder"
         :invalid="invalid"
         :disabled="disabled"
-        :showLabel="showLabel">
+        :show-label="showLabel">
         <option
           v-for="option in options"
-          :value="option.value">
-          {{option.name}}
+          :value="option.value"
+          :key="option.name">
+          {{ option.name }}
         </option>
       </ao-select>
     </div>
@@ -33,13 +34,6 @@
       </div>
       <div class="component-controls__group">
         <ao-checkbox
-          v-model="invalid"
-          :checkbox-label="'Invalid'"
-          :checkbox-value="true"
-        />
-      </div>
-      <div class="component-controls__group">
-        <ao-checkbox
           v-model="showLabel"
           :checkbox-label="'showLabel'"
           :checkbox-value="true"
@@ -48,7 +42,14 @@
       <div class="component-controls__group">
         <ao-checkbox
           v-model="disabled"
-          :checkbox-label="'Disabled'"
+          :checkbox-label="'disabled'"
+          :checkbox-value="true"
+        />
+      </div>
+      <div class="component-controls__group">
+        <ao-checkbox
+          v-model="invalid"
+          :checkbox-label="'invalid'"
           :checkbox-value="true"
         />
       </div>
@@ -59,7 +60,7 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
       label: 'Select Label',
       placeholder: 'Select Pokemon',
@@ -76,7 +77,7 @@ export default {
     }
   },
   methods: {
-    activateProp(compare) {
+    activateProp (compare) {
       return compare === this.selectedType
     }
   }

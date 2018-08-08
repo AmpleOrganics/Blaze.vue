@@ -24,22 +24,28 @@
       </div>
       <div class="component-controls__group">
         <ao-select
-          label="Context"
-          v-model="selectedContext">
-          <option v-for="(prop, index) in contextProps" :key="index" :value="prop.value">{{ prop.name }}</option>
+          v-model="selectedContext"
+          label="Context">
+          <option
+            v-for="(prop, index) in contextProps"
+            :key="index"
+            :value="prop.value">{{ prop.name }}</option>
         </ao-select>
       </div>
       <div class="component-controls__group">
         <ao-select
-          label="Size"
-          v-model="selectedSize">
-          <option v-for="(prop, index) in sizeProps" :key="index" :value="prop.value">{{ prop.name }}</option>
+          v-model="selectedSize"
+          label="Size">
+          <option
+            v-for="(prop, index) in sizeProps"
+            :key="index"
+            :value="prop.value">{{ prop.name }}</option>
         </ao-select>
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="disabled"
-          :checkbox-label="'Disabled'"
+          :checkbox-label="'disabled'"
           :checkbox-value="true"
         />
       </div>
@@ -50,9 +56,9 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
-      buttonText: 'Text',
+      buttonText: 'I\'m a button',
       contextProps: [
         {name: 'Default', value: null},
         {name: 'Primary', value: 'primary'},
@@ -63,18 +69,18 @@ export default {
       ],
       selectedContext: null,
       sizeProps: [
-        {name: 'Default', value: null},
+        {name: 'Default', value: 'default'},
         {name: 'Small', value: 'small'},
         {name: 'Large', value: 'large'},
-        {name: 'Jumbo', value: 'jumbo'},
-        ],
-      selectedSize: "default",
+        {name: 'Jumbo', value: 'jumbo'}
+      ],
+      selectedSize: 'default',
       disabled: false
     }
   },
 
   methods: {
-    activateProp(compare) {
+    activateProp (compare) {
       return compare === this.selectedContext || compare === this.selectedSize
     }
   }

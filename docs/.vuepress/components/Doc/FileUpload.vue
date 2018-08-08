@@ -3,10 +3,10 @@
     <div class="component-example component-example__file-upload">
       <ao-file-upload
         :label="labelText"
-        name="'file'"
-        :showLabel="showLabel"
+        :show-label="showLabel"
         :disabled="disabled"
         :invalid="invalid"
+        name="'file'"
       />
     </div>
     <div class="component-controls">
@@ -14,7 +14,7 @@
         <ao-input
           v-model="labelText"
           :type="'text'"
-          :label="'Label Text'"
+          :label="'File Upload Label Text'"
         />
       </div>
       <div class="component-controls__group">

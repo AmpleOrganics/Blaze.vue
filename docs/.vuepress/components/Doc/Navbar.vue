@@ -15,12 +15,12 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
       routes: [
-        { path: '#examples', name: 'Examples'},
-        { path: '#code-example', name: 'Code Example'},
-        { path: '#props', name: 'Props'},
+        { path: '#examples', name: 'Examples' },
+        { path: '#code-example', name: 'Code Example' },
+        { path: '#props', name: 'Props' }
       ]
     }
   }

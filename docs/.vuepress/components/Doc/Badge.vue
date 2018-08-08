@@ -18,9 +18,12 @@
       </div>
       <div class="component-controls__group">
         <ao-select
-          label="Context"
-          v-model="selectedType">
-          <option v-for="(prop, index) in badgeTypes" :key="index" :value="prop.value">{{ prop.name }}</option>
+          v-model="selectedType"
+          label="Context">
+          <option
+            v-for="(prop, index) in badgeTypes"
+            :key="index"
+            :value="prop.value">{{ prop.name }}</option>
         </ao-select>
       </div>
     </div>
@@ -30,20 +33,20 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
-      text: 'Text',
+      text: 'new',
       badgeTypes: [
-        { value: 'success', name: 'Success'},
-        { value: 'info', name: 'Info'},
-        { value: 'subtle', name: 'Subtle'}
+        { value: 'success', name: 'success' },
+        { value: 'info', name: 'info' },
+        { value: 'subtle', name: 'subtle' }
       ],
       selectedType: 'success'
     }
   },
 
-   methods: {
-    activateProp(compare) {
+  methods: {
+    activateProp (compare) {
       return compare === this.selectedType
     }
   }

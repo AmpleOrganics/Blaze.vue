@@ -3,11 +3,11 @@
     <div class="component-example component-example__alert">
       <ao-alert
         v-if="showAlert"
-        :showAlert="showAlert"
+        :show-alert="showAlert"
         :destructive="activateProp('destructive')"
-        :caution="activateProp('caution')">
-        <span slot="alert-icon"> Icon </span>
-        <span> {{ alertText }} </span>
+        :caution="activateProp('caution')"
+        :icon-class="'glyphicon glyphicon-ok'">
+        {{ alertText }}
       </ao-alert>
     </div>
     <div class="component-controls">
@@ -20,15 +20,20 @@
       </div>
       <div class="component-controls__group">
         <ao-select
-          label="Context"
-          v-model="selectedType">
-          <option v-for="prop in alertTypes" :value="prop.value">{{ prop.name }}</option>
+          v-model="selectedType"
+          label="Context">
+          <option
+            v-for="prop in alertTypes"
+            :value="prop.value"
+            :key="prop.name">
+            {{ prop.name }}
+          </option>
         </ao-select>
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="showAlert"
-          :checkbox-label="'Show Alert'"
+          :checkbox-label="'showAlert'"
           :checkbox-value="true"
         />
       </div>
@@ -39,21 +44,20 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
-      alertText: 'Text',
+      alertText: 'Alert text goes here',
       showAlert: true,
       alertTypes: [
         { value: null, name: 'Default' },
         { value: 'destructive', name: 'Destructive' },
         { value: 'caution', name: 'Caution' }
       ],
-      selectedType: null,
-      iconClass: 'test'
+      selectedType: null
     }
   },
   methods: {
-    activateProp(compare) {
+    activateProp (compare) {
       return compare === this.selectedType
     }
   }

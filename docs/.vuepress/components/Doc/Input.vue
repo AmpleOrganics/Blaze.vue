@@ -1,118 +1,143 @@
-  <template>
-    <div>
-      <h4>Text Input Example</h4>
-      <div class="component-example">
+<template>
+  <div>
+    <h3>Text Input Example</h3>
+    <div class="component-example">
+      <ao-input
+        :label="textLabel"
+        :placeholder="textPlaceholder"
+        :show-label="showLabel"
+        :icon-html="iconHtml"
+        :disabled="disabled"
+        :invalid="invalid"
+      />
+    </div>
+    <div class="component-controls">
+      <div class="component-controls__group">
         <ao-input
-          :label="textLabel"
-          :placeholder="textPlaceholder"
-          :showLabel="showLabel"
-          :iconHtml="iconHtml"
-          :addOn="addOn"
-          :disabled="disabled"
-          :invalid="invalid"
+          v-model="textLabel"
+          :type="'text'"
+          :label="'Input Label Text'"
         />
-      </div>
-      <div class="component-controls">
-        <div class="component-controls__group">
-          <ao-input
-            v-model="textLabel"
-            :type="'text'"
-            :label="'Text Label'"
-          />
-        </div>
-      </div>
-      <div class="component-controls">
-        <div class="component-controls__group">
-          <ao-input
-            v-model="textPlaceholder"
-            :type="'text'"
-            :label="'Text Placeholder'"
-          />
-        </div>
-      </div>
-      <div class="component-controls">
-        <div class="component-controls__group">
-          <ao-input
-            v-model="iconHtml"
-            :type="'text'"
-            :label="'Icon'"
-          />
-        </div>
-      </div>
-      <div class="component-controls">
-        <div class="component-controls__group">
-          <ao-input
-            v-model="addOn"
-            :type="'text'"
-            :label="'Add On'"
-          />
-        </div>
-      </div>
-      <div class="component-controls__group">
-        <ao-checkbox
-          v-model="showLabel"
-          :checkbox-label="'Show Label'"
-          :checkbox-value="true"
-        />
-      </div>
-      <div class="component-controls__group">
-        <ao-checkbox
-          v-model="disabled"
-          :checkbox-label="'Disabled'"
-          :checkbox-value="false"
-        />
-      </div>
-      <div class="component-controls__group">
-        <ao-checkbox
-          v-model="invalid"
-          :checkbox-label="'Invalid'"
-          :checkbox-value="true"
-        />
-      </div>
-      <h4>Number Input Example</h4>
-      <div class="component-example">
-        <ao-input
-          type="number"
-          :label="numberLabel"
-          :step="step"
-        />
-      </div>
-      <div class="component-controls">
-        <div class="component-controls__group">
-          <ao-input
-            v-model="numberLabel"
-            :type="'text'"
-            :label="'Number Label'"
-          />
-        </div>
-      </div>
-      <div class="component-controls">
-        <div class="component-controls__group">
-          <ao-input
-            v-model="step"
-            :type="'number'"
-            :label="'Step Amount'"
-          />
-        </div>
       </div>
     </div>
-  </template>
+    <div class="component-controls">
+      <div class="component-controls__group">
+        <ao-input
+          v-model="textPlaceholder"
+          :type="'text'"
+          :label="'Placeholder Text'"
+        />
+      </div>
+    </div>
+    <div class="component-controls">
+      <div class="component-controls__group">
+        <ao-input
+          v-model="iconHtml"
+          :type="'text'"
+          :label="'iconHtml'"
+        />
+      </div>
+    </div>
+    <div class="component-controls__group">
+      <ao-checkbox
+        v-model="showLabel"
+        :checkbox-label="'showLabel'"
+        :checkbox-value="true"
+      />
+    </div>
+    <div class="component-controls__group">
+      <ao-checkbox
+        v-model="disabled"
+        :checkbox-label="'disabled'"
+        :checkbox-value="false"
+      />
+    </div>
+    <div class="component-controls__group">
+      <ao-checkbox
+        v-model="invalid"
+        :checkbox-label="'invalid'"
+        :checkbox-value="true"
+      />
+    </div>
+    <h3 class="component-sub-example">Number Input Example</h3>
+    <div class="component-example">
+      <ao-input
+        :label="numberLabel"
+        :step="step"
+        :add-on="addOn"
+        type="number"
+      />
+    </div>
+    <div class="component-controls">
+      <div class="component-controls__group">
+        <ao-input
+          v-model="numberLabel"
+          :type="'text'"
+          :label="'Input Label Text'"
+        />
+      </div>
+    </div>
+    <div class="component-controls">
+      <div class="component-controls__group">
+        <ao-input
+          v-model="step"
+          :type="'number'"
+          :label="'Step Amount'"
+        />
+      </div>
+    </div>
+    <div class="component-controls">
+      <div class="component-controls__group">
+        <ao-input
+          v-model="addOn"
+          :type="'text'"
+          :label="'addOn'"
+        />
+      </div>
+    </div>
+    <h3 class="component-sub-example">Date Input Example</h3>
+    <div class="component-example">
+      <ao-input
+        :label="dateLabel"
+        type="date"
+      />
+    </div>
+    <div class="component-controls">
+      <div class="component-controls__group">
+        <ao-input
+          v-model="dateLabel"
+          :type="'text'"
+          :label="'Input Label Text'"
+        />
+      </div>
+    </div>
+  </div>
+</template>
 
-  <script>
+<script>
 
-  export default {
-    data() {
-      return {
-        textLabel: 'Text Type Label',
-        textPlaceholder: 'Text Placeholder',
-        showLabel: true,
-        iconHtml: 'Icon',
-        addOn: 'Add On',
-        disabled: false,
-        invalid: false,
-        numberLabel: 'Number Type Label',
-        step: 1,
-      }
+export default {
+  data () {
+    return {
+      textLabel: 'Enter your name',
+      textPlaceholder: 'e.g. Tandy Miller',
+      showLabel: true,
+      iconHtml: '&#10004;',
+      addOn: 'years',
+      disabled: false,
+      invalid: false,
+      numberLabel: 'Enter your age',
+      step: 1,
+      dateLabel: 'Enter your date of birth'
     }
   }
-  </script>
+}
+</script>
+
+<style scoped>
+.component-sub-example {
+  border-top: 1px solid #eaecef;
+  padding-top: 5px;
+  margin-top: 50px;
+}
+</style>

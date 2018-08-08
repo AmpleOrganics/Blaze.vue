@@ -10,10 +10,10 @@ This is a customizable modal component
 ```html
 <ao-modal
   v-if="showModal"
-  :header-text="'Header Text'"
+  :header-text="'This is the modal title'"
   @modalClose="toggleModal">
   <div slot="modal-body">
-    <p>I am content</p>
+    <p>And I live in the body of the modal</p>
   </div>
   <div slot="modal-footer">
     <ao-button
@@ -29,7 +29,7 @@ This is a customizable modal component
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| headerText | String, required | null | This prop defines the header text in the modal. |
-| destructive | Boolean | false | This prop defines if the modal will appear destructive. |
-| caution | Boolean | false | This prop defines if the modal will appear cautious. |
+| headerText | String, required | null | Defines the modal title. |
+| destructive | Boolean | false | Adds a class to indicate a destructive action ie. deletion, permanent irreversible action etc. |
+| caution | Boolean | false | Adds a class to indicate a cautious action ie. reversible powerful change etc. |
 

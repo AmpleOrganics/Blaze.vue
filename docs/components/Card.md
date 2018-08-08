@@ -24,6 +24,6 @@ The Card component allows you to group and organize related content - text, acti
 
 ## Props
 
-| Name         | Type             | Element       | Attribute                            |
+| Name         | Type             | Default       | Attribute                            |
 |:-------------|:-----------------|:--------------|:-------------------------------------|
-| title        | String, required | &lt;h2&gt;    | Font-size: 28px                      |
+| title        | String, required | null          | Displays title text within the card header. |

@@ -10,17 +10,17 @@ This is a customizable Section Header component
 ```html
 <ao-section-header
   :icon-class="'custom-glyph-clients'"
-  :title="'Title'"
-  :subtitle="'Subtitle'">
-</ao-section-header>
+  :title="'This is the section header title'"
+  :subtitle="'The subtitle goes here'"
+/>
 ```
 
 ## Props
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| title | String, required | null | This prop defines the title of the section header. |
-| subtitle | String | null | This prop defines the subtitle of the section header. |
-| iconHtml | String | null | This prop defines the section header icon html. |
-| iconClass | String | null | This prop defines the section header icon class. |
+| title | String, required | null | Defines the title of the section header. |
+| subtitle | String | null | Defines the subtitle of the section header. |
+| iconHtml | String | null | Accepts html elements or html codes for icons. |
+| iconClass | String | null | Accepts icon class components e.g. glyphicons. |
 

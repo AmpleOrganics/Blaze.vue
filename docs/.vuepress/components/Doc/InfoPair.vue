@@ -2,7 +2,7 @@
   <div>
     <div class="component-example">
       <ao-info-pair :label="label">
-        {{info}}
+        {{ info }}
       </ao-info-pair>
     </div>
     <div class="component-controls">
@@ -10,7 +10,7 @@
         <ao-input
           v-model="label"
           :type="'text'"
-          :label="'Info Pair Label'"
+          :label="'Info Pair Label Text'"
         />
       </div>
     </div>
@@ -19,7 +19,7 @@
         <ao-input
           v-model="info"
           :type="'text'"
-          :label="'Info Pair Info'"
+          :label="'Info Pair Text'"
         />
       </div>
     </div>
@@ -29,10 +29,10 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
-      label: 'Label',
-      info: 'Info'
+      label: 'Info Label',
+      info: 'Information goes here'
     }
   }
 }

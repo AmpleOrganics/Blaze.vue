@@ -51,7 +51,7 @@
 export default {
   data () {
     return {
-      text: 'Text',
+      text: 'This is some sample text',
       selectedSize: null,
       selectedContext: null,
       sizeOptions: [
