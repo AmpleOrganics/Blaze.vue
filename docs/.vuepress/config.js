@@ -44,12 +44,12 @@ module.exports = {
                 "/components/Modal",
                 "/components/Navbar",
                 "/components/Paginate",
+                "/components/Radio",
                 "/components/SectionHeader",
                 "/components/Select",
                 '/components/Spinner',
                 "/components/Table",
                 "/components/TextStyle"
-
               ]
             }
           ]
