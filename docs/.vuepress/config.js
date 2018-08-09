@@ -36,7 +36,9 @@ module.exports = {
                 "/components/Alert",
                 "/components/Badge",
                 "/components/Button",
-                "/components/Checkbox"
+                "/components/Checkbox",
+                "/components/InfoPair",
+                "/components/Input"
               ]
             }
           ]
