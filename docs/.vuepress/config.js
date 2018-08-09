@@ -36,6 +36,7 @@ module.exports = {
                 "/components/Alert",
                 "/components/Badge",
                 "/components/Button",
+                "/components/Card",
                 "/components/Checkbox",
                 "/components/FileUpload",
                 "/components/InfoPair",
