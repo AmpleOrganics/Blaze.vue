@@ -38,7 +38,8 @@ module.exports = {
                 "/components/Button",
                 "/components/Checkbox",
                 "/components/InfoPair",
-                "/components/Input"
+                "/components/Input",
+                "/components/Modal"
               ]
             }
           ]
