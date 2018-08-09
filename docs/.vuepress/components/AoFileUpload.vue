@@ -1,8 +1,7 @@
 <template>
   <label
-    v-show="showLabel"
     class="ao-form-group">
-    {{ label }}
+    <span v-show="showLabel">{{ label }}</span>
     <input
       :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
@@ -33,6 +32,11 @@ export default {
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    name: {
+      type: String,
+      required: true
     }
   },
 
