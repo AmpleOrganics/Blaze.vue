@@ -15,21 +15,20 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.5",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.5",
-    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.5",
-    "@vue/cli-service": "^3.0.0-rc.5",
-    "@vue/eslint-config-standard": "^3.0.0-rc.5",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.12",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.12",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.12",
+    "@vue/cli-service": "^3.0.0-rc.12",
+    "@vue/eslint-config-standard": "^3.0.0-rc.12",
     "@vue/test-utils": "^1.0.0-beta.21",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.0.1",
     "chai": "^4.1.2",
     "lodash.orderby": "^4.6.0",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16",
-    "vuepress": "^0.13.1"
+    "vuepress": "^0.14.0"
   },
   "babel": {
     "presets": [
