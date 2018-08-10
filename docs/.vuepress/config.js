@@ -42,6 +42,7 @@ module.exports = {
                 "/components/Input",
                 "/components/Navbar",
                 "/components/Modal",
+                "/components/Select",
                 '/components/Table'
               ]
             }
