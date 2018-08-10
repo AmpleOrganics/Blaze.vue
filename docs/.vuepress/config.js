@@ -37,6 +37,7 @@ module.exports = {
                 "/components/Badge",
                 "/components/Button",
                 "/components/Checkbox",
+                "/components/FileUpload",
                 "/components/InfoPair",
                 "/components/Input",
                 "/components/Modal"
