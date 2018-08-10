@@ -45,8 +45,10 @@ module.exports = {
                 "/components/Modal",
                 "/components/Paginate",
                 "/components/Select",
+                '/components/Spinner',
                 "/components/Table",
                 "/components/TextStyle"
+
               ]
             }
           ]
