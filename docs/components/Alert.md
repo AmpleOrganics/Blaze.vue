@@ -21,6 +21,6 @@ This is a customizable alert component
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
 | showAlert | Boolean | false | This prop defines the alert to be shown or not. |
-| iconClass | String | null | This prop define the alert icon class. |
+| iconClass | String | null | This prop defines the alert icon class. |
 | destructive | Boolean | false | This prop defines the alert to be a destructive alert. |
 | caution | Boolean | false | This prop defines the alert to be a cautious alert. |
