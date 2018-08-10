@@ -40,6 +40,7 @@ module.exports = {
                 "/components/FileUpload",
                 "/components/InfoPair",
                 "/components/Input",
+                "/components/Navbar",
                 "/components/Modal",
                 '/components/Table'
               ]
