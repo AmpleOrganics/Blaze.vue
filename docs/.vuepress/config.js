@@ -44,7 +44,8 @@ module.exports = {
                 "/components/Navbar",
                 "/components/Modal",
                 "/components/Select",
-                '/components/Table'
+                "/components/Table",
+                "/components/TextStyle"
               ]
             }
           ]
