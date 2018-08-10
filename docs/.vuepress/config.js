@@ -39,6 +39,7 @@ module.exports = {
                 "/components/Checkbox",
                 "/components/InfoPair",
                 "/components/Input",
+                "/components/Navbar",
                 "/components/Modal",
                 '/components/Table'
               ]
