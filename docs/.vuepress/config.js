@@ -49,7 +49,8 @@ module.exports = {
                 "/components/Select",
                 '/components/Spinner',
                 "/components/Table",
-                "/components/TextStyle"
+                "/components/TextStyle",
+                "/components/TextArea"
               ]
             }
           ]
