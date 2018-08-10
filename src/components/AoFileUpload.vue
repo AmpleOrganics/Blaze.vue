@@ -1,14 +1,15 @@
 <template>
-  <label
-    class="ao-form-group">
-    <span v-show="showLabel">{{ label }}</span>
+  <div class="ao-form-group">
+    <label v-show="showLabel">
+      {{ label }}
+    </label>
     <input
       :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
       :disabled="disabled"
       type="file"
       @change="updateFile($event.target.files)">
-  </label>
+  </div>
 </template>
 
 <script>
