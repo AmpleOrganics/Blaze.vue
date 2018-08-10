@@ -43,6 +43,7 @@ module.exports = {
                 "/components/Input",
                 "/components/Navbar",
                 "/components/Modal",
+                "/components/Paginate",
                 "/components/Select",
                 "/components/Table",
                 "/components/TextStyle"
