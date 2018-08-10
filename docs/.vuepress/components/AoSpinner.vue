@@ -13,7 +13,8 @@
   top: $spacer-lg;
   z-index: 501;
   display: block;
-  position: fixed;
+  // removed so that is stays in the box
+  // position: fixed;
   right: $spacer-lg;
 
   &__icon {
