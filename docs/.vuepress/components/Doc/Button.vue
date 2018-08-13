@@ -39,7 +39,7 @@
       <div class="component-controls__group">
         <ao-checkbox
           v-model="disabled"
-          :checkbox-label="'Disabled'"
+          :checkbox-label="'disabled'"
           :checkbox-value="true"
         />
       </div>
@@ -52,7 +52,7 @@
 export default {
   data() {
     return {
-      buttonText: 'Text',
+      buttonText: 'I\'m a button',
       contextProps: [
         {name: 'Default', value: null},
         {name: 'Primary', value: 'primary'},
@@ -63,7 +63,7 @@ export default {
       ],
       selectedContext: null,
       sizeProps: [
-        {name: 'Default', value: null},
+        {name: 'Default', value: 'default'},
         {name: 'Small', value: 'small'},
         {name: 'Large', value: 'large'},
         {name: 'Jumbo', value: 'jumbo'},
