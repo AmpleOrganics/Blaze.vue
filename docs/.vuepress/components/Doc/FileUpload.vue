@@ -14,7 +14,7 @@
         <ao-input
           v-model="labelText"
           :type="'text'"
-          :label="'Label Text'"
+          :label="'File Upload Label Text'"
         />
       </div>
       <div class="component-controls__group">

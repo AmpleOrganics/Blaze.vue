@@ -10,8 +10,8 @@ This is a customizable file upload component
 ## Code Example
 ```html
 <ao-file-upload
-  label="'Upload File'"
-  name="'File'"
+  :label="'Upload File'"
+  :name="'File'"
 />
 ```
 
@@ -19,8 +19,8 @@ This is a customizable file upload component
 
 | Name | Type | Default | Description |
 |:-----|:-----|:--------|:------------|
-| label       | String, required | null  | Displays a text label above the button to describe the action |
-| name        | String, required | null  | Specifies the name of the &lt;label&gt; element |
-| showLabel   | Boolean          | True  | Hide or unhide the text label |
-| disabled    | Boolean          | False | Disables interaction with the component |
-| invalid     | Boolean          | False | Adds a class to display a red border around the component to indicate a file type that does not meet your desired criteria |
+| label       | String, required | -     | Displays a text label above the button to describe the action |
+| name        | String, required | -     | Specifies the name of the &lt;label&gt; element |
+| showLabel   | Boolean          | true  | Hide or unhide the text label |
+| disabled    | Boolean          | false | Disables interaction with the component |
+| invalid     | Boolean          | false | Adds a class to display a red border around the component to indicate an invalid entry |
