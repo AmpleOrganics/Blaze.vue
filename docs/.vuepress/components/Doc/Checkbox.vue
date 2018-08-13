@@ -5,6 +5,7 @@
         :checkbox-label="checkboxLabel"
         :show-label="showLabel"
         :disabled="disabled"
+        checkbox-value
       />
     </div>
     <div class="component-controls">
@@ -12,21 +13,21 @@
         <ao-input
           v-model="checkboxLabel"
           :type="'text'"
-          :label="'Alert Text'"
+          :label="'Checkbox Label Text'"
         />
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="showLabel"
           :checkbox-label="'showLabel'"
-          :checkbox-value="true"
+          checkbox-value
         />
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="disabled"
-          :checkbox-label="'Disabled'"
-          :checkbox-value="true"
+          :checkbox-label="'disabled'"
+          checkbox-value
         />
       </div>
     </div>
@@ -40,7 +41,7 @@ export default {
     return {
       disabled: false,
       showLabel: true,
-      checkboxLabel: 'Label'
+      checkboxLabel: 'This is the checkbox label'
     }
   },
   methods: {
