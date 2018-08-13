@@ -14,7 +14,8 @@ This is a customizable radio component
   :val="radio.value"
   :name="radio.name"
   :label="radio.name"
-  v-model="selectedRadio"/>
+  v-model="selectedRadio"
+/>
 ```
 
 ```js
