@@ -1,13 +1,12 @@
   <template>
     <div>
-      <h4>Text Input Example</h4>
+      <h3>Text Input Example</h3>
       <div class="component-example">
         <ao-input
           :label="textLabel"
           :placeholder="textPlaceholder"
           :showLabel="showLabel"
           :iconHtml="iconHtml"
-          :addOn="addOn"
           :disabled="disabled"
           :invalid="invalid"
         />
@@ -17,7 +16,7 @@
           <ao-input
             v-model="textLabel"
             :type="'text'"
-            :label="'Text Label'"
+            :label="'Input Label Text'"
           />
         </div>
       </div>
@@ -26,7 +25,7 @@
           <ao-input
             v-model="textPlaceholder"
             :type="'text'"
-            :label="'Text Placeholder'"
+            :label="'Placeholder Text'"
           />
         </div>
       </div>
@@ -35,46 +34,38 @@
           <ao-input
             v-model="iconHtml"
             :type="'text'"
-            :label="'Icon'"
-          />
-        </div>
-      </div>
-      <div class="component-controls">
-        <div class="component-controls__group">
-          <ao-input
-            v-model="addOn"
-            :type="'text'"
-            :label="'Add On'"
+            :label="'iconHtml'"
           />
         </div>
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="showLabel"
-          :checkbox-label="'Show Label'"
+          :checkbox-label="'showLabel'"
           :checkbox-value="true"
         />
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="disabled"
-          :checkbox-label="'Disabled'"
+          :checkbox-label="'disabled'"
           :checkbox-value="false"
         />
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="invalid"
-          :checkbox-label="'Invalid'"
+          :checkbox-label="'invalid'"
           :checkbox-value="true"
         />
       </div>
-      <h4>Number Input Example</h4>
+      <h3 class="component-sub-example">Number Input Example</h3>
       <div class="component-example">
         <ao-input
           type="number"
           :label="numberLabel"
           :step="step"
+          :addOn="addOn"
         />
       </div>
       <div class="component-controls">
@@ -82,7 +73,7 @@
           <ao-input
             v-model="numberLabel"
             :type="'text'"
-            :label="'Number Label'"
+            :label="'Input Label Text'"
           />
         </div>
       </div>
@@ -95,6 +86,31 @@
           />
         </div>
       </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-input
+            v-model="addOn"
+            :type="'text'"
+            :label="'addOn'"
+          />
+        </div>
+      </div>
+      <h3 class="component-sub-example">Date Input Example</h3>
+      <div class="component-example">
+        <ao-input
+          type="date"
+          :label="dateLabel"
+        />
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-input
+            v-model="dateLabel"
+            :type="'text'"
+            :label="'Input Label Text'"
+          />
+        </div>
+      </div>
     </div>
   </template>
 
@@ -103,16 +119,25 @@
   export default {
     data() {
       return {
-        textLabel: 'Text Type Label',
-        textPlaceholder: 'Text Placeholder',
+        textLabel: 'Enter your name',
+        textPlaceholder: 'e.g. Tandy Miller',
         showLabel: true,
-        iconHtml: 'Icon',
-        addOn: 'Add On',
+        iconHtml: '&#10004;',
+        addOn: 'years',
         disabled: false,
         invalid: false,
-        numberLabel: 'Number Type Label',
+        numberLabel: 'Enter your age',
         step: 1,
+        dateLabel: 'Enter your date of birth'
       }
     }
   }
-  </script>
+</script>
+
+<style scoped>
+.component-sub-example {
+  border-top: 1px solid #eaecef;
+  padding-top: 5px;
+  margin-top: 50px;
+}
+</style>
