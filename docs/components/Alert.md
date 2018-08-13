@@ -11,8 +11,8 @@ This is a customizable alert component
 <ao-alert
   v-if="showAlert"
   :showAlert="true"
-  <span slot="alert-icon"> Icon </span>
-  <span> New </span>
+  :icon-class="'glyphicon glyphicon-ok'">
+  Alert text goes here
 </ao-alert>
 ```
 
@@ -20,7 +20,7 @@ This is a customizable alert component
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| showAlert | Boolean | false | This prop defines the alert to be shown or not. |
-| iconClass | String | null | This prop defines the alert icon class. |
-| destructive | Boolean | false | This prop defines the alert to be a destructive alert. |
-| caution | Boolean | false | This prop defines the alert to be a cautious alert. |
+| showAlert | Boolean | false | Shows or hides the alert. |
+| iconClass | String | null | Displays icon components ie. glyphicons. |
+| destructive | Boolean | false | Adds a class to indicate a destructive action ie. deletion, permanent irreversible action etc. |
+| caution | Boolean | false | Adds a class to indicate a cautious action ie. reversible powerful change etc. |
