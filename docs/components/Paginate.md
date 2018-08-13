@@ -1,6 +1,8 @@
 # Paginate
 This is a pagination component allowing you to navigate between pages
 
+## Examples
+
 <Doc-Paginate/>
 
 ## Code Example
@@ -21,7 +23,7 @@ methods: {
 
 ```
 
-# Props
+## Props
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|

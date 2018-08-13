@@ -47,10 +47,10 @@ module.exports = {
                 "/components/Radio",
                 "/components/SectionHeader",
                 "/components/Select",
-                '/components/Spinner',
+                "/components/Spinner",
                 "/components/Table",
-                "/components/TextStyle",
-                "/components/TextArea"
+                "/components/TextArea",
+                "/components/TextStyle"
               ]
             }
           ]
