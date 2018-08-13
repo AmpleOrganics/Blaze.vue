@@ -12,7 +12,7 @@ This is a simple customizable text component to compliment other components
 <ao-text-style
   error
   small>
-  Your text here
+  This is some sample text
 </ao-text-style>
 ```
 
@@ -20,5 +20,5 @@ This is a simple customizable text component to compliment other components
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| error | Boolean | false | This prop defines if the text is an error message. |
-| small | Boolean | false | This prop defines size to be small instead of its default size. |
+| error | Boolean | false | Adds a class to change the font colour to red to indicate an error. |
+| small | Boolean | false | Converts font-size to 0.75rem, given a base of font-size 16px. |
