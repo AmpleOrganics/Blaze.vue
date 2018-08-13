@@ -32,7 +32,7 @@
 export default {
   data() {
     return {
-      text: 'Text',
+      text: 'new',
       badgeTypes: [
         { value: 'success', name: 'Success'},
         { value: 'info', name: 'Info'},
@@ -42,7 +42,7 @@ export default {
     }
   },
 
-   methods: {
+  methods: {
     activateProp(compare) {
       return compare === this.selectedType
     }
