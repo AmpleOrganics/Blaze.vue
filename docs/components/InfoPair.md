@@ -8,8 +8,8 @@ This is a customizable info pair component
 
 ## Code Example
 ```html
-<ao-info-pair label="label">
-  Info
+<ao-info-pair label="'Info Label'">
+  Information goes here
 </ao-info-pair>
 ```
 
@@ -17,4 +17,4 @@ This is a customizable info pair component
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| label | String | - | This prop defines the info pair label which is required. |
+| label | String, required | - | Text displayed as the info pair label. |
