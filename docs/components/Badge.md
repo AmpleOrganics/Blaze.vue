@@ -9,7 +9,7 @@ This is a customizable badge component
 ## Code Example
 ```html
 <ao-badge
-  :text="'text'"
+  :text="'new'"
   success
 />
 ```
@@ -18,7 +18,7 @@ This is a customizable badge component
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| text | String | null | This prop defines text within the badge component. |
-| success | Boolean | false | This prop defines the alert to show a green badge. |
-| info | Boolean | false | This prop defines the alert to show a blue badge. |
-| subtle | Boolean | false | This prop defines the alert to show a grey badge. |
+| text | String | null | The text to display within the badge component. |
+| success | Boolean | false | Adds a class to display a green badge. |
+| info | Boolean | false | Adds a class to display a blue badge. |
+| subtle | Boolean | false | Adds a class to display a grey badge. |
