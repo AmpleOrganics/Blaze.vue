@@ -6,7 +6,8 @@
         :is-clickable="isClickable"
         :sort-by="sortBy"
         :order="order"
-        @sortTable="sortTable">
+        @sortTable="sortTable"
+        class="fixed-widths">
         <tr
           v-for="user in users"
           :key="user.id">
@@ -55,3 +56,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.fixed-widths td {
+  width: 200px;
+
+  &:first-child {
+    width: 50px;
+  }
+}
+</style>
