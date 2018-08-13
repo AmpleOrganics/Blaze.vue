@@ -5,9 +5,9 @@
         v-if="showAlert"
         :showAlert="showAlert"
         :destructive="activateProp('destructive')"
-        :caution="activateProp('caution')">
-        <span slot="alert-icon"> Icon </span>
-        <span> {{ alertText }} </span>
+        :caution="activateProp('caution')"
+        :icon-class="'glyphicon glyphicon-ok'">
+        {{ alertText }}
       </ao-alert>
     </div>
     <div class="component-controls">
@@ -28,7 +28,7 @@
       <div class="component-controls__group">
         <ao-checkbox
           v-model="showAlert"
-          :checkbox-label="'Show Alert'"
+          :checkbox-label="'showAlert'"
           :checkbox-value="true"
         />
       </div>
@@ -41,15 +41,14 @@
 export default {
   data() {
     return {
-      alertText: 'Text',
+      alertText: 'Alert text goes here',
       showAlert: true,
       alertTypes: [
         { value: null, name: 'Default' },
         { value: 'destructive', name: 'Destructive' },
         { value: 'caution', name: 'Caution' }
       ],
-      selectedType: null,
-      iconClass: 'test'
+      selectedType: null
     }
   },
   methods: {
