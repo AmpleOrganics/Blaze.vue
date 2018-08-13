@@ -8,8 +8,7 @@
       :rows="rowLength"
       :maxLength="maxCharacters"
       :disabled="disabled"
-      :invalid="invalid">
-    </ao-text-area>
+      :invalid="invalid" />
   </div>
   <div class="component-controls">
     <div class="component-controls__group">
@@ -66,13 +65,13 @@
 export default {
   data () {
     return {
-      placeholderText: "Ever since I was a kid, I've had a fear of being scared.",
+      placeholderText: "e.g. Ever since I was a kid, I've had a fear of being scared.",
       rowLength: 5,
       maxCharacters: 100000,
       disabled: false,
       invalid: false,
       showLabel: true,
-      textAreaText: 'Text Area'
+      textAreaText: 'Enter your favourite \'Last Man on Earth\' quote'
     }
   }
 }
