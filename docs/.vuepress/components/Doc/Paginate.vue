@@ -1,28 +1,26 @@
-  <template>
-    <div>
-      <div class="component-example">
-        <ao-paginate
-          :total-pages="totalPages"
-          @paginate="paginate">
-        </ao-paginate>
-        <p>Page counter (not part of component)</p>
-        <p>current page: {{currentPage}}</p>
-        <p>totalPages: {{totalPages}}</p>
-      </div>
-      <div class="component-controls">
-        <div class="component-controls__group">
-          <ao-input
-            v-model="totalPages"
-            :type="'number'"
-            :label="'Total Pages'"
-          />
-        </div>
+<template>
+  <div>
+    <div class="component-example">
+      <ao-paginate
+        :total-pages="totalPages"
+        @paginate="paginate">
+      </ao-paginate>
+      <p>Current Page: {{ currentPage }}</p>
+      <p>Total Pages: {{ totalPages }}</p>
+    </div>
+    <div class="component-controls">
+      <div class="component-controls__group">
+        <ao-input
+          v-model="totalPages"
+          :type="'number'"
+          :label="'Total Pages'"
+        />
       </div>
     </div>
-  </template>
+  </div>
+</template>
 
-  <script>
-
+<script>
   export default {
     data() {
       return {
@@ -37,7 +35,8 @@
       }
     }
   }
-  </script>
+</script>
+
 <style lang="scss" scoped>
 .ao-pagination {
   width: fit-content !important;
