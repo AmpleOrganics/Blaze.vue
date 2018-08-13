@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="component-example">
-      <div class="component-example__display"> My favourite Pokemon is {{selected}} </div>
+      <div class="component-example__display">My favourite Pokemon is {{selected}} </div>
       <ao-select
         v-model="selected"
         :label="label"
@@ -33,13 +33,6 @@
       </div>
       <div class="component-controls__group">
         <ao-checkbox
-          v-model="invalid"
-          :checkbox-label="'Invalid'"
-          :checkbox-value="true"
-        />
-      </div>
-      <div class="component-controls__group">
-        <ao-checkbox
           v-model="showLabel"
           :checkbox-label="'showLabel'"
           :checkbox-value="true"
@@ -48,7 +41,14 @@
       <div class="component-controls__group">
         <ao-checkbox
           v-model="disabled"
-          :checkbox-label="'Disabled'"
+          :checkbox-label="'disabled'"
+          :checkbox-value="true"
+        />
+      </div>
+      <div class="component-controls__group">
+        <ao-checkbox
+          v-model="invalid"
+          :checkbox-label="'invalid'"
           :checkbox-value="true"
         />
       </div>
