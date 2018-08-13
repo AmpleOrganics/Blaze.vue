@@ -20,7 +20,7 @@ export default {
       routes: [
         { path: '#examples', name: 'Examples'},
         { path: '#code-example', name: 'Code Example'},
-        { path: '#props', name: 'Props'},
+        { path: '#props', name: 'Props'}
       ]
     }
   }
