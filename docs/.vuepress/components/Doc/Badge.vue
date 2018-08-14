@@ -34,9 +34,9 @@ export default {
     return {
       text: 'new',
       badgeTypes: [
-        { value: 'success', name: 'Success'},
-        { value: 'info', name: 'Info'},
-        { value: 'subtle', name: 'Subtle'}
+        { value: 'success', name: 'success'},
+        { value: 'info', name: 'info'},
+        { value: 'subtle', name: 'subtle'}
       ],
       selectedType: 'success'
     }
