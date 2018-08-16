@@ -24,6 +24,10 @@ module.exports = {
           {
             text: 'Components',
             link: '/components/'
+          },
+          {
+            text: 'Changelog',
+            link: 'https://github.com/AmpleOrganics/Blaze.vue/blob/master/CHANGELOG.md'
           }
         ],
         sidebar: {
