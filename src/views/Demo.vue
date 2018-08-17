@@ -1,5 +1,6 @@
 <template>
   <div id="demo-container">
+    <ao-breadcrumbs :paths="paths"/>
     <ao-section-header
       :icon-class="'custom-glyph-clients'"
       :title="'Demo Container'"
@@ -22,6 +23,7 @@
     </ao-section-header>
 
     <ao-card :title="'Title of Card'">
+      <ao-breadcrumb :paths="paths"/>
       <p>
         <ao-text-style
           error
@@ -224,6 +226,11 @@ export default {
         { field: 'first_name', title: 'First Name' },
         { field: 'last_name', title: 'Last Name' },
         { field: 'gender', title: 'Gender' }
+      ],
+      paths: [
+        {name: 'first', path: '/'},
+        {name: 'second', path: '/something'},
+        {name: 'current', active: true}
       ],
       description: null,
       loading: false,
