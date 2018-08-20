@@ -10,29 +10,40 @@ describe('Modal', () => {
     })
     expect(modal.text()).toBe('test')
     expect(modal.classes()).toContain('ao-modal-mask') // will need to change
-    expect(modal.contains('.ao-modal--md')).toBe(true)
+    expect(modal.contains('.ao-modal--medium')).toBe(true)
   })
 
   it('small size', () => {
     const modal = mount(Modal, {
       propsData: {
         headerText: 'test0',
-        size: 'sm'
+        size: 'small'
       }
     })
     expect(modal.text()).toBe('test0')
-    expect(modal.contains('.ao-modal--sm')).toBe(true)
+    expect(modal.contains('.ao-modal--small')).toBe(true)
+  })
+
+  it('medium size', () => {
+    const modal = mount(Modal, {
+      propsData: {
+        headerText: 'test1',
+        size: 'medium'
+      }
+    })
+    expect(modal.text()).toBe('test1')
+    expect(modal.contains('.ao-modal--medium')).toBe(true)
   })
 
   it('large size', () => {
     const modal = mount(Modal, {
       propsData: {
         headerText: 'test1',
-        size: 'lg'
+        size: 'large'
       }
     })
     expect(modal.text()).toBe('test1')
-    expect(modal.contains('.ao-modal--lg')).toBe(true)
+    expect(modal.contains('.ao-modal--large')).toBe(true)
   })
 
   it('destructive', () => {

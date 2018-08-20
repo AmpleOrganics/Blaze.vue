@@ -10,9 +10,10 @@
         <ao-button @click.native="toggleModal">Open Modal</ao-button>
         <ao-modal
           v-if="showModal"
+          :size="selectedModalSize"
           :header-text="headerText"
-          :destructive="selectedRadio === 'destructive'"
-          :caution="selectedRadio === 'caution'"
+          :destructive="selectedModalType === 'destructive'"
+          :caution="selectedModalType === 'caution'"
           @modalClose="toggleModal">
           <div slot="modal-body">
             <p>{{ contentText }}</p>
@@ -47,12 +48,23 @@
       <div class="component-controls">
         <div class="component-controls__group">
           <ao-radio
-            v-for="radio in radios"
+            v-for="radio in modalTypes"
             :key="radio.value"
             :val="radio.value"
             :name="radio.name"
             :label="radio.name"
-            v-model="selectedRadio" />
+            v-model="selectedModalType" />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-radio
+            v-for="radio in modalSizes"
+            :key="radio.value"
+            :val="radio.value"
+            :name="radio.name"
+            :label="radio.name"
+            v-model="selectedModalSize" />
         </div>
       </div>
     </div>
@@ -81,12 +93,18 @@ export default {
       showModal: false,
       headerText: 'This is the modal title',
       contentText: 'And I live in the body of the modal',
-      radios: [
+      modalTypes: [
         { name: 'default', value: 'default' },
         { name: 'destructive', value: 'destructive' },
         { name: 'caution', value: 'caution' }
       ],
-      selectedRadio: 'default'
+      selectedModalType: 'default',
+      modalSizes: [
+        { name: 'small', value: 'small' },
+        { name: 'medium', value: 'medium' },
+        { name: 'large', value: 'large' }
+      ],
+      selectedModalSize: 'medium'
     }
   },
 

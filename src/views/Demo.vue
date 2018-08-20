@@ -391,7 +391,6 @@
 
       <ao-modal
         v-if="showModal"
-        :size="'md'"
         :header-text="'I am the modal title'"
         @modalClose="toggleModal">
         <ao-input

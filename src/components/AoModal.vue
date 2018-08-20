@@ -12,7 +12,7 @@
           @click.self="closeModal">
           <div class="ao-modal__content">
             <div :class="computedHeaderClass">
-              <h2>{{ headerText }}</h2>
+              <h2 class="ao-modal__header-text">{{ headerText }}</h2>
             </div>
             <div
               v-if="hasSlot('modal-toolbar')"
@@ -43,8 +43,6 @@ import { filterClasses } from './utils/component_utilities.js'
 
 export default {
   props: {
-    // availible sizes include: 'sm', 'md', 'lg' pertaining to small medium large bootstrap classes
-
     headerText: {
       type: String,
       required: true,
@@ -53,7 +51,10 @@ export default {
 
     size: {
       type: String,
-      default: 'md'
+      default: 'medium',
+      validator: function (value) {
+        return ['small', 'medium', 'large'].indexOf(value) !== -1
+      }
     },
 
     destructive: {
@@ -78,8 +79,10 @@ export default {
     },
 
     computedModalSize () {
-      // computes sizes into scss classes pertaining to size eg. md -> .ao-modal--md
-      return `ao-modal--${this.size}`
+      // computes sizes into scss classes pertaining to size eg. small -> .ao-modal--small
+      if (this.size) {
+        return `ao-modal--${this.size}`
+      }
     }
   },
 
@@ -107,6 +110,8 @@ export default {
   padding-top: 2em;
   z-index: $zindex-modal;
   height: 100%;
+  padding-left: $spacer;
+  padding-right: $spacer;
 
   &:focus {
     outline: 0;
@@ -129,7 +134,7 @@ export default {
     }
   }
 
-  &__header /deep/ div > h2 {
+  &__header-text {
     margin: 0;
     line-height: $line-height-base;
     font-size: $font-size-lg;
@@ -142,18 +147,10 @@ export default {
     border-radius: $border-radius-base;
     box-shadow: $shadow-dramatic;
     transition: all $transition-base;
-  }
 
-  &__toolbar {
-    padding: $spacer;
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: 1px solid $ui-border-color-base;
-
-    & > /deep/ * {
-      padding-left: $spacer;
-      margin-bottom: 0;
-    }
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
 
   &__body {
@@ -167,10 +164,16 @@ export default {
     border-top: 1px solid $color-gray-60;
   }
 
-  &--md &__content {
-    max-width: 40%;
-    margin-left: auto;
-    margin-right: auto;
+  &--large &__content {
+    max-width: 800px;
+  }
+
+  &--medium &__content {
+    max-width: 600px;
+  }
+
+  &--small &__content {
+    max-width: 400px;
   }
 }
 
