@@ -67,6 +67,8 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+// commented out styles are to indicate they exist in the component
+// but not in the docs
 @import '../_variables.scss';
 
 @include slide-fade;
@@ -79,15 +81,12 @@ $ao-alert-height: 3.75rem;
   width: 75%;
   box-shadow: $shadow, $shadow-subtle;
   min-height: $ao-alert-height;
-
-  &__container {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    z-index: $zindex-alert;
-    width: 100%;
-    top: 0;
-  }
+  // position: fixed;
+  display: flex;
+  justify-content: center;
+  z-index: $zindex-alert;
+  width: 100%;
+  // top: 0;
 
   &__message {
     padding: $spacer;
