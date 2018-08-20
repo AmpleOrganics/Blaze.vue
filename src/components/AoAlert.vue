@@ -62,31 +62,26 @@ export default {
       }, 4000)
     }
   }
-
 }
 </script>
 
 <style lang='scss' scoped>
-
 @include slide-fade;
 
 $ao-alert-height: 3.75rem;
 
 .ao-alert {
   display: flex;
+  justify-content: center;
   background-color: $color-white;
   width: 75%;
   box-shadow: $shadow, $shadow-subtle;
   min-height: $ao-alert-height;
-
-  &__container {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    z-index: $zindex-alert;
-    width: 100%;
-    top: 0;
-  }
+  z-index: $zindex-alert;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 
   &__message {
     padding: $spacer;
