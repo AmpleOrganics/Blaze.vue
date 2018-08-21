@@ -28,6 +28,7 @@ In your main.js/index.js add the following lines
 ## Components
 [Alert](/components/Alert.html)\
 [Badge](/components/Badge.html)\
+[Breadcrumbs](/components/Breadcrumbs.html)\
 [Button](/components/Button.html)\
 [Card](/components/Card.html)\
 [Checkbox](/components/Checkbox.html)\
