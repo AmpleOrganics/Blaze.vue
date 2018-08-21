@@ -9,7 +9,7 @@
     </div>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input
-        :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
+        :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
         :type="type"
         :placeholder="placeholder"
         :name="name"
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import { filterClasses } from './utils/component_utilities.js'
+
 export default {
   props: {
     type: {
@@ -96,6 +98,14 @@ export default {
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    size: {
+      type: String,
+      default: null,
+      validator: function (size) {
+        return [null, 'small'].includes(size)
+      }
     }
   },
 
@@ -110,6 +120,13 @@ export default {
 
     hasAddOn () {
       return this.addOn
+    },
+
+    computedSize () {
+      const activeClasses = {
+        'ao-form-control--small': this.size === 'small'
+      }
+      return filterClasses(activeClasses)
     }
   },
 
