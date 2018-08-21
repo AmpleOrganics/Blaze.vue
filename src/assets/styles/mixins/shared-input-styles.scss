@@ -40,6 +40,11 @@
         box-shadow: $input-focus-shadow-error;
       }
     }
+    &--small {
+      height: $input-height-sm;
+      padding: $spacer-micro;
+      font-size: $font-size-sm;
+    }
   }
   .ao-input-group {
     display: table;
