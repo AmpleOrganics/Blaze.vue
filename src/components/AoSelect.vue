@@ -10,7 +10,7 @@
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <select
         :value="selected"
-        :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
+        :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
         :disabled="disabled"
         @change="updateInput">
         <option
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { filterClasses } from './utils/component_utilities.js'
+
 export default {
   props: {
     value: {
@@ -55,12 +57,29 @@ export default {
     placeholder: {
       type: String,
       default: null
+    },
+
+    size: {
+      type: String,
+      default: null,
+      validator: function (size) {
+        return [null, 'small'].includes(size)
+      }
     }
   },
 
   data () {
     return {
       selected: null
+    }
+  },
+
+  computed: {
+    computedSize () {
+      const activeClasses = {
+        'ao-form-control--small': this.size === 'small'
+      }
+      return filterClasses(activeClasses)
     }
   },
 

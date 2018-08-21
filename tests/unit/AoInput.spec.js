@@ -2,39 +2,49 @@ import { mount } from '@vue/test-utils'
 import Input from '@/components/AoInput.vue'
 
 describe('Input', () => {
+  const getFormControlElement = (wrapper) => wrapper.find('.ao-form-control')
+
   it('create', () => {
     const input = mount(Input, {
       propsData: {
-        type: 'text',
-        label: 'test'
+        label: 'label'
       }
     })
-    expect(input.text()).toBe('test')
+    expect(input.text()).toBe('label')
     expect(input.classes()).toContain('ao-form-group')
   })
 
   it('iconClass', () => {
     const input = mount(Input, {
       propsData: {
-        type: 'text',
-        label: 'test0',
+        label: 'label',
         iconClass: 'custom-glyph-clients'
       }
     })
-    expect(input.text()).toBe('test0')
     expect(input.contains('.custom-glyph-clients')).toBe(true)
   })
 
-  it('id invalid', () => {
+  it('invalid', () => {
     const input = mount(Input, {
       propsData: {
-        type: 'text',
-        label: 'test1',
-        invalid: true
+        label: 'label'
       }
     })
-    expect(input.text()).toBe('test1')
-    expect(input.contains('.ao-form-control--invalid')).toBe(true)
+    expect(getFormControlElement(input).classes().includes('.ao-form-control--invalid')).toBe(false)
+
+    input.setProps({ invalid: true })
+    expect(getFormControlElement(input).classes()).toContain('ao-form-control--invalid')
+  })
+
+  it('size', () => {
+    const input = mount(Input, {
+      propsData: {
+        label: 'label',
+        size: 'small'
+      }
+    })
+
+    expect(getFormControlElement(input).classes()).toContain('ao-form-control--small')
   })
 
   it('emit', () => {
