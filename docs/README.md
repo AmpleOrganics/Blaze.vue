@@ -32,16 +32,17 @@ In your main.js/index.js add the following lines
 [Button](/components/Button.html)\
 [Card](/components/Card.html)\
 [Checkbox](/components/Checkbox.html)\
-[FileUpload](/components/FileUpload.html)\
+[File Upload](/components/FileUpload.html)\
+[Header Toolbar](/components/HeaderToolbar.html)\
 [InfoPair](/components/InfoPair.html)\
 [Input](/components/Input.html)\
 [Modal](/components/Modal.html)\
 [Navbar](/components/Navbar.html)\
 [Paginate](/components/Paginate.html)\
 [Radio](/components/Radio.html)\
-[SectionHeader](/components/SectionHeader.html)\
+[Section Header](/components/SectionHeader.html)\
 [Select](/components/Select.html)\
 [Spinner](/components/Spinner.html)\
 [Table](/components/Table.html)\
-[TextStyle](/components/TextStyle.html)\
-[TextArea](/components/TextArea.html)
+[Text Style](/components/TextStyle.html)\
+[Text Area](/components/TextArea.html)
