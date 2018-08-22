@@ -1,178 +1,240 @@
 <template>
-  <div id="demo-container">
-    <ao-breadcrumbs :paths="paths"/>
-    <ao-section-header
-      :icon-class="'custom-glyph-clients'"
-      :title="'Demo Container'"
-      :subtitle="'Created at 123456789'">
-      <ao-navbar slot="section-header-navbar">
-        <li
-          v-for="route in routes"
-          :key="route.path">
-          <router-link :to="route.path" >{{ route.name }}</router-link>
-        </li>
+  <div>
+    <ao-header-toolbar
+      :title="'Header Toolbar'"
+      :icon-url="'https://vignette.wikia.nocookie.net/2007scape/images/7/7f/Chompy_bird.png/revision/latest?cb=20160714233624'"
+      fixed>
+      <span :class="'glyphicon glyphicon-menu-hamburger icon'" />
+      <span>Logout</span>
+    </ao-header-toolbar>
+    <div id="demo-container">
+      <ao-breadcrumbs :paths="paths"/>
+      <ao-section-header
+        :icon-class="'custom-glyph-clients'"
+        :title="'Demo Container'"
+        :subtitle="'Created at 123456789'">
+        <ao-navbar slot="section-header-navbar">
+          <li
+            v-for="route in routes"
+            :key="route.path">
+            <router-link :to="route.path" >{{ route.name }}</router-link>
+          </li>
 
-        <li>
-          <span>stale</span>
-        </li>
-      </ao-navbar>
+          <li>
+            <span>stale</span>
+          </li>
+        </ao-navbar>
 
-      <div slot="section-header-toolbar">
-        <ao-button @click.native="toggleModal">Open Modal</ao-button>
-      </div>
-    </ao-section-header>
+        <div slot="section-header-toolbar">
+          <ao-button @click.native="toggleModal">Open Modal</ao-button>
+        </div>
+      </ao-section-header>
 
-    <ao-card :title="'Title of Card'">
-      <ao-breadcrumb :paths="paths"/>
-      <p>
-        <ao-text-style
-          error
-          small>
-          text
-        </ao-text-style>
-      </p>
-      <!-- <ao-form @formHandler="saveForm"> -->
-      <ao-input
-        :type="'text'"
-        :label="'Name'"
-        :show-label="false"
-        :placeholder="'Name'"
-        v-model="name"
-        :invalid="true"/>
-      <p>My name: {{ name }}</p>
-
-      <ao-input
-        :type="'number'"
-        :label="'Age'"
-        v-model="age"
-        :step="5"/>
-      <p>My age: {{ age }}</p>
-
-      <ao-file-upload
-        :label="'File'"
-        :reference="'file'"
-        @change="updateFile($event)"/>
-
-      <p>Filename: {{ file }}</p>
-
-      <label>Favorite Programming Languages?</label>
-      <ao-checkbox
-        v-model="programmingLanguages"
-        :checkbox-value="'JavaScript'"
-        :checkbox-label="'Javascript'"/>
-      <ao-checkbox
-        v-model="programmingLanguages"
-        :checkbox-value="'Ruby'"
-        :checkbox-label="'Ruby'"/>
-      <ao-checkbox
-        v-model="programmingLanguages"
-        :checkbox-value="'PHP'"
-        :checkbox-label="'PHP'"
-        disabled/>
-
-      <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
-      <label>Do you like books?</label>
-      <ao-checkbox
-        v-model="likeBooks"
-        :checkbox-label="'Books'"/>
-
-      <ao-info-pair :label="'Info Pair Label'">
+      <ao-card :title="'Title of Card'">
+        <ao-breadcrumb :paths="paths"/>
         <p>
-          123 Address St.
-          <br>
-          Toronto, ON
+          <ao-text-style
+            error
+            small>
+            text
+          </ao-text-style>
         </p>
-      </ao-info-pair>
+        <!-- <ao-form @formHandler="saveForm"> -->
+        <ao-input
+          :type="'text'"
+          :label="'Name'"
+          :show-label="false"
+          :placeholder="'Name'"
+          v-model="name"
+          :invalid="true"/>
+        <p>My name: {{ name }}</p>
 
-      <p>Liking Books is: {{ likeBooks }}</p>
+        <ao-input
+          :type="'number'"
+          :label="'Age'"
+          v-model="age"
+          :step="5"/>
+        <p>My age: {{ age }}</p>
 
-      <ao-radio
-        v-for="radio in radios"
-        :key="radio.value"
-        :val="radio.value"
-        :name="radio.name"
-        :label="radio.value"
-        v-model="selectedRadio"/>
+        <ao-file-upload
+          :label="'File'"
+          :reference="'file'"
+          @change="updateFile($event)"/>
 
-      <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
+        <p>Filename: {{ file }}</p>
 
-      <ao-select
-        v-model="nicePets"
-        :label="'Pets'"
-        :placeholder="'Select One'"
-        :invalid="true">
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="elephant">Elephant</option>
-      </ao-select>
-      <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
+        <label>Favorite Programming Languages?</label>
+        <ao-checkbox
+          v-model="programmingLanguages"
+          :checkbox-value="'JavaScript'"
+          :checkbox-label="'Javascript'"/>
+        <ao-checkbox
+          v-model="programmingLanguages"
+          :checkbox-value="'Ruby'"
+          :checkbox-label="'Ruby'"/>
+        <ao-checkbox
+          v-model="programmingLanguages"
+          :checkbox-value="'PHP'"
+          :checkbox-label="'PHP'"
+          disabled/>
 
-      <ao-text-area v-model="description" />
-      <p>Description: {{ description }}</p>
-      <ao-input
-        :label="'Search Example (does not search anything)'"
-        :placeholder="'Search'"
-        :type="'search'"/>
-      <ao-button
-        :type="'submit'"
-        primary>
-        Save
-      </ao-button>
-      <!-- </ao-form> -->
+        <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
+        <label>Do you like books?</label>
+        <ao-checkbox
+          v-model="likeBooks"
+          :checkbox-label="'Books'"/>
 
-      <pre>{{ saveData }}</pre>
+        <ao-info-pair :label="'Info Pair Label'">
+          <p>
+            <ao-text-style
+              error
+              small>
+              text
+            </ao-text-style>
+          </p>
+        </ao-info-pair>
+        <ao-input
+          :type="'text'"
+          :label="'Name'"
+          :show-label="false"
+          :placeholder="'Name'"
+          v-model="name"
+          :invalid="true"/>
+        <p>My name: {{ name }}</p>
 
-      <ao-spinner v-if="loading" />
-      <ao-button slot="cardFooter">Buttons In The</ao-button>
-      <ao-button
-        slot="cardFooter"
-        primary>Card Footer!</ao-button>
-    </ao-card>
+        <ao-input
+          :type="'number'"
+          :label="'Age'"
+          v-model="age"
+          :step="5"/>
+        <p>My age: {{ age }}</p>
 
-    <ao-card :title="'Hi I am a Table!'">
-      <ao-paginate
-        slot="card-header-toolbar"
-        :total-pages="3"
-        @paginate="paginate"/>
-      <ao-table
-        :headers="columnHeaders"
-        sort-by="id"
-        order="asc"
-        @sortTable="sortTable">
-        <tr
-          v-for="user in displayUsers"
-          :key="user.id">
-          <td>{{ user.id }}</td>
-          <td>{{ user.first_name }}</td>
-          <td>{{ user.last_name }}</td>
-          <td>{{ user.gender }}</td>
-        </tr>
-      </ao-table>
-    </ao-card>
+        <ao-file-upload
+          :label="'File'"
+          :reference="'file'"
+          @change="updateFile($event)"/>
 
-    <ao-modal
-      v-if="showModal"
-      :size="'md'"
-      :header-text="'I am the modal title'"
-      @modalClose="toggleModal">
-      <div slot="modal-body">
-        <p>I am content</p>
-      </div>
-      <div slot="modal-footer">
+        <p>Filename: {{ file }}</p>
+
+        <label>Favorite Programming Languages?</label>
+        <ao-checkbox
+          v-model="programmingLanguages"
+          :checkbox-value="'JavaScript'"
+          :checkbox-label="'Javascript'"/>
+        <ao-checkbox
+          v-model="programmingLanguages"
+          :checkbox-value="'Ruby'"
+          :checkbox-label="'Ruby'"/>
+        <ao-checkbox
+          v-model="programmingLanguages"
+          :checkbox-value="'PHP'"
+          :checkbox-label="'PHP'"
+          disabled/>
+
+        <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
+        <label>Do you like books?</label>
+        <ao-checkbox
+          v-model="likeBooks"
+          :checkbox-label="'Books'"/>
+
+        <ao-info-pair :label="'Info Pair Label'">
+          <p>
+            123 Address St.
+            <br>
+            Toronto, ON
+          </p>
+        </ao-info-pair>
+
+        <p>Liking Books is: {{ likeBooks }}</p>
+
+        <ao-radio
+          v-for="radio in radios"
+          :key="radio.value"
+          :val="radio.value"
+          :name="radio.name"
+          :label="radio.value"
+          v-model="selectedRadio"/>
+
+        <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
+
+        <ao-select
+          v-model="nicePets"
+          :label="'Pets'"
+          :placeholder="'Select One'"
+          :invalid="true">
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+          <option value="elephant">Elephant</option>
+        </ao-select>
+        <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
+
+        <ao-text-area v-model="description" />
+        <p>Description: {{ description }}</p>
+        <ao-input
+          :label="'Search Example (does not search anything)'"
+          :placeholder="'Search'"
+          :type="'search'"/>
         <ao-button
-          primary
-          @click.native="continueModal">
-          Continue
+          :type="'submit'"
+          primary>
+          Save
         </ao-button>
-      </div>
-    </ao-modal>
+        <!-- </ao-form> -->
 
-    <ao-alert
-      v-if="showAlert"
-      :show-alert.sync="showAlert">
-      <span slot="alert-icon"> Icon </span>
-      <span>I alerted with a message</span>
-    </ao-alert>
+        <pre>{{ saveData }}</pre>
+
+        <ao-spinner v-if="loading" />
+        <ao-button slot="cardFooter">Buttons In The</ao-button>
+        <ao-button
+          slot="cardFooter"
+          primary>Card Footer!</ao-button>
+      </ao-card>
+
+      <ao-card :title="'Hi I am a Table!'">
+        <ao-paginate
+          slot="card-header-toolbar"
+          :total-pages="3"
+          @paginate="paginate"/>
+        <ao-table
+          :headers="columnHeaders"
+          sort-by="id"
+          order="asc"
+          @sortTable="sortTable">
+          <tr
+            v-for="user in displayUsers"
+            :key="user.id">
+            <td>{{ user.id }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.gender }}</td>
+          </tr>
+        </ao-table>
+      </ao-card>
+
+      <ao-modal
+        v-if="showModal"
+        :size="'md'"
+        :header-text="'I am the modal title'"
+        @modalClose="toggleModal">
+        <div slot="modal-body">
+          <p>I am content</p>
+        </div>
+        <div slot="modal-footer">
+          <ao-button
+            primary
+            @click.native="continueModal">
+            Continue
+          </ao-button>
+        </div>
+      </ao-modal>
+
+      <ao-alert
+        v-if="showAlert"
+        :show-alert.sync="showAlert">
+        <span slot="alert-icon"> Icon </span>
+        <span>I alerted with a message</span>
+      </ao-alert>
+    </div>
   </div>
 </template>
 
@@ -324,12 +386,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- Need padding-top in #demo-container if you choose to have the header toolbar in fixed position: -->
 <style lang='scss' scoped>
 #demo-container {
   padding: $spacer;
+  padding-top: $header-toolbar-height + $spacer-px;
 }
 
 a {
   color: #42b983;
+}
+
+.ao-header-toolbar__controls >.icon {
+  font-size: 1.25rem;
 }
 </style>

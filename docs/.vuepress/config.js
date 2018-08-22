@@ -44,6 +44,7 @@ module.exports = {
                 '/components/Card',
                 '/components/Checkbox',
                 '/components/FileUpload',
+                '/components/HeaderToolbar',
                 '/components/InfoPair',
                 '/components/Input',
                 '/components/Modal',
