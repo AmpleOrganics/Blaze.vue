@@ -1,6 +1,6 @@
 <template>
   <table
-    :class="[{ 'ao-table--clickable': isClickable }, 'ao-table']">
+    :class="[computedClasses, computedVAlign]">
     <thead>
       <tr>
         <th
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { filterClasses } from './utils/component_utilities.js'
+
 export default {
   props: {
     headers: {
@@ -34,9 +36,22 @@ export default {
       default: false
     },
 
+    condensed: {
+      type: Boolean,
+      default: false
+    },
+
     sortBy: {
       type: String,
       default: null
+    },
+
+    vAlign: {
+      type: String,
+      default: 'top',
+      validator (vAlign) {
+        return ['top', 'middle'].indexOf(vAlign) !== -1
+      }
     },
 
     order: {
@@ -59,6 +74,19 @@ export default {
   computed: {
     hasTableFooterSlot () {
       return !!this.$slots['table-footer']
+    },
+
+    computedClasses () {
+      const activeClasses = {
+        'ao-table': true,
+        'ao-table--clickable': this.isClickable,
+        'ao-table--condensed': this.condensed
+      }
+      return filterClasses(activeClasses)
+    },
+
+    computedVAlign () {
+      return `ao-table--vertical-align-${this.vAlign}`
     }
   },
 
@@ -97,6 +125,8 @@ export default {
 <style lang="scss" scoped>
 
 .ao-table {
+  border-collapse: collapse;
+  border-spacing: 0;
   font-size: $font-size-sm;
   width: 100%;
   max-width: 100%;
@@ -109,8 +139,25 @@ export default {
     border-bottom: 1px solid $color-gray-60;
   }
 
+  th,
+  /deep/ td {
+    padding: $table-cell-padding;
+  }
+
+  th {
+    font-weight: $font-weight-bold;
+    text-align: left;
+  }
+
+  &--condensed {
+    th,
+    /deep/ td {
+      padding: $spacer-micro;
+    }
+  }
+
   &--clickable {
-    tbody > tr {
+    & > tbody > tr {
       cursor: pointer;
     }
 
@@ -123,22 +170,30 @@ export default {
     background-color: $color-gray-90;
   }
 
+  &--vertical-align-top {
+    /deep/ td {
+      vertical-align: top;
+    }
+  }
+
+  &--vertical-align-middle {
+    /deep/ td {
+      vertical-align: middle;
+    }
+  }
+
   & /deep/ tr > td {
     padding: .5rem;
     vertical-align: middle;
   }
 
-  & th {
-    font-weight: $font-weight-bold;
-    text-align: left;
+  & > tbody /deep/ tr > td {
+    border-top: 1px solid $table-border-color;
   }
 
-  & thead > tr > th {
-    color: $color-gray-10;
+  & > thead > tr > th {
     vertical-align: bottom;
-    border-bottom: 2px solid $color-grey-light;
-    padding: 8px;
-    line-height: 1.4;
+    border-bottom: 2px solid $table-border-color;
   }
 
   & tfoot /deep/ tr > td {
@@ -171,10 +226,5 @@ export default {
   /deep/ & tr:hover &__row-button {
     opacity: 1;
   }
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 </style>

@@ -123,3 +123,10 @@ $input-focus-shadow-error:    0 0 1px transparentize($color-destructive, 0.1);
 
 
 $input-label-margin:          0 0 $spacer-xs;
+
+// Tables
+//
+
+$table-cell-padding:          $font-size-base/2;
+$table-border-color:          $color-gray-60;
+
