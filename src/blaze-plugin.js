@@ -17,6 +17,7 @@ import AoSpinner from './components/AoSpinner.vue'
 import AoTable from './components/AoTable.vue'
 import AoTextArea from './components/AoTextArea.vue'
 import AoTextStyle from './components/AoTextStyle.vue'
+import AoTooltip from './components/AoTooltip.vue'
 import AoFileUpload from './components/AoFileUpload.vue'
 
 const Blaze = {
@@ -39,6 +40,7 @@ const Blaze = {
     Vue.component('AoTable', AoTable)
     Vue.component('AoTextArea', AoTextArea)
     Vue.component('AoTextStyle', AoTextStyle)
+    Vue.component('AoTooltip', AoTooltip)
     Vue.component('AoFileUpload', AoFileUpload)
   }
 }

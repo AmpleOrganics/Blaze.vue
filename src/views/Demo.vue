@@ -21,9 +21,43 @@
         <ao-button @click.native="toggleModal">Open Modal</ao-button>
       </div>
     </ao-section-header>
+    <ao-breadcrumb :paths="paths"/>
 
     <ao-card :title="'Title of Card'">
-      <ao-breadcrumb :paths="paths"/>
+      <div style="text-align: center;">
+        <p>
+        <ao-tooltip
+          position="top"
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          position="bottom"
+          text="Tooltip with some really long text, fixed width for things that are kinda long"
+          multiline>
+          <ao-button primary>Multiline</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          position="left"
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip
+          position="right"
+          text="Tooltip with some really long text">
+          <ao-button primary>Hover Me!</ao-button>
+        </ao-tooltip>
+        </p>
+        <p>
+        <ao-tooltip right text="By default, it is this icon"/>
+        </p>
+      </div>
       <p>
         <ao-text-style
           error
@@ -45,7 +79,9 @@
         :type="'number'"
         :label="'Age'"
         v-model="age"
-        :step="5"/>
+        :step="5">
+          <ao-tooltip slot="tooltip" text="I'm a tooltip!"/>
+        </ao-input>
       <p>My age: {{ age }}</p>
 
       <ao-file-upload
@@ -77,6 +113,7 @@
         :checkbox-label="'Books'"/>
 
       <ao-info-pair :label="'Info Pair Label'">
+        <ao-tooltip slot="tooltip" text="Here I am" position="right"/>
         <p>
           123 Address St.
           <br>
@@ -104,6 +141,7 @@
         <option value="dog">Dog</option>
         <option value="cat">Cat</option>
         <option value="elephant">Elephant</option>
+        <ao-tooltip slot="tooltip" text="Hey, what's up buddy?"/>
       </ao-select>
       <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
 

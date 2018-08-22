@@ -1,8 +1,9 @@
 <template>
   <div class="ao-form-group">
-    <label v-show="showLabel">
-      {{ label }}
-    </label>
+    <label
+      v-show="showLabel"
+      :for="name">{{ label }}</label>
+    <slot name="fileUploadLabelTooltip"/>
     <input
       :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
