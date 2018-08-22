@@ -77,7 +77,9 @@
         :type="'number'"
         :label="'Age'"
         v-model="age"
-        :step="5"/>
+        :step="5">
+          <ao-tooltip slot="tooltip" text="I'm a tooltip!"/>
+        </ao-input>
       <p>My age: {{ age }}</p>
 
       <ao-file-upload
@@ -109,6 +111,7 @@
         :checkbox-label="'Books'"/>
 
       <ao-info-pair :label="'Info Pair Label'">
+        <ao-tooltip slot="tooltip" text="Here I am" position="right"/>
         <p>
           123 Address St.
           <br>
@@ -136,6 +139,7 @@
         <option value="dog">Dog</option>
         <option value="cat">Cat</option>
         <option value="elephant">Elephant</option>
+        <ao-tooltip slot="tooltip" text="Hey, what's up buddy?"/>
       </ao-select>
       <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
 

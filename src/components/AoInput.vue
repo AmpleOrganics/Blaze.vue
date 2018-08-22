@@ -4,7 +4,7 @@
       <label
         v-show="showLabel"
         :for="name">{{ label }}</label>
-      <slot name="inputLabelTooltip"/>
+      <slot name="tooltip"/>
     </div>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <input

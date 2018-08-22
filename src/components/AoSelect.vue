@@ -1,11 +1,11 @@
 <template>
   <div class="ao-form-group">
-    <label
-      v-show="showLabel"
-      :disabled="disabled">
-      {{ label }}
-    </label>
-    <slot name="selectLabelTooltip"/>
+    <div class="ao-input__label">
+      <label
+        v-show="showLabel"
+        :for="name">{{ label }}</label>
+      <slot name="tooltip"/>
+    </div>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <select
         v-model="selected"
