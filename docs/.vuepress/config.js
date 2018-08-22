@@ -39,6 +39,7 @@ module.exports = {
               children: [
                 '/components/Alert',
                 '/components/Badge',
+                '/components/Breadcrumbs',
                 '/components/Button',
                 '/components/Card',
                 '/components/Checkbox',
