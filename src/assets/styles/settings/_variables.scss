@@ -37,6 +37,7 @@ $color-grey-light:              #ddd;
 // Spacing & Sizing
 //
 
+$spacer-px:                   15px;
 $spacer:                      1rem;
 $spacer-sm:                   .75rem;
 $spacer-xs:                   .5rem;
@@ -80,12 +81,16 @@ $zindex-modal-backdrop:       1040;
 $zindex-modal:                1050;
 $zindex-tooltip:              1070;
 $zindex-popover:              1060;
+$zindex-header-toolbar:       1090;
+
+$header-toolbar-height:       60px;
 
 //
 // General UI Styles
 //
 
 $ui-border-color-base:        $color-gray-60;
+$border-gray-50:              1px solid $color-gray-50;
 
 $border-radius-base:          3px;
 
@@ -97,6 +102,8 @@ $shadow-subtle:               0px 2px 3px rgba(0, 0, 0, 0.05);
 $shadow-inset:                inset 0 2px 3px rgba(0, 0, 0, 0.05);
 
 $transition-base:             0.2s ease;
+
+$header-icon-height:          36px;
 
 //
 // Inputs & Buttons
