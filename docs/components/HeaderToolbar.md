@@ -27,4 +27,3 @@ This is a header toolbar component intended for top-level display, containing al
 |iconUrl      |String       | null    |Accepts an image URL. |
 |iconClass    |String       | null    |Accepts icon class components e.g. glyphicons. |
 |fixed        |Boolean      | false   |Adds a class to fix the header toolbar in position. |
-
