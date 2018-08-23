@@ -27,7 +27,8 @@ module.exports = {
           },
           {
             text: 'Changelog',
-            link: 'https://github.com/AmpleOrganics/Blaze.vue/blob/master/CHANGELOG.md'
+            link:
+              'https://github.com/AmpleOrganics/Blaze.vue/blob/master/CHANGELOG.md'
           }
         ],
         sidebar: {
@@ -43,6 +44,7 @@ module.exports = {
                 '/components/Button',
                 '/components/Card',
                 '/components/Checkbox',
+                '/components/Dropdown',
                 '/components/FileUpload',
                 '/components/HeaderToolbar',
                 '/components/InfoPair',
@@ -71,4 +73,4 @@ module.exports = {
       }
     }
   }
-}
+};
