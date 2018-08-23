@@ -148,18 +148,6 @@ export default {
     }
   }
 
-  &__toolbar {
-    padding: $spacer;
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: 1px solid $ui-border-color-base;
-
-    & > /deep/ * {
-      padding-left: $spacer;
-      margin-bottom: 0;
-    }
-  }
-
   &__body {
     position: relative;
     padding: $spacer;
