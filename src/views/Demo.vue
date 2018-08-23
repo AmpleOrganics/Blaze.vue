@@ -173,6 +173,7 @@
         <ao-file-upload
           :label="'File'"
           :reference="'file'"
+          :name="'file1'"
           @change="updateFile($event)"/>
 
         <p>Filename: {{ file }}</p>
@@ -189,13 +190,14 @@
         <ao-checkbox
           v-model="programmingLanguages"
           :checkbox-value="'PHP'"
-          :checkbox-label="'PHP'"
+          :checkbox-label="'PHP (disabled)'"
           disabled/>
 
         <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
         <label>Do you like books?</label>
         <ao-checkbox
           v-model="likeBooks"
+          :checkbox-value="'Books'"
           :checkbox-label="'Books'"/>
 
         <ao-info-pair :label="'Info Pair Label'">
@@ -206,103 +208,160 @@
               text
             </ao-text-style>
           </p>
-        </ao-info-pair>
-        <ao-input
-          :type="'text'"
-          :label="'Name'"
-          :show-label="false"
-          :placeholder="'Name'"
-          v-model="name"
-          :invalid="true"/>
-        <p>My name: {{ name }}</p>
+          <!-- <ao-form @formHandler="saveForm"> -->
+          <ao-input
+            :type="'text'"
+            :label="'Name'"
+            :show-label="false"
+            :placeholder="'Name'"
+            v-model="name"
+            :invalid="true"/>
+          <p>My name: {{ name }}</p>
 
-        <ao-input
-          :type="'number'"
-          :label="'Age'"
-          v-model="age"
-          :step="5"/>
-        <p>My age: {{ age }}</p>
+          <ao-input
+            :type="'number'"
+            :label="'Age'"
+            v-model="age"
+            :step="5"/>
+          <p>My age: {{ age }}</p>
 
-        <ao-file-upload
-          :label="'File'"
-          :reference="'file'"
-          @change="updateFile($event)"/>
+          <ao-file-upload
+            :label="'File'"
+            :name="'file2'"
+            :reference="'file'"
+            @change="updateFile($event)"/>
 
-        <p>Filename: {{ file }}</p>
+          <p>Filename: {{ file }}</p>
 
-        <label>Favorite Programming Languages?</label>
-        <ao-checkbox
-          v-model="programmingLanguages"
-          :checkbox-value="'JavaScript'"
-          :checkbox-label="'Javascript'"/>
-        <ao-checkbox
-          v-model="programmingLanguages"
-          :checkbox-value="'Ruby'"
-          :checkbox-label="'Ruby'"/>
-        <ao-checkbox
-          v-model="programmingLanguages"
-          :checkbox-value="'PHP'"
-          :checkbox-label="'PHP'"
-          disabled/>
+          <label>Favorite Programming Languages?</label>
+          <ao-checkbox
+            v-model="programmingLanguages"
+            :checkbox-value="'JavaScript'"
+            :checkbox-label="'Javascript'"/>
+          <ao-checkbox
+            v-model="programmingLanguages"
+            :checkbox-value="'Ruby'"
+            :checkbox-label="'Ruby'"/>
+          <ao-checkbox
+            v-model="programmingLanguages"
+            :checkbox-value="'PHP'"
+            :checkbox-label="'PHP'"
+            disabled/>
 
-        <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
-        <label>Do you like books?</label>
-        <ao-checkbox
-          v-model="likeBooks"
-          :checkbox-label="'Books'"/>
+          <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
+          <label>Do you like books?</label>
+          <ao-checkbox
+            v-model="likeBooks"
+            :checkbox-value="'Books'"
+            :checkbox-label="'Books'"/>
 
-        <ao-info-pair :label="'Info Pair Label'">
-          <p>
-            123 Address St.
-            <br>
-            Toronto, ON
-          </p>
-        </ao-info-pair>
+          <ao-info-pair :label="'Info Pair Label'">
+            <p>
+              <ao-text-style
+                error
+                small>
+                text
+              </ao-text-style>
+            </p>
+          </ao-info-pair>
+          <ao-input
+            :type="'text'"
+            :label="'Name'"
+            :show-label="false"
+            :placeholder="'Name'"
+            v-model="name"
+            :invalid="true"/>
+          <p>My name: {{ name }}</p>
 
-        <p>Liking Books is: {{ likeBooks }}</p>
+          <ao-input
+            :type="'number'"
+            :label="'Age'"
+            v-model="age"
+            :step="5"/>
+          <p>My age: {{ age }}</p>
 
-        <ao-radio
-          v-for="radio in radios"
-          :key="radio.value"
-          :val="radio.value"
-          :name="radio.name"
-          :label="radio.value"
-          v-model="selectedRadio"/>
+          <ao-file-upload
+            :label="'File'"
+            :name="'file3'"
+            :reference="'file'"
+            @change="updateFile($event)"/>
 
-        <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
+          <p>Filename: {{ file }}</p>
 
-        <ao-select
-          v-model="nicePets"
-          :label="'Pets'"
-          :placeholder="'Select One'"
-          :invalid="true">
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="elephant">Elephant</option>
-        </ao-select>
-        <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
+          <label>Favorite Programming Languages?</label>
+          <ao-checkbox
+            v-model="programmingLanguages"
+            :checkbox-value="'JavaScript'"
+            :checkbox-label="'Javascript'"/>
+          <ao-checkbox
+            v-model="programmingLanguages"
+            :checkbox-value="'Ruby'"
+            :checkbox-label="'Ruby'"/>
+          <ao-checkbox
+            v-model="programmingLanguages"
+            :checkbox-value="'PHP'"
+            :checkbox-label="'PHP'"
+            disabled/>
 
-        <ao-text-area v-model="description" />
-        <p>Description: {{ description }}</p>
-        <ao-input
-          :label="'Search Example (does not search anything)'"
-          :placeholder="'Search'"
-          :type="'search'"/>
-        <ao-button
-          :type="'submit'"
-          primary>
-          Save
-        </ao-button>
-        <!-- </ao-form> -->
+          <p>Favorite Programming Languages are: {{ programmingLanguages }}</p>
+          <label>Do you like books?</label>
+          <ao-checkbox
+            v-model="likeBooks"
+            :checkbox-value="'Books'"
+            :checkbox-label="'Books'"/>
 
-        <pre>{{ saveData }}</pre>
+          <ao-info-pair :label="'Info Pair Label'">
+            <p>
+              123 Address St.
+              <br>
+              Toronto, ON
+            </p>
+          </ao-info-pair>
 
-        <ao-spinner v-if="loading" />
-        <ao-button slot="cardFooter">Buttons In The</ao-button>
-        <ao-button
-          slot="cardFooter"
-          primary>Card Footer!</ao-button>
-      </ao-card>
+          <p>Liking Books is: {{ likeBooks }}</p>
+
+          <ao-radio
+            v-for="radio in radios"
+            :key="radio.value"
+            :val="radio.value"
+            :name="radio.name"
+            :label="radio.value"
+            v-model="selectedRadio"/>
+
+          <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
+
+          <ao-select
+            v-model="nicePets"
+            :label="'Pets'"
+            :placeholder="'Select One'"
+            :invalid="true">
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="elephant">Elephant</option>
+          </ao-select>
+          <p>I like this pet: {{ nicePets }} <ao-badge text="Badge"/></p>
+
+          <ao-text-area v-model="description" />
+          <p>Description: {{ description }}</p>
+          <ao-input
+            :label="'Search Example (does not search anything)'"
+            :placeholder="'Search'"
+            :type="'search'"/>
+          <ao-button
+            :type="'submit'"
+            primary>
+            Save
+          </ao-button>
+          <!-- </ao-form> -->
+
+          <pre>{{ saveData }}</pre>
+
+          <ao-spinner v-if="loading" />
+          <ao-button slot="cardFooter">Buttons In The</ao-button>
+          <ao-button
+            slot="cardFooter"
+            primary>Card Footer!</ao-button>
+      </ao-info-pair></ao-card>
 
       <ao-card :title="'Hi I am a Table!'">
         <ao-paginate
