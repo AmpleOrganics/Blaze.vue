@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../src/assets/styles/settings/_variables.scss';
+@import '../_variables.scss';
 
 .ao-dropdown {
   z-index: $zindex-dropdown;

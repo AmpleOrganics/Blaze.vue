@@ -18,7 +18,7 @@ Currently the only tested measure is using vue-cli/webpack based project
 
 In your main.js/index.js add the following lines
 
-  ```sh
+  ```js
   import Blaze from 'blaze-vue'
   import 'blaze-vue/dist/blaze-vue.css'
 
