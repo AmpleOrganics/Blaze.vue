@@ -15,7 +15,7 @@ This is a customizable dropdown component.
     class="ao-dropdown__link"
     :key="index"
     :href="link.url">
-    {{link.title}}
+    {{ link.title }}
   </a>
 </ao-dropdown>
 ```
@@ -24,8 +24,8 @@ This is a customizable dropdown component.
 data () {
   return {
     links: [
-      { url: "https://google.com", title: "Google"},
-      { url: "https://facebook.com", title: "Facebook"}
+      { url: "https://google.com", title: "Google" },
+      { url: "https://facebook.com", title: "Facebook" }
     ],
 
     showDropdown: true
@@ -37,5 +37,5 @@ data () {
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-| showDropdown | Boolean | false | Hides or unhides the dropdown. |
+| showDropdown | Boolean | false | Hides or un-hides the dropdown. |
 

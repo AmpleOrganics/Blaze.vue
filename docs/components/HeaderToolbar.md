@@ -22,7 +22,7 @@ This is a header toolbar component intended for top-level display, containing al
 
 | Name         | Type     | Default | Description                                                           |
 |:-------------|:---------|:---------|:----------------------------------------------------------------------|
-|title        |String, required   | null |This prop contains an array of objects with header title, field and a sortable boolean to determine if your data should be sorted by that header. |
+|title        |String, required   | null |Defines the header toolbar title. |
 |iconHtml     |String       | null    |Accepts html elements or html codes for icons. |
 |iconUrl      |String       | null    |Accepts an image URL. |
 |iconClass    |String       | null    |Accepts icon class components e.g. glyphicons. |
