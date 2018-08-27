@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../src/assets/styles/settings/_variables.scss';
+@import '../_variables.scss';
 .ao-header-toolbar {
   display: flex;
   width: 100%;
