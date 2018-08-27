@@ -95,7 +95,7 @@ export default {
 
 .ao-modal {
   padding-top: 2em;
-  z-index: 501;
+  z-index: $zindex-modal;
   height: 100%;
 
   &:focus {

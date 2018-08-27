@@ -9,7 +9,7 @@
 .ao-spinner {
   pointer-events: none;
   top: $spacer-lg;
-  z-index: 501;
+  z-index: $zindex-spinner;
   display: block;
   position: fixed;
   right: $spacer-lg;
