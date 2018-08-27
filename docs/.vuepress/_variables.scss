@@ -8,9 +8,9 @@
 // Color system
 //
 
-$color-primary:            #00a38b;
-$color-primary-dark:       darken($color-primary, 5);
-$color-dark:               #292F3B;
+$color-primary:               #00a38b;
+$color-primary-dark:          darken($color-primary, 5);
+$color-dark:                  #292F3B;
 
 $color-white:                 #fff;
 $color-green:                 #17a66c;
@@ -31,7 +31,7 @@ $color-gray-50:               #ccc;
 $color-gray-60:               #dcdedf;
 $color-gray-80:               #ebecef;
 $color-gray-90:               #f7f7f9;
-$color-grey-light:              #ddd;
+$color-grey-light:            #ddd;
 
 //
 // Spacing & Sizing
@@ -70,7 +70,7 @@ $line-height-base:            1.4;
 // Layout
 //
 
-$layout-background-color:    $color-gray-90;
+$layout-background-color:     $color-gray-90;
 
 $zindex-base:                 1000;
 $zindex-dropdown:             1010;
@@ -132,17 +132,17 @@ $input-label-margin:          0 0 $spacer-xs;
   .slide-fade {
     &-enter-active,
     &-leave-active {
-        transition: all $transition-base;
+      transition: all $transition-base;
     }
 
     &-enter,
     &-leave-to {
-        transform: translateY(-20px);
+      transform: translateY(-20px);
     }
 
     &-enter,
     &-leave-to {
-        opacity: 0;
+      opacity: 0;
     }
   }
 }
