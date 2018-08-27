@@ -1,3 +1,23 @@
+# 1.1.0 (2018-08-27)
+
+### New Components!
+
+Check out the Docs for each of the components to see basic implementation and demo of the components!
+
+Breadcrumbs: A breadcrumb component to easily navigate your page!  FIXES:[#104](https://github.com/AmpleOrganics/Blaze.vue/issues/104), [PR #154](https://github.com/AmpleOrganics/Blaze.vue/pull/154)
+
+Header Toolbar: This is a toolbar component with its intended use being at the top of the page for navigation and app controls [PR #163](https://github.com/AmpleOrganics/Blaze.vue/pull/163)
+
+Dropdown: Simple dropdown component (not to be confused with a select component) [PR #166](https://github.com/AmpleOrganics/Blaze.vue/pull/166)
+
+### Breaking changes
+
+None!
+
+### fixes
+
+Alert now properly goes to the top of the page at all times [PR 156](https://github.com/AmpleOrganics/Blaze.vue/pull/156)
+
 # 1.0.0 (2018-08-13)
 
 ### Notes
