@@ -72,16 +72,13 @@ $line-height-base:            1.4;
 
 $layout-background-color:    $color-gray-90;
 
-$zindex-dropdown:             1000;
-$zindex-sticky:               1020;
-$zindex-fixed:                1030;
-$zindex-alert:                1035;
-$zindex-spinner:              1035;
-$zindex-modal-backdrop:       1040;
-$zindex-modal:                1050;
-$zindex-tooltip:              1070;
-$zindex-popover:              1060;
-$zindex-header-toolbar:       1090;
+$zindex-base:                 1000;
+$zindex-dropdown:             1010;
+$zindex-header-toolbar:       1020;
+$zindex-modal-backdrop:       1030;
+$zindex-modal:                1031;
+$zindex-alert:                1040;
+$zindex-spinner:              1050;
 
 $header-toolbar-height:       60px;
 
