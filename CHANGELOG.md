@@ -1,3 +1,9 @@
+# 1.1.1 (2018-08-28)
+
+## Fixes
+
+add dropdown to install script
+
 # 1.1.0 (2018-08-27)
 
 ### New Components!
