@@ -209,6 +209,16 @@
             <td>{{ user.gender }}</td>
           </tr>
         </ao-table>
+        <ao-dropdown :show-dropdown="showDropdown">
+          <a
+            v-for="(link, index) in links"
+            slot="dropdown-items"
+            :key="index"
+            :href="link.url"
+            class="ao-dropdown__link">
+            {{ link.title }}
+          </a>
+        </ao-dropdown>
       </ao-card>
 
       <ao-modal
@@ -299,7 +309,12 @@ export default {
       showModal: false,
       showAlert: false,
       routes: this.$router.options.routes,
-      page: 1
+      page: 1,
+      links: [
+        { url: 'https://google.com', title: 'Google' },
+        { url: 'https://facebook.com', title: 'Facebook' }
+      ],
+      showDropdown: true
     }
   },
 
