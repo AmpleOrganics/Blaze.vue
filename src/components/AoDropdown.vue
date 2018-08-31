@@ -27,6 +27,10 @@ export default {
   border-bottom: 0;
   width: 140px;
   text-align: left;
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  margin-top: 3px;
 
   & * {
     color: $color-gray-30;
@@ -39,5 +43,9 @@ export default {
       color: $color-gray-10;
     }
   }
+}
+
+.ao-header-toolbar__controls > * > .ao-dropdown {
+  right: -1px;
 }
 </style>
