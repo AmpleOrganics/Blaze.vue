@@ -21,11 +21,11 @@ export default {
 .ao-dropdown {
   z-index: $zindex-dropdown;
   background: $color-white;
+  box-shadow: $shadow, $shadow-subtle;
   display: flex;
   flex-direction: column;
   border: $border-gray-50;
-  border-bottom: 0;
-  width: 140px;
+  min-width: 140px;
   text-align: left;
   position: absolute;
   top: 100%;
@@ -34,12 +34,13 @@ export default {
 
   & * {
     color: $color-gray-30;
-    padding-left: 15px;
-    border-bottom: $border-gray-50;
+    padding: $spacer/2 $spacer;
     text-decoration: none !important;
-    line-height: 33px;
+    display: flex;
+    align-items: center;
 
     &:hover {
+      background: $color-gray-90;
       color: $color-gray-10;
     }
   }
