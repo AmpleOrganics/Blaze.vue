@@ -6,7 +6,9 @@ import AoButton from './components/AoButton.vue'
 import AoCard from './components/AoCard.vue'
 import AoCheckbox from './components/AoCheckbox.vue'
 import AoDropdown from './components/AoDropdown.vue'
+import AoFileUpload from './components/AoFileUpload.vue'
 import AoHeaderToolbar from './components/AoHeaderToolbar.vue'
+import AoHeading from './components/AoHeading.vue'
 import AoInfoPair from './components/AoInfoPair.vue'
 import AoInput from './components/AoInput.vue'
 import AoModal from './components/AoModal.vue'
@@ -19,7 +21,6 @@ import AoSpinner from './components/AoSpinner.vue'
 import AoTable from './components/AoTable.vue'
 import AoTextArea from './components/AoTextArea.vue'
 import AoTextStyle from './components/AoTextStyle.vue'
-import AoFileUpload from './components/AoFileUpload.vue'
 import ClickOutside from './directives/click-outside.js'
 
 const Blaze = {
@@ -31,7 +32,9 @@ const Blaze = {
     Vue.component('AoCard', AoCard)
     Vue.component('AoCheckbox', AoCheckbox)
     Vue.component('AoDropdown', AoDropdown)
+    Vue.component('AoFileUpload', AoFileUpload)
     Vue.component('AoHeaderToolbar', AoHeaderToolbar)
+    Vue.component('AoHeading', AoHeading)
     Vue.component('AoInfoPair', AoInfoPair)
     Vue.component('AoInput', AoInput)
     Vue.component('AoModal', AoModal)
@@ -44,7 +47,6 @@ const Blaze = {
     Vue.component('AoTable', AoTable)
     Vue.component('AoTextArea', AoTextArea)
     Vue.component('AoTextStyle', AoTextStyle)
-    Vue.component('AoFileUpload', AoFileUpload)
     Vue.directive('ClickOutside', ClickOutside)
   }
 }

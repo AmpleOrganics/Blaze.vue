@@ -47,6 +47,9 @@
 
       <ao-card :title="'Title of Card'">
         <ao-breadcrumbs :paths="paths"/>
+        <ao-heading
+          card-section-heading
+          text="Form Examples"/>
         <p>
           <ao-text-style
             error
