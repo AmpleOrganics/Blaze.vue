@@ -62,7 +62,7 @@ export default {
   width: 100%;
   height: $header-toolbar-height;
   color: $color-gray-30;
-  background: $color-gray-80;
+  background: $color-white;
   justify-content: space-between;
   border-bottom: $border-gray-50;
   font-size: $font-size-sm;
@@ -89,15 +89,26 @@ export default {
 
     & > * {
       display: flex;
+      position: relative;
       align-items: center;
       justify-content: center;
       height: 100%;
       min-width: $header-toolbar-height;
-      padding: 0 $spacer;
+      padding: 20px;
       border-left: $border-gray-50;
       color: $color-gray-30;
       text-decoration: none;
       border-radius: 0;
+      font-size: $font-size-base;
+
+      .glyphicon {
+        font-size: 18px;
+      }
+
+      &.active {
+        color: $color-gray-10;
+        background: $color-gray-90;
+      }
 
       &:hover {
         color: $color-gray-10;

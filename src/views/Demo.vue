@@ -4,7 +4,22 @@
       :title="'Header Toolbar'"
       :icon-url="'https://vignette.wikia.nocookie.net/2007scape/images/7/7f/Chompy_bird.png/revision/latest?cb=20160714233624'"
       fixed>
-      <span :class="'glyphicon glyphicon-menu-hamburger icon'" />
+      <div
+        v-click-outside="hideDropdown"
+        :class="{ active: activeTab}"
+        @click="toggleDropdown">
+        <span :class="'glyphicon glyphicon-menu-hamburger icon'" />
+        <ao-dropdown :show-dropdown="showDropdown">
+          <a
+            v-for="(link, index) in links"
+            slot="dropdown-items"
+            :key="index"
+            :href="link.url"
+            class="ao-dropdown__link">
+            {{ link.title }}
+          </a>
+        </ao-dropdown>
+      </div>
       <span>Logout</span>
     </ao-header-toolbar>
     <div id="demo-container">
@@ -209,16 +224,6 @@
             <td>{{ user.gender }}</td>
           </tr>
         </ao-table>
-        <ao-dropdown :show-dropdown="showDropdown">
-          <a
-            v-for="(link, index) in links"
-            slot="dropdown-items"
-            :key="index"
-            :href="link.url"
-            class="ao-dropdown__link">
-            {{ link.title }}
-          </a>
-        </ao-dropdown>
       </ao-card>
 
       <ao-modal
@@ -250,10 +255,8 @@
 
 <script>
 import orderBy from 'lodash.orderby'
-
 export default {
   name: 'DemoContainer',
-
   data () {
     return {
       saveData: {},
@@ -314,10 +317,10 @@ export default {
         { url: 'https://google.com', title: 'Google' },
         { url: 'https://facebook.com', title: 'Facebook' }
       ],
-      showDropdown: true
+      showDropdown: false,
+      activeTab: false
     }
   },
-
   computed: {
     displayUsers () {
       const perPage = this.userInfo.per_page
@@ -327,7 +330,6 @@ export default {
       return userList.slice((page * perPage), end)
     }
   },
-
   methods: {
     navChecker (value) {
       if (this.activeNav !== value) {
@@ -335,7 +337,6 @@ export default {
         this.$router.push(value)
       }
     },
-
     saveForm () {
       this.saveData = {
         name: this.name,
@@ -351,43 +352,43 @@ export default {
       }, 3000)
       return this.saveData
     },
-
     toggleModal () {
       this.showModal = !this.showModal
       return this.showModal
     },
-
     continueModal () {
       this.showAlert = true
       this.toggleModal()
     },
-
     sortTable (sortBy, order) {
       this.users = orderBy(this.users, sortBy, order)
     },
-
     paginate (page, direction) {
       this.userInfo.page = page
       this.page = page
       console.log(this.page)
     },
-
     updateFile (val) {
       this.file = val.name
+    },
+    toggleDropdown () {
+      this.activeTab = !this.activeTab
+      this.showDropdown = !this.showDropdown
+    },
+    hideDropdown () {
+      this.activeTab = false
+      this.showDropdown = false
     }
-
     // submitFile () {
     // Store all form data in data object such as document
     //   let doc = this.document
     //   let data = new FormData()
-
     //   for (let key in doc) {
     //     if (key === 'file') {
     //       data.append(key, doc[key], doc[key].filename)
     //     }
     //     data.append(key, doc[key])
     //   }
-
     //   axios.post(`${yourUrl}`, data, {headers: {
     //     'Content-Type': 'multipart/form-data'
     //   }}).then(response => {
@@ -407,11 +408,6 @@ export default {
   padding: $spacer;
   padding-top: $header-toolbar-height + $spacer-px;
 }
-
-a {
-  color: #42b983;
-}
-
 .ao-header-toolbar__controls >.icon {
   font-size: 1.25rem;
 }

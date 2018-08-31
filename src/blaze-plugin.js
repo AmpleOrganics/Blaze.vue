@@ -20,6 +20,7 @@ import AoTable from './components/AoTable.vue'
 import AoTextArea from './components/AoTextArea.vue'
 import AoTextStyle from './components/AoTextStyle.vue'
 import AoFileUpload from './components/AoFileUpload.vue'
+import ClickOutside from './directives/click-outside.js'
 
 const Blaze = {
   install (Vue) {
@@ -44,6 +45,7 @@ const Blaze = {
     Vue.component('AoTextArea', AoTextArea)
     Vue.component('AoTextStyle', AoTextStyle)
     Vue.component('AoFileUpload', AoFileUpload)
+    Vue.directive('ClickOutside', ClickOutside)
   }
 }
 
