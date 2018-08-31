@@ -300,7 +300,7 @@
       <ao-card :title="'Hi I am a Table!'">
         <ao-paginate
           slot="card-header-toolbar"
-          :total-pages="3"
+          :total-pages="userInfo.total_pages"
           @paginate="paginate"/>
         <ao-table
           :headers="columnHeaders"
@@ -328,6 +328,13 @@
         :size="'md'"
         :header-text="'I am the modal title'"
         @modalClose="toggleModal">
+        <ao-input
+          slot="modal-toolbar"
+          :show-label="false"/>
+        <ao-paginate
+          slot="modal-toolbar"
+          :total-pages="3"
+          @paginate="paginate"/>
         <div slot="modal-body">
           <p>I am content</p>
         </div>
