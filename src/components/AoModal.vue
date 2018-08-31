@@ -14,6 +14,10 @@
             <div :class="computedHeaderClass">
               <h2>{{ headerText }}</h2>
             </div>
+            <div
+              class="ao-modal__toolbar">
+              <slot name="modal-toolbar"/>
+            </div>
             <div class="ao-modal__body">
               <slot name="modal-body"/>
             </div>
@@ -130,6 +134,18 @@ export default {
     background-clip: padding-box;
     border-radius: $border-radius-base;
     box-shadow: $shadow-dramatic;
+  }
+
+  &__toolbar {
+    padding: $spacer;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid $ui-border-color-base;
+
+    & > /deep/ * {
+      padding-left: $spacer;
+      margin-bottom: 0;
+    }
   }
 
   &__body {

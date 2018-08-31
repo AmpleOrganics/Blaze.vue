@@ -64,8 +64,7 @@ export default {
 <style lang='scss' scoped>
 .ao-pagination {
   display: flex;
-  border: 1px solid $input-border-color;
-  border-radius: $border-radius-base;
+  width: 88px;
 
   &__button {
     height: $input-height-base;
@@ -74,16 +73,28 @@ export default {
     justify-content: center;
     align-items: center;
     color: $color-gray-20;
+    border: 1px solid $input-border-color;
+    background: $color-white;
+    z-index: $zindex-base;
+    user-select: none;
 
     &[disabled] {
       cursor: not-allowed !important;
       opacity: 0.65;
       filter: alpha(opacity=65);
       box-shadow: none;
+      color: $color-gray-50;
+      background: $color-white !important;
+      z-index: $zindex-base - 1;
+    }
+
+    &:first-child {
+      border-radius: $border-radius-base 0 0 $border-radius-base;
     }
 
     &:last-child {
-      border-left: 1px solid $input-border-color;
+      border-radius: 0 $border-radius-base $border-radius-base 0;
+      border-left: 0;
     }
 
     &:hover {
