@@ -75,7 +75,7 @@ export default {
 
   &__icon {
     max-height: $header-icon-height;
-    padding-right: $spacer;
+    padding-right: $spacer/2;
     font-size: $font-size-xxl;
     vertical-align: middle;
   }
