@@ -9,13 +9,16 @@
           class="ao-breadcrumbs__crumb">
           {{ name }}
         </router-link>
-        <span class="ao-breadcrumbs__crumb-separator">{{ separator }}</span>
       </span>
-      <span v-else>
-        <span
-          class="ao-breadcrumbs__crumb ao-breadcrumbs__crumb--active">
-          {{ name }}
-        </span>
+      <span
+        v-if="active"
+        class="ao-breadcrumbs__crumb ao-breadcrumbs__crumb--active">
+        {{ name }}
+      </span>
+      <span
+        v-if="ifSeparator(index)"
+        class="ao-breadcrumbs__crumb-separator">
+        {{ separator }}
       </span>
     </span>
   </div>
@@ -32,6 +35,12 @@ export default {
     paths: {
       type: Array,
       required: true
+    }
+  },
+
+  methods: {
+    ifSeparator (index) {
+      return index + 1 !== this.paths.length
     }
   }
 }
