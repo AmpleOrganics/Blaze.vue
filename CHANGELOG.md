@@ -1,3 +1,16 @@
+# 1.1.2 (2018-09-05)
+
+## Fixes
+
+Breadcrumbs: Separator logic improved so that there are no longer extra separators when having no "active" path [8a18945](https://github.com/AmpleOrganics/Blaze.vue/pull/178/commits/8a18945e29459071c213652b23bacdb99f5461c1)
+Breadcrumbs: new styling to make it easier to discern if a breadcrumb is clickable or not [51e2051](https://github.com/AmpleOrganics/Blaze.vue/pull/178/commits/51e205136fdee25281e6e3cfb5a68e6e3204010c)
+Dropdown: fix positioning of dropdown relative to its parent element [e192a84](https://github.com/AmpleOrganics/Blaze.vue/pull/178/commits/e192a841e6639a8f1ff6addb572bf24b24baff7d)
+Dropdown: Improved css styling [782c48f](https://github.com/AmpleOrganics/Blaze.vue/pull/178/commits/782c48fc7eb5ba3be8db97e762dcf3a55c13c89b)
+
+## New
+
+v-click-outside directive that can trigger a vue method when clicked outside of the attached element (note: cannot use function parameters when calling vue methods) ie: `v-click-outside="closeEvent('param')"`
+
 # 1.1.1 (2018-08-28)
 
 ## Fixes
