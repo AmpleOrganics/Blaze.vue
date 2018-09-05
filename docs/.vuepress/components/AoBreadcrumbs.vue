@@ -1,15 +1,15 @@
 <template>
   <div class="ao-breadcrumbs">
-    <span
+    <div
       v-for="({ name, path, active}, index) in paths"
-      :key="index">
-      <span v-if="!active">
-        <router-link
-          :to="path"
-          class="ao-breadcrumbs__crumb">
-          {{ name }}
-        </router-link>
-      </span>
+      :key="index"
+      class="ao-breadcrumbs__crumb-group">
+      <router-link
+        v-if="!active"
+        :to="path"
+        class="ao-breadcrumbs__crumb">
+        {{ name }}
+      </router-link>
       <span
         v-if="active"
         class="ao-breadcrumbs__crumb ao-breadcrumbs__crumb--active">
@@ -20,7 +20,7 @@
         class="ao-breadcrumbs__crumb-separator">
         {{ separator }}
       </span>
-    </span>
+    </div>
   </div>
 </template>
 
@@ -51,24 +51,31 @@ export default {
 @import '../_variables.scss';
 .ao-breadcrumbs {
   margin-bottom: $spacer;
+  display: flex;
+
+  &__crumb-group {
+    display: flex;
+  }
 
   &__crumb {
-    text-transform: uppercase;
-    color: $color-gray-30;
     text-decoration: none;
     font-size: $font-size-xs;
+    text-transform: uppercase;
 
-    &:not(&--active) {
-      font-weight: $font-weight-bold;
+    &--active {
+      color: $color-gray-30;
     }
 
     &:not(&--active):hover {
-      color: $color-gray-20;
+      text-decoration: underline;
     }
   }
 
   &__crumb-separator {
     font-size: $font-size-xs;
+    margin-left: $spacer-micro;
+    margin-right: $spacer-micro;
+    color: $color-gray-30;
   }
 }
 </style>
