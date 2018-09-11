@@ -93,124 +93,111 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+@mixin ao-button-colors($color, $background-color, $border-color, $darken-delta) {
+ background: $background-color;
+ border-color: $border-color;
+ color: $color;
+
+ &:active, &:hover:not([disabled]) {
+   background-color: darken($background-color, $darken-delta);
+   border-color: darken($border-color, $darken-delta);
+
+   color: $color;
+   @if $color != $color-white {
+     color: darken($color, $darken-delta);
+   }
+ }
+}
 
 .ao-button {
-  display: inline-block;
-  margin-bottom: 0;
-  text-align: center;
-  font-weight: $font-weight-bold;
-  font-family: $font-family-primary;
-  border: $input-border-width solid transparent;
-  padding: $spacer-micro $spacer-sm;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  border-radius: $border-radius-base;
-  min-height: $input-height-base;
-  box-shadow: $shadow-subtle;
-  cursor: pointer;
+ display: inline-block;
+ margin-bottom: 0;
+ text-align: center;
+ font-weight: $font-weight-bold;
+ font-family: $font-family-primary;
+ border: $input-border-width solid transparent;
+ padding: $spacer-micro $spacer-sm;
+ font-size: $font-size-base;
+ line-height: $line-height-base;
+ border-radius: $border-radius-base;
+ min-height: $input-height-base;
+ box-shadow: $shadow-subtle;
+ cursor: pointer;
 
- /* Default styles, overridden by special classes */
-  background-color: $color-white;
-  border-color: $color-gray-50;
-  color: $font-color-base;
+/* Default styles, overridden by special classes */
+ background-color: $color-white;
+ border-color: $color-gray-50;
+ color: $font-color-base;
 
- /* Default hover/active styles, overridden by special classes */
-  &:active {
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  }
+/* Default hover/active styles, overridden by special classes */
+ &:active {
+   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+ }
 
-  &:hover, &:active {
-    background-color: darken($color-white, 3%);
-    border-color: darken($color-gray-50, 3%);
-    color: darken($font-color-base, 3%);
-  }
+ &:active, &:hover:not([disabled]) {
+   background-color: darken($color-white, 3%);
+   border-color: darken($color-gray-50, 3%);
+   color: darken($font-color-base, 3%);
+ }
 
-  & + &:not(.ao-btn--block) {
-    margin-left: $spacer-micro;
-  }
+ & + &:not(.ao-btn--block) {
+   margin-left: $spacer-micro;
+ }
 
-  &[disabled] {
-    cursor: not-allowed;
-    opacity: 0.65;
-    filter: alpha(opacity=65);
-    box-shadow: none;
-  }
+ &[disabled] {
+   cursor: not-allowed;
+   opacity: 0.65;
+   box-shadow: none;
+ }
 
-  &--primary {
-    background-color: $color-primary;
-    border-color: $color-primary;
-    color: $color-white;
+ &--primary {
+   @include ao-button-colors($color-white, $color-primary, $color-primary, 3%);
+ }
 
-    &:hover, &:active {
-      border-color: darken($color-primary, 3%);
-      background-color: darken($color-primary, 3%);
-      color: $color-white;
-    }
-  }
+ &--destructive {
+   @include ao-button-colors($color-white, $color-destructive, $color-destructive, 5%);
+ }
 
-  &--destructive {
-    background-color: $color-destructive;
-    border: 1px solid $color-destructive;
-    color: $color-white;
+ &--caution {
+   @include ao-button-colors(darken($color-caution, 50%), $color-caution, $color-caution, 5%);
 
-    &:hover, &:active {
-      background-color: darken($color-destructive, 5%);
-      border-color: darken($color-destructive, 5%);
-      color: $color-white;
-    }
-  }
+   &:active, &:hover:not([disabled]) {
+     color: darken($color-caution, 60%);
+   }
+ }
 
-  &--caution {
-    background-color: $color-caution;
-    border: 1px solid $color-caution;
-    color: darken($color-caution, 50%);
-    outline:none;
+ &--subtle {
+   @include ao-button-colors($font-color-base, $color-gray-90, $color-gray-60, 5%);
+ }
 
-    &:hover, :active {
-      background-color: darken($color-caution, 5%);
-      border-color: darken($color-caution, 5%);
-      color: darken($color-caution, 60%);
-    }
-  }
+ &--naked {
+   background-color: transparent;
+   border-color: transparent;
+   box-shadow: $shadow-none;
 
-  &--subtle {
-    background-color: $color-gray-90;
-    border: 1px solid $color-gray-60;
+   &:active, &:hover:not([disabled]) {
+     border-color: transparent;
+     background-color: transparent;
+     box-shadow: $shadow-none;
+   }
+   }
 
-    &:hover, :active {
-      border-color: darken($color-gray-60, 5%);
-      background-color: darken($color-gray-90, 5%);
-    }
-  }
+ &--small {
+   height: $input-height-sm;
+   font-size: $font-size-xs;
+   padding-left: $spacer-xs;
+   padding-right: $spacer-xs;
+ }
 
-  &--naked {
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: $shadow-none;
+ &--large {
+   height: $input-height-lg;
+   font-size: $font-size-lg;
+ }
 
-    &:hover, :active {
-      border-color: transparent;
-      background-color: transparent;
-      box-shadow: $shadow-none;
-    }
-  }
-
-  &--small {
-    height: $input-height-sm;
-    font-size: $font-size-xs;
-    padding-left: $spacer-xs;
-    padding-right: $spacer-xs;
-  }
-
-  &--large {
-    height: $input-height-lg;
-    font-size: $font-size-lg;
-  }
-
-  &--jumbo {
-    width: 100%;
-    height: 80px;
-    margin-left: 0;
-  }
+ &--jumbo {
+   width: 100%;
+   height: 80px;
+   margin-left: 0;
+ }
 }
 </style>
