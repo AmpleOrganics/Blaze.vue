@@ -55,6 +55,98 @@
           </ao-text-style>
         </p>
         <!-- <ao-form @formHandler="saveForm"> -->
+        <div>
+          <p>Buttons</p>
+          <ao-button
+            :type="'button'"
+            primary>
+            primary
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            destructive>
+            destructive
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            caution>
+            caution
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            subtle>
+            subtle
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            naked>
+            naked
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            small>
+            small
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            large>
+            large
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            jumbo>
+            jumbo
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            :disabled="true"
+            primary>
+            primary disabled
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            :disabled="true"
+            destructive>
+            destructive disabled
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            :disabled="true"
+            caution>
+            caution disabled
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            :disabled="true"
+            subtle>
+            subtle disabled
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            :disabled="true"
+            naked>
+            naked disabled
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            :disabled="true"
+            small>
+            small disabled
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            :disabled="true"
+            large>
+            large disabled
+          </ao-button>
+          <ao-button
+            :type="'button'"
+            :disabled="true"
+            jumbo>
+            jumbo disabled
+          </ao-button>
+        </div>
+
         <ao-input
           :type="'text'"
           :label="'Name'"
