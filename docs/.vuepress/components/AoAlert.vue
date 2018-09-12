@@ -1,5 +1,5 @@
 <template>
-  <transition name="slide-fade">
+  <transition name="fade">
     <div
       v-if="showAlert"
       class="ao-alert">
@@ -62,7 +62,6 @@ export default {
       }, 4000)
     }
   }
-
 }
 </script>
 
@@ -70,23 +69,23 @@ export default {
 // commented out styles are to indicate they exist in the component
 // but not in the docs
 @import '../_variables.scss';
-
-@include slide-fade;
+@import '../_transitions.scss';
 
 $ao-alert-height: 3.75rem;
 
 .ao-alert {
   display: flex;
+  justify-content: center;
   background-color: $color-white;
-  width: 75%;
+  width: 100%; // fit into parent container
   box-shadow: $shadow, $shadow-subtle;
   min-height: $ao-alert-height;
-  // position: fixed;
-  display: flex;
-  justify-content: center;
   z-index: $zindex-alert;
-  width: 100%;
+  // position: fixed;
   // top: 0;
+  // left: 50%;
+  // transform: translateX(-50%);
+  transition: all $transition-base;
 
   &__message {
     padding: $spacer;

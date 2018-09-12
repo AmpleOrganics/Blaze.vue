@@ -1,5 +1,5 @@
 <template>
-  <transition name="slide-fade">
+  <transition name="fade">
     <div
       v-if="showAlert"
       class="ao-alert">
@@ -66,8 +66,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@include slide-fade;
-
 $ao-alert-height: 3.75rem;
 
 .ao-alert {
@@ -82,6 +80,7 @@ $ao-alert-height: 3.75rem;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  transition: all $transition-base;
 
   &__message {
     padding: $spacer;
