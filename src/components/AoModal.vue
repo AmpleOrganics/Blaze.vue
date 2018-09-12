@@ -95,8 +95,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@include slide-fade;
-
 .ao-modal {
   padding-top: 2em;
   z-index: $zindex-modal;
@@ -135,6 +133,7 @@ export default {
     background-clip: padding-box;
     border-radius: $border-radius-base;
     box-shadow: $shadow-dramatic;
+    transition: all $transition-base;
   }
 
   &__toolbar {
@@ -178,5 +177,16 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: auto;
+  transition: opacity $transition-base;
+}
+
+.slide-fade {
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    .ao-modal__content {
+        transform: translateY(-2em);
+    }
+  }
 }
 </style>
