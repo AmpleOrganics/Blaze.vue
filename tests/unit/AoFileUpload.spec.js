@@ -5,7 +5,8 @@ describe('FileUpload', () => {
   it('create', () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
-        label: 'test'
+        label: 'test',
+        name: 'test'
       }
     })
     expect(fileUpload.text()).toBe('test')
@@ -16,6 +17,7 @@ describe('FileUpload', () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
         label: 'test0',
+        name: 'test0',
         invalid: true
       }
     })
@@ -27,6 +29,7 @@ describe('FileUpload', () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
         label: 'test1',
+        name: 'test1',
         disabled: true
       }
     })
