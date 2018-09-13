@@ -31,6 +31,7 @@ export default {
   top: 100%;
   right: 0px;
   margin-top: 3px;
+  white-space: nowrap;
 
   & * {
     color: $color-gray-30;
