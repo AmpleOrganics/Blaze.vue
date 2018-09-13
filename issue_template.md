@@ -1,3 +1,5 @@
+Please format your title as: `ComponentName: the issue`
+
 ## Issue Description
 
 ## Vue and Node Version
