@@ -105,6 +105,10 @@ export default {
   overflow-x: auto;
   min-height: 0.01%;
 
+  tr {
+    border-bottom: 1px solid $color-gray-60;
+  }
+
   &--clickable {
     tbody > tr {
       cursor: pointer;
@@ -122,7 +126,6 @@ export default {
   & /deep/ tr > td {
     padding: .5rem;
     vertical-align: middle;
-    border-top: 1px solid $color-gray-60;
   }
 
   & th {
