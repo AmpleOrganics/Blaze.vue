@@ -46,7 +46,7 @@
       </ao-section-header>
 
       <ao-card :title="'Title of Card'">
-        <ao-breadcrumb :paths="paths"/>
+        <ao-breadcrumbs :paths="paths"/>
         <p>
           <ao-text-style
             error
