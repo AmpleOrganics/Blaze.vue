@@ -114,6 +114,7 @@ export default {
     }
 
     &--caution {
+      color: $color-dark;
       background-color: $color-caution;
     }
   }
