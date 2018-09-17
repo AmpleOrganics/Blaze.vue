@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Select from '@/components/AoSelect.vue'
+import instructionText from './helpers/instructionText'
 
 describe('Select', () => {
   it('create', () => {
@@ -58,5 +59,15 @@ describe('Select', () => {
     })
 
     expect(select.find('.ao-form-control').classes()).toContain('ao-form-control--small')
+  })
+
+  it('instruction text', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'test'
+      }
+    })
+
+    instructionText.assert(select)
   })
 })

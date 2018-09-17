@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import Input from '@/components/AoInput.vue'
+import instructionText from './helpers/instructionText'
 
 describe('Input', () => {
   const getFormControlElement = (wrapper) => wrapper.find('.ao-form-control')
@@ -58,5 +59,16 @@ describe('Input', () => {
 
     input.find('.ao-form-control').trigger('input')
     expect(input.emitted().input[0][0]).toBe('value')
+  })
+
+  it('instruction text', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'test'
+      }
+    })
+
+    instructionText.assert(input)
   })
 })

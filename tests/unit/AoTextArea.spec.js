@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import TextArea from '@/components/AoTextArea.vue'
+import instructionText from './helpers/instructionText'
 
 describe('TextArea', () => {
   it('create', () => {
@@ -25,5 +26,11 @@ describe('TextArea', () => {
 
     textArea.find('.ao-form-control').trigger('input')
     expect(textArea.emitted().input[0][0]).toBe('value')
+  })
+
+  it('instruction text', () => {
+    const textArea = mount(TextArea)
+
+    instructionText.assert(textArea)
   })
 })
