@@ -13,6 +13,11 @@
       :disabled="disabled"
       type="file"
       @change="updateFile($event.target.files)">
+    <span
+      v-if="instructionText"
+      class="ao-form-group__instruction-text">
+      {{ instructionText }}
+    </span>
   </div>
 </template>
 
@@ -42,6 +47,11 @@ export default {
     name: {
       type: String,
       required: true
+    },
+
+    instructionText: {
+      type: String,
+      default: null
     }
   },
 

@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import FileUpload from '@/components/AoFileUpload.vue'
+import instructionText from './helpers/instructionText'
 
 describe('FileUpload', () => {
   it('create', () => {
@@ -47,5 +48,16 @@ describe('FileUpload', () => {
 
     fileUpload.find('.ao-form-control').trigger('change')
     expect(fileUpload.emitted().change).toBeTruthy()
+  })
+
+  it('instruction text', () => {
+    const fileUpload = mount(FileUpload, {
+      propsData: {
+        label: 'test',
+        name: 'test1'
+      }
+    })
+
+    instructionText.assert(fileUpload)
   })
 })

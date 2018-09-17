@@ -18,6 +18,7 @@ export default {
     { name: 'minLength', type: 'Number', default: '0', description: 'Defines the minimum length of characters within the text area.' },
     { name: 'rows', type: 'Number', default: '5', description: 'Defines the number of rows of the text area.' },
     { name: 'disabled', type: 'Boolean', default: 'false', description: 'Disables interaction with the component.' },
+    { name: 'instructionText', type: 'String', default: 'null', description: 'Instruction text to show below the input.' },
     { name: 'invalid', type: 'Boolean', default: 'false', description: 'Adds a class to display a red border around the component to indicate an invalid entry.' }
   ]
 }

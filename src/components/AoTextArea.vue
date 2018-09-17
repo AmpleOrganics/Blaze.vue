@@ -20,6 +20,11 @@
       class="ao-form-control"
       @input="inputEvent($event.target.value)"
     />
+    <span
+      v-if="instructionText"
+      class="ao-form-group__instruction-text">
+      {{ instructionText }}
+    </span>
   </div>
 </template>
 
@@ -74,6 +79,11 @@ export default {
     showLabel: {
       type: Boolean,
       default: true
+    },
+
+    instructionText: {
+      type: String,
+      default: null
     }
   },
 
