@@ -95,4 +95,11 @@
       margin-left: $spacer-micro;
     }
   }
+  
+  .ao-form-group__instruction-text {
+    display: block;
+    font-size: $font-size-xs;
+    color: $color-gray-30;
+    margin-top: $spacer-micro;
+  }
 }

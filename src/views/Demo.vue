@@ -202,7 +202,8 @@
           :type="'number'"
           :label="'Age'"
           v-model="age"
-          :step="5"/>
+          :step="5"
+          instruction-text="This is instruction text for this input."/>
         <p>My age: {{ age }}</p>
 
         <ao-file-upload

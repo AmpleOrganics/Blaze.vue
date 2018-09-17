@@ -33,6 +33,7 @@ export default {
     { name: 'addOn', type: 'String', default: 'null', description: 'Appends text to the input.' },
     { name: 'step', type: 'Number', default: '1', description: 'Valid for input type "number". Defines the amount of changes per click.' },
     { name: 'disabled', type: 'Boolean', default: 'false', description: 'Disables interaction with the component.' },
+    { name: 'instructionText', type: 'String', default: 'null', description: 'Instruction text to show below the input.' },
     { name: 'invalid', type: 'Boolean', default: 'false', description: 'Adds a class to display a red border around the component to indicate an invalid entry.' }
   ]
 }

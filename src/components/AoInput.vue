@@ -28,6 +28,11 @@
         {{ addOn }}
       </span>
     </div>
+    <span
+      v-if="instructionText"
+      class="ao-form-group__instruction-text">
+      {{ instructionText }}
+    </span>
   </div>
 </template>
 
@@ -106,6 +111,11 @@ export default {
       validator: function (size) {
         return [null, 'small'].includes(size)
       }
+    },
+
+    instructionText: {
+      type: String,
+      default: null
     }
   },
 
