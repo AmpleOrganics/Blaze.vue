@@ -15,13 +15,18 @@
               <h2>{{ headerText }}</h2>
             </div>
             <div
+              v-if="hasSlot('modal-toolbar')"
               class="ao-modal__toolbar">
               <slot name="modal-toolbar"/>
             </div>
-            <div class="ao-modal__body">
+            <div
+              v-if="hasSlot('modal-body')"
+              class="ao-modal__body">
               <slot name="modal-body"/>
             </div>
-            <div class="ao-modal__footer">
+            <div
+              v-if="hasSlot('modal-footer')"
+              class="ao-modal__footer">
               <div class="row">
                 <slot name="modal-footer"/>
               </div>
@@ -84,6 +89,9 @@ export default {
   },
 
   methods: {
+    hasSlot (slotName) {
+      return !!this.$slots[slotName]
+    },
     closeModal () {
       // This only affects clicking outside the modal and pressing 'esc' key
       // if you want to close the modal, the parent of the component shoud maniupulate a showModal
@@ -134,18 +142,6 @@ export default {
     border-radius: $border-radius-base;
     box-shadow: $shadow-dramatic;
     transition: all $transition-base;
-  }
-
-  &__toolbar {
-    padding: $spacer;
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: 1px solid $ui-border-color-base;
-
-    & > /deep/ * {
-      padding-left: $spacer;
-      margin-bottom: 0;
-    }
   }
 
   &__toolbar {
