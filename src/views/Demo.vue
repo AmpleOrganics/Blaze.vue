@@ -42,6 +42,10 @@
 
         <div slot="section-header-toolbar">
           <ao-button @click.native="toggleModal">Open Modal</ao-button>
+          <ao-paginate
+            slot="card-header-toolbar"
+            :total-pages="userInfo.total_pages"
+            @paginate="paginate"/>
         </div>
       </ao-section-header>
 
@@ -507,15 +511,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<!-- Need padding-top in #demo-container if you choose to have the header toolbar in fixed position: -->
-<style lang='scss' scoped>
-#demo-container {
-  padding: $spacer;
-  padding-top: $header-toolbar-height + $spacer-px;
-}
-.ao-header-toolbar__controls >.icon {
-  font-size: 1.25rem;
-}
-</style>
