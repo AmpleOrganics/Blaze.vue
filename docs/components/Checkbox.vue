@@ -9,10 +9,10 @@
 
       <div class="component-example">
         <ao-checkbox
-          :checkbox-label="checkboxLabel"
           :show-label="showLabel"
           :disabled="disabled"
           :checkbox-value="true"
+          checkbox-label="checkboxLabel"
         />
       </div>
       <div class="component-controls">
@@ -26,15 +26,15 @@
         <div class="component-controls__group">
           <ao-checkbox
             v-model="showLabel"
-            :checkbox-label="'showLabel'"
             :checkbox-value="true"
+            checkbox-label="showLabel"
           />
         </div>
         <div class="component-controls__group">
           <ao-checkbox
             v-model="disabled"
-            :checkbox-label="'disabled'"
             :checkbox-value="true"
+            checkbox-label="disabled"
           />
         </div>
       </div>

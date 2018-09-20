@@ -22,8 +22,8 @@
         <div class="component-controls__group">
           <ao-checkbox
             v-model="showDropdown"
-            :checkbox-label="'showDropdown'"
             :checkbox-value="true"
+            checkbox-label="showDropdown"
           />
         </div>
       </div>

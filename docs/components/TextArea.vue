@@ -48,20 +48,20 @@
         <div class="component-controls__group">
           <ao-checkbox
             v-model="showLabel"
-            :checkbox-label="'showLabel'"
-            :checkbox-value="true" />
+            :checkbox-value="true"
+            checkbox-label="showLabel" />
         </div>
         <div class="component-controls__group">
           <ao-checkbox
             v-model="disabled"
-            :checkbox-label="'disabled'"
-            :checkbox-value="true" />
+            :checkbox-value="true"
+            checkbox-label="disabled" />
         </div>
         <div class="component-controls__group">
           <ao-checkbox
             v-model="invalid"
-            :checkbox-label="'invalid'"
-            :checkbox-value="true" />
+            :checkbox-value="true"
+            checkbox-label="invalid" />
         </div>
       </div>
     </div>

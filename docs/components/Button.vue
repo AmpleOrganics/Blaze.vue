@@ -51,8 +51,8 @@
         <div class="component-controls__group">
           <ao-checkbox
             v-model="disabled"
-            :checkbox-label="'disabled'"
             :checkbox-value="true"
+            checkbox-label="disabled"
           />
         </div>
       </div>

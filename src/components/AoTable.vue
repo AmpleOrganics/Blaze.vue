@@ -14,6 +14,13 @@
     </thead>
     <tbody :class=" { clickable: isClickable }">
       <slot />
+      <tr
+        v-if="showNoDataText"
+        class="ao-table__nodata">
+        <td :colspan="headers.length">
+          {{ noDataText }}
+        </td>
+      </tr>
     </tbody>
     <tfoot v-if="hasTableFooterSlot">
       <slot name="table-footer"/>
@@ -39,6 +46,16 @@ export default {
     condensed: {
       type: Boolean,
       default: false
+    },
+
+    showNoDataText: {
+      type: Boolean,
+      default: false
+    },
+
+    noDataText: {
+      type: String,
+      default: ''
     },
 
     sortBy: {
@@ -124,6 +141,8 @@ export default {
 
 <style lang="scss">
 
+$table-row-background-shaded: $color-gray-90;
+
 .ao-table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -154,18 +173,18 @@ export default {
     }
   }
 
-  &--clickable {
-    & > tbody > tr {
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: $color-gray-90;
+  }
+
+  &.ao-table--clickable {
+    tbody > tr {
       cursor: pointer;
     }
 
     & > tbody > tr:hover {
       background: $color-gray-80;
     }
-  }
-
-  & > tbody > tr:nth-of-type(odd) {
-    background-color: $color-gray-90;
   }
 
   &--vertical-align-top {
@@ -223,6 +242,16 @@ export default {
 
   & tr:hover &__row-button {
     opacity: 1;
+  }
+
+  &__nodata {
+    text-align: center;
+    color: $color-gray-30;
+
+    &:hover {
+      cursor: inherit !important;
+      background-color: $table-row-background-shaded !important;
+    }
   }
 }
 </style>
