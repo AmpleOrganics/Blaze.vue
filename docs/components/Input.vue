@@ -47,22 +47,22 @@
       <div class="component-controls__group">
         <ao-checkbox
           v-model="showLabel"
-          :checkbox-label="'showLabel'"
           :checkbox-value="true"
+          checkbox-label="showLabel"
         />
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="disabled"
-          :checkbox-label="'disabled'"
           :checkbox-value="false"
+          checkbox-label="disabled"
         />
       </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="invalid"
-          :checkbox-label="'invalid'"
           :checkbox-value="true"
+          checkbox-label="invalid"
         />
       </div>
       <h3 class="component-sub-example">Number Input Example</h3>

@@ -3,7 +3,7 @@ export default {
   description: 'This is a customizable checkbox component.',
   snippet:
         `<ao-checkbox
-  :checkbox-label="'Label'"
+  checkbox-label="Label"
   :show-label="true"
   :checkbox-value="true"
 />`,
