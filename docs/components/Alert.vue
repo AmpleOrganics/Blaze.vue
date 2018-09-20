@@ -39,8 +39,8 @@
         <div class="component-controls__group">
           <ao-checkbox
             v-model="showAlert"
-            :checkbox-label="'showAlert'"
             :checkbox-value="true"
+            checkbox-label="showAlert"
           />
         </div>
       </div>
