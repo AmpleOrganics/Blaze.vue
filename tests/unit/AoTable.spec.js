@@ -63,4 +63,27 @@ describe('Table', () => {
     triggerSort()
     expect(table.emitted().sortTable.length).toBe(3)
   })
+
+  it('nodata', () => {
+    const noDataSelector = '.ao-table__nodata'
+    const table = mount(Table, {
+      propsData: {
+        headers: [
+          { field: 'id', title: 'ID' },
+          { field: 'first_name', title: 'First Name' },
+          { field: 'last_name', title: 'Last Name' },
+          { field: 'gender', title: 'Gender' }
+        ]
+      }
+    })
+
+    expect(table.contains(noDataSelector)).toBe(false)
+
+    table.setProps({ showNoDataText: true })
+    expect(table.contains(noDataSelector)).toBe(true)
+    expect(table.find(noDataSelector).text()).toBe('No data to show')
+
+    table.setProps({ showNoDataText: true, noDataText: 'test' })
+    expect(table.find(noDataSelector).text()).toBe('test')
+  })
 })

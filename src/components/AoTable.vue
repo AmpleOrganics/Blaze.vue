@@ -14,6 +14,13 @@
     </thead>
     <tbody :class=" { clickable: isClickable }">
       <slot />
+      <tr
+        v-if="showNoDataText"
+        class="ao-table__nodata">
+        <td :colspan="headers.length">
+          {{ noDataText }}
+        </td>
+      </tr>
     </tbody>
     <tfoot v-if="hasTableFooterSlot">
       <slot name="table-footer"/>
@@ -32,6 +39,16 @@ export default {
     isClickable: {
       type: Boolean,
       default: false
+    },
+
+    showNoDataText: {
+      type: Boolean,
+      default: false
+    },
+
+    noDataText: {
+      type: String,
+      default: 'No data to show'
     },
 
     sortBy: {
@@ -170,6 +187,11 @@ export default {
 
   /deep/ & tr:hover &__row-button {
     opacity: 1;
+  }
+
+  &__nodata {
+    text-align: center;
+    color: $color-gray-30;
   }
 }
 
