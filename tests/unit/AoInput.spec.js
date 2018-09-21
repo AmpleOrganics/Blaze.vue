@@ -36,4 +36,17 @@ describe('Input', () => {
     expect(input.text()).toBe('test1')
     expect(input.contains('.ao-form-control--invalid')).toBe(true)
   })
+
+  it('emit', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'label',
+        value: 'value'
+      }
+    })
+
+    input.find('.ao-form-control').trigger('input')
+    expect(input.emitted().input[0][0]).toBe('value')
+  })
 })

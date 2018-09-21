@@ -15,4 +15,15 @@ describe('TextArea', () => {
     })
     expect(textArea.contains(':disabled')).toBe(true)
   })
+
+  it('emit', () => {
+    const textArea = mount(TextArea, {
+      propsData: {
+        value: 'value'
+      }
+    })
+
+    textArea.find('.ao-form-control').trigger('input')
+    expect(textArea.emitted().input[0][0]).toBe('value')
+  })
 })
