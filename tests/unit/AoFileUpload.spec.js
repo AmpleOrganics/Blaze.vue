@@ -36,4 +36,16 @@ describe('FileUpload', () => {
     expect(fileUpload.text()).toBe('test1')
     expect(fileUpload.contains(':disabled')).toBe(true)
   })
+
+  it('emit', () => {
+    const fileUpload = mount(FileUpload, {
+      propsData: {
+        label: 'label',
+        name: 'test1'
+      }
+    })
+
+    fileUpload.find('.ao-form-control').trigger('change')
+    expect(fileUpload.emitted().change).toBeTruthy()
+  })
 })

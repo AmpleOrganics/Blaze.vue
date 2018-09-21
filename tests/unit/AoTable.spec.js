@@ -33,7 +33,7 @@ describe('Table', () => {
     expect(table.findAll('.ao-table__header').at(3).html()).toContain('Gender')
   })
 
-  it('sorts', () => {
+  it('sortable', () => {
     const table = mount(Table, {
       propsData: {
         headers: [
@@ -44,14 +44,23 @@ describe('Table', () => {
         ]
       }
     })
+    const triggerSort = () => table.findAll('th').at(1).trigger('click')
 
-    table.findAll('th').at(1).trigger('click')
-    expect(table.vm._data.sortProxy).toBe('first_name')
-    expect(table.vm._data.lastSelectedHeader).toBe('first_name')
-    expect(table.vm._data.orderProxy).toBe('desc')
-    table.findAll('th').at(1).trigger('click')
-    expect(table.vm._data.sortProxy).toBe('first_name')
-    expect(table.vm._data.lastSelectedHeader).toBe('first_name')
-    expect(table.vm._data.orderProxy).toBe('asc')
+    triggerSort()
+    expect(table.emitted().sortTable[0]).toEqual([ 'first_name', 'desc' ])
+
+    triggerSort()
+    expect(table.emitted().sortTable[1]).toEqual([ 'first_name', 'asc' ])
+
+    triggerSort()
+    expect(table.emitted().sortTable[2]).toEqual([ 'first_name', 'desc' ])
+
+    // no emit when sortable: false
+    table.setProps({ headers: [
+      { field: 'id', title: 'ID', sortable: false },
+      { field: 'first_name', title: 'First Name', sortable: false }
+    ] })
+    triggerSort()
+    expect(table.emitted().sortTable.length).toBe(3)
   })
 })

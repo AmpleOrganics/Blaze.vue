@@ -2,6 +2,8 @@ import { mount } from '@vue/test-utils'
 import Alert from '@/components/AoAlert.vue'
 
 describe('Alert', () => {
+  jest.useFakeTimers()
+
   it('create', () => {
     const alert = mount(Alert, {
       propsData: {
@@ -9,6 +11,7 @@ describe('Alert', () => {
       }
     })
     expect(alert.classes()).toContain('ao-alert')
+    expect(setTimeout).toHaveBeenCalledTimes(1)
   })
 
   it('destructive', () => {
@@ -40,5 +43,16 @@ describe('Alert', () => {
       }
     })
     expect(alert.contains('.custom-glyph-clients')).toBe(true)
+  })
+
+  it('emit', () => {
+    const alert = mount(Alert, {
+      propsData: {
+        showAlert: true
+      }
+    })
+
+    jest.runAllTimers()
+    expect(alert.emitted()['update:showAlert']).toBeTruthy()
   })
 })

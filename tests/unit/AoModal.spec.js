@@ -56,4 +56,15 @@ describe('Modal', () => {
     expect(modal.text()).toBe('test3')
     expect(modal.contains('.ao-modal__header--caution')).toBe(true)
   })
+
+  it('emit', () => {
+    const modal = mount(Modal, {
+      propsData: {
+        headerText: 'test'
+      }
+    })
+
+    modal.find('.ao-modal').trigger('click')
+    expect(modal.emitted().modalClose).toBeTruthy()
+  })
 })

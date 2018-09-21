@@ -20,7 +20,21 @@ describe('Select', () => {
       }
     })
     expect(select.text()).toBe('test0')
-    expect(select.contains(':disabled')).toBe(true)
+    expect(select.find('.ao-form-control').attributes().disabled).toBe('disabled')
+  })
+
+  it('options', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'test'
+      },
+      slots: {
+        default: '<option value="red">red</option><option value="green">green</option>'
+      }
+    })
+
+    select.find('.ao-form-control').findAll('option').at(1).setSelected()
+    expect(select.emitted().input[0][0]).toBe('green')
   })
 
   it('has a placeholder', () => {
