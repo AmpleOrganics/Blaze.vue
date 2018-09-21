@@ -25,6 +25,20 @@ describe('Radio', () => {
       }
     })
 
-    expect(radio.contains(':disabled')).toBe(true)
+    expect(radio.find('[type="radio"]').attributes().disabled).toBe('disabled')
+  })
+
+  it('emit', () => {
+    const radio = mount(Radio, {
+      propsData: {
+        value: 'value',
+        val: 'value',
+        name: 'test',
+        label: 'label'
+      }
+    })
+
+    radio.find('[type="radio"]').trigger('change')
+    expect(radio.emitted().input[0][0]).toBe('value')
   })
 })

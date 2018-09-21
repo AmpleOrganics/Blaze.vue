@@ -36,22 +36,20 @@ describe('Checkbox', () => {
     expect(checkbox.find('span').isVisible()).toBe(false)
   })
 
-  it('value', () => {
+  it('emit', () => {
     const checkbox = mount(Checkbox, {
       propsData: {
-        checkboxLabel: 'test1',
+        checkboxLabel: 'test',
         checkboxValue: 'value'
       }
     })
 
-    const element = checkbox.find('.ao-checkbox__input')
-
-    // check
-    element.trigger('click')
+    // mark checked
+    checkbox.find('.ao-checkbox__input').trigger('click')
     expect(checkbox.emitted().input[0][0]).toBe(true)
 
-    // uncheck
-    element.trigger('click')
+    // mark unchecked
+    checkbox.find('.ao-checkbox__input').trigger('click')
     expect(checkbox.emitted().input[1][0]).toBe(false)
   })
 })
