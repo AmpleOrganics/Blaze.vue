@@ -7,9 +7,10 @@
     </label>
     <div>
       <select
-        v-model="selected"
+        :value="selected"
         :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
-        :disabled="disabled">
+        :disabled="disabled"
+        @change="updateInput">
         <option
           v-if="placeholder"
           :value="null"
@@ -60,14 +61,16 @@ export default {
       selected: null
     }
   },
-  watch: {
-    selected (newValue) {
-      this.$emit('input', newValue)
-    }
+
+  created () {
+    this.selected = this.value
   },
 
-  mounted () {
-    this.selected = this.value
+  methods: {
+    updateInput (e) {
+      this.selected = e.target.value
+      this.$emit('input', e.target.value)
+    }
   }
 
 }
