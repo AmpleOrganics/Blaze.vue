@@ -113,6 +113,8 @@ export default {
 
 <style lang="scss" scoped>
 
+$table-row-background-shaded: $color-gray-90;
+
 .ao-table {
   font-size: $font-size-sm;
   width: 100%;
@@ -126,6 +128,10 @@ export default {
     border-bottom: 1px solid $color-gray-60;
   }
 
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: $table-row-background-shaded;
+  }
+
   &--clickable {
     tbody > tr {
       cursor: pointer;
@@ -134,10 +140,6 @@ export default {
     & > tbody > tr:hover {
       background: $color-gray-80;
     }
-  }
-
-  & > tbody > tr:nth-of-type(odd) {
-    background-color: $color-gray-90;
   }
 
   & /deep/ tr > td {
@@ -192,6 +194,18 @@ export default {
   &__nodata {
     text-align: center;
     color: $color-gray-30;
+  }
+
+  &--clickable > tbody > &__nodata {
+    cursor: inherit;
+
+    &:nth-of-type(even) {
+      background-color: $color-white;
+    }
+
+    &:nth-of-type(odd) {
+      background-color: $table-row-background-shaded;
+    }
   }
 }
 
