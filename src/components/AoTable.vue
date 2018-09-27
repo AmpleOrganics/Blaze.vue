@@ -132,7 +132,7 @@ $table-row-background-shaded: $color-gray-90;
     background-color: $table-row-background-shaded;
   }
 
-  &--clickable {
+  &.ao-table--clickable {
     tbody > tr {
       cursor: pointer;
     }
@@ -194,17 +194,10 @@ $table-row-background-shaded: $color-gray-90;
   &__nodata {
     text-align: center;
     color: $color-gray-30;
-  }
 
-  &--clickable > tbody > &__nodata {
-    cursor: inherit;
-
-    &:nth-of-type(even) {
-      background-color: $color-white;
-    }
-
-    &:nth-of-type(odd) {
-      background-color: $table-row-background-shaded;
+    &:hover {
+      cursor: inherit !important;
+      background-color: $table-row-background-shaded !important;
     }
   }
 }

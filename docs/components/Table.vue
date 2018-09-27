@@ -10,18 +10,37 @@
         <ao-table
           :headers="headers"
           :is-clickable="isClickable"
+          :show-no-data-text="showNoDataText"
           :sort-by="sortBy"
           :order="order"
           class="component-example-table"
           @sortTable="sortTable">
           <tr
-            v-for="user in users"
+            v-for="user in filteredUsers"
             :key="user.id">
             <td>{{ user.id }}</td>
             <td>{{ user.first_name }}</td>
             <td>{{ user.last_name }}</td>
           </tr>
         </ao-table>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="isClickable"
+            :checkbox-label="'isClickable'"
+            :checkbox-value="false"
+          />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="showNoDataText"
+            :checkbox-label="'showNoDataText'"
+            :checkbox-value="false"
+          />
+        </div>
       </div>
     </div>
     <template slot="snippet">{{ snippet }}</template>
@@ -66,7 +85,13 @@ export default {
       ],
       sortBy: 'id',
       order: 'asc',
-      isClickable: false
+      isClickable: true,
+      showNoDataText: false
+    }
+  },
+  computed: {
+    filteredUsers () {
+      return this.showNoDataText ? [] : this.users
     }
   },
   methods: {
