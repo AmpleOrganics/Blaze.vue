@@ -11,7 +11,7 @@
 
         <h2>Getting Started</h2>
         <h3>Installation Instructions</h3>
-        Install the package using npm/yarn
+        <p>Install the package using npm/yarn</p>
 
         <pre class="blaze-docs-code-snippet">
 yarn add blaze-vue
@@ -19,9 +19,9 @@ npm i blaze-vue
         </pre>
 
         <h3>Using in your application</h3>
-        Currently the only tested measure is using vue-cli/webpack based project
+        <p>Currently the only tested measure is using vue-cli/webpack based project</p>
 
-        In your main.js/index.js add the following lines
+        <p>In your main.js/index.js add the following lines</p>
 
         <pre class="blaze-docs-code-snippet">
 import Blaze from 'blaze-vue'

@@ -63,6 +63,9 @@ export default {
 
 <style lang="scss" scoped>
 .component-example {
-  position: relative;
+  .ao-dropdown {
+    position: inherit;
+    max-width: 200px;
+  }
 }
 </style>
