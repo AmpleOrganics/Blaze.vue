@@ -65,7 +65,7 @@ export default {
     return {
       ...TooltipDocumentation,
       tooltipText: 'Tooltip text goes here',
-      tooltipMultiline: true,
+      tooltipMultiline: false,
       tooltipPositions: [
         { value: 'bottom', name: 'bottom' },
         { value: 'left', name: 'left' },

@@ -13,6 +13,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Oxygen+Mono');
+
 #router-container {
   padding: $spacer;
   padding-top: $header-toolbar-height + $spacer-px;
@@ -20,13 +22,13 @@ export default {
 
 #app {
   .blaze-docs-code-snippet {
-    border: 0.25rem solid black;
-    background: black;
-    color: white;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin: 1rem 0;
-    font-family: "Courier New", Courier, monospace;
+    background: $color-gray-90;
+    color: $color-dark;
+    font-size: 14px;
+    border-radius: $border-radius-base;
+    padding: $spacer;
+    margin-bottom: $spacer;
+    font-family: "Oxygen Mono", "Courier New", Courier, monospace;
   }
 }
 </style>

@@ -7,7 +7,9 @@
 
     <div slot="example">
       <div class="component-example">
-        <div class="component-example__display">My favourite Pokemon is {{ selected }} </div>
+        <div class="component-example__display">
+          <p>My favourite Pokemon is {{ selected }}</p>
+        </div>
         <ao-select
           v-model="selected"
           :label="label"
@@ -83,7 +85,7 @@ export default {
   data () {
     return {
       ...SelectDocumentation,
-      label: 'Select Label',
+      label: 'Acceptable Pokemon',
       placeholder: 'Select Pokemon',
       selected: null,
       invalid: false,
@@ -104,9 +106,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.component-example__display {
-  padding: 15px 5px;
-}
-</style>
