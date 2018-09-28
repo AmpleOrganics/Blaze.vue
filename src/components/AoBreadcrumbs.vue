@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped="true">
+<style lang="scss">
 .ao-breadcrumbs {
   margin-bottom: $spacer;
   display: flex;

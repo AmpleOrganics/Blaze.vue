@@ -122,7 +122,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .ao-table {
   border-collapse: collapse;
@@ -139,8 +139,7 @@ export default {
     border-bottom: 1px solid $color-gray-60;
   }
 
-  th,
-  /deep/ td {
+  th, td {
     padding: $table-cell-padding;
   }
 
@@ -150,8 +149,7 @@ export default {
   }
 
   &--condensed {
-    th,
-    /deep/ td {
+    th, td {
       padding: $spacer-micro;
     }
   }
@@ -171,23 +169,23 @@ export default {
   }
 
   &--vertical-align-top {
-    /deep/ td {
+    td {
       vertical-align: top;
     }
   }
 
   &--vertical-align-middle {
-    /deep/ td {
+    td {
       vertical-align: middle;
     }
   }
 
-  & /deep/ tr > td {
+  & tr > td {
     padding: .5rem;
     vertical-align: middle;
   }
 
-  & > tbody /deep/ tr > td {
+  & > tbody tr > td {
     border-top: 1px solid $table-border-color;
   }
 
@@ -196,7 +194,7 @@ export default {
     border-bottom: 2px solid $table-border-color;
   }
 
-  & tfoot /deep/ tr > td {
+  & tfoot tr > td {
     border-top-width: 2px;
   }
 
@@ -211,11 +209,11 @@ export default {
     top: 0;
   }
 
-  /deep/ &__action-column {
+  &__action-column {
     text-align: right;
   }
 
-  /deep/ & tr &__row-button {
+  & tr &__row-button {
     opacity: 0.25;
     height: $input-height-sm;
     font-size: $font-size-xs;
@@ -223,7 +221,7 @@ export default {
     padding-right: $spacer-xs;
   }
 
-  /deep/ & tr:hover &__row-button {
+  & tr:hover &__row-button {
     opacity: 1;
   }
 }

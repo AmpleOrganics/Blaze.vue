@@ -97,7 +97,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 @import '../assets/styles/mixins/shared-input-styles.scss';
 @include shared-input-styles;
 </style>

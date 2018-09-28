@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
   .ao-heading--card-section-heading {
     font-size: $font-size-sm;
     text-transform: uppercase;
