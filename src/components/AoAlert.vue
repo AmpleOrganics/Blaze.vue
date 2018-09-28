@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 $ao-alert-height: 3.75rem;
 
 .ao-alert {

@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .ao-checkbox {
   &:not(:last-of-type) {
     margin-right: $spacer-sm;

@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 
 .ao-card {
   background-color: $color-white;
@@ -73,7 +73,7 @@ export default {
     }
   }
 
-  &__callout /deep/ .ao-callout {
+  &__callout .ao-callout {
     margin-bottom: 0;
   }
 }

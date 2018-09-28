@@ -6,7 +6,7 @@
   </nav>
 </template>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 
 .ao-navbar {
   padding-top: $spacer;
@@ -20,7 +20,7 @@
       position: relative;
       cursor: pointer;
 
-      & /deep/ .router-link-exact-active, .router-link-active, .active {
+      & .router-link-exact-active, .router-link-active, .active {
         color: $color-gray-20;
         background-color: $color-gray-80;
       }

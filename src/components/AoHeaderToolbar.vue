@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .ao-header-toolbar {
   display: flex;
   width: 100%;

@@ -208,7 +208,7 @@ export default {
      background-color: transparent;
      box-shadow: $shadow-none;
    }
-   }
+  }
 
  &--small {
    height: $input-height-sm;

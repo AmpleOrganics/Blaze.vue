@@ -105,7 +105,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 .ao-modal {
   padding-top: 2em;
   z-index: $zindex-modal;
