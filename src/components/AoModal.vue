@@ -79,10 +79,7 @@ export default {
     },
 
     computedModalSize () {
-      // computes sizes into scss classes pertaining to size eg. small -> .ao-modal--small
-      if (this.size) {
-        return `ao-modal--${this.size}`
-      }
+      return `ao-modal--${this.size}`
     }
   },
 
