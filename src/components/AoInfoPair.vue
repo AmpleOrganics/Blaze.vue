@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 
 .ao-info-pair {
   margin-bottom: $spacer;

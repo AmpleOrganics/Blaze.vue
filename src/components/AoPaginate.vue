@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 .ao-pagination {
   display: flex;
   width: 88px;
