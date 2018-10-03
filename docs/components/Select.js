@@ -31,6 +31,7 @@ data () {
     { name: 'instructionText', type: 'String', default: 'null', description: 'Instruction text to show below the input.' },
     { name: 'invalid', type: 'Boolean', default: 'false', description: 'This prop defines the select to be invalid.' },
     { name: 'disabled', type: 'Boolean', default: 'false', description: 'This prop disables the select.' },
-    { name: 'placeholder', type: 'String', default: 'null', description: 'This prop defines the placeholder of the select.' }
+    { name: 'placeholder', type: 'String', default: 'null', description: 'This prop defines the placeholder of the select.' },
+    { name: 'size', type: 'String (null or small)', default: 'null', description: 'Pass in \'small\' to decrease the size of the input field.' }
   ]
 }
