@@ -12,6 +12,8 @@ We are excited that you are interested in contributing to Blaze! Before submitti
 
 - When submitting an issue please specify what versions of `Blaze` and `Vue` you are using so that your issue can be reproduced.
 
+- Please structure the title of your issue with `ComponentName: What the issue actually is`
+
 ## Pull Request Guidelines
 - Commit messages should be formatted as `[Component Name]: Info about commit.` (e.g. `Button: Fix xxx bug`)
 
