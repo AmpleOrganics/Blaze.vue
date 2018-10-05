@@ -86,7 +86,7 @@ export default {
 @import '../assets/styles/mixins/shared-input-styles.scss';
 @include shared-input-styles;
 
-.ao-form-control {
+textarea.ao-form-control {
   height: auto;
   min-height: $input-height-base;
   min-width: 100%;
