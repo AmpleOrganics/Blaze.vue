@@ -28,7 +28,7 @@ Vue.use(Blaze)
 Latest versions of modern browsers
 
 ## Changelog
-Detailed changes for each release are documented in the [release notes](https://github.com/AmpleOrganics/Blaze.vue/releases).
+Detailed changes for each release are documented in the [release notes](https://github.com/AmpleOrganics/Blaze.vue/blob/master/CHANGELOG.md).
 
 ## Contribution
 Make sure to read our [contributing guide](https://github.com/AmpleOrganics/Blaze.vue/blob/master/CONTRIBUTING.md) before making a pull request.
