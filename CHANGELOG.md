@@ -1,3 +1,43 @@
+# 1.2.0 (2018-10-09)
+
+## Fixes
+
+Table: Added ability to create a footer for your table using a 'table-footer' slot [6f564a1](https://github.com/AmpleOrganics/Blaze.vue/pull/84/commits/6f564a1af6984394c6968b69e9e4c366cf901b42)
+
+Table: Provided support for an empty table state, and ability to display descriptive text [e5f6225](https://github.com/AmpleOrganics/Blaze.vue/pull/193/commits/e5f6225dc17fe583df164ca7872c8c4928a87de8)
+
+Table: Improved styling, including a new prop for rendering condensed tables, 'condensed' [e48b1fd](https://github.com/AmpleOrganics/Blaze.vue/pull/186/commits/e48b1fdacb04e363ee14e9152071bedd9d95a4c1) &
+[92190ee](https://github.com/AmpleOrganics/Blaze.vue/pull/164/commits/92190eebbd7a952d19f3a43401825b1332f31784)
+
+Button: Prevented colours from changing on hover [583e69f](https://github.com/AmpleOrganics/Blaze.vue/pull/182/commits/583e69f66f93f7ba6a87c8b2f1a1b8541e3a720a)
+
+Paginate: Improved styling [419a340](https://github.com/AmpleOrganics/Blaze.vue/pull/184/commits/419a3401955ae9851a47de9bc50d00c597fe6cf3)
+
+Modal: Added a slot for toolbar, 'modal-toolbar'[419a340](https://github.com/AmpleOrganics/Blaze.vue/pull/184/commits/419a3401955ae9851a47de9bc50d00c597fe6cf3)
+
+Modal: Added 'small' or 'large' props to change modal size [94d4cb7](https://github.com/AmpleOrganics/Blaze.vue/pull/158/commits/94d4cb73f06da54b470d3cba994418d2d85d3425)
+
+Alert: Improved sliding transitions [ddbe464](https://github.com/AmpleOrganics/Blaze.vue/pull/183/commits/ddbe464aa2df4de7dfb881591556ae44e14815ef)
+
+Input: Added prop for passing in instruction text that will appear below the input [567a3c7](https://github.com/AmpleOrganics/Blaze.vue/pull/190/commits/567a3c7c05d450a8c778e106a33d49c433e3cee1)
+
+Global Styling: Updated the styling for the H2 element and the H3 element [411f64c](https://github.com/AmpleOrganics/Blaze.vue/pull/206/commits/411f64c5a4b71062093d0df8db6412626aef7599)
+
+Documentation: Recreated documentation using Blaze Components, addressed console warnings and corrected typos
+[905a0c5](https://github.com/AmpleOrganics/Blaze.vue/pull/192/commits/905a0c5ed9deb861b46976732712c46b094d6e42) &
+[ea22139](https://github.com/AmpleOrganics/Blaze.vue/pull/165/commits/ea22139eff5de4df67faf0af582688377ba4fa98) &
+[438efc1](https://github.com/AmpleOrganics/Blaze.vue/pull/165/commits/438efc1d0c728308b559e4293099f3b8383fde4d) &
+
+## New
+
+Callout: Created a new component for displaying callout text that can be contextually displayed by passing in 'info', 'success','caution', or 'destructive' as props [3961b46](https://github.com/AmpleOrganics/Blaze.vue/pull/86/commits/3961b46c9a552c127f08a4052aabd93107b89a64)
+
+Tooltip: Added a tooltip component to display helpful text [53d3633](https://github.com/AmpleOrganics/Blaze.vue/pull/162/commits/53d363385653ed08cef573065d850f3a11e06d24)
+
+## Breaking Changes
+
+Modal: Modal size prop no longer accept 'sm', 'md', or 'lg' they now accept 'small', 'medium' and 'large' [94d4cb7](https://github.com/AmpleOrganics/Blaze.vue/pull/158/commits/94d4cb73f06da54b470d3cba994418d2d85d3425)
+
 # 1.1.2 (2018-09-05)
 
 ## Fixes
