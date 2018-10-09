@@ -51,9 +51,7 @@
 
       <ao-card :title="'Title of Card'">
         <ao-breadcrumbs :paths="paths"/>
-        <ao-heading
-          card-section-heading
-          text="Form Examples"/>
+        <h3 class=".ao-heading--card-section-heading">Form Examples</h3>
         <div style="text-align: center;">
           <p>
             <ao-tooltip
@@ -96,7 +94,6 @@
             text
           </ao-text-style>
         </p>
-        <!-- <ao-form @formHandler="saveForm"> -->
         <div>
           <p>Buttons</p>
           <ao-button
@@ -249,7 +246,6 @@
               text
             </ao-text-style>
           </p>
-          <!-- <ao-form @formHandler="saveForm"> -->
           <ao-input
             :type="'text'"
             :label="'Name'"
@@ -391,7 +387,6 @@
             primary>
             Save
           </ao-button>
-          <!-- </ao-form> -->
 
           <pre>{{ saveData }}</pre>
 
@@ -660,3 +655,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.ao-heading--card-section-heading {
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+  color: $color-gray-30;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacer-lg;
+}
+</style>

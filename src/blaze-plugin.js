@@ -9,7 +9,6 @@ import AoCheckbox from './components/AoCheckbox.vue'
 import AoDropdown from './components/AoDropdown.vue'
 import AoFileUpload from './components/AoFileUpload.vue'
 import AoHeaderToolbar from './components/AoHeaderToolbar.vue'
-import AoHeading from './components/AoHeading.vue'
 import AoInfoPair from './components/AoInfoPair.vue'
 import AoInput from './components/AoInput.vue'
 import AoModal from './components/AoModal.vue'
@@ -37,7 +36,6 @@ const Blaze = {
     Vue.component('AoDropdown', AoDropdown)
     Vue.component('AoFileUpload', AoFileUpload)
     Vue.component('AoHeaderToolbar', AoHeaderToolbar)
-    Vue.component('AoHeading', AoHeading)
     Vue.component('AoInfoPair', AoInfoPair)
     Vue.component('AoInput', AoInput)
     Vue.component('AoModal', AoModal)
