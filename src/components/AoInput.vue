@@ -7,26 +7,33 @@
         :for="name">{{ label }}</label>
       <slot name="tooltip"/>
     </div>
-    <div :class="{ 'ao-input-group': hasInputGroup }">
-      <input
-        :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
-        :type="type"
-        :placeholder="placeholder"
-        :name="name"
-        :value="value"
-        :disabled="disabled"
-        :step="step"
-        @input="updateValue($event.target.value)">
-      <span
-        v-if="hasIconAddon"
-        :class="iconClass"
-        class="ao-input-group__addon"
-        v-html="iconHtml"/>
-      <span
-        v-if="hasAddOn"
-        class="ao-input-group__addon">
-        {{ addOn }}
-      </span>
+    <div class="ao-input-container">
+      <div :class="{ 'ao-input-group': hasInputGroup }">
+        <input
+          :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
+          :type="type"
+          :placeholder="placeholder"
+          :name="name"
+          :value="value"
+          :disabled="disabled"
+          :step="step"
+          @input="updateValue($event.target.value)">
+        <span
+          v-if="hasIconAddon"
+          :class="iconClass"
+          class="ao-input-group__addon"
+          v-html="iconHtml"/>
+        <span
+          v-if="hasAddOn"
+          class="ao-input-group__addon">
+          {{ addOn }}
+        </span>
+      </div>
+      <div
+        v-if="this.$slots.button"
+        class="ao-input-button">
+        <slot name="button"/>
+      </div>
     </div>
     <span
       v-if="instructionText"

@@ -46,6 +46,23 @@
       font-size: $font-size-sm;
     }
   }
+  
+  .ao-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    // this will ensure nice vertical / horizontal spacing whenever the elements wrap
+    margin-bottom: -$spacer-micro;
+    margin-left: -$spacer-micro;
+    margin-right: -$spacer-micro;
+    
+    & > * {
+      margin-bottom: $spacer-micro;
+      margin-left: $spacer-micro;
+      margin-right: $spacer-micro;    
+    }
+  }
+  
   .ao-input-group {
     display: table;
     border-collapse: separate;
