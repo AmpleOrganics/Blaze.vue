@@ -19,19 +19,12 @@ h1 {
   font-size: $font-size-xl;
   font-weight: $font-weight-light;
   margin-bottom: $spacer;
-  
-  &:not(:first-child){
-    margin-top: $spacer * 2;
-  }
 }
 
 h2 {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
   margin-bottom: $spacer;
-  &:not(:first-child){
-    margin-top: $spacer * 2;
-  }
 }
 
 h3 {
