@@ -46,21 +46,27 @@
       font-size: $font-size-sm;
     }
   }
-  .ao-input-group {
-    display: table;
-    border-collapse: separate;
-    & .ao-form-control {
-      display: table-cell;
-      width: 100%;
-      margin-bottom: 0;
-      &:first-child {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-      }
+  
+  .input-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    // this will ensure nice vertical / horizontal spacing whenever the elements wrap
+    margin-bottom: -$spacer-sm;
+    margin-left: -$spacer-micro;
+    margin-right: -$spacer-micro;
+    
+    & > * {
+      margin-bottom: $spacer-sm;
+      margin-left: $spacer-micro;
+      margin-right: $spacer-micro;    
     }
-    &__addon {
-      align-items: center;
-      height: $input-height-base;
+  }
+  
+  .input-addon-group {
+    display: flex;
+    
+    .input-addon {
       padding: $spacer-micro $spacer-sm;
       font-size: $font-size-base;
       font-weight: normal;
@@ -69,17 +75,40 @@
       background-color: $color-gray-80;
       border: 1px solid $input-border-color;
       border-radius: $input-border-radius;
-      width: 1%;
       white-space: nowrap;
-      vertical-align: middle;
-      display: table-cell;
-      &:last-child {
-        border-left: 0;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
     }
   }
+  
+      
+  .input-addon-group--right {
+    
+    .input-addon {
+      border-left: 0;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+    
+    .ao-form-control {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;    
+    }
+  }
+  
+  .input-addon-group--left {
+    flex-direction: row-reverse;
+    
+    .input-addon {
+      border-right: 0;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+    
+    .ao-form-control {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+  
   .ao-form-group {
     margin-bottom: $spacer;
     label {
