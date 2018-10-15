@@ -1,3 +1,9 @@
+# 1.2.1 (2018-10-15)
+
+## Fixes
+
+Global Styles: Removed instances of :not(:first-child) from elements.scss, this previously created a visual issue when adding an icon to a section header component
+
 # 1.2.0 (2018-10-09)
 
 ## Fixes
