@@ -3,33 +3,29 @@
     <div class="ao-modal-mask">
       <div
         ref="modal"
-        class="ao-modal"
+        :class="['ao-modal', computedModalSize]"
         tabindex="0"
         @click.self="closeModal"
         @keyup.esc.stop="closeModal">
-        <div
-          :class="computedModalSize"
-          @click.self="closeModal">
-          <div class="ao-modal__content">
-            <div :class="computedHeaderClass">
-              <h2 class="ao-modal__header-text">{{ headerText }}</h2>
-            </div>
-            <div
-              v-if="hasSlot('modal-toolbar')"
-              class="ao-modal__toolbar">
-              <slot name="modal-toolbar"/>
-            </div>
-            <div
-              v-if="hasSlot('modal-body')"
-              class="ao-modal__body">
-              <slot name="modal-body"/>
-            </div>
-            <div
-              v-if="hasSlot('modal-footer')"
-              class="ao-modal__footer">
-              <div class="row">
-                <slot name="modal-footer"/>
-              </div>
+        <div class="ao-modal__content">
+          <div :class="computedHeaderClass">
+            <h2 class="ao-modal__header-text">{{ headerText }}</h2>
+          </div>
+          <div
+            v-if="hasSlot('modal-toolbar')"
+            class="ao-modal__toolbar">
+            <slot name="modal-toolbar"/>
+          </div>
+          <div
+            v-if="hasSlot('modal-body')"
+            class="ao-modal__body">
+            <slot name="modal-body"/>
+          </div>
+          <div
+            v-if="hasSlot('modal-footer')"
+            class="ao-modal__footer">
+            <div class="row">
+              <slot name="modal-footer"/>
             </div>
           </div>
         </div>
@@ -104,9 +100,10 @@ export default {
 
 <style lang='scss'>
 .ao-modal {
-  padding-top: 2em;
   z-index: $zindex-modal;
   height: 100%;
+  padding-top: 2em;
+  padding-bottom: 2em;
   padding-left: $spacer;
   padding-right: $spacer;
 
@@ -120,6 +117,7 @@ export default {
     text-align: center;
     color: $color-white;
     background-color: $color-primary;
+    flex-shrink: 0;
 
     &--destructive {
       background-color: $color-destructive;
@@ -144,21 +142,26 @@ export default {
     border-radius: $border-radius-base;
     box-shadow: $shadow-dramatic;
     transition: all $transition-base;
-
+    display: flex;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+    max-height: 100%;
     width: 100%;
   }
 
   &__body {
     position: relative;
     padding: $spacer;
+    overflow: scroll;
+    flex-shrink: 1;
   }
 
   &__footer {
     padding: $spacer;
     text-align: right;
     border-top: 1px solid $color-gray-60;
+    flex-shrink: 0;
   }
 
   &--large &__content {
