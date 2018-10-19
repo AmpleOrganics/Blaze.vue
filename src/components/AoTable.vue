@@ -77,6 +77,11 @@ export default {
       validator: function (order) {
         return ['asc', 'desc'].includes(order)
       }
+    },
+
+    isScrollable: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -97,7 +102,8 @@ export default {
       const activeClasses = {
         'ao-table': true,
         'ao-table--clickable': this.isClickable,
-        'ao-table--condensed': this.condensed
+        'ao-table--condensed': this.condensed,
+        'ao-table--scrollable': this.isScrollable
       }
       return filterClasses(activeClasses)
     },
@@ -254,4 +260,28 @@ $table-row-background-shaded: $color-gray-90;
     }
   }
 }
+
+.ao-table--scrollable {
+    display: flex;
+    flex-direction: column;
+
+    thead {
+    width: calc(100% - $browser-scrollbar-width);
+    }
+
+    tbody {
+      overflow-y: scroll;
+    }
+
+    & tr {
+      display: flex;
+    }
+
+    & th,
+    & td {
+      flex: 1 1 0;
+      overflow-x: hidden;
+    }
+  }
+
 </style>
