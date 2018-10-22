@@ -114,6 +114,7 @@ export default {
         color: $color-gray-10;
         background: rgba(0, 0, 0, 0.05);
         cursor: pointer;
+        text-decoration: none;
       }
     }
   }
