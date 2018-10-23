@@ -138,24 +138,27 @@ export default {
 }
 
 .ao-button {
- display: inline-block;
- margin-bottom: 0;
- text-align: center;
- font-weight: $font-weight-bold;
- font-family: $font-family-primary;
- border: $input-border-width solid transparent;
- padding: $spacer-micro $spacer-sm;
- font-size: $font-size-base;
- line-height: $line-height-base;
- border-radius: $border-radius-base;
- min-height: $input-height-base;
- box-shadow: $shadow-subtle;
- cursor: pointer;
+  touch-action: manipulation;
+  cursor: pointer;
+  vertical-align: middle;
+  background-image: none;
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: $font-weight-bold;
+  font-family: $font-family-primary;
+  border: $input-border-width solid transparent;
+  padding: $spacer-micro $spacer-sm;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  border-radius: $border-radius-base;
+  min-height: $input-height-base;
+  box-shadow: $shadow-subtle;
 
 /* Default styles, overridden by special classes */
- background-color: $color-white;
- border-color: $color-gray-50;
- color: $font-color-base;
+  background-color: $color-white;
+  border-color: $color-gray-50;
+  color: $font-color-base;
 
 /* Default hover/active styles, overridden by special classes */
  &:active {
