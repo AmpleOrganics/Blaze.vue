@@ -127,6 +127,9 @@ export default {
 }
 
 .ao-button {
+ align-items: center;
+ background-image: none;
+ touch-action: manipulation;
  display: inline-flex;
  align-items: center;
  justify-content: center;
