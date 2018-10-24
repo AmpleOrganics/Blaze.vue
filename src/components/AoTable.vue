@@ -261,27 +261,43 @@ $table-row-background-shaded: $color-gray-90;
   }
 }
 
+$fake-scrollbar-color: $color-gray-90;
+
 .ao-table--scrollable {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    thead {
-    width: calc(100% - $browser-scrollbar-width);
-    }
-
-    tbody {
-      overflow-y: scroll;
-    }
-
-    & tr {
-      display: flex;
-    }
-
-    & th,
-    & td {
-      flex: 1 1 0;
-      overflow-x: hidden;
-    }
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: $browser-scrollbar-width;
+    background: $fake-scrollbar-color;
+    border-left: 1px solid $color-gray-80;
   }
+
+  ::-webkit-scrollbar-thumb {
+    width: 2px;
+    background-color: $color-gray-40;
+    -webkit-box-shadow: inset 4px 0 0px $fake-scrollbar-color, inset -5px 0 0px $fake-scrollbar-color;
+    border-left: 1px solid $color-gray-80;
+  }
+
+  tbody {
+    overflow-y: scroll;
+  }
+
+  & tr {
+    display: flex;
+  }
+
+  & th,
+  & td {
+    flex: 1 1 0;
+    overflow-x: hidden;
+  }
+  
+  & thead th:last-child {
+    padding-right: $table-cell-padding + $browser-scrollbar-width;
+  }
+}
 
 </style>
