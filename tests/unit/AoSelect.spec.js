@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import Select from '@/components/AoSelect.vue'
 import instructionText from './helpers/instructionText'
+import invalidMessage from './helpers/invalidMessage'
 
 describe('Select', () => {
   it('create', () => {
@@ -80,5 +81,15 @@ describe('Select', () => {
 
     select.find('.ao-form-control').trigger('blur')
     expect(select.emitted().blur).toBeTruthy()
+  })
+
+  it('invalid message', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'test'
+      }
+    })
+
+    invalidMessage.assert(select)
   })
 })

@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import Input from '@/components/AoInput.vue'
 import instructionText from './helpers/instructionText'
+import invalidMessage from './helpers/invalidMessage'
 
 describe('Input', () => {
   const getFormControlElement = (wrapper) => wrapper.find('.ao-form-control')
@@ -83,5 +84,16 @@ describe('Input', () => {
     })
 
     instructionText.assert(input)
+  })
+
+  it('invalid message', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'test'
+      }
+    })
+
+    invalidMessage.assert(input)
   })
 })

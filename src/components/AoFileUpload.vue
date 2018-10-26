@@ -1,19 +1,23 @@
 <template>
-  <div class="ao-form-group">
+  <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
       class="ao-form-group__label">
-      <label
-        :for="name">{{ label }}</label>
+      <label :for="name">{{ label }}</label>
       <slot name="fileUploadLabelTooltip"/>
     </div>
     <input
       :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
-      :disabled="disabled"
+      :disabled="disabled || disableAll"
       type="file"
       @change="updateFile($event.target.files)"
       @blur="emitBlur($event)">
+    <span
+      v-show="invalidMessage && invalid"
+      class="ao-form-group__invalid-message">
+      {{ invalidMessage }}
+    </span>
     <span
       v-if="instructionText"
       class="ao-form-group__instruction-text">
@@ -40,9 +44,19 @@ export default {
       default: false
     },
 
+    disableAll: {
+      type: Boolean,
+      default: false
+    },
+
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    invalidMessage: {
+      type: String,
+      default: null
     },
 
     name: {
@@ -53,6 +67,12 @@ export default {
     instructionText: {
       type: String,
       default: null
+    }
+  },
+
+  computed: {
+    hasFeedbackText () {
+      return this.instructionText || (this.invalidMessage && this.invalid)
     }
   },
 
