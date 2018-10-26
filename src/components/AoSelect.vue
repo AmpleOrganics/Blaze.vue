@@ -1,17 +1,16 @@
 <template>
-  <div class="ao-form-group">
+  <div :class="[{'ao-form-group--disabled': disableAll},'ao-form-group']">
     <div
       v-show="showLabel"
       class="ao-form-group__label">
-      <label
-        :for="name">{{ label }}</label>
+      <label :for="name">{{ label }}</label>
       <slot name="tooltip"/>
     </div>
     <div :class="{ 'ao-input-group': hasInputGroup }">
       <select
         :value="selected"
         :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
-        :disabled="disabled"
+        :disabled="disabled || disableAll"
         @change="updateInput">
         <option
           v-if="placeholder"
@@ -21,6 +20,11 @@
         <slot/>
       </select>
     </div>
+    <span
+      v-show="invalidMessage && invalid"
+      class="ao-form-group__invalid-message">
+      {{ invalidMessage }}
+    </span>
     <span
       v-if="instructionText"
       class="ao-form-group__instruction-text">
@@ -54,6 +58,11 @@ export default {
       default: false
     },
 
+    invalidMessage: {
+      type: String,
+      default: null
+    },
+
     disabled: {
       type: Boolean,
       default: false
@@ -75,6 +84,11 @@ export default {
     instructionText: {
       type: String,
       default: null
+    },
+
+    disableAll: {
+      type: Boolean,
+      default: false
     }
   },
 

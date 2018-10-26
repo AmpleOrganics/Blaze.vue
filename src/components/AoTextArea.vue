@@ -1,11 +1,10 @@
 <template>
   <!-- investigate min max length -->
-  <div class="ao-form-group">
+  <div :class="[{'ao-form-group--disabled': disableAll},'ao-form-group']">
     <div
       v-show="showLabel"
       class="ao-form-group__label">
-      <label
-        :for="name">{{ label }}</label>
+      <label :for="name">{{ label }}</label>
       <slot name="tooltip"/>
     </div>
     <textarea
@@ -16,10 +15,15 @@
       :rows="rows"
       :maxlength="maxLength"
       :minlength="minLength"
-      :disabled="disabled"
+      :disabled="disabled || disableAll"
       class="ao-form-control"
       @input="inputEvent($event.target.value)"
     />
+    <span
+      v-show="invalidMessage && invalid"
+      class="ao-form-group__invalid-message">
+      {{ invalidMessage }}
+    </span>
     <span
       v-if="instructionText"
       class="ao-form-group__instruction-text">
@@ -66,6 +70,11 @@ export default {
       default: false
     },
 
+    disableAll: {
+      type: Boolean,
+      default: false
+    },
+
     rows: {
       type: Number,
       default: 5
@@ -74,6 +83,11 @@ export default {
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    invalidMessage: {
+      type: String,
+      default: null
     },
 
     showLabel: {

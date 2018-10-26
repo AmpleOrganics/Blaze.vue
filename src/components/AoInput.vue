@@ -1,10 +1,11 @@
 <template>
-  <div class="ao-form-group">
+  <div :class="[{'ao-form-group--disabled': disableAll},'ao-form-group']">
     <div
       v-show="showLabel"
       class="ao-form-group__label">
-      <label
-        :for="name">{{ label }}</label>
+      <label :for="name">
+        {{ label }}
+      </label>
       <slot name="tooltip"/>
     </div>
     <div :class="{ 'ao-input-group': hasInputGroup }">
@@ -14,8 +15,9 @@
         :placeholder="placeholder"
         :name="name"
         :value="value"
-        :disabled="disabled"
+        :disabled="disabled || disableAll"
         :step="step"
+        :min="min"
         @input="updateValue($event.target.value)">
       <span
         v-if="hasIconAddon"
@@ -28,6 +30,11 @@
         {{ addOn }}
       </span>
     </div>
+    <span
+      v-show="invalidMessage && invalid"
+      class="ao-form-group__invalid-message">
+      {{ invalidMessage }}
+    </span>
     <span
       v-if="instructionText"
       class="ao-form-group__instruction-text">
@@ -95,6 +102,11 @@ export default {
       default: false
     },
 
+    disableAll: {
+      type: Boolean,
+      default: false
+    },
+
     step: {
       type: Number,
       default: 1
@@ -103,6 +115,11 @@ export default {
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    invalidMessage: {
+      type: String,
+      default: null
     },
 
     size: {
@@ -115,6 +132,11 @@ export default {
 
     instructionText: {
       type: String,
+      default: null
+    },
+
+    min: {
+      type: [String, Number],
       default: null
     }
   },
@@ -152,5 +174,4 @@ export default {
 
 @import '../assets/styles/mixins/shared-input-styles.scss';
 @include shared-input-styles;
-
 </style>

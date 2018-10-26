@@ -46,6 +46,7 @@
       font-size: $font-size-sm;
     }
   }
+
   .ao-input-group {
     display: table;
     border-collapse: separate;
@@ -80,6 +81,7 @@
       }
     }
   }
+
   .ao-form-group {
     margin-bottom: $spacer;
     label {
@@ -95,11 +97,26 @@
       margin-left: $spacer-micro;
     }
   }
-  
+
   .ao-form-group__instruction-text {
     display: block;
     font-size: $font-size-xs;
     color: $color-gray-30;
-    margin-top: $spacer-micro;
+    margin-top: $spacer-micro
+  }
+
+  .ao-form-group__invalid-message {
+    display: block;
+    font-size: $font-size-xs;
+    color: $font-color-error;
+    margin-top: $spacer-micro
+  }
+
+  .ao-form-group__invalid-message + .ao-form-group__instruction-text {
+    margin-top: 0;
+  }
+
+  .ao-form-group--disabled {
+    opacity: 0.6;
   }
 }

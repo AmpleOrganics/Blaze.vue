@@ -14,8 +14,11 @@
           :show-label="showLabel"
           :icon-html="iconHtml"
           :disabled="disabled"
+          :disable-all="disableAll"
           :invalid="invalid"
-        />
+          :invalid-message="invalidMessage"
+          :instruction-text="instructionText"
+          :min="minDate"/>
       </div>
       <div class="component-controls">
         <div class="component-controls__group">
@@ -44,6 +47,24 @@
           />
         </div>
       </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-input
+            v-model="invalidMessage"
+            :type="'text'"
+            :label="'Invalid Message'"
+          />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-input
+            v-model="instructionText"
+            :type="'text'"
+            :label="'Instruction Text'"
+          />
+        </div>
+      </div>
       <div class="component-controls__group">
         <ao-checkbox
           v-model="showLabel"
@@ -56,6 +77,13 @@
           v-model="disabled"
           :checkbox-value="false"
           checkbox-label="disabled"
+        />
+      </div>
+      <div class="component-controls__group">
+        <ao-checkbox
+          v-model="disableAll"
+          :checkbox-value="false"
+          checkbox-label="disable all"
         />
       </div>
       <div class="component-controls__group">
@@ -105,6 +133,7 @@
       <div class="component-example">
         <ao-input
           :label="dateLabel"
+          :min="minDate"
           type="date"
         />
       </div>
@@ -114,6 +143,15 @@
             v-model="dateLabel"
             :type="'text'"
             :label="'Input Label Text'"
+          />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-input
+            v-model="minDate"
+            :type="'date'"
+            :label="'Min Date'"
           />
         </div>
       </div>
@@ -146,10 +184,14 @@ export default {
       iconHtml: '&#10004;',
       addOn: 'years',
       disabled: false,
+      disableAll: false,
       invalid: false,
       numberLabel: 'Enter your age',
       step: 1,
-      dateLabel: 'Enter your date of birth'
+      dateLabel: 'Enter your date of birth',
+      invalidMessage: 'INVALID!',
+      instructionText: 'Must be 16 characters',
+      minDate: null
     }
   }
 }
