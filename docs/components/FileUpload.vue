@@ -11,7 +11,9 @@
           :label="labelText"
           :show-label="showLabel"
           :disabled="disabled"
+          :disable-all="disableAll"
           :invalid="invalid"
+          :invalid-message="invalidMessage"
           name="'file'"
         />
       </div>
@@ -24,6 +26,13 @@
           />
         </div>
         <div class="component-controls__group">
+          <ao-input
+            v-model="invalidMessage"
+            :type="'text'"
+            :label="'Invalid Message'"
+          />
+        </div>
+        <div class="component-controls__group">
           <ao-checkbox
             v-model="showLabel"
             :checkbox-value="true"
@@ -33,6 +42,11 @@
             v-model="disabled"
             :checkbox-value="true"
             checkbox-label="disabled"
+          />
+          <ao-checkbox
+            v-model="disableAll"
+            :checkbox-value="true"
+            checkbox-label="disable all"
           />
           <ao-checkbox
             v-model="invalid"
@@ -67,7 +81,9 @@ export default {
       labelText: 'Upload File',
       showLabel: true,
       disabled: false,
-      invalid: false
+      disableAll: false,
+      invalid: false,
+      invalidMessage: 'INVALID!'
     }
   }
 }

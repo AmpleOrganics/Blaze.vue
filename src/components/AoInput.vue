@@ -1,34 +1,41 @@
 <template>
-  <div class="ao-form-group">
+  <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
       class="ao-form-group__label">
-      <label
-        :for="name">{{ label }}</label>
+      <label :for="name">
+        {{ label }}
+      </label>
       <slot name="tooltip"/>
     </div>
-    <div :class="{ 'ao-input-group': hasInputGroup }">
+    <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup }]">
       <input
         :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
         :type="type"
         :placeholder="placeholder"
         :name="name"
         :value="value"
-        :disabled="disabled"
+        :disabled="disabled || disableAll"
         :step="step"
+        :min="min"
         @input="updateValue($event.target.value)"
         @blur="emitBlur($event)">
       <span
         v-if="hasIconAddon"
         :class="iconClass"
-        class="ao-input-group__addon"
+        class="ao-input__addon"
         v-html="iconHtml"/>
       <span
         v-if="hasAddOn"
-        class="ao-input-group__addon">
+        class="ao-input__addon">
         {{ addOn }}
       </span>
     </div>
+    <span
+      v-show="invalidMessage && invalid"
+      class="ao-form-group__invalid-message">
+      {{ invalidMessage }}
+    </span>
     <span
       v-if="instructionText"
       class="ao-form-group__instruction-text">
@@ -96,6 +103,11 @@ export default {
       default: false
     },
 
+    disableAll: {
+      type: Boolean,
+      default: false
+    },
+
     step: {
       type: Number,
       default: 1
@@ -104,6 +116,11 @@ export default {
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    invalidMessage: {
+      type: String,
+      default: null
     },
 
     size: {
@@ -116,6 +133,11 @@ export default {
 
     instructionText: {
       type: String,
+      default: null
+    },
+
+    min: {
+      type: [String, Number],
       default: null
     }
   },
@@ -131,6 +153,10 @@ export default {
 
     hasAddOn () {
       return this.addOn
+    },
+
+    hasFeedbackText () {
+      return this.instructionText || (this.invalidMessage && this.invalid)
     },
 
     computedSize () {
@@ -157,5 +183,4 @@ export default {
 
 @import '../assets/styles/mixins/shared-input-styles.scss';
 @include shared-input-styles;
-
 </style>

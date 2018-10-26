@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import TextArea from '@/components/AoTextArea.vue'
 import instructionText from './helpers/instructionText'
+import invalidMessage from './helpers/invalidMessage'
 
 describe('TextArea', () => {
   it('create', () => {
@@ -43,5 +44,11 @@ describe('TextArea', () => {
     const textArea = mount(TextArea)
 
     instructionText.assert(textArea)
+  })
+
+  it('invalid message', () => {
+    const textArea = mount(TextArea)
+
+    invalidMessage.assert(textArea)
   })
 })
