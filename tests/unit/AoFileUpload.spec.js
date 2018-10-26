@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import FileUpload from '@/components/AoFileUpload.vue'
 import instructionText from './helpers/instructionText'
+import invalidMessage from './helpers/invalidMessage'
 
 describe('FileUpload', () => {
   it('create', () => {
@@ -71,5 +72,16 @@ describe('FileUpload', () => {
     })
 
     instructionText.assert(fileUpload)
+  })
+
+  it('invalid message', () => {
+    const fileUpload = mount(FileUpload, {
+      propsData: {
+        name: 'text',
+        label: 'test'
+      }
+    })
+
+    invalidMessage.assert(fileUpload)
   })
 })

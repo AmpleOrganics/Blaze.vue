@@ -14,7 +14,9 @@
           :rows="rowLength"
           :max-length="maxCharacters"
           :disabled="disabled"
-          :invalid="invalid" />
+          :disable-all="disableAll"
+          :invalid-message="invalidMessage"
+          :invalid="invalid"/>
       </div>
       <div class="component-controls">
         <div class="component-controls__group">
@@ -46,6 +48,13 @@
           />
         </div>
         <div class="component-controls__group">
+          <ao-input
+            v-model="invalidMessage"
+            :type="'text'"
+            :label="'Invalid Message'"
+          />
+        </div>
+        <div class="component-controls__group">
           <ao-checkbox
             v-model="showLabel"
             :checkbox-value="true"
@@ -56,6 +65,12 @@
             v-model="disabled"
             :checkbox-value="true"
             checkbox-label="disabled" />
+        </div>
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="disableAll"
+            :checkbox-value="true"
+            checkbox-label="disable all" />
         </div>
         <div class="component-controls__group">
           <ao-checkbox
@@ -92,9 +107,11 @@ export default {
       rowLength: 5,
       maxCharacters: 100000,
       disabled: false,
+      disableAll: false,
       invalid: false,
       showLabel: true,
-      textAreaText: 'Tell us your favourite funny quote'
+      textAreaText: 'Tell us your favourite funny quote',
+      invalidMessage: 'INVALID!'
     }
   }
 }
