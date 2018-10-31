@@ -291,7 +291,8 @@ $fake-scrollbar-color: $color-gray-90;
     overflow-x: hidden;
   }
   
-  & thead th:last-child {
+  & thead th:last-child,
+  & tfoot td:last-child {
     padding-right: $table-cell-padding + $browser-scrollbar-width;
   }
 }
