@@ -160,10 +160,6 @@ $table-row-background-shaded: $color-gray-90;
   overflow-x: auto;
   min-height: 0.01%;
 
-  tr {
-    border-bottom: 1px solid $color-gray-60;
-  }
-
   th, td {
     padding: $table-cell-padding;
   }
@@ -210,8 +206,8 @@ $table-row-background-shaded: $color-gray-90;
     vertical-align: middle;
   }
 
-  & > tbody tr > td {
-    border-top: 1px solid $table-border-color;
+  & tr > td {
+    border-bottom: 1px solid $table-border-color;
   }
 
   & > thead > tr > th {
@@ -219,8 +215,8 @@ $table-row-background-shaded: $color-gray-90;
     border-bottom: 2px solid $table-border-color;
   }
 
-  & tfoot tr > td {
-    border-top-width: 2px;
+  & > tfoot > tr:first-child > td {
+    border-top: 1px solid $table-border-color;
   }
 
   &__th--sortable > span {
