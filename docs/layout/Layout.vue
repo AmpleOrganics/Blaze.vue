@@ -3,8 +3,8 @@
     <div class="layout__header-toolbar">
       <ao-header-toolbar
         :title="title"
-        fixed
-        @click.native="$router.push('/')"/>
+        :title-clicked="titleClicked"
+        fixed/>
     </div>
 
     <div class="layout__container">
@@ -38,6 +38,13 @@
               <h2>Props</h2>
               <slot name="api">api</slot>
             </div>
+
+            <div
+              v-if="isEventsSectionVisible"
+              class="layout__section">
+              <h2>Events</h2>
+              <slot name="events"/>
+            </div>
           </slot>
         </ao-card>
       </div>
@@ -55,9 +62,14 @@ export default {
   data: () => ({
     title: 'Blaze Documentation'
   }),
+  computed: {
+    isEventsSectionVisible () {
+      return Object.keys(this.$slots).includes('events')
+    }
+  },
   methods: {
-    onClick () {
-      console.log('clicked')
+    titleClicked () {
+      this.$router.push('/')
     }
   }
 }
@@ -99,10 +111,6 @@ export default {
   &__description {
     color: $color-gray-30;
     font-size: $font-size-lg;
-  }
-
-  &__header-toolbar {
-    cursor: pointer;
   }
 
   .component-example {
