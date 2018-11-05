@@ -2,17 +2,26 @@
   <header
     :class="{ 'ao-header-toolbar--fixed': fixed }"
     class="ao-header-toolbar">
-    <div class="ao-header-toolbar__title">
+    <div
+      :class="{ 'clickable': isClickable }"
+      class="ao-header-toolbar__title">
       <span
         v-if="hasIconAddon"
         :class="iconClass"
         class="ao-header-toolbar__icon"
+        @click="onTitleClick"
         v-html="iconHtml"/>
       <img
         v-if="hasIconUrlAddon"
         :src="iconUrl"
-        class="ao-header-toolbar__icon">
-      <span class="ao-header-toolbar__title-text">{{ title }}</span>
+        class="ao-header-toolbar__icon"
+        @click="onTitleClick">
+      <span
+        :class="iconClass"
+        class="ao-header-toolbar__title-text"
+        @click="onTitleClick">
+        {{ title }}
+      </span>
     </div>
     <div class="ao-header-toolbar__controls">
       <slot />
@@ -26,6 +35,10 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    titleClicked: {
+      type: Function,
+      default: null
     },
     iconUrl: {
       type: String,
@@ -51,6 +64,15 @@ export default {
     },
     hasIconUrlAddon () {
       return this.iconUrl
+    },
+    isClickable () {
+      return !!this.titleClicked
+    }
+  },
+
+  methods: {
+    onTitleClick () {
+      this.titleClicked && this.titleClicked()
     }
   }
 }
@@ -117,6 +139,10 @@ export default {
         text-decoration: none;
       }
     }
+  }
+
+  &__title.clickable > * {
+    cursor: pointer;
   }
 
   &--fixed {
