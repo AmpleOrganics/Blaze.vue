@@ -1,3 +1,11 @@
+# 1.2.2 (2018-11-05)
+
+## Fixes
+
+HeaderToolbar: Added a callback prop 'titleClicked' that gets invoked when header title or image are clicked [5378c6b](https://github.com/AmpleOrganics/Blaze.vue/pull/233/commits/5378c6b56dd14430cf7033770e025ef63edd58ee)
+
+HeaderToolbar: Disable link underlining in the header toolbar [8cac232](https://github.com/AmpleOrganics/Blaze.vue/pull/226/commits/8cac23289d08adde109ac281b0c1ca0f9ca2a706)
+
 # 1.2.1 (2018-10-15)
 
 ## Fixes
