@@ -1,9 +1,6 @@
 <template>
   <ao-card class="layoutsidebar">
     <nav>
-      <ao-heading
-        card-section-heading
-        text="Components"/>
       <ul>
         <li
           v-for="route in componentRoutes"
