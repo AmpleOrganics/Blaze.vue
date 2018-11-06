@@ -70,4 +70,15 @@ describe('Select', () => {
 
     instructionText.assert(select)
   })
+
+  it('emit blur', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'label'
+      }
+    })
+
+    select.find('.ao-form-control').trigger('blur')
+    expect(select.emitted().blur).toBeTruthy()
+  })
 })

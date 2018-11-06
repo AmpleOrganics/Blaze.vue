@@ -19,6 +19,7 @@
       :disabled="disabled"
       class="ao-form-control"
       @input="inputEvent($event.target.value)"
+      @blur="emitBlur($event)"
     />
     <span
       v-if="instructionText"
@@ -90,6 +91,10 @@ export default {
   methods: {
     inputEvent (updatedValue) {
       this.$emit('input', updatedValue)
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
     }
   }
 }

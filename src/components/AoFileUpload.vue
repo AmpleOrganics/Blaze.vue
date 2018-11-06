@@ -12,7 +12,8 @@
       :name="name"
       :disabled="disabled"
       type="file"
-      @change="updateFile($event.target.files)">
+      @change="updateFile($event.target.files)"
+      @blur="emitBlur($event)">
     <span
       v-if="instructionText"
       class="ao-form-group__instruction-text">
@@ -58,6 +59,10 @@ export default {
   methods: {
     updateFile (value) {
       this.$emit('change', value[0])
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
     }
   }
 }
