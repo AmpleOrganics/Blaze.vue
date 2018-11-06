@@ -17,7 +17,7 @@ describe('TextArea', () => {
     expect(textArea.contains(':disabled')).toBe(true)
   })
 
-  it('emit', () => {
+  it('emit input', () => {
     const textArea = mount(TextArea, {
       propsData: {
         value: 'value'
@@ -26,6 +26,17 @@ describe('TextArea', () => {
 
     textArea.find('.ao-form-control').trigger('input')
     expect(textArea.emitted().input[0][0]).toBe('value')
+  })
+
+  it('emit blur', () => {
+    const textArea = mount(TextArea, {
+      propsData: {
+        value: 'value'
+      }
+    })
+
+    textArea.find('.ao-form-control').trigger('blur')
+    expect(textArea.emitted().blur).toBeTruthy()
   })
 
   it('instruction text', () => {
