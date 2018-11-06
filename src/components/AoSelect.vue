@@ -12,7 +12,8 @@
         :value="selected"
         :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
         :disabled="disabled"
-        @change="updateInput">
+        @change="updateInput"
+        @blur="emitBlur($event)">
         <option
           v-if="placeholder"
           :value="null"
@@ -101,6 +102,10 @@ export default {
     updateInput (e) {
       this.selected = e.target.value
       this.$emit('input', e.target.value)
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
     }
   }
 

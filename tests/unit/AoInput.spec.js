@@ -48,7 +48,7 @@ describe('Input', () => {
     expect(getFormControlElement(input).classes()).toContain('ao-form-control--small')
   })
 
-  it('emit', () => {
+  it('emit input', () => {
     const input = mount(Input, {
       propsData: {
         type: 'text',
@@ -59,6 +59,19 @@ describe('Input', () => {
 
     input.find('.ao-form-control').trigger('input')
     expect(input.emitted().input[0][0]).toBe('value')
+  })
+
+  it('emit blur', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'label',
+        value: 'value'
+      }
+    })
+
+    input.find('.ao-form-control').trigger('blur')
+    expect(input.emitted().blur).toBeTruthy()
   })
 
   it('instruction text', () => {

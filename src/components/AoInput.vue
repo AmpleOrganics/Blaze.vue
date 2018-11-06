@@ -16,7 +16,8 @@
         :value="value"
         :disabled="disabled"
         :step="step"
-        @input="updateValue($event.target.value)">
+        @input="updateValue($event.target.value)"
+        @blur="emitBlur($event)">
       <span
         v-if="hasIconAddon"
         :class="iconClass"
@@ -143,6 +144,10 @@ export default {
   methods: {
     updateValue (value) {
       this.$emit('input', value)
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
     }
   }
 }

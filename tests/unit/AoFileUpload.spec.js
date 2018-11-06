@@ -38,7 +38,7 @@ describe('FileUpload', () => {
     expect(fileUpload.contains(':disabled')).toBe(true)
   })
 
-  it('emit', () => {
+  it('emit change', () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
         label: 'label',
@@ -48,6 +48,18 @@ describe('FileUpload', () => {
 
     fileUpload.find('.ao-form-control').trigger('change')
     expect(fileUpload.emitted().change).toBeTruthy()
+  })
+
+  it('emit blur', () => {
+    const fileUpload = mount(FileUpload, {
+      propsData: {
+        label: 'label',
+        name: 'test1'
+      }
+    })
+
+    fileUpload.find('.ao-form-control').trigger('blur')
+    expect(fileUpload.emitted().blur).toBeTruthy()
   })
 
   it('instruction text', () => {
