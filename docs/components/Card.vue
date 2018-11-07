@@ -10,13 +10,14 @@
         <ao-card
           :title="titleText">
           <p>{{ slotText }}</p>
-          <ao-button
-            primary>
-            Action 1
-          </ao-button>
-          <ao-button>
-            Action 2
-          </ao-button>
+          <template slot="cardFooter">
+            <ao-button primary>
+              Action 1
+            </ao-button>
+            <ao-button>
+              Action 2
+            </ao-button>
+          </template>
         </ao-card>
       </div>
       <div class="component-controls__group">

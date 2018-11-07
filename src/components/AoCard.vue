@@ -14,6 +14,11 @@
     <div class="ao-card__body">
       <slot/>
     </div>
+    <div
+      v-if="!!this.$slots.cardFooter"
+      class="ao-card__footer">
+      <slot name="cardFooter"/>
+    </div>
   </div>
 </template>
 
@@ -48,6 +53,25 @@ export default {
     justify-content: space-between;
     padding: 15px;
     border-bottom: 1px solid $ui-border-color-base;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding: $spacer;
+    border-top: 1px solid $ui-border-color-base;
+
+    & .form-group {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    & > * {
+      margin-left: $spacer-sm;
+      margin-bottom: 0 !important;
+    }
   }
 
   &__title {
