@@ -3,21 +3,25 @@
     <div
       v-for="({ name, path, active}, index) in paths"
       :key="index"
-      class="ao-breadcrumbs__crumb-group">
+      class="ao-breadcrumbs__crumb-group"
+    >
       <router-link
         v-if="!active"
         :to="path"
-        class="ao-breadcrumbs__crumb">
+        class="ao-breadcrumbs__crumb"
+      >
         {{ name }}
       </router-link>
       <span
         v-if="active"
-        class="ao-breadcrumbs__crumb ao-breadcrumbs__crumb--active">
+        class="ao-breadcrumbs__crumb ao-breadcrumbs__crumb--active"
+      >
         {{ name }}
       </span>
       <span
         v-if="ifSeparator(index)"
-        class="ao-breadcrumbs__crumb-separator">
+        class="ao-breadcrumbs__crumb-separator"
+      >
         {{ separator }}
       </span>
     </div>

@@ -1,12 +1,15 @@
 <template>
   <div
-    :class="[computedClasses, `ao-tooltip--${this.position}`]">
+    :class="[computedClasses, `ao-tooltip--${this.position}`]"
+  >
     <slot>
-      <i class="ao-tooltip__default-icon glyphicon glyphicon-info-sign"/>
+      <i class="ao-tooltip__default-icon glyphicon glyphicon-info-sign" />
     </slot>
     <div class="ao-tooltip__tip-container">
-      <span class="ao-tooltip__text">{{ text }}</span>
-      <div class="ao-tooltip__triangle"/>
+      <span class="ao-tooltip__text">
+        {{ text }}
+      </span>
+      <div class="ao-tooltip__triangle" />
     </div>
   </div>
 </template>

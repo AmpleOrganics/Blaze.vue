@@ -3,13 +3,15 @@
     <a
       :disabled="page === 1"
       class="ao-pagination__button"
-      @click="changePage('prev')">
+      @click="changePage('prev')"
+    >
       &laquo;
     </a>
     <a
       :disabled="page === totalPages"
       class="ao-pagination__button"
-      @click="changePage('next')">
+      @click="changePage('next')"
+    >
       &raquo;
     </a>
   </div>
@@ -51,8 +53,8 @@ export default {
       // if this.page is null then don't do anything at all
       // handy guard against api calls/more expensive pagination actions
       if (this.page &&
-          this.page !== page &&
-          (!this.totalPages || this.page <= this.totalPages)
+        this.page !== page &&
+        (!this.totalPages || this.page <= this.totalPages)
       ) {
         this.$emit('paginate', this.page, direction)
       }

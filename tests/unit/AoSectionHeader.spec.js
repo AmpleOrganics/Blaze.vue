@@ -5,11 +5,13 @@ describe('SectionHeader', () => {
   it('create', () => {
     const sectionHeader = mount(SectionHeader, {
       propsData: {
-        title: 'Test',
-        subtitle: 'Test'
+        title: 'Title',
+        subtitle: 'Subtitle'
       }
     })
-    expect(sectionHeader.text()).toBe('Test  Test')
+    // expect(sectionHeader.text()).toBe('Test \n Test')
+    expect(sectionHeader.find('.ao-section-header__title').text()).toContain('Title')
+    expect(sectionHeader.find('.ao-section-header__subtitle').text()).toContain('Subtitle')
     expect(sectionHeader.classes()).toContain('ao-section-header')
   })
 

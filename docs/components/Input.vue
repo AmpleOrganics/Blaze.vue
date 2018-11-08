@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -18,7 +17,8 @@
           :invalid="invalid"
           :invalid-message="invalidMessage"
           :instruction-text="instructionText"
-          :min="minDate"/>
+          :min="minDate"
+        />
       </div>
       <div class="component-controls">
         <div class="component-controls__group">
@@ -93,7 +93,9 @@
           checkbox-label="invalid"
         />
       </div>
-      <h3 class="component-sub-example">Number Input Example</h3>
+      <h3 class="component-sub-example">
+        Number Input Example
+      </h3>
       <div class="component-example">
         <ao-input
           :label="numberLabel"
@@ -129,7 +131,9 @@
           />
         </div>
       </div>
-      <h3 class="component-sub-example">Date Input Example</h3>
+      <h3 class="component-sub-example">
+        Date Input Example
+      </h3>
       <div class="component-example">
         <ao-input
           :label="dateLabel"
@@ -156,11 +160,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

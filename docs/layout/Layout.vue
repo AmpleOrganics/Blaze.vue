@@ -4,7 +4,8 @@
       <ao-header-toolbar
         :title="title"
         :title-clicked="titleClicked"
-        fixed/>
+        fixed
+      />
     </div>
 
     <div class="layout__container">
@@ -17,16 +18,20 @@
       <div class="layout__content-container">
         <ao-card
           :title="$route.meta && $route.meta.title"
-          class="layout__content">
+          class="layout__content"
+        >
           <slot name="content">
-
             <div class="layout__section layout__description">
-              <slot name="description">description</slot>
+              <slot name="description">
+                description
+              </slot>
             </div>
 
             <div class="layout__section layout__examples">
               <h2>Examples</h2>
-              <slot name="example">example</slot>
+              <slot name="example">
+                example
+              </slot>
             </div>
 
             <div class="layout__section">
@@ -36,14 +41,17 @@
 
             <div class="layout__section">
               <h2>Props</h2>
-              <slot name="api">api</slot>
+              <slot name="api">
+                api
+              </slot>
             </div>
 
             <div
               v-if="isEventsSectionVisible"
-              class="layout__section">
+              class="layout__section"
+            >
               <h2>Events</h2>
-              <slot name="events"/>
+              <slot name="events" />
             </div>
           </slot>
         </ao-card>

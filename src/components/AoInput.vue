@@ -2,11 +2,12 @@
   <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
-      class="ao-form-group__label">
+      class="ao-form-group__label"
+    >
       <label :for="name">
         {{ label }}
       </label>
-      <slot name="tooltip"/>
+      <slot name="tooltip" />
     </div>
     <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup }]">
       <input
@@ -19,26 +20,31 @@
         :step="step"
         :min="min"
         @input="updateValue($event.target.value)"
-        @blur="emitBlur($event)">
+        @blur="emitBlur($event)"
+      >
       <span
         v-if="hasIconAddon"
         :class="iconClass"
         class="ao-input__addon"
-        v-html="iconHtml"/>
+        v-html="iconHtml"
+      />
       <span
         v-if="hasAddOn"
-        class="ao-input__addon">
+        class="ao-input__addon"
+      >
         {{ addOn }}
       </span>
     </div>
     <span
       v-show="invalidMessage && invalid"
-      class="ao-form-group__invalid-message">
+      class="ao-form-group__invalid-message"
+    >
       {{ invalidMessage }}
     </span>
     <span
       v-if="instructionText"
-      class="ao-form-group__instruction-text">
+      class="ao-form-group__instruction-text"
+    >
       {{ instructionText }}
     </span>
   </div>

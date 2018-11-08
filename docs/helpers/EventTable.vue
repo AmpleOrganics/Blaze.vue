@@ -1,10 +1,12 @@
 <template>
   <ao-table
     v-if="rows.length"
-    :headers="headers">
+    :headers="headers"
+  >
     <tr
       v-for="(row, index) in rows"
-      :key="index">
+      :key="index"
+    >
       <td>{{ row.name }}</td>
       <td>{{ row.description }}</td>
     </tr>

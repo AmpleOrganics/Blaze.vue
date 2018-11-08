@@ -3,8 +3,9 @@
     :type="type"
     :form="formName"
     :class="computedButtonClass"
-    :disabled="disabled">
-    <slot/>
+    :disabled="disabled"
+  >
+    <slot />
   </button>
 </template>
 

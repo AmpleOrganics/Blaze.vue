@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -18,11 +17,13 @@
           :invalid-message="invalidMessage"
           :disabled="disabled"
           :disable-all="disableAll"
-          :show-label="showLabel">
+          :show-label="showLabel"
+        >
           <option
             v-for="option in options"
+            :key="option.name"
             :value="option.value"
-            :key="option.name">
+          >
             {{ option.name }}
           </option>
         </ao-select>
@@ -79,11 +80,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

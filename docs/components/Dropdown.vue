@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -13,7 +12,8 @@
             slot="dropdown-items"
             :key="index"
             :href="link.url"
-            class="ao-dropdown__link">
+            class="ao-dropdown__link"
+          >
             {{ link.title }}
           </a>
         </ao-dropdown>
@@ -28,11 +28,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>
