@@ -1,25 +1,30 @@
 <template>
   <header
     :class="{ 'ao-header-toolbar--fixed': fixed }"
-    class="ao-header-toolbar">
+    class="ao-header-toolbar"
+  >
     <div
       :class="{ 'clickable': isClickable }"
-      class="ao-header-toolbar__title">
+      class="ao-header-toolbar__title"
+    >
       <span
         v-if="hasIconAddon"
         :class="iconClass"
         class="ao-header-toolbar__icon"
         @click="onTitleClick"
-        v-html="iconHtml"/>
+        v-html="iconHtml"
+      />
       <img
         v-if="hasIconUrlAddon"
         :src="iconUrl"
         class="ao-header-toolbar__icon"
-        @click="onTitleClick">
+        @click="onTitleClick"
+      >
       <span
         :class="iconClass"
         class="ao-header-toolbar__title-text"
-        @click="onTitleClick">
+        @click="onTitleClick"
+      >
         {{ title }}
       </span>
     </div>

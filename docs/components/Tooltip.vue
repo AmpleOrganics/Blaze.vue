@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -9,8 +9,11 @@
         <ao-tooltip
           :position="selectedPosition"
           :text="tooltipText"
-          :multiline="tooltipMultiline">
-          <ao-button primary>Hover over me</ao-button>
+          :multiline="tooltipMultiline"
+        >
+          <ao-button primary>
+            Hover over me
+          </ao-button>
         </ao-tooltip>
       </div>
       <div class="component-controls">
@@ -24,11 +27,13 @@
         <div class="component-controls__group">
           <ao-select
             v-model="selectedPosition"
-            label="Position">
+            label="Position"
+          >
             <option
               v-for="prop in tooltipPositions"
+              :key="prop.name"
               :value="prop.value"
-              :key="prop.name">
+            >
               {{ prop.name }}
             </option>
           </ao-select>
@@ -42,11 +47,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

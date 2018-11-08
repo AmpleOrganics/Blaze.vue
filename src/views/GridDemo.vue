@@ -5,27 +5,43 @@
       <grid>
         <grid-item
           size="1/3"
-          class="demo-item">grid-item size="1/3"</grid-item>
+          class="demo-item"
+        >
+          grid-item size="1/3"
+        </grid-item>
         <grid-item
           size="1/3"
-          class="demo-item">grid-item size="1/3"</grid-item>
+          class="demo-item"
+        >
+          grid-item size="1/3"
+        </grid-item>
         <grid-item
           size="1/3"
-          class="demo-item">grid-item size="1/3"</grid-item>
+          class="demo-item"
+        >
+          grid-item size="1/3"
+        </grid-item>
       </grid>
     </container>
 
     <container
       width="100%"
-      class="demo-container">
+      class="demo-container"
+    >
       <h2>Normal Container - Five Uneven Columns</h2>
       <grid :rwd="{mobile: 'stack'}">
         <grid-item
           size="1/10"
-          class="demo-item">grid-item size="1/10"</grid-item>
+          class="demo-item"
+        >
+          grid-item size="1/10"
+        </grid-item>
         <grid-item
           size="2/10"
-          class="demo-item">grid-item size="2/10"</grid-item>
+          class="demo-item"
+        >
+          grid-item size="2/10"
+        </grid-item>
         <grid-item
           :rwd="{mobile: '1/1'}"
           size="4/10"
@@ -35,10 +51,16 @@
         </grid-item>
         <grid-item
           size="2/10"
-          class="demo-item">grid-item size="2/10"</grid-item>
+          class="demo-item"
+        >
+          grid-item size="2/10"
+        </grid-item>
         <grid-item
           size="1/10"
-          class="demo-item">grid-item size="1/10"</grid-item>
+          class="demo-item"
+        >
+          grid-item size="1/10"
+        </grid-item>
       </grid>
     </container>
 
@@ -47,34 +69,39 @@
       <grid>
         <grid-item
           size="1/1"
-          class="demo-item">grid-item size="1/1"</grid-item>
+          class="demo-item"
+        >
+          grid-item size="1/1"
+        </grid-item>
       </grid>
     </container>
 
     <container class="demo-container">
       <h2>Vertically Stacked Container - Three Grid Items</h2>
       <grid direction="stack">
-        <grid-item class="demo-item">grid-item (no size)</grid-item>
-        <grid-item class="demo-item">grid-item</grid-item>
-        <grid-item class="demo-item">grid-item</grid-item>
+        <grid-item class="demo-item">
+          grid-item (no size)
+        </grid-item>
+        <grid-item class="demo-item">
+          grid-item
+        </grid-item>
+        <grid-item class="demo-item">
+          grid-item
+        </grid-item>
       </grid>
     </container>
   </div>
 </template>
 
 <script>
-import aoSelect from '@/components/lib/AoSelect.vue'
 
 export default {
   name: 'GridDemo',
-  components: {
-    aoSelect
-  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       selected: 1,
-      options: [{'name': 'look at this', 'value': 1}, {'name': 'look at this2', 'value': 2}, {'name': 'look at this3', 'value': 3}]
+      options: [{ 'name': 'look at this', 'value': 1 }, { 'name': 'look at this2', 'value': 2 }, { 'name': 'look at this3', 'value': 3 }]
     }
   }
 }

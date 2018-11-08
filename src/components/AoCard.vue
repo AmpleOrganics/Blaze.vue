@@ -2,22 +2,26 @@
   <div class="ao-card">
     <div
       v-if="title"
-      class="ao-card__header">
-      <h2 class="ao-card__title">{{ title }}</h2>
+      class="ao-card__header"
+    >
+      <h2 class="ao-card__title">
+        {{ title }}
+      </h2>
       <div class="ao-card__toolbar">
-        <slot name="card-header-toolbar"/>
+        <slot name="card-header-toolbar" />
       </div>
     </div>
     <div class="ao-card__callout">
-      <slot name="card-callout"/>
+      <slot name="card-callout" />
     </div>
     <div class="ao-card__body">
-      <slot/>
+      <slot />
     </div>
     <div
       v-if="!!this.$slots.cardFooter"
-      class="ao-card__footer">
-      <slot name="cardFooter"/>
+      class="ao-card__footer"
+    >
+      <slot name="cardFooter" />
     </div>
   </div>
 </template>

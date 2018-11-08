@@ -1,5 +1,7 @@
 <template>
-  <span :class="computedClasses">{{ text }}</span>
+  <span :class="computedClasses">
+    {{ text }}
+  </span>
 </template>
 
 <script>

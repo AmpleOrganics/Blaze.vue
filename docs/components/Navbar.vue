@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -10,17 +9,20 @@
         <ao-navbar>
           <li
             v-for="route in routes"
-            :key="route.path">
-            <router-link :to="route.path" >{{ route.name }}</router-link>
+            :key="route.path"
+          >
+            <router-link :to="route.path">
+              {{ route.name }}
+            </router-link>
           </li>
         </ao-navbar>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

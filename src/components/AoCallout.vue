@@ -1,6 +1,6 @@
 <template>
   <div :class="[computedClasses, 'ao-callout']">
-    <slot/>
+    <slot />
   </div>
 </template>
 
