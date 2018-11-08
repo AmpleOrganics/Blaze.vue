@@ -3,9 +3,12 @@
   <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
-      class="ao-form-group__label">
-      <label :for="name">{{ label }}</label>
-      <slot name="tooltip"/>
+      class="ao-form-group__label"
+    >
+      <label :for="name">
+        {{ label }}
+      </label>
+      <slot name="tooltip" />
     </div>
     <textarea
       :class="{'ao-form-control--invalid': invalid }"
@@ -22,12 +25,14 @@
     />
     <span
       v-show="invalidMessage && invalid"
-      class="ao-form-group__invalid-message">
+      class="ao-form-group__invalid-message"
+    >
       {{ invalidMessage }}
     </span>
     <span
       v-if="instructionText"
-      class="ao-form-group__instruction-text">
+      class="ao-form-group__instruction-text"
+    >
       {{ instructionText }}
     </span>
   </div>

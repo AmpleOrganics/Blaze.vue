@@ -1,6 +1,6 @@
 <template>
   <div class="ao-spinner">
-    <div class="ao-spinner__icon"/>
+    <div class="ao-spinner__icon" />
   </div>
 </template>
 

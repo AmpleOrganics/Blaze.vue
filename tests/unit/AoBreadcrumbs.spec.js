@@ -16,12 +16,31 @@ describe('Breadcrumb', () => {
       }
     })
     expect(breadcrumb.findAll('a').length).toBe(2)
-    expect(breadcrumb.findAll('span').at(2).text()).toBe('Current')
-    expect(breadcrumb.findAll('span').at(1).text()).toBe('/')
-    expect(breadcrumb.findAll('span').at(0).text()).toBe('/')
+    expect(
+      breadcrumb
+        .findAll('span')
+        .at(2)
+        .text()
+    ).toBe('Current')
+    expect(
+      breadcrumb
+        .findAll('span')
+        .at(1)
+        .text()
+    ).toBe('/')
+    expect(
+      breadcrumb
+        .findAll('span')
+        .at(0)
+        .text()
+    ).toBe('/')
 
-    expect(breadcrumb.find('.ao-breadcrumbs__crumb--active').exists()).toBe(true)
-    expect(breadcrumb.find('.ao-breadcrumbs__crumb--active').text()).toBe('Current')
+    expect(breadcrumb.find('.ao-breadcrumbs__crumb--active').exists()).toBe(
+      true
+    )
+    expect(breadcrumb.find('.ao-breadcrumbs__crumb--active').text()).toBe(
+      'Current'
+    )
   })
 
   it('changes separator', () => {
@@ -38,7 +57,17 @@ describe('Breadcrumb', () => {
         ]
       }
     })
-    expect(breadcrumb.findAll('span').at(1).text()).toBe('>')
-    expect(breadcrumb.findAll('span').at(0).text()).toBe('>')
+    expect(
+      breadcrumb
+        .findAll('span')
+        .at(1)
+        .text()
+    ).toBe('>')
+    expect(
+      breadcrumb
+        .findAll('span')
+        .at(0)
+        .text()
+    ).toBe('>')
   })
 })

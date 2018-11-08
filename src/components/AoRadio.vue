@@ -5,7 +5,8 @@
       :value="val"
       :disabled="disabled"
       type="radio"
-      @change="toggle">
+      @change="toggle"
+    >
     <span>{{ label }}</span>
   </label>
 </template>

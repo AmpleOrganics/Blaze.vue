@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -12,7 +11,8 @@
           :show-alert="showAlert"
           :destructive="activateProp('destructive')"
           :caution="activateProp('caution')"
-          :icon-class="'glyphicon glyphicon-ok'">
+          :icon-class="'glyphicon glyphicon-ok'"
+        >
           {{ alertText }}
         </ao-alert>
       </div>
@@ -27,11 +27,13 @@
         <div class="component-controls__group">
           <ao-select
             v-model="selectedType"
-            label="Context">
+            label="Context"
+          >
             <option
               v-for="prop in alertTypes"
+              :key="prop.name"
               :value="prop.value"
-              :key="prop.name">
+            >
               {{ prop.name }}
             </option>
           </ao-select>
@@ -45,11 +47,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

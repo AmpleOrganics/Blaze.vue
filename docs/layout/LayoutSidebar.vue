@@ -5,10 +5,14 @@
         <li
           v-for="route in componentRoutes"
           :key="route.name"
-          class="layoutsidebar__item">
+          class="layoutsidebar__item"
+        >
           <router-link
             :to="route.path"
-            class="layoutsidebar__item-link">{{ route.meta.title }}</router-link>
+            class="layoutsidebar__item-link"
+          >
+            {{ route.meta.title }}
+          </router-link>
         </li>
       </ul>
     </nav>

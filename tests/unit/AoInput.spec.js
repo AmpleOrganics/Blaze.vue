@@ -4,7 +4,7 @@ import instructionText from './helpers/instructionText'
 import invalidMessage from './helpers/invalidMessage'
 
 describe('Input', () => {
-  const getFormControlElement = (wrapper) => wrapper.find('.ao-form-control')
+  const getFormControlElement = wrapper => wrapper.find('.ao-form-control')
 
   it('create', () => {
     const input = mount(Input, {
@@ -32,10 +32,16 @@ describe('Input', () => {
         label: 'label'
       }
     })
-    expect(getFormControlElement(input).classes().includes('.ao-form-control--invalid')).toBe(false)
+    expect(
+      getFormControlElement(input)
+        .classes()
+        .includes('.ao-form-control--invalid')
+    ).toBe(false)
 
     input.setProps({ invalid: true })
-    expect(getFormControlElement(input).classes()).toContain('ao-form-control--invalid')
+    expect(getFormControlElement(input).classes()).toContain(
+      'ao-form-control--invalid'
+    )
   })
 
   it('size', () => {
@@ -46,7 +52,9 @@ describe('Input', () => {
       }
     })
 
-    expect(getFormControlElement(input).classes()).toContain('ao-form-control--small')
+    expect(getFormControlElement(input).classes()).toContain(
+      'ao-form-control--small'
+    )
   })
 
   it('emit input', () => {

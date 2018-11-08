@@ -10,7 +10,9 @@ describe('HeaderToolbar', () => {
     })
     expect(headerToolbar.text()).toBe('This is a title')
     expect(headerToolbar.classes()).toContain('ao-header-toolbar')
-    expect(headerToolbar.find('.ao-header-toolbar__controls').exists()).toBe(true)
+    expect(headerToolbar.find('.ao-header-toolbar__controls').exists()).toBe(
+      true
+    )
   })
 
   it('iconClass', () => {

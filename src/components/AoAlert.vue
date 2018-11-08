@@ -2,12 +2,13 @@
   <transition name="fade">
     <div
       v-if="showAlert"
-      class="ao-alert">
+      class="ao-alert"
+    >
       <div :class="computedAlertIconClass">
-        <span :class="iconClass"/>
+        <span :class="iconClass" />
       </div>
       <div class="ao-alert__message">
-        <slot/>
+        <slot />
       </div>
     </div>
   </transition>

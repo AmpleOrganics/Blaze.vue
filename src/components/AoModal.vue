@@ -6,29 +6,36 @@
         class="ao-modal"
         tabindex="0"
         @click.self="closeModal"
-        @keyup.esc.stop="closeModal">
+        @keyup.esc.stop="closeModal"
+      >
         <div
           :class="computedModalSize"
-          @click.self="closeModal">
+          @click.self="closeModal"
+        >
           <div class="ao-modal__content">
             <div :class="computedHeaderClass">
-              <h2 class="ao-modal__header-text">{{ headerText }}</h2>
+              <h2 class="ao-modal__header-text">
+                {{ headerText }}
+              </h2>
             </div>
             <div
               v-if="hasSlot('modal-toolbar')"
-              class="ao-modal__toolbar">
-              <slot name="modal-toolbar"/>
+              class="ao-modal__toolbar"
+            >
+              <slot name="modal-toolbar" />
             </div>
             <div
               v-if="hasSlot('modal-body')"
-              class="ao-modal__body">
-              <slot name="modal-body"/>
+              class="ao-modal__body"
+            >
+              <slot name="modal-body" />
             </div>
             <div
               v-if="hasSlot('modal-footer')"
-              class="ao-modal__footer">
+              class="ao-modal__footer"
+            >
               <div class="row">
-                <slot name="modal-footer"/>
+                <slot name="modal-footer" />
               </div>
             </div>
           </div>
