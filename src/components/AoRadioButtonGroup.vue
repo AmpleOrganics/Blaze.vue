@@ -3,19 +3,22 @@
     <div
       v-for="option in options"
       :key="option.value"
-      class="ao-radio-button-group__option">
+      class="ao-radio-button-group__option"
+    >
       <input
+        :id="option.value"
         v-bind="$attrs"
         :value="option.value"
         :checked="isChecked(option.value)"
-        :id="option.value"
         :name="name"
         type="radio"
         class="ao-radio-button-group__option-input"
-        @input="select(option.value)">
+        @input="select(option.value)"
+      >
       <label
         :for="option.value"
-        class="ao-radio-button-group__option-input-label">
+        class="ao-radio-button-group__option-input-label"
+      >
         {{ option.name }}
       </label>
     </div>

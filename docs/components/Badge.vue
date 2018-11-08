@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -25,20 +24,24 @@
         <div class="component-controls__group">
           <ao-select
             v-model="selectedType"
-            label="Context">
+            label="Context"
+          >
             <option
               v-for="(prop, index) in badgeTypes"
               :key="index"
-              :value="prop.value">{{ prop.name }}</option>
+              :value="prop.value"
+            >
+              {{ prop.name }}
+            </option>
           </ao-select>
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

@@ -3,15 +3,19 @@
   <div class="ao-checkbox">
     <label
       :disabled="disabled"
-      class="ao-checkbox__label">
+      class="ao-checkbox__label"
+    >
       <input
-        :value="checkboxValue"
         v-model="checked"
+        :value="checkboxValue"
         :disabled="disabled"
         type="checkbox"
         class="ao-checkbox__input"
-        @change="check">
-      <span v-show="showLabel">{{ checkboxLabel }}</span>
+        @change="check"
+      >
+      <span v-show="showLabel">
+        {{ checkboxLabel }}
+      </span>
     </label>
   </div>
 </template>

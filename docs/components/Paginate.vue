@@ -1,16 +1,15 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
-
       <div class="component-example">
         <ao-paginate
           :total-pages="totalPages"
-          @paginate="paginate"/>
+          @paginate="paginate"
+        />
         <p>Current Page: {{ currentPage }}</p>
         <p>Total Pages: {{ totalPages }}</p>
       </div>
@@ -24,11 +23,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

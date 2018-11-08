@@ -22,7 +22,9 @@ describe('Select', () => {
       }
     })
     expect(select.text()).toBe('label')
-    expect(select.find('.ao-form-control').attributes().disabled).toBe('disabled')
+    expect(select.find('.ao-form-control').attributes().disabled).toBe(
+      'disabled'
+    )
   })
 
   it('options', () => {
@@ -31,11 +33,16 @@ describe('Select', () => {
         label: 'test'
       },
       slots: {
-        default: '<option value="red">red</option><option value="green">green</option>'
+        default:
+          '<option value="red">red</option><option value="green">green</option>'
       }
     })
 
-    select.find('.ao-form-control').findAll('option').at(1).setSelected()
+    select
+      .find('.ao-form-control')
+      .findAll('option')
+      .at(1)
+      .setSelected()
     expect(select.emitted().input[0][0]).toBe('green')
   })
 
@@ -48,7 +55,12 @@ describe('Select', () => {
     })
 
     expect(select.findAll('option').at(0).element.value).toBe('')
-    expect(select.findAll('option').at(0).html()).toContain('Select One')
+    expect(
+      select
+        .findAll('option')
+        .at(0)
+        .html()
+    ).toContain('Select One')
   })
 
   it('size', () => {
@@ -59,7 +71,9 @@ describe('Select', () => {
       }
     })
 
-    expect(select.find('.ao-form-control').classes()).toContain('ao-form-control--small')
+    expect(select.find('.ao-form-control').classes()).toContain(
+      'ao-form-control--small'
+    )
   })
 
   it('instruction text', () => {
@@ -104,7 +118,7 @@ describe('Select', () => {
       }
     })
 
-    select.setProps({value: 'tester'})
+    select.setProps({ value: 'tester' })
     expect(select.find('.ao-form-control').element.value).toBe('tester')
   })
 })
