@@ -159,7 +159,7 @@ export default {
 
 /* Default hover/active styles, overridden by special classes */
  &:active {
-   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+   box-shadow: $shadow-inset;
  }
 
  &:active, &:hover:not([disabled]) {
