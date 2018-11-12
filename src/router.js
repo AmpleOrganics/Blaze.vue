@@ -17,6 +17,7 @@ import Navbar from '../docs/components/Navbar.vue'
 import Modal from '../docs/components/Modal.vue'
 import Paginate from '../docs/components/Paginate.vue'
 import Radio from '../docs/components/Radio.vue'
+import RadioGroup from '../docs/components/RadioGroup.vue'
 import SectionHeader from '../docs/components/SectionHeader.vue'
 import Select from '../docs/components/Select.vue'
 import Spinner from '../docs/components/Spinner.vue'
@@ -54,6 +55,7 @@ export default new Router({
     { name: 'navbar', path: '/navbar', component: Navbar, meta: { title: 'Navbar' } },
     { name: 'paginate', path: '/paginate', component: Paginate, meta: { title: 'Paginate' } },
     { name: 'radio', path: '/radio', component: Radio, meta: { title: 'Radio' } },
+    { name: 'radio group', path: '/radio-group', component: RadioGroup, meta: { title: 'Radio Group' } },
     { name: 'sectionheader', path: '/sectionheader', component: SectionHeader, meta: { title: 'Section Header' } },
     { name: 'select', path: '/select', component: Select, meta: { title: 'Select' } },
     { name: 'spinner', path: '/spinner', component: Spinner, meta: { title: 'Spinner' } },
