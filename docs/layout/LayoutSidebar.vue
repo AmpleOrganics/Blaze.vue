@@ -7,7 +7,7 @@
           :key="route.name"
           class="layoutsidebar__item">
           <router-link
-            :to="route.name"
+            :to="route.path"
             class="layoutsidebar__item-link">{{ route.meta.title }}</router-link>
         </li>
       </ul>
