@@ -48,7 +48,12 @@
             @paginate="paginate"/>
         </div>
       </ao-section-header>
-
+      <ao-card :title="'Radio Groups or something'">
+        <ao-radio-group
+          :options="radioGroup"
+          v-model="radioGroupVal"/>
+        <ao-text-style>{{ radioGroupVal }}</ao-text-style>
+      </ao-card>
       <ao-card :title="'Title of Card'">
         <ao-breadcrumbs :paths="paths"/>
         <h3 class=".ao-heading--card-section-heading">Form Examples</h3>
@@ -573,7 +578,9 @@ export default {
         { url: 'https://facebook.com', title: 'Facebook' }
       ],
       showDropdown: false,
-      activeTab: false
+      activeTab: false,
+      radioGroup: [{name: 'Option 1', value: 'Option 1'}, {name: 'Option 2', value: 'option 2'}, {name: 'Option 3', value: 'option 3'}],
+      radioGroupVal: null
     }
   },
   computed: {

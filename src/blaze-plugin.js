@@ -15,6 +15,7 @@ import AoModal from './components/AoModal.vue'
 import AoNavbar from './components/AoNavbar.vue'
 import AoPaginate from './components/AoPaginate.vue'
 import AoRadio from './components/AoRadio.vue'
+import AoRadioGroup from './components/AoRadioGroup'
 import AoSectionHeader from './components/AoSectionHeader.vue'
 import AoSelect from './components/AoSelect.vue'
 import AoSpinner from './components/AoSpinner.vue'
@@ -42,6 +43,7 @@ const Blaze = {
     Vue.component('AoNavbar', AoNavbar)
     Vue.component('AoPaginate', AoPaginate)
     Vue.component('AoRadio', AoRadio)
+    Vue.component('AoRadioGroup', AoRadioGroup)
     Vue.component('AoSectionHeader', AoSectionHeader)
     Vue.component('AoSelect', AoSelect)
     Vue.component('AoSpinner', AoSpinner)
