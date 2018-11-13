@@ -153,9 +153,9 @@ export default {
     hasAddOn () {
       return this.addOn
     },
-    
+
     hasFeedbackText () {
-      return this.instructionText || this.invalidMessage && this.invalid
+      return this.instructionText || (this.invalidMessage && this.invalid)
     },
 
     computedSize () {
