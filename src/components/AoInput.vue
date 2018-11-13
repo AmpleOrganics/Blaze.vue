@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{'ao-form-group--disabled': disableAll},'ao-form-group']">
+  <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
       class="ao-form-group__label">
@@ -8,7 +8,7 @@
       </label>
       <slot name="tooltip"/>
     </div>
-    <div :class="{ 'ao-input-group': hasInputGroup }">
+    <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup }]">
       <input
         :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
         :type="type"
@@ -22,11 +22,11 @@
       <span
         v-if="hasIconAddon"
         :class="iconClass"
-        class="ao-input-group__addon"
+        class="ao-input__addon"
         v-html="iconHtml"/>
       <span
         v-if="hasAddOn"
-        class="ao-input-group__addon">
+        class="ao-input__addon">
         {{ addOn }}
       </span>
     </div>
@@ -152,6 +152,10 @@ export default {
 
     hasAddOn () {
       return this.addOn
+    },
+    
+    hasFeedbackText () {
+      return this.instructionText || this.invalidMessage && this.invalid
     },
 
     computedSize () {
