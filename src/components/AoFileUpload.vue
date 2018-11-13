@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{'ao-form-group--disabled': disableAll},'ao-form-group']">
+  <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
       class="ao-form-group__label">
@@ -66,6 +66,12 @@ export default {
     instructionText: {
       type: String,
       default: null
+    }
+  },
+
+  computed: {
+    hasFeedbackText () {
+      return this.instructionText || (this.invalidMessage && this.invalid)
     }
   },
 
