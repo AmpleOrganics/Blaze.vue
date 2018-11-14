@@ -112,13 +112,14 @@ export default {
     }
   },
 
-  created () {
-    this.selected = this.value
+  watch: {
+    value (val) {
+      this.selected = val
+    }
   },
 
   methods: {
     updateInput (e) {
-      this.selected = e.target.value
       this.$emit('input', e.target.value)
     },
 
