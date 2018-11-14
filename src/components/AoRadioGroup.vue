@@ -90,6 +90,7 @@ export default {
     &--active:active,
     &--active:hover:not([disabled]) {
       background-color: $color-success;
+      border-color: $color-success;
       box-shadow: $shadow-none;
       color: white;
     }
