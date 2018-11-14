@@ -92,4 +92,19 @@ describe('Select', () => {
 
     invalidMessage.assert(select)
   })
+
+  it('changes what is selected when prop changes', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'test',
+        value: 'test'
+      },
+      slots: {
+        default: ['<option value="blaze">blaze</option><option value="tester">tester</option>']
+      }
+    })
+
+    select.setProps({value: 'tester'})
+    expect(select.find('.ao-form-control').element.value).toBe('tester')
+  })
 })
