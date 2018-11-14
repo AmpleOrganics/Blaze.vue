@@ -24,7 +24,7 @@ describe('Radio', () => {
         value: options[0].value
       }
     })
-    expect(radioGroup.find('label:first-of-type').classes()).toContain('ao-radio-group--option__active')
+    expect(radioGroup.find('label:first-of-type').classes()).toContain('ao-radio-group__option--active')
   })
 
   it('emits on option selection', () => {
