@@ -1,3 +1,23 @@
+# 1.3.0 (2018-11-15)
+
+## New Component
+
+Radio Button Group: Created a new component for displaying a group of radio buttons. Accepts options and name as props [2094c6e](https://github.com/AmpleOrganics/Blaze.vue/commit/2094c6ea454a8772f586c21c5bc545df2714d2b2)
+
+## New
+
+Card: Added footer slot [1958e07](https://github.com/AmpleOrganics/Blaze.vue/commit/1958e073dd5fcd1e608e38aeba6ee94f94e87337)
+
+Input, Select, TextArea, FileUpload: Emits blur [719bc3f](https://github.com/AmpleOrganics/Blaze.vue/commit/719bc3fefb5616b90b27999a09fe81f30296e2b7)
+
+Input: Accepts min prop [65af10d](https://github.com/AmpleOrganics/Blaze.vue/commit/65af10dc4303046901238cdcf8471ca6260325cc)
+
+Input, Select, TextArea, FileUpload: Accepts invalid message prop, disableAll prop that disables input and adds opacity to label and instruction text [65af10d](https://github.com/AmpleOrganics/Blaze.vue/commit/65af10dc4303046901238cdcf8471ca6260325cc)
+
+## Fixes
+
+Select: A watcher was set on value so if the prop updates it will be reflected [4ea2100](https://github.com/AmpleOrganics/Blaze.vue/commit/4ea210032070fd7b22cc9801b94b9856c1a06b77)
+
 # 1.2.2 (2018-11-05)
 
 ## Fixes
