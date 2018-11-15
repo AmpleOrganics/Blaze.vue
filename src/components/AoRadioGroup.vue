@@ -56,10 +56,6 @@ export default {
     select (value) {
       this.currentValue = value
       this.$emit('input', value)
-    },
-
-    isActive (value) {
-      return value === this.currentValue
     }
   }
 }

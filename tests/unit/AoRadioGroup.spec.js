@@ -11,30 +11,35 @@ describe('Radio', () => {
     const radioGroup = mount(RadioGroup, {
       propsData: {
         options: options,
-        value: false
+        value: false,
+        name: 'name'
       }
     })
     expect(radioGroup.classes()).toContain('ao-radio-group')
   })
 
   it('preselects based on mounting value', () => {
+    const selectedOptionValue = options[1].value
     const radioGroup = mount(RadioGroup, {
       propsData: {
         options: options,
-        value: options[0].value
+        value: selectedOptionValue,
+        name: 'name'
       }
     })
-    expect(radioGroup.find('label:first-of-type').classes()).toContain('ao-radio-group__option--active')
+    expect(radioGroup.find('.ao-radio-group__option-input:checked').element.value).toBe(selectedOptionValue)
   })
 
   it('emits on option selection', () => {
+    const selectedOptionValue = options[1].value
     const radioGroup = mount(RadioGroup, {
       propsData: {
         options: options,
-        value: options[0].value
+        value: selectedOptionValue,
+        name: 'name'
       }
     })
-    radioGroup.find('label:nth-child(2)').trigger('click')
-    expect(radioGroup.emitted().input[0][0]).toBe('option 2')
+    radioGroup.find(`.ao-radio-group__option-input[value="${selectedOptionValue}"]`).trigger('input')
+    expect(radioGroup.emitted().input[0][0]).toBe(selectedOptionValue)
   })
 })
