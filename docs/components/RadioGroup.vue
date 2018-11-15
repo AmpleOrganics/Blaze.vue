@@ -10,7 +10,8 @@
         <div class="component-example__display"> My favourite character is {{ selectedRadio }} </div>
         <ao-radio-group
           :options="radios"
-          v-model="selectedRadio"/>
+          v-model="selectedRadio"
+          name="test"/>
       </div>
     </div>
     <template slot="snippet">{{ snippet }}</template>

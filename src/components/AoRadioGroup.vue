@@ -1,17 +1,24 @@
 <template>
   <div class="ao-radio-group">
-    <label
+    <div
       v-for="option in options"
-      :class="[ {'ao-radio-group__option--active': isActive(option.value)}, 'ao-radio-group__option']"
-      :key="option.value">
+      :key="option.value"
+      class="ao-radio-group__option">
       <input
         v-bind="$attrs"
         :value="option.value"
         :checked="currentValue === option.value"
+        :id="option.value"
+        :name="name"
         type="radio"
+        class="ao-radio-group__option-input"
         @input="select(option.value)">
-      {{ option.name }}
-    </label>
+      <label
+        :for="option.value"
+        class="ao-radio-group__option-input-label">
+        {{ option.name }}
+      </label>
+    </div>
   </div>
 </template>
 
@@ -19,6 +26,11 @@
 export default {
   inheritAttrs: false,
   props: {
+    name: {
+      type: String,
+      required: true
+    },
+
     options: {
       type: Array,
       required: true
@@ -55,8 +67,11 @@ export default {
 
 <style lang="scss">
 .ao-radio-group {
-
   &__option {
+    display: inline-block;
+  }
+
+  &__option-input-label {
     display: inline-flex;
     align-items: center;
     margin-bottom: 0;
@@ -71,44 +86,48 @@ export default {
     min-height: $input-height-base;
     box-shadow: $shadow-subtle;
     cursor: pointer;
-
     background-color: $color-white;
     border-color: $color-gray-50;
     color: $font-color-base;
+  }
 
-    &:active {
+  &__option:first-of-type > &__option-input-label {
+    border-top-left-radius: $border-radius-base;
+    border-bottom-left-radius: $border-radius-base;
+  }
+
+  &__option:last-of-type > &__option-input-label {
+    border-top-right-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    border-right-width: 1px;
+  }
+
+  &__option-input{
+    position: absolute;
+    opacity: 0;
+
+    &:focus + &-label {
       box-shadow: $shadow-inset;
-    }
-
-    &:active, &:hover:not([disabled]) {
       background-color: darken($color-white, 3%);
       border-color: darken($color-gray-50, 3%);
       color: darken($font-color-base, 3%);
     }
 
-    &--active,
-    &--active:active,
-    &--active:hover:not([disabled]) {
+    &:disabled + &-label {
+      background-color: $color-white !important;
+      border-color: $color-gray-50 !important;
+      color: $color-gray-40 !important;
+      cursor: not-allowed !important;
+    }
+
+    &:checked + &-label,
+    &:checked:active + &-label,
+    &:checked:hover + &-label {
       background-color: $color-success;
       border-color: $color-success;
       box-shadow: $shadow-none;
       color: white;
     }
-
-    & > input {
-      position: absolute;
-      opacity: 0;
-    }
-  }
-  :first-of-type{
-    border-top-left-radius: $border-radius-base;
-    border-bottom-left-radius: $border-radius-base;
-  }
-
-  :last-of-type {
-    border-top-right-radius: $border-radius-base;
-    border-bottom-right-radius: $border-radius-base;
-    border-right-width: 1px;
   }
 }
 </style>
