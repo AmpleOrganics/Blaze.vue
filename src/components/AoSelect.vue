@@ -122,8 +122,11 @@ export default {
   },
 
   watch: {
-    value (val) {
-      this.selected = val
+    value: {
+      handler (val) {
+        this.selected = val
+      },
+      immediate: true
     }
   },
 

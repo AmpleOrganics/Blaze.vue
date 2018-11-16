@@ -52,13 +52,12 @@ export default {
   },
 
   watch: {
-    value (val) {
-      this.currentValue = val
+    value: {
+      handler (val) {
+        this.currentValue = val
+      },
+      immediate: true
     }
-  },
-
-  created () {
-    this.currentValue = this.value
   },
 
   methods: {
