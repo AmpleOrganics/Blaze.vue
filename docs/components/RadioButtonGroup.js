@@ -17,7 +17,7 @@ export default {
         { name: 'Erica', value: 'Erica' },
         { name: 'Todd', value: 'Todd' }
       ],
-      selectedRadio: 'Tandy'
+      selectedRadio: null
     }
   }`,
   apiRows: [

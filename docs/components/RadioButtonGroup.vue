@@ -44,7 +44,7 @@ export default {
         { name: 'Other Guy', value: 'Other' },
         { name: 'Todd', value: 'Todd' }
       ],
-      selectedRadio: 'Tandy'
+      selectedRadio: null
     }
   }
 }
