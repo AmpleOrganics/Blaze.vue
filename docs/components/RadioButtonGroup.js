@@ -5,7 +5,7 @@ export default {
         `<ao-radio-button-group
     :options="radioOptions"
     :name="'radio'"
-    v-model="radioGroupVal"
+    v-model="selectedRadio"
   />
 
   data () {
