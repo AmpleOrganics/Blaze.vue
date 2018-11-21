@@ -513,8 +513,13 @@
         >
           I am a card callout! I am passed into the cardCallout slot and am flush with the card.
         </ao-callout>
-        <ao-callout>
-          <p>This is default callout</p>
+        <ao-callout
+          :icon-class="'glyphicon glyphicon-ok'"
+          :show-callout.sync="showCallout"
+          dismissible
+          success
+        >
+          This is default callout
         </ao-callout>
         <ao-callout info>
           <p>This is an info callout</p>
@@ -643,6 +648,7 @@ export default {
   name: 'DemoContainer',
   data () {
     return {
+      showCallout: true,
       saveData: {},
       name: null,
       age: 100,
