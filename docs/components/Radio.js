@@ -24,7 +24,7 @@ data() {
   }
 }`,
   apiRows: [
-    { name: 'val', type: '[String, Number], required', default: 'null', description: 'This prop defines the actual value of a radio button.' },
+    { name: 'val', type: '[String, Number, Boolean], required', default: 'null', description: 'This prop defines the actual value of a radio button.' },
     { name: 'disabled', type: 'Boolean', default: 'false', description: 'This prop defines if the modal will ve disabled.' },
     { name: 'label', type: 'Boolean', default: 'false', description: 'This prop defines the label of the radio button.' }
   ]

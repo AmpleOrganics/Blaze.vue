@@ -17,12 +17,12 @@ export default {
   props: {
     // consistant naming and proxy for vue magic
     value: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       required: true
     },
 
     val: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       required: true
     },
 

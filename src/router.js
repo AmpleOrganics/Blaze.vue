@@ -8,6 +8,7 @@ import Breadcrumbs from '../docs/components/Breadcrumbs.vue'
 import Button from '../docs/components/Button.vue'
 import Card from '../docs/components/Card.vue'
 import Checkbox from '../docs/components/Checkbox.vue'
+import Callout from '../docs/components/Callout.vue'
 import Dropdown from '../docs/components/Dropdown.vue'
 import FileUpload from '../docs/components/FileUpload.vue'
 import HeaderToolbar from '../docs/components/HeaderToolbar.vue'
@@ -44,6 +45,7 @@ export default new Router({
     { name: 'badge', path: '/badge', component: Badge, meta: { title: 'Badge' } },
     { name: 'breadcrumbs', path: '/breadcrumbs', component: Breadcrumbs, meta: { title: 'Breadcrumbs' } },
     { name: 'button', path: '/button', component: Button, meta: { title: 'Button' } },
+    { name: 'callout', path: '/callout', component: Callout, meta: { title: 'Callout' } },
     { name: 'card', path: '/card', component: Card, meta: { title: 'Card' } },
     { name: 'checkbox', path: '/checkbox', component: Checkbox, meta: { title: 'Checkbox' } },
     { name: 'dropdown', path: '/dropdown', component: Dropdown, meta: { title: 'Dropdown' } },

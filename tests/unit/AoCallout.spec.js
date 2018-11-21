@@ -42,4 +42,33 @@ describe('Callout', () => {
     })
     expect(callout.classes()).toContain('ao-callout--destructive')
   })
+
+  it('is dismissible', () => {
+    const callout = mount(Callout, {
+      propsData: {
+        dismissible: true,
+        showCallout: true
+      }
+    })
+    expect(callout.contains('ao-callout__dismiss-icon'))
+  })
+
+  it('has an icon', () => {
+    const callout = mount(Callout, {
+      propsData: {
+        iconClass: 'glyphicon'
+      }
+    })
+    expect(callout.contains('glyphicon'))
+  })
+
+  it('emits an update', () => {
+    const callout = mount(Callout, {
+      propsData: {
+        dismissible: true
+      }
+    })
+    callout.find('.ao-callout__dismiss-icon button').trigger('click')
+    expect(callout.emitted()['hideCallout'][0][0]).toBeFalsy()
+  })
 })

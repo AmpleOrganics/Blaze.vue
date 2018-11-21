@@ -1,6 +1,22 @@
 <template>
   <div :class="[computedClasses, 'ao-callout']">
-    <slot />
+    <div>
+      <i
+        v-if="iconClass"
+        :class="[iconClass, 'ao-callout__icon']"
+      />
+    </div>
+    <div class="ao-callout__body">
+      <slot />
+    </div>
+    <div class="ao-callout__dismiss-icon">
+      <button
+        v-if="dismissible"
+        @click="dismissCallout"
+      >
+        <i class="glyphicon glyphicon-remove" />
+      </button>
+    </div>
   </div>
 </template>
 
@@ -23,6 +39,14 @@ export default {
     destructive: {
       type: Boolean,
       default: false
+    },
+    iconClass: {
+      type: String,
+      default: null
+    },
+    dismissible: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -36,38 +60,83 @@ export default {
       }
       return filterClasses(computedClasses)
     }
+  },
+
+  methods: {
+    dismissCallout () {
+      this.$emit('hideCallout')
+    }
   }
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
+  @mixin callout-style($background, $color){
+    background: $background;
+    color: $color;
+
+    .ao-callout__dismiss-icon button {
+      color: $color;
+    }
+  }
+
   .ao-callout {
+    display: flex;
     padding: $spacer;
     margin-bottom: $spacer;
     background: $color-gray-90;
 
-    *:last-child {
+    &__body > *:last-child {
       margin-bottom: 0;
     }
 
     &--info {
-      background: $color-info-light;
-      color: $color-info-dark;
+      @include callout-style($color-info-light, $color-info-dark)
     }
 
     &--success {
-      background: $color-success-light;
-      color: $color-success-dark;
+      @include callout-style($color-success-light, $color-success-dark)
     }
 
     &--caution {
-      background: $color-caution-light;
-      color: $color-caution-dark;
+      @include callout-style($color-caution-light, $color-caution-dark)
     }
 
     &--destructive {
-      background: $color-destructive-light;
-      color: $color-destructive-dark;
+      @include callout-style($color-destructive-light, $color-destructive-dark)
+    }
+
+    &__icon {
+      margin-right: $spacer;
+      font-size: $font-size-xl;
+      opacity: 0.2;
+    }
+
+    &__body {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    &__dismiss-icon {
+      display: flex;
+      flex-direction: column;
+
+      button {
+        background: transparent;
+        border: 0;
+        height: auto;
+        width: auto;
+        flex-grow: 0;
+        opacity: .6;
+        font-size: $font-size-sm;
+        padding: 0;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
 
