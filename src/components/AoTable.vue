@@ -1,7 +1,5 @@
 <template>
-  <table
-    :class="[computedClasses, computedVAlign]"
-  >
+  <table :class="[computedClasses, computedVAlign]">
     <thead>
       <tr>
         <th

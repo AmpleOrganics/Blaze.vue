@@ -10,6 +10,7 @@
       <slot name="fileUploadLabelTooltip" />
     </div>
     <input
+      v-bind="$attrs"
       :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
       :disabled="disabled || disableAll"
@@ -34,6 +35,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     label: {
       type: String,

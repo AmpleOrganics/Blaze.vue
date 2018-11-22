@@ -7,6 +7,7 @@
     >
       <input
         v-model="checked"
+        v-bind="$attrs"
         :value="checkboxValue"
         :disabled="disabled"
         type="checkbox"
@@ -22,6 +23,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     // both this and checkboxValue needed to avoid vue issue
     value: {

@@ -11,14 +11,12 @@
     </div>
     <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup }]">
       <input
+        v-bind="$attrs"
         :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
-        :type="type"
-        :placeholder="placeholder"
-        :name="name"
-        :value="value"
         :disabled="disabled || disableAll"
-        :step="step"
-        :min="min"
+        :value="value"
+        :type="type"
+        :name="name"
         @input="updateValue($event.target.value)"
         @blur="emitBlur($event)"
       >
@@ -54,6 +52,7 @@
 import { filterClasses } from './utils/component_utilities.js'
 
 export default {
+  inheritAttrs: false,
   props: {
     type: {
       type: String,
@@ -84,11 +83,6 @@ export default {
       default: null
     },
 
-    placeholder: {
-      type: String,
-      default: null
-    },
-
     iconHtml: {
       type: String,
       default: null
@@ -114,11 +108,6 @@ export default {
       default: false
     },
 
-    step: {
-      type: Number,
-      default: 1
-    },
-
     invalid: {
       type: Boolean,
       default: false
@@ -139,11 +128,6 @@ export default {
 
     instructionText: {
       type: String,
-      default: null
-    },
-
-    min: {
-      type: [String, Number],
       default: null
     }
   },
