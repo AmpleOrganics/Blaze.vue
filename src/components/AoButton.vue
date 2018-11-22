@@ -1,9 +1,7 @@
 <template>
   <button
     :type="type"
-    :form="formName"
     :class="computedButtonClass"
-    :disabled="disabled"
   >
     <slot />
   </button>
@@ -21,11 +19,6 @@ export default {
       validator: function (buttonType) {
         return ['button', 'submit'].indexOf(buttonType) !== -1
       }
-    },
-
-    formName: {
-      type: String,
-      default: null
     },
 
     small: {
@@ -69,11 +62,6 @@ export default {
     },
 
     textOnly: {
-      type: Boolean,
-      default: false
-    },
-
-    disabled: {
       type: Boolean,
       default: false
     },

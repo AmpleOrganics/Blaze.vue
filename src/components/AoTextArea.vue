@@ -1,5 +1,4 @@
 <template>
-  <!-- investigate min max length -->
   <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
@@ -11,13 +10,9 @@
       <slot name="tooltip" />
     </div>
     <textarea
+      v-bind="$attrs"
       :class="{'ao-form-control--invalid': invalid }"
       :value="value"
-      :placeholder="placeholder"
-      :name="name"
-      :rows="rows"
-      :maxlength="maxLength"
-      :minlength="minLength"
       :disabled="disabled || disableAll"
       class="ao-form-control"
       @input="inputEvent($event.target.value)"
@@ -40,6 +35,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     value: {
       type: String,
@@ -51,26 +47,6 @@ export default {
       default: null
     },
 
-    name: {
-      type: String,
-      default: null
-    },
-
-    placeholder: {
-      type: String,
-      default: null
-    },
-
-    maxLength: {
-      type: Number,
-      default: 100000
-    },
-
-    minLength: {
-      type: Number,
-      default: 0
-    },
-
     disabled: {
       type: Boolean,
       default: false
@@ -79,11 +55,6 @@ export default {
     disableAll: {
       type: Boolean,
       default: false
-    },
-
-    rows: {
-      type: Number,
-      default: 5
     },
 
     invalid: {

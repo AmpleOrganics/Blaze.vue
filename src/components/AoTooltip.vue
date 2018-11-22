@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="[computedClasses, `ao-tooltip--${this.position}`]"
-  >
+  <div :class="[computedClasses, `ao-tooltip--${this.position}`]">
     <slot>
       <i class="ao-tooltip__default-icon glyphicon glyphicon-info-sign" />
     </slot>

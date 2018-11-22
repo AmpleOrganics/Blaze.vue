@@ -2,8 +2,8 @@
   <label class="ao-checkbox">
     <input
       v-model="checked"
+      v-bind="$attrs"
       :value="val"
-      :disabled="disabled"
       type="radio"
       @change="toggle"
     >
@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     // consistant naming and proxy for vue magic
     value: {
@@ -23,11 +24,6 @@ export default {
     val: {
       type: [String, Number],
       required: true
-    },
-
-    disabled: {
-      type: Boolean,
-      default: false
     },
 
     label: {
