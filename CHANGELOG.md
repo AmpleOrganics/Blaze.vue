@@ -1,3 +1,18 @@
+# 1.4.0 (2018-11-26)
+
+## Breaking Changes
+
+Button: prop `formName` removed in favour of using html attribute `form` that is inherently passed in. [806674b](https://github.com/AmpleOrganics/Blaze.vue/pull/262/commits/806674bb296b0b6ffa9f4bbd26f809d4e6e6746e)
+
+## Fixes
+
+AoSelect, AoRadioGroup: fixed preselect and dynamically changing select and radio group based on props. bug was introduced in version 1.3.0 [496976d
+](https://github.com/AmpleOrganics/Blaze.vue/pull/262/commits/496976d545f1dec89c2c0eb516ebc93f2e6a1add)
+
+## New features
+
+Callout: Add dismissible feature and overall style improvements [PR](https://github.com/AmpleOrganics/Blaze.vue/pull/257) fixes [242](https://github.com/AmpleOrganics/Blaze.vue/issues/242) and [243](https://github.com/AmpleOrganics/Blaze.vue/issues/243)
+
 # 1.3.0 (2018-11-15)
 
 ## New Component
