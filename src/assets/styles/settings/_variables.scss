@@ -41,14 +41,14 @@ $color-destructive-dark:      $color-red-dark;
 
 // Ample Shades of Gray
 $color-gray-10:               #474a4c;
-$color-gray-20:               #585d60;
-$color-gray-30:               #818a91;
-$color-gray-40:               #aaaaaa;
-$color-gray-50:               #cccccc;
-$color-gray-60:               #dcdedf;
-$color-gray-80:               #ebecef;
+$color-gray-20:               #5e6366;
+$color-gray-30:               #757b80;
+$color-gray-40:               #8d9499;
+$color-gray-50:               #aaadb3;
+$color-gray-60:               #c6c9cc;
+$color-gray-70:               #d9dcde;
+$color-gray-80:               #ebecf0;
 $color-gray-90:               #f7f7f9;
-$color-grey-light:            #ddd;
 
 //
 // Spacing & Sizing
@@ -107,8 +107,8 @@ $header-toolbar-height:       60px;
 // General UI Styles
 //
 
-$ui-border-color-base:        $color-gray-60;
-$border-gray-50:              1px solid $color-gray-50;
+$ui-border-color-base:        $color-gray-70;
+$border-gray-50:              1px solid $color-gray-60;
 
 $border-radius-base:          3px;
 
@@ -149,5 +149,5 @@ $input-label-margin:          0 0 $spacer-xs;
 //
 
 $table-cell-padding:          $font-size-base/2;
-$table-border-color:          $color-gray-60;
+$table-border-color:          $color-gray-70;
 

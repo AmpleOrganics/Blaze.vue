@@ -158,7 +158,7 @@ $table-row-background-shaded: $color-gray-90;
   min-height: 0.01%;
 
   tr {
-    border-bottom: 1px solid $color-gray-60;
+    border-bottom: 1px solid $color-gray-70;
   }
 
   th, td {

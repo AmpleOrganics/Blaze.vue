@@ -143,7 +143,7 @@ export default {
 
 /* Default styles, overridden by special classes */
  background-color: $color-white;
- border-color: $color-gray-50;
+ border-color: $color-gray-60;
  color: $font-color-base;
 
 /* Default hover/active styles, overridden by special classes */
@@ -153,7 +153,7 @@ export default {
 
  &:active, &:hover:not([disabled]) {
    background-color: darken($color-white, 3%);
-   border-color: darken($color-gray-50, 3%);
+   border-color: darken($color-gray-60, 3%);
    color: darken($font-color-base, 3%);
  }
 
@@ -184,7 +184,7 @@ export default {
  }
 
  &--subtle {
-   @include ao-button-colors($font-color-base, $color-gray-90, $color-gray-60, 5%);
+   @include ao-button-colors($font-color-base, $color-gray-90, $color-gray-70, 5%);
  }
 
  &--naked {

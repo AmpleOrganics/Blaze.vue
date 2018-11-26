@@ -90,7 +90,7 @@ $tooltip-transition: opacity .2s ease-in-out;
   }
 
   &__default-icon {
-    color: $color-gray-40;
+    color: $color-gray-50;
     font-size: $font-size-sm;
   }
 

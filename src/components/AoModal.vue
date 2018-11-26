@@ -165,7 +165,7 @@ export default {
   &__footer {
     padding: $spacer;
     text-align: right;
-    border-top: 1px solid $color-gray-60;
+    border-top: 1px solid $color-gray-70;
   }
 
   &--large &__content {
