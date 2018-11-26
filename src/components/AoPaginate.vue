@@ -85,7 +85,7 @@ export default {
       opacity: 0.65;
       filter: alpha(opacity=65);
       box-shadow: none;
-      color: $color-gray-50;
+      color: $color-gray-60;
       background: $color-white !important;
       z-index: $zindex-base - 1;
     }

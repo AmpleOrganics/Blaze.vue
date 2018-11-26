@@ -94,7 +94,7 @@ export default {
     box-shadow: $shadow-subtle;
     cursor: pointer;
     background-color: $color-white;
-    border-color: $color-gray-50;
+    border-color: $color-gray-60;
     color: $font-color-base;
   }
 
@@ -116,14 +116,14 @@ export default {
     &:focus + &-label {
       box-shadow: $shadow-inset;
       background-color: darken($color-white, 3%);
-      border-color: darken($color-gray-50, 3%);
+      border-color: darken($color-gray-60, 3%);
       color: darken($font-color-base, 3%);
     }
 
     &:disabled + &-label {
       background-color: $color-white !important;
-      border-color: $color-gray-50 !important;
-      color: $color-gray-40 !important;
+      border-color: $color-gray-60 !important;
+      color: $color-gray-50 !important;
       cursor: not-allowed !important;
     }
 

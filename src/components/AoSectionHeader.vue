@@ -60,7 +60,7 @@ export default {
 
 .ao-section-header {
   background-color: $color-white;
-  border: 1px solid $color-gray-60;
+  border: 1px solid $color-gray-70;
   border-radius: $border-radius-base;
   padding: $spacer;
   margin-bottom: $spacer;
