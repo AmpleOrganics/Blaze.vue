@@ -74,11 +74,12 @@ export default {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    color: $color-gray-20;
+    color: $color-gray-10;
     border: 1px solid $input-border-color;
     background: $color-white;
     z-index: $zindex-base;
     user-select: none;
+    font-weight: $font-weight-bold;
 
     &[disabled] {
       cursor: not-allowed !important;
@@ -92,15 +93,20 @@ export default {
 
     &:first-child {
       border-radius: $border-radius-base 0 0 $border-radius-base;
+      border-right: 0;
     }
 
     &:last-child {
       border-radius: 0 $border-radius-base $border-radius-base 0;
-      border-left: 0;
     }
 
     &:hover {
+      text-decoration: none;
+    }
+
+    &:hover:not([disabled]) {
       background: $color-gray-90;
+      color: $color-gray-20;
       cursor: pointer;
     }
   }
