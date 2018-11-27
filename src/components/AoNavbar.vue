@@ -25,7 +25,7 @@
         background-color: $color-gray-80;
       }
 
-      & > * {
+      & > a {
         text-decoration: none;
         line-height: $line-height-base;
         border-radius: $border-radius-base;
@@ -36,6 +36,10 @@
         margin-bottom: $spacer/2;
         height: $input-height-base;
         text-transform: capitalize;
+      }
+
+      & > a:hover {
+        color: $color-gray-20;
       }
     }
   }
