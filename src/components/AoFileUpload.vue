@@ -9,15 +9,57 @@
       </label>
       <slot name="fileUploadLabelTooltip" />
     </div>
-    <input
-      v-bind="$attrs"
-      :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
-      :name="name"
-      :disabled="disabled || disableAll"
-      type="file"
-      @change="updateFile($event.target.files)"
-      @blur="emitBlur($event)"
+    <div
+      :class="['ao-file-upload', {'ao-file-upload--is-dragging': dragIn}]"
     >
+      <input
+        v-bind="$attrs"
+        :class="[{'ao-form-control--invalid': invalid }, 'ao-file-upload__input']"
+        :name="name"
+        :disabled="disabled || disableAll"
+        :multiple="multiple"
+        type="file"
+        @change="updateFile"
+        @blur="emitBlur"
+        @drop="dropFile"
+      >
+      <div class="ao-file-upload__default-state">
+        <div
+          v-if="dragAndDrop"
+          class="ao-file-upload__drag-text"
+        >
+          <p>
+            Drag & drop files here
+          </p>
+          <p>
+            or
+          </p>
+        </div>
+        <ao-button
+          @click.native="openFileSelector"
+        >
+          Choose Files
+        </ao-button>
+      </div>
+      <div class="ao-file-upload__drag-state">
+        <p>Drop files here</p>
+      </div>
+      <div
+        v-for="file in files"
+        :key="file.name"
+      >
+        <div>
+          {{ file.name }}
+          {{ file.type }}
+          <ao-button
+            primary
+            @click.native="removeFile(file.name)"
+          >
+            X
+          </ao-button>
+        </div>
+      </div>
+    </div>
     <span
       v-show="invalidMessage && invalid"
       class="ao-form-group__invalid-message"
@@ -75,6 +117,28 @@ export default {
     instructionText: {
       type: String,
       default: null
+    },
+
+    uploadPercentage: {
+      type: Number,
+      default: null
+    },
+
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+
+    dragAndDrop: {
+      type: Boolean,
+      default: true
+    }
+  },
+
+  data () {
+    return {
+      files: [],
+      dragIn: false
     }
   },
 
@@ -84,13 +148,70 @@ export default {
     }
   },
 
+  mounted () {
+    window.addEventListener('dragenter', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      this.dragIn = true
+    }, false)
+
+    window.addEventListener('dragleave', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      this.dragIn = false
+    }, false)
+  },
+
   methods: {
-    updateFile (value) {
-      this.$emit('change', value[0])
+    updateFile (file) {
+      if (this.multiple) {
+        this.handleImages(file.currentTarget.files[0])
+        this.$emit('change', file.currentTarget.files[0])
+      }
     },
 
     emitBlur (event) {
       this.$emit('blur', event)
+    },
+
+    dropFile (file) {
+      this.handleImages(file.dataTransfer.files[0])
+      this.$emit('drop', file.dataTransfer.files[0])
+    },
+
+    handleImages (file) {
+      const name = file.name
+      const type = name.split('.')[1]
+      if (this.multiple) {
+        this.files.push({ name, type, progress: 0 })
+      } else {
+        this.files = [{ name, type, progress: 0 }]
+      }
+      // this.initiateLoadingSequence(file.name)
+    },
+
+    // initiateLoadingSequence (fileName) {
+    //   let file = this.files.find((file) => {
+    //     return file.progress === 0
+    //   })
+    //   setInterval(() => {
+    //     if (file.progress < 100) {
+    //       file.progress++
+    //     }
+    //   }, 1)
+    // },
+
+    removeFile (fileName) {
+      if (this.multiple) {
+        this.files = this.files.filter((file) => {
+          return file.name !== fileName
+        })
+        this.$emit('removeFile', fileName)
+      } else {
+        this.files = []
+        this.$refs.fileInput.value = ''
+        this.$emit('removeFile', fileName)
+      }
     }
   }
 }
@@ -101,5 +222,70 @@ export default {
 @import '../assets/styles/mixins/shared-input-styles.scss';
 
 @include shared-input-styles;
+
+.ao-file-upload {
+  padding: $spacer;
+  text-align: center;
+  background: $color-white;
+  border: 1px dashed $input-border-color;
+  border-radius: $border-radius-base;
+  position: relative;
+
+  &__input {
+    display: none;
+  }
+
+  &__drag-text {
+    font-size: $font-size-sm;
+    color: $color-gray-30;
+    margin-bottom: $spacer-micro;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &__default-state {
+    opacity: 1;
+    transition: opacity $transition-base
+  }
+
+  &__drag-state {
+    opacity: 0;
+    display: flex;
+    text-align: center;
+    flex-direction: column;;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity $transition-base;
+
+    p {
+      color: $color-primary;
+      margin-bottom: 0;
+    }
+
+  }
+
+  &--is-dragging {
+    border-color: $color-primary;
+    background: $color-primary-light;
+  }
+
+  &--is-dragging &__default-state {
+    opacity: 0;
+  }
+
+  &--is-dragging &__drag-state {
+    opacity: 1;
+  }
+
+  &--is-dragging:hover {
+    border-style: solid;
+  }
+}
 
 </style>

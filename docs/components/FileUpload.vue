@@ -13,8 +13,15 @@
           :disable-all="disableAll"
           :invalid="invalid"
           :invalid-message="invalidMessage"
+          multiple
           name="'file'"
+          @change="handleFile"
+          @removeFile="removeFile"
+          @drop="handleFile"
         />
+      </div>
+      <div v-if="file">
+        {{ file.name }}
       </div>
       <div class="component-controls">
         <div class="component-controls__group">
@@ -74,6 +81,7 @@ export default {
     Layout,
     ApiTable
   },
+
   data () {
     return {
       ...FileUploadDocumentation,
@@ -82,14 +90,28 @@ export default {
       disabled: false,
       disableAll: false,
       invalid: false,
-      invalidMessage: 'INVALID!'
+      invalidMessage: 'INVALID!',
+      uploadPercentage: 0,
+      file: null
+    }
+  },
+
+  methods: {
+    handleFile (value) {
+      if (value) {
+        this.file = null
+        this.file = value
+      } else {
+        this.file = null
+      }
+    },
+
+    removeFile () {
+      this.file = null
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.component-example__file-upload {
-  height: 100px;
-}
 </style>
