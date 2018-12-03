@@ -11,8 +11,10 @@
     </div>
     <div
       :class="['ao-file-upload', {'ao-file-upload--is-dragging': dragIn}]"
+      @drop="dropFile"
     >
       <input
+        ref="fileInput"
         v-bind="$attrs"
         :class="[{'ao-form-control--invalid': invalid }, 'ao-file-upload__input']"
         :name="name"
@@ -21,7 +23,6 @@
         type="file"
         @change="updateFile"
         @blur="emitBlur"
-        @drop="dropFile"
       >
       <div class="ao-file-upload__default-state">
         <div
@@ -149,17 +150,30 @@ export default {
   },
 
   mounted () {
-    window.addEventListener('dragenter', (e) => {
-      e.preventDefault()
-      e.stopPropagation()
-      this.dragIn = true
-    }, false)
+    const enter = ['drag', 'dragstart', 'dragover', 'dragenter', 'drop']
+    const leave = ['dragend', 'dragleave']
 
-    window.addEventListener('dragleave', (e) => {
-      e.preventDefault()
-      e.stopPropagation()
-      this.dragIn = false
-    }, false)
+    enter.forEach((enter) => {
+      window.addEventListener(enter, (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        this.dragIn = true
+      })
+    })
+
+    leave.forEach((leave) => {
+      window.addEventListener(leave, (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        this.dragIn = false
+      }, false)
+    })
+  },
+
+  destroyed () {
+    ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop'].forEach((e) => {
+      window.removeEventListener(e, { passive: false })
+    })
   },
 
   methods: {
@@ -175,6 +189,7 @@ export default {
     },
 
     dropFile (file) {
+      debugger
       this.handleImages(file.dataTransfer.files[0])
       this.$emit('drop', file.dataTransfer.files[0])
     },
@@ -200,6 +215,10 @@ export default {
     //     }
     //   }, 1)
     // },
+
+    openFileSelector () {
+      this.$refs.fileInput.click()
+    },
 
     removeFile (fileName) {
       if (this.multiple) {
