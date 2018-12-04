@@ -44,20 +44,28 @@
       </div>
       <div class="ao-file-upload__drag-state">
         <p>Drop files here</p>
-      </div>
-      <div
-        v-for="file in files"
-        :key="file.name"
-      >
-        <div>
-          {{ file.name }}
-          {{ file.type }}
-          <ao-button
-            primary
-            @click.native="removeFile(file.name)"
-          >
-            X
-          </ao-button>
+        <div
+          v-for="file in files"
+          :key="file.data.name"
+        >
+          <div>
+            <div v-if="isImage(file.type)">
+              <img
+                :src="getFileSrc(file)"
+                :alt="file.data.name"
+              >
+            </div>
+            <div v-else>
+              {{ file.type }}
+              {{ truncateName(file.data.name) }}
+            </div>
+            <ao-button
+              primary
+              @click.native="removeFile(file.data.name)"
+            >
+              X
+            </ao-button>
+          </div>
         </div>
       </div>
     </div>
@@ -189,32 +197,20 @@ export default {
     },
 
     dropFile (file) {
-      debugger
       this.handleImages(file.dataTransfer.files[0])
       this.$emit('drop', file.dataTransfer.files[0])
     },
 
     handleImages (file) {
-      const name = file.name
-      const type = name.split('.')[1]
-      if (this.multiple) {
-        this.files.push({ name, type, progress: 0 })
-      } else {
-        this.files = [{ name, type, progress: 0 }]
-      }
-      // this.initiateLoadingSequence(file.name)
-    },
+      const splitName = file.name.split('.')
+      const type = splitName[splitName.length - 1]
 
-    // initiateLoadingSequence (fileName) {
-    //   let file = this.files.find((file) => {
-    //     return file.progress === 0
-    //   })
-    //   setInterval(() => {
-    //     if (file.progress < 100) {
-    //       file.progress++
-    //     }
-    //   }, 1)
-    // },
+      if (this.multiple) {
+        this.files.push({ data: file, type })
+      } else {
+        this.files = [{ data: file, type }]
+      }
+    },
 
     openFileSelector () {
       this.$refs.fileInput.click()
@@ -223,7 +219,7 @@ export default {
     removeFile (fileName) {
       if (this.multiple) {
         this.files = this.files.filter((file) => {
-          return file.name !== fileName
+          return file.data.name !== fileName
         })
         this.$emit('removeFile', fileName)
       } else {
@@ -231,6 +227,25 @@ export default {
         this.$refs.fileInput.value = ''
         this.$emit('removeFile', fileName)
       }
+    },
+
+    truncateName (name) {
+      if (name.split('').length > 25) {
+        return `${name.slice(0, 25)}...`
+      } else {
+        return name
+      }
+    },
+
+    isImage (type) {
+      const imageTypes = ['jpg', 'jpeg', 'png']
+      return imageTypes.indexOf(type) > -1
+    },
+
+    getFileSrc (file) {
+      let reader = new FileReader()
+      reader.readAsDataURL(file.data)
+      return reader.result
     }
   }
 }
