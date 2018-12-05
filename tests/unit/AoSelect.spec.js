@@ -97,6 +97,17 @@ describe('Select', () => {
     expect(select.emitted().blur).toBeTruthy()
   })
 
+  it('emit focus', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'label'
+      }
+    })
+
+    select.find('.ao-form-control').trigger('focus')
+    expect(select.emitted().focus).toBeTruthy()
+  })
+
   it('invalid message', () => {
     const select = mount(Select, {
       propsData: {

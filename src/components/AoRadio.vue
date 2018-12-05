@@ -6,6 +6,8 @@
       :value="val"
       type="radio"
       @change="toggle"
+      @blur="emitBlur"
+      @focus="emitFocus"
     >
     <span>{{ label }}</span>
   </label>
@@ -32,6 +34,12 @@ export default {
     }
   },
 
+  data () {
+    return {
+      proxy: null
+    }
+  },
+
   computed: {
     checked: {
       get () { return this.value },
@@ -45,6 +53,14 @@ export default {
   methods: {
     toggle () {
       this.$emit('input', this.proxy)
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
     }
   }
 }

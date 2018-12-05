@@ -15,8 +15,9 @@
       :name="name"
       :disabled="disabled || disableAll"
       type="file"
-      @change="updateFile($event.target.files)"
-      @blur="emitBlur($event)"
+      @change="emitChange"
+      @blur="emitBlur"
+      @focus="emitFocus"
     >
     <span
       v-show="invalidMessage && invalid"
@@ -85,12 +86,16 @@ export default {
   },
 
   methods: {
-    updateFile (value) {
-      this.$emit('change', value[0])
+    emitChange (event) {
+      this.$emit('change', event.currentTarget.files[0])
     },
 
     emitBlur (event) {
       this.$emit('blur', event)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
     }
   }
 }

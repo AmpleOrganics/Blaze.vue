@@ -13,6 +13,8 @@
         type="checkbox"
         class="ao-checkbox__input"
         @change="check"
+        @blur="emitBlur"
+        @focus="emitFocus"
       >
       <span v-show="showLabel">
         {{ checkboxLabel }}
@@ -73,6 +75,14 @@ export default {
   methods: {
     check (value) {
       this.$emit('input', this.checkedModel)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
     }
   }
 }

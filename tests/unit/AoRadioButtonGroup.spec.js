@@ -42,4 +42,30 @@ describe('Radio', () => {
     radioButtonGroup.find(`.ao-radio-button-group__option-input[value="${selectedOptionValue}"]`).trigger('input')
     expect(radioButtonGroup.emitted().input[0][0]).toBe(selectedOptionValue)
   })
+
+  it('emits blur', () => {
+    const selectedOptionValue = options[1].value
+    const radioButtonGroup = mount(RadioButtonGroup, {
+      propsData: {
+        options: options,
+        value: selectedOptionValue,
+        name: 'name'
+      }
+    })
+    radioButtonGroup.find(`.ao-radio-button-group__option-input[value="${selectedOptionValue}"]`).trigger('blur')
+    expect(radioButtonGroup.emitted().blur).toBeTruthy()
+  })
+
+  it('emits focus', () => {
+    const selectedOptionValue = options[1].value
+    const radioButtonGroup = mount(RadioButtonGroup, {
+      propsData: {
+        options: options,
+        value: selectedOptionValue,
+        name: 'name'
+      }
+    })
+    radioButtonGroup.find(`.ao-radio-button-group__option-input[value="${selectedOptionValue}"]`).trigger('focus')
+    expect(radioButtonGroup.emitted().focus).toBeTruthy()
+  })
 })
