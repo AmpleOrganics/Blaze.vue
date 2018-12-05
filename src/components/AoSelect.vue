@@ -49,7 +49,7 @@ import { filterClasses } from './utils/component_utilities.js'
 export default {
   props: {
     value: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       default: null
     },
 
