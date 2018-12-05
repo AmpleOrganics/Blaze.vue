@@ -15,8 +15,10 @@
       :value="value"
       :disabled="disabled || disableAll"
       class="ao-form-control"
-      @input="inputEvent($event.target.value)"
-      @blur="emitBlur($event)"
+      @input="emitInput"
+      @blur="emitBlur"
+      @focus="emitFocus"
+      @change="emitChange"
     />
     <span
       v-show="invalidMessage && invalid"
@@ -85,12 +87,20 @@ export default {
   },
 
   methods: {
-    inputEvent (updatedValue) {
-      this.$emit('input', updatedValue)
+    emitInput (event) {
+      this.$emit('input', event.target.value)
     },
 
     emitBlur (event) {
       this.$emit('blur', event)
+    },
+
+    emitChange (event) {
+      this.$emit('change', event.target.value)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
     }
   }
 }

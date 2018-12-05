@@ -17,8 +17,10 @@
         :value="value"
         :type="type"
         :name="name"
-        @input="updateValue($event.target.value)"
-        @blur="emitBlur($event)"
+        @change="emitChange"
+        @input="emitInput"
+        @blur="emitBlur"
+        @focus="emitFocus"
       >
       <span
         v-if="hasIconAddon"
@@ -158,12 +160,20 @@ export default {
   },
 
   methods: {
-    updateValue (value) {
-      this.$emit('input', value)
+    emitInput (event) {
+      this.$emit('input', event.target.value)
     },
 
     emitBlur (event) {
       this.$emit('blur', event)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
+    },
+
+    emitChange (event) {
+      this.$emit('change', event.target.value)
     }
   }
 }
