@@ -14,6 +14,8 @@
         type="radio"
         class="ao-radio-button-group__option-input"
         @input="select(option.value)"
+        @blur="emitBlur"
+        @focus="emitFocus"
       >
       <label
         :for="option.value"
@@ -67,6 +69,14 @@ export default {
 
     isChecked (val) {
       return this.currentValue === val
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
     }
   }
 }

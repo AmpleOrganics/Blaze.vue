@@ -63,6 +63,18 @@ describe('FileUpload', () => {
     expect(fileUpload.emitted().blur).toBeTruthy()
   })
 
+  it('emit focus', () => {
+    const fileUpload = mount(FileUpload, {
+      propsData: {
+        label: 'label',
+        name: 'test1'
+      }
+    })
+
+    fileUpload.find('.ao-form-control').trigger('focus')
+    expect(fileUpload.emitted().focus).toBeTruthy()
+  })
+
   it('instruction text', () => {
     const fileUpload = mount(FileUpload, {
       propsData: {

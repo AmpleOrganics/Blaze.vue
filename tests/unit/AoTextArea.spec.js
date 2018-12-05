@@ -40,6 +40,28 @@ describe('TextArea', () => {
     expect(textArea.emitted().blur).toBeTruthy()
   })
 
+  it('emit focus', () => {
+    const textArea = mount(TextArea, {
+      propsData: {
+        value: 'value'
+      }
+    })
+
+    textArea.find('.ao-form-control').trigger('focus')
+    expect(textArea.emitted().focus).toBeTruthy()
+  })
+
+  it('emit change', () => {
+    const textArea = mount(TextArea, {
+      propsData: {
+        value: 'value'
+      }
+    })
+
+    textArea.find('.ao-form-control').trigger('change')
+    expect(textArea.emitted().change[0][0]).toBe('value')
+  })
+
   it('instruction text', () => {
     const textArea = mount(TextArea)
 

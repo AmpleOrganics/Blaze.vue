@@ -83,6 +83,32 @@ describe('Input', () => {
     expect(input.emitted().blur).toBeTruthy()
   })
 
+  it('emit change', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'label',
+        value: 'value'
+      }
+    })
+
+    input.find('.ao-form-control').trigger('change')
+    expect(input.emitted().change[0][0]).toBe('value')
+  })
+
+  it('emit focus', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'label',
+        value: 'value'
+      }
+    })
+
+    input.find('.ao-form-control').trigger('focus')
+    expect(input.emitted().focus).toBeTruthy()
+  })
+
   it('instruction text', () => {
     const input = mount(Input, {
       propsData: {
