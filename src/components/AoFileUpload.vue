@@ -37,6 +37,7 @@
           </p>
         </div>
         <ao-button
+          class="ao-file-upload__button"
           @click.native="openFileSelector"
         >
           Choose Files
@@ -44,29 +45,26 @@
       </div>
       <div class="ao-file-upload__drag-state">
         <p>Drop files here</p>
-        <div
-          v-for="file in files"
-          :key="file.data.name"
-        >
-          <div>
-            <div v-if="isImage(file.type)">
-              <img
-                :src="getFileSrc(file)"
-                :alt="file.data.name"
-              >
-            </div>
-            <div v-else>
-              {{ file.type }}
-              {{ truncateName(file.data.name) }}
-            </div>
-            <ao-button
-              primary
-              @click.native="removeFile(file.data.name)"
-            >
-              X
-            </ao-button>
-          </div>
+      </div>
+      <div
+        v-for="file in files"
+        :key="file.data.name"
+        class="ao-file-upload--files"
+      >
+        <div v-if="isImage(file.type)">
+          <img
+            :src="getFileSrc(file.data)"
+            :alt="file.data.name"
+          >
         </div>
+        <div v-else>
+          {{ file.type }}
+          {{ truncateName(file.data.name) }}
+        </div>
+        <i
+          class="glyphicon glyphicon-remove"
+          @click="removeFile(file.data.name)"
+        />
       </div>
     </div>
     <span
@@ -221,9 +219,13 @@ export default {
         this.files = this.files.filter((file) => {
           return file.data.name !== fileName
         })
+        if (this.files.length === 0) {
+          this.dragIn = false
+        }
         this.$emit('removeFile', fileName)
       } else {
         this.files = []
+        this.dragIn = false
         this.$refs.fileInput.value = ''
         this.$emit('removeFile', fileName)
       }
@@ -243,9 +245,10 @@ export default {
     },
 
     getFileSrc (file) {
-      let reader = new FileReader()
-      reader.readAsDataURL(file.data)
-      return reader.result
+      // let reader = new FileReader()
+      // reader.readAsDataURL(file.data)
+      // return reader.result
+      return URL.createObjectURL(file)
     }
   }
 }
@@ -286,6 +289,7 @@ export default {
 
   &__drag-state {
     opacity: 0;
+    z-index: 0;
     display: flex;
     text-align: center;
     flex-direction: column;;
@@ -304,6 +308,11 @@ export default {
 
   }
 
+  &__button {
+    z-index: 1;
+    position: relative;
+  }
+
   &--is-dragging {
     border-color: $color-primary;
     background: $color-primary-light;
@@ -320,6 +329,29 @@ export default {
   &--is-dragging:hover {
     border-style: solid;
   }
+
+  &--files {
+    position:relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+.glyphicon-remove {
+  margin: auto 0;
+  opacity: 0.6;
+  padding-left: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+img {
+  margin: auto 0;
 }
 
 </style>
