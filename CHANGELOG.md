@@ -1,3 +1,17 @@
+# 1.5.0 (2018-12-07)
+
+## Fixes
+
+Input, Select, TextArea, FileUpload, Checkbox, Radio, Radio Button Group: Emits focus and Blur [1630ac4](https://github.com/AmpleOrganics/Blaze.vue/commit/1630ac41a8df176df04a291d2e73820eab0855ca)
+
+Input, TextArea: Emits change[1630ac4](https://github.com/AmpleOrganics/Blaze.vue/commit/1630ac41a8df176df04a291d2e73820eab0855ca)
+
+Select accepts a boolean as a value [1fc65bc](https://github.com/AmpleOrganics/Blaze.vue/commit/1fc65bcba918bdfe0d0ae38f10f829cf51c9cb22)
+
+Pagination styles improved [ae5a47a](https://github.com/AmpleOrganics/Blaze.vue/commit/ae5a47a7b7a3d41da2191f87c32ec223e8797dfa)
+
+Improve gray color scale [7d05f98](https://github.com/AmpleOrganics/Blaze.vue/commit/7d05f982af83954c9635a483d3ba99cba1eef1bc)
+
 # 1.4.0 (2018-11-26)
 
 ## Breaking Changes
