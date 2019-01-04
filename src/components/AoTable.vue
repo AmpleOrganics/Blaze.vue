@@ -186,16 +186,6 @@ $table-row-background-shaded: $color-gray-90;
     background-color: $color-gray-90;
   }
 
-  &.ao-table--clickable {
-    tbody > tr {
-      cursor: pointer;
-    }
-
-    & > tbody > tr:hover {
-      background: $color-gray-80;
-    }
-  }
-
   &--vertical-align-top {
     td {
       vertical-align: top;
@@ -211,9 +201,6 @@ $table-row-background-shaded: $color-gray-90;
   & tr > td {
     padding: .5rem;
     vertical-align: middle;
-  }
-
-  & tr > td {
     border-bottom: 1px solid $table-border-color;
   }
 
@@ -222,8 +209,12 @@ $table-row-background-shaded: $color-gray-90;
     border-bottom: 2px solid $table-border-color;
   }
 
-  & > tfoot > tr:first-child > td {
+  & > tfoot > tr > td {
     border-top: 1px solid $table-border-color;
+  }
+
+  & > tfoot > tr ~ tr > td {
+    border-top: 0;
   }
 
   &__th--sortable > span {
@@ -266,7 +257,7 @@ $table-row-background-shaded: $color-gray-90;
 
 $fake-scrollbar-color: $color-gray-90;
 
-.ao-table--scrollable {
+.ao-table.ao-table--scrollable {
   display: flex;
   flex-direction: column;
 
@@ -288,12 +279,15 @@ $fake-scrollbar-color: $color-gray-90;
     overflow-y: scroll;
   }
 
-  & tr {
-    display: flex;
+  & > thead > tr,
+  & > tbody > tr,
+  & > tfoot > tr {
+        display: flex;
   }
 
-  & th,
-  & td {
+  & > thead > th,
+  & > tbody > td,
+  & > tfoot > td {
     flex: 1 1 0;
     overflow-x: hidden;
   }
@@ -304,4 +298,13 @@ $fake-scrollbar-color: $color-gray-90;
   }
 }
 
+.ao-table.ao-table--clickable {
+  tbody > tr {
+    cursor: pointer;
+  }
+
+  & > tbody > tr:hover {
+    background: $color-gray-80;
+  }
+}
 </style>
