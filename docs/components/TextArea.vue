@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -14,7 +13,10 @@
           :rows="rowLength"
           :max-length="maxCharacters"
           :disabled="disabled"
-          :invalid="invalid" />
+          :disable-all="disableAll"
+          :invalid-message="invalidMessage"
+          :invalid="invalid"
+        />
       </div>
       <div class="component-controls">
         <div class="component-controls__group">
@@ -46,30 +48,47 @@
           />
         </div>
         <div class="component-controls__group">
+          <ao-input
+            v-model="invalidMessage"
+            :type="'text'"
+            :label="'Invalid Message'"
+          />
+        </div>
+        <div class="component-controls__group">
           <ao-checkbox
             v-model="showLabel"
             :checkbox-value="true"
-            checkbox-label="showLabel" />
+            checkbox-label="showLabel"
+          />
         </div>
         <div class="component-controls__group">
           <ao-checkbox
             v-model="disabled"
             :checkbox-value="true"
-            checkbox-label="disabled" />
+            checkbox-label="disabled"
+          />
+        </div>
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="disableAll"
+            :checkbox-value="true"
+            checkbox-label="disable all"
+          />
         </div>
         <div class="component-controls__group">
           <ao-checkbox
             v-model="invalid"
             :checkbox-value="true"
-            checkbox-label="invalid" />
+            checkbox-label="invalid"
+          />
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>
@@ -92,9 +111,11 @@ export default {
       rowLength: 5,
       maxCharacters: 100000,
       disabled: false,
+      disableAll: false,
       invalid: false,
       showLabel: true,
-      textAreaText: 'Tell us your favourite funny quote'
+      textAreaText: 'Tell us your favourite funny quote',
+      invalidMessage: 'INVALID!'
     }
   }
 }

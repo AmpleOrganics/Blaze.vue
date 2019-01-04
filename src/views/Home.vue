@@ -1,13 +1,16 @@
 <template>
   <Layout>
     <template slot="content">
-
       <div class="home">
         <h1>Blaze.vue</h1>
 
         <p>Hello! Thank you for choosing Blaze.vue.</p>
 
-        <p>Blaze is a Vue 2.0 based component library made for developers and designers, and an open source project by the developers at <a href="#">Ample Organics</a></p>
+        <p>
+          Blaze is a Vue 2.0 based component library made for developers and designers, and an open source project by the developers at <a href="#">
+            Ample Organics
+          </a>
+        </p>
 
         <h2>Getting Started</h2>
         <h3>Installation Instructions</h3>

@@ -4,10 +4,10 @@
       <h4 class="ao-info-pair__label-text">
         {{ label }}
       </h4>
-      <slot name="tooltip"/>
+      <slot name="tooltip" />
     </div>
     <div class="ao-info-pair__value">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>

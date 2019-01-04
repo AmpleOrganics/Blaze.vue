@@ -8,25 +8,18 @@ module.exports = {
     '@vue/standard'
   ],
   rules: {
-    'no-console': 'off',
-    'no-debugger': 'error',
-    'vue/attribute-hyphenation': [
-      'error',
-      'always'
-    ],
-    'vue/html-indent': [
-      'error',
-      2
-    ],
-    'vue/require-prop-types': 'error',
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/attributes-order': 'error',
-    'vue/html-quotes': [
-      'error',
-      'double'
-    ],
+    'vue/html-quotes': 'error',
     'vue/order-in-components': 'error',
-    'vue/html-end-tags': 'error',
-    'vue/html-self-closing': 'error'
+    'vue/multiline-html-element-content-newline': 'error',
+    'vue/script-indent': 'error',
+    'vue/singleline-html-element-content-newline': 'error',
+    'vue/html-closing-bracket-newline': ['error', {
+      'singleline': 'never',
+      'multiline': 'always'
+    }]
   },
   parserOptions: {
     parser: 'babel-eslint'

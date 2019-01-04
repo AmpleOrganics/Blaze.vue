@@ -5,7 +5,7 @@ Ample Organics Component Library
 Documentation goes here!
 
 ## Install
-Install the package using npm/yarn
+Install the package using npm/yarn:
 
 ``` sh
   yarn add blaze-vue
@@ -15,7 +15,7 @@ Install the package using npm/yarn
 ```
 
 ## Using in your application
-In your main.js/index.js add the following lines
+In your main.js/index.js add the following lines:
 
 ```javascript
 import Blaze from 'blaze-vue'
@@ -25,11 +25,11 @@ Vue.use(Blaze)
 ```
 
 ## Browser Support
-Latest versions of modern browsers
+Latest versions of modern browsers.
 
 ## Changelog
 Detailed changes for each release are documented in the [release notes](https://github.com/AmpleOrganics/Blaze.vue/blob/master/CHANGELOG.md).
 
 ## Contribution
-Make sure to read our [contributing guide](https://github.com/AmpleOrganics/Blaze.vue/blob/master/CONTRIBUTING.md) before making a pull request.
+Make sure to read our [contributing guide](https://github.com/AmpleOrganics/Blaze.vue/blob/master/.github/CONTRIBUTING.md) before making a pull request.
 

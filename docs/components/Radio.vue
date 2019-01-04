@@ -1,27 +1,29 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
       <div class="component-example">
-        <div class="component-example__display"> My favourite character is {{ selectedRadio }} </div>
+        <div class="component-example__display">
+          My favourite character is {{ selectedRadio }}
+        </div>
         <ao-radio
           v-for="radio in radios"
           :key="radio.value"
+          v-model="selectedRadio"
           :val="radio.value"
           :name="radio.name"
           :label="radio.name"
-          v-model="selectedRadio"/>
+        />
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

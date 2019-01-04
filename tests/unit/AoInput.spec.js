@@ -1,9 +1,10 @@
 import { mount } from '@vue/test-utils'
 import Input from '@/components/AoInput.vue'
 import instructionText from './helpers/instructionText'
+import invalidMessage from './helpers/invalidMessage'
 
 describe('Input', () => {
-  const getFormControlElement = (wrapper) => wrapper.find('.ao-form-control')
+  const getFormControlElement = wrapper => wrapper.find('.ao-form-control')
 
   it('create', () => {
     const input = mount(Input, {
@@ -31,10 +32,16 @@ describe('Input', () => {
         label: 'label'
       }
     })
-    expect(getFormControlElement(input).classes().includes('.ao-form-control--invalid')).toBe(false)
+    expect(
+      getFormControlElement(input)
+        .classes()
+        .includes('.ao-form-control--invalid')
+    ).toBe(false)
 
     input.setProps({ invalid: true })
-    expect(getFormControlElement(input).classes()).toContain('ao-form-control--invalid')
+    expect(getFormControlElement(input).classes()).toContain(
+      'ao-form-control--invalid'
+    )
   })
 
   it('size', () => {
@@ -45,10 +52,12 @@ describe('Input', () => {
       }
     })
 
-    expect(getFormControlElement(input).classes()).toContain('ao-form-control--small')
+    expect(getFormControlElement(input).classes()).toContain(
+      'ao-form-control--small'
+    )
   })
 
-  it('emit', () => {
+  it('emit input', () => {
     const input = mount(Input, {
       propsData: {
         type: 'text',
@@ -61,6 +70,45 @@ describe('Input', () => {
     expect(input.emitted().input[0][0]).toBe('value')
   })
 
+  it('emit blur', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'label',
+        value: 'value'
+      }
+    })
+
+    input.find('.ao-form-control').trigger('blur')
+    expect(input.emitted().blur).toBeTruthy()
+  })
+
+  it('emit change', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'label',
+        value: 'value'
+      }
+    })
+
+    input.find('.ao-form-control').trigger('change')
+    expect(input.emitted().change[0][0]).toBe('value')
+  })
+
+  it('emit focus', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'label',
+        value: 'value'
+      }
+    })
+
+    input.find('.ao-form-control').trigger('focus')
+    expect(input.emitted().focus).toBeTruthy()
+  })
+
   it('instruction text', () => {
     const input = mount(Input, {
       propsData: {
@@ -70,5 +118,16 @@ describe('Input', () => {
     })
 
     instructionText.assert(input)
+  })
+
+  it('invalid message', () => {
+    const input = mount(Input, {
+      propsData: {
+        type: 'text',
+        label: 'test'
+      }
+    })
+
+    invalidMessage.assert(input)
   })
 })

@@ -1,8 +1,9 @@
 <template>
   <div
     v-if="showDropdown"
-    class="ao-dropdown">
-    <slot name="dropdown-items"/>
+    class="ao-dropdown"
+  >
+    <slot name="dropdown-items" />
   </div>
 </template>
 

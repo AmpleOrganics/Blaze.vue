@@ -27,10 +27,30 @@ describe('Table', () => {
         ]
       }
     })
-    expect(table.findAll('.ao-table__header').at(0).html()).toContain('ID')
-    expect(table.findAll('.ao-table__header').at(1).html()).toContain('First Name')
-    expect(table.findAll('.ao-table__header').at(2).html()).toContain('Last Name')
-    expect(table.findAll('.ao-table__header').at(3).html()).toContain('Gender')
+    expect(
+      table
+        .findAll('.ao-table__header')
+        .at(0)
+        .html()
+    ).toContain('ID')
+    expect(
+      table
+        .findAll('.ao-table__header')
+        .at(1)
+        .html()
+    ).toContain('First Name')
+    expect(
+      table
+        .findAll('.ao-table__header')
+        .at(2)
+        .html()
+    ).toContain('Last Name')
+    expect(
+      table
+        .findAll('.ao-table__header')
+        .at(3)
+        .html()
+    ).toContain('Gender')
   })
 
   it('sortable', () => {
@@ -44,22 +64,28 @@ describe('Table', () => {
         ]
       }
     })
-    const triggerSort = () => table.findAll('th').at(1).trigger('click')
+    const triggerSort = () =>
+      table
+        .findAll('th')
+        .at(1)
+        .trigger('click')
 
     triggerSort()
-    expect(table.emitted().sortTable[0]).toEqual([ 'first_name', 'desc' ])
+    expect(table.emitted().sortTable[0]).toEqual(['first_name', 'desc'])
 
     triggerSort()
-    expect(table.emitted().sortTable[1]).toEqual([ 'first_name', 'asc' ])
+    expect(table.emitted().sortTable[1]).toEqual(['first_name', 'asc'])
 
     triggerSort()
-    expect(table.emitted().sortTable[2]).toEqual([ 'first_name', 'desc' ])
+    expect(table.emitted().sortTable[2]).toEqual(['first_name', 'desc'])
 
     // no emit when sortable: false
-    table.setProps({ headers: [
-      { field: 'id', title: 'ID', sortable: false },
-      { field: 'first_name', title: 'First Name', sortable: false }
-    ] })
+    table.setProps({
+      headers: [
+        { field: 'id', title: 'ID', sortable: false },
+        { field: 'first_name', title: 'First Name', sortable: false }
+      ]
+    })
     triggerSort()
     expect(table.emitted().sortTable.length).toBe(3)
   })

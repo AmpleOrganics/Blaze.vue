@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -16,10 +15,12 @@
           :order="order"
           :isScrollable="isScrollable"
           class="component-example-table"
-          @sortTable="sortTable">
+          @sortTable="sortTable"
+        >
           <tr
             v-for="user in filteredUsers"
-            :key="user.id">
+            :key="user.id"
+          >
             <td>{{ user.id }}</td>
             <td>{{ user.first_name }}</td>
             <td>{{ user.last_name }}</td>
@@ -74,11 +75,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

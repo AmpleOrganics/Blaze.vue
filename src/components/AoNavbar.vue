@@ -1,7 +1,7 @@
 <template>
   <nav class="ao-navbar">
     <ul>
-      <slot/>
+      <slot />
     </ul>
   </nav>
 </template>

@@ -1,3 +1,60 @@
+# 1.5.0 (2018-12-07)
+
+## Fixes
+
+Input, Select, TextArea, FileUpload, Checkbox, Radio, Radio Button Group: Emits focus and Blur [1630ac4](https://github.com/AmpleOrganics/Blaze.vue/commit/1630ac41a8df176df04a291d2e73820eab0855ca)
+
+Input, TextArea: Emits change[1630ac4](https://github.com/AmpleOrganics/Blaze.vue/commit/1630ac41a8df176df04a291d2e73820eab0855ca)
+
+Select accepts a boolean as a value [1fc65bc](https://github.com/AmpleOrganics/Blaze.vue/commit/1fc65bcba918bdfe0d0ae38f10f829cf51c9cb22)
+
+Pagination styles improved [ae5a47a](https://github.com/AmpleOrganics/Blaze.vue/commit/ae5a47a7b7a3d41da2191f87c32ec223e8797dfa)
+
+Improve gray color scale [7d05f98](https://github.com/AmpleOrganics/Blaze.vue/commit/7d05f982af83954c9635a483d3ba99cba1eef1bc)
+
+# 1.4.0 (2018-11-26)
+
+## Breaking Changes
+
+Button: prop `formName` removed in favour of using html attribute `form` that is inherently passed in. [806674b](https://github.com/AmpleOrganics/Blaze.vue/pull/262/commits/806674bb296b0b6ffa9f4bbd26f809d4e6e6746e)
+
+## Fixes
+
+AoSelect, AoRadioGroup: fixed preselect and dynamically changing select and radio group based on props. bug was introduced in version 1.3.0 [496976d
+](https://github.com/AmpleOrganics/Blaze.vue/pull/262/commits/496976d545f1dec89c2c0eb516ebc93f2e6a1add)
+
+## New features
+
+Callout: Add dismissible feature and overall style improvements [PR](https://github.com/AmpleOrganics/Blaze.vue/pull/257) fixes [242](https://github.com/AmpleOrganics/Blaze.vue/issues/242) and [243](https://github.com/AmpleOrganics/Blaze.vue/issues/243)
+
+# 1.3.0 (2018-11-15)
+
+## New Component
+
+Radio Button Group: Created a new component for displaying a group of radio buttons. Accepts options and name as props [2094c6e](https://github.com/AmpleOrganics/Blaze.vue/commit/2094c6ea454a8772f586c21c5bc545df2714d2b2)
+
+## New
+
+Card: Added footer slot [1958e07](https://github.com/AmpleOrganics/Blaze.vue/commit/1958e073dd5fcd1e608e38aeba6ee94f94e87337)
+
+Input, Select, TextArea, FileUpload: Emits blur [719bc3f](https://github.com/AmpleOrganics/Blaze.vue/commit/719bc3fefb5616b90b27999a09fe81f30296e2b7)
+
+Input: Accepts min prop [65af10d](https://github.com/AmpleOrganics/Blaze.vue/commit/65af10dc4303046901238cdcf8471ca6260325cc)
+
+Input, Select, TextArea, FileUpload: Accepts invalid message prop, disableAll prop that disables input and adds opacity to label and instruction text [65af10d](https://github.com/AmpleOrganics/Blaze.vue/commit/65af10dc4303046901238cdcf8471ca6260325cc)
+
+## Fixes
+
+Select: A watcher was set on value so if the prop updates it will be reflected [4ea2100](https://github.com/AmpleOrganics/Blaze.vue/commit/4ea210032070fd7b22cc9801b94b9856c1a06b77)
+
+# 1.2.2 (2018-11-05)
+
+## Fixes
+
+HeaderToolbar: Added a callback prop 'titleClicked' that gets invoked when header title or image are clicked [5378c6b](https://github.com/AmpleOrganics/Blaze.vue/pull/233/commits/5378c6b56dd14430cf7033770e025ef63edd58ee)
+
+HeaderToolbar: Disable link underlining in the header toolbar [8cac232](https://github.com/AmpleOrganics/Blaze.vue/pull/226/commits/8cac23289d08adde109ac281b0c1ca0f9ca2a706)
+
 # 1.2.1 (2018-10-15)
 
 ## Fixes

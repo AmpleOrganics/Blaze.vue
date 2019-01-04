@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -16,7 +15,8 @@
           :small="activateProp('small')"
           :large="activateProp('large')"
           :jumbo="activateProp('jumbo')"
-          :disabled="disabled">
+          :disabled="disabled"
+        >
           {{ buttonText }}
         </ao-button>
       </div>
@@ -31,21 +31,29 @@
         <div class="component-controls__group">
           <ao-select
             v-model="selectedContext"
-            label="Context">
+            label="Context"
+          >
             <option
               v-for="(prop, index) in contextProps"
               :key="index"
-              :value="prop.value">{{ prop.name }}</option>
+              :value="prop.value"
+            >
+              {{ prop.name }}
+            </option>
           </ao-select>
         </div>
         <div class="component-controls__group">
           <ao-select
             v-model="selectedSize"
-            label="Size">
+            label="Size"
+          >
             <option
               v-for="(prop, index) in sizeProps"
               :key="index"
-              :value="prop.value">{{ prop.name }}</option>
+              :value="prop.value"
+            >
+              {{ prop.name }}
+            </option>
           </ao-select>
         </div>
         <div class="component-controls__group">
@@ -57,11 +65,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

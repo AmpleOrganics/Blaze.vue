@@ -26,7 +26,7 @@
     &[disabled],
     &[readonly] {
       background-color: $color-gray-80;
-      border-color: $color-gray-60;
+      border-color: $color-gray-70;
       opacity: 1;
     }
     &[disabled] {
@@ -46,10 +46,15 @@
       font-size: $font-size-sm;
     }
   }
-  .ao-input-group {
-    display: table;
-    border-collapse: separate;
-    & .ao-form-control {
+  
+  .ao-input{
+  
+    &--has-addon {
+      display: table;
+      border-collapse: separate;
+    }
+    
+    &--has-addon > .ao-form-control {
       display: table-cell;
       width: 100%;
       margin-bottom: 0;
@@ -58,7 +63,8 @@
         border-top-right-radius: 0;
       }
     }
-    &__addon {
+    
+    &--has-addon > &__addon {
       align-items: center;
       height: $input-height-base;
       padding: $spacer-micro $spacer-sm;
@@ -80,26 +86,49 @@
       }
     }
   }
+
   .ao-form-group {
     margin-bottom: $spacer;
+    
     label {
       display: inline-block;
       max-width: 100%;
       margin: $input-label-margin;
       font-weight: $font-weight-bold;
     }
-  }
-
-  .ao-form-group__label {
-    & .ao-tooltip {
-      margin-left: $spacer-micro;
+    
+    &__label {
+      & .ao-tooltip {
+        margin-left: $spacer-micro;
+      }
     }
-  }
   
-  .ao-form-group__instruction-text {
-    display: block;
-    font-size: $font-size-xs;
-    color: $color-gray-30;
-    margin-top: $spacer-micro;
+    &--has-feedback {
+      .ao-input {
+        margin-bottom: $spacer-micro;
+      }
+    }
+    
+    &__instruction-text {
+      display: block;
+      font-size: $font-size-xs;
+      color: $color-gray-30;
+      margin-top: $spacer-micro
+    }
+  
+    &__invalid-message {
+      display: block;
+      font-size: $font-size-xs;
+      color: $font-color-error;
+      margin-top: $spacer-micro
+    }
+  
+    &__instruction-text {
+      margin-top: 0;
+    }
+  
+    &--disabled {
+      opacity: 0.6;
+    }
   }
 }
