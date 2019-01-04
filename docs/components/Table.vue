@@ -14,7 +14,7 @@
           :no-data-text="noDataText"
           :sort-by="sortBy"
           :order="order"
-          :isScrollable="isScrollable"
+          :is-scrollable="isScrollable"
           class="component-example-table"
           @sortTable="sortTable">
           <tr
@@ -29,8 +29,8 @@
             <td>
               <strong>Total</strong>
             </td>
-            <td></td>
-            <td></td>
+            <td/>
+            <td/>
             <td>
               <strong>230</strong>
             </td>
