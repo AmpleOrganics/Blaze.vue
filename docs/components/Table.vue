@@ -30,8 +30,8 @@
             <td>
               <strong>Total</strong>
             </td>
-            <td/>
-            <td/>
+            <td />
+            <td />
             <td>
               <strong>230</strong>
             </td>
