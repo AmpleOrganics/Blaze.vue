@@ -36,7 +36,7 @@ describe('Checkbox', () => {
     expect(checkbox.find('span').isVisible()).toBe(false)
   })
 
-  it('emit', () => {
+  it('emit input', () => {
     const checkbox = mount(Checkbox, {
       propsData: {
         checkboxLabel: 'test',
@@ -51,5 +51,29 @@ describe('Checkbox', () => {
     // mark unchecked
     checkbox.find('.ao-checkbox__input').trigger('click')
     expect(checkbox.emitted().input[1][0]).toBe(false)
+  })
+
+  it('emit blur', () => {
+    const checkbox = mount(Checkbox, {
+      propsData: {
+        checkboxLabel: 'test',
+        checkboxValue: 'value'
+      }
+    })
+
+    checkbox.find('.ao-checkbox__input').trigger('blur')
+    expect(checkbox.emitted().blur).toBeTruthy()
+  })
+
+  it('emit focus', () => {
+    const checkbox = mount(Checkbox, {
+      propsData: {
+        checkboxLabel: 'test',
+        checkboxValue: 'value'
+      }
+    })
+
+    checkbox.find('.ao-checkbox__input').trigger('focus')
+    expect(checkbox.emitted().focus).toBeTruthy()
   })
 })

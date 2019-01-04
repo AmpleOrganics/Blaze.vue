@@ -1,36 +1,50 @@
 <template>
-  <div class="ao-form-group">
+  <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
-      class="ao-form-group__label">
-      <label
-        :for="name">{{ label }}</label>
-      <slot name="tooltip"/>
+      class="ao-form-group__label"
+    >
+      <label :for="name">
+        {{ label }}
+      </label>
+      <slot name="tooltip" />
     </div>
-    <div :class="{ 'ao-input-group': hasInputGroup }">
+    <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup }]">
       <input
+        v-bind="$attrs"
         :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
-        :type="type"
-        :placeholder="placeholder"
-        :name="name"
+        :disabled="disabled || disableAll"
         :value="value"
-        :disabled="disabled"
-        :step="step"
-        @input="updateValue($event.target.value)">
+        :type="type"
+        :name="name"
+        @change="emitChange"
+        @input="emitInput"
+        @blur="emitBlur"
+        @focus="emitFocus"
+      >
       <span
         v-if="hasIconAddon"
         :class="iconClass"
-        class="ao-input-group__addon"
-        v-html="iconHtml"/>
+        class="ao-input__addon"
+        v-html="iconHtml"
+      />
       <span
         v-if="hasAddOn"
-        class="ao-input-group__addon">
+        class="ao-input__addon"
+      >
         {{ addOn }}
       </span>
     </div>
     <span
+      v-show="invalidMessage && invalid"
+      class="ao-form-group__invalid-message"
+    >
+      {{ invalidMessage }}
+    </span>
+    <span
       v-if="instructionText"
-      class="ao-form-group__instruction-text">
+      class="ao-form-group__instruction-text"
+    >
       {{ instructionText }}
     </span>
   </div>
@@ -40,6 +54,7 @@
 import { filterClasses } from './utils/component_utilities.js'
 
 export default {
+  inheritAttrs: false,
   props: {
     type: {
       type: String,
@@ -70,11 +85,6 @@ export default {
       default: null
     },
 
-    placeholder: {
-      type: String,
-      default: null
-    },
-
     iconHtml: {
       type: String,
       default: null
@@ -95,14 +105,19 @@ export default {
       default: false
     },
 
-    step: {
-      type: Number,
-      default: 1
+    disableAll: {
+      type: Boolean,
+      default: false
     },
 
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    invalidMessage: {
+      type: String,
+      default: null
     },
 
     size: {
@@ -132,6 +147,10 @@ export default {
       return this.addOn
     },
 
+    hasFeedbackText () {
+      return this.instructionText || (this.invalidMessage && this.invalid)
+    },
+
     computedSize () {
       const activeClasses = {
         'ao-form-control--small': this.size === 'small'
@@ -141,8 +160,20 @@ export default {
   },
 
   methods: {
-    updateValue (value) {
-      this.$emit('input', value)
+    emitInput (event) {
+      this.$emit('input', event.target.value)
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
+    },
+
+    emitChange (event) {
+      this.$emit('change', event.target.value)
     }
   }
 }
@@ -152,5 +183,4 @@ export default {
 
 @import '../assets/styles/mixins/shared-input-styles.scss';
 @include shared-input-styles;
-
 </style>

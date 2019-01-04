@@ -1,27 +1,30 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
       <div class="component-example">
-        <ao-button @click.native="toggleModal">Open Modal</ao-button>
+        <ao-button @click.native="toggleModal">
+          Open Modal
+        </ao-button>
         <ao-modal
           v-if="showModal"
           :size="selectedModalSize"
           :header-text="headerText"
           :destructive="selectedModalType === 'destructive'"
           :caution="selectedModalType === 'caution'"
-          @modalClose="toggleModal">
+          @modalClose="toggleModal"
+        >
           <div slot="modal-body">
             <p>{{ contentText }}</p>
           </div>
           <div slot="modal-footer">
             <ao-button
               primary
-              @click.native="toggleModal">
+              @click.native="toggleModal"
+            >
               Close
             </ao-button>
           </div>
@@ -50,10 +53,11 @@
           <ao-radio
             v-for="radio in modalTypes"
             :key="radio.value"
+            v-model="selectedModalType"
             :val="radio.value"
             :name="radio.name"
             :label="radio.name"
-            v-model="selectedModalType" />
+          />
         </div>
       </div>
       <div class="component-controls">
@@ -61,18 +65,19 @@
           <ao-radio
             v-for="radio in modalSizes"
             :key="radio.value"
+            v-model="selectedModalSize"
             :val="radio.value"
             :name="radio.name"
             :label="radio.name"
-            v-model="selectedModalSize" />
+          />
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>

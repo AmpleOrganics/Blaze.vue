@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -15,12 +14,16 @@
           :label="label"
           :placeholder="placeholder"
           :invalid="invalid"
+          :invalid-message="invalidMessage"
           :disabled="disabled"
-          :show-label="showLabel">
+          :disable-all="disableAll"
+          :show-label="showLabel"
+        >
           <option
             v-for="option in options"
+            :key="option.name"
             :value="option.value"
-            :key="option.name">
+          >
             {{ option.name }}
           </option>
         </ao-select>
@@ -41,6 +44,13 @@
           />
         </div>
         <div class="component-controls__group">
+          <ao-input
+            v-model="invalidMessage"
+            :type="'text'"
+            :label="'Invalid Message'"
+          />
+        </div>
+        <div class="component-controls__group">
           <ao-checkbox
             v-model="showLabel"
             :checkbox-value="true"
@@ -56,6 +66,13 @@
         </div>
         <div class="component-controls__group">
           <ao-checkbox
+            v-model="disableAll"
+            :checkbox-value="true"
+            checkbox-label="disable all"
+          />
+        </div>
+        <div class="component-controls__group">
+          <ao-checkbox
             v-model="invalid"
             :checkbox-value="true"
             checkbox-label="invalid"
@@ -63,11 +80,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>
@@ -91,6 +108,8 @@ export default {
       invalid: false,
       showLabel: true,
       disabled: false,
+      disableAll: false,
+      invalidMessage: 'INVALID!',
       options: [
         { value: 'Charmander', name: 'Charmander' },
         { value: 'Pikachu', name: 'Pikachu' },

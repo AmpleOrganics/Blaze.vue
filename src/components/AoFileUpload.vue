@@ -1,21 +1,34 @@
 <template>
-  <div class="ao-form-group">
+  <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
-      class="ao-form-group__label">
-      <label
-        :for="name">{{ label }}</label>
-      <slot name="fileUploadLabelTooltip"/>
+      class="ao-form-group__label"
+    >
+      <label :for="name">
+        {{ label }}
+      </label>
+      <slot name="fileUploadLabelTooltip" />
     </div>
     <input
+      v-bind="$attrs"
       :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
-      :disabled="disabled"
+      :disabled="disabled || disableAll"
       type="file"
-      @change="updateFile($event.target.files)">
+      @change="emitChange"
+      @blur="emitBlur"
+      @focus="emitFocus"
+    >
+    <span
+      v-show="invalidMessage && invalid"
+      class="ao-form-group__invalid-message"
+    >
+      {{ invalidMessage }}
+    </span>
     <span
       v-if="instructionText"
-      class="ao-form-group__instruction-text">
+      class="ao-form-group__instruction-text"
+    >
       {{ instructionText }}
     </span>
   </div>
@@ -23,6 +36,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     label: {
       type: String,
@@ -39,9 +53,19 @@ export default {
       default: false
     },
 
+    disableAll: {
+      type: Boolean,
+      default: false
+    },
+
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    invalidMessage: {
+      type: String,
+      default: null
     },
 
     name: {
@@ -55,9 +79,23 @@ export default {
     }
   },
 
+  computed: {
+    hasFeedbackText () {
+      return this.instructionText || (this.invalidMessage && this.invalid)
+    }
+  },
+
   methods: {
-    updateFile (value) {
-      this.$emit('change', value[0])
+    emitChange (event) {
+      this.$emit('change', event.currentTarget.files[0])
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
     }
   }
 }

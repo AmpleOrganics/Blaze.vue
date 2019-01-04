@@ -1,17 +1,18 @@
 <template>
   <ao-card class="layoutsidebar">
     <nav>
-      <ao-heading
-        card-section-heading
-        text="Components"/>
       <ul>
         <li
           v-for="route in componentRoutes"
           :key="route.name"
-          class="layoutsidebar__item">
+          class="layoutsidebar__item"
+        >
           <router-link
-            :to="route.name"
-            class="layoutsidebar__item-link">{{ route.meta.title }}</router-link>
+            :to="route.path"
+            class="layoutsidebar__item-link"
+          >
+            {{ route.meta.title }}
+          </router-link>
         </li>
       </ul>
     </nav>

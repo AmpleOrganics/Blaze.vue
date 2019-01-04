@@ -3,21 +3,29 @@
   <div class="ao-checkbox">
     <label
       :disabled="disabled"
-      class="ao-checkbox__label">
+      class="ao-checkbox__label"
+    >
       <input
-        :value="checkboxValue"
         v-model="checked"
+        v-bind="$attrs"
+        :value="checkboxValue"
         :disabled="disabled"
         type="checkbox"
         class="ao-checkbox__input"
-        @change="check">
-      <span v-show="showLabel">{{ checkboxLabel }}</span>
+        @change="check"
+        @blur="emitBlur"
+        @focus="emitFocus"
+      >
+      <span v-show="showLabel">
+        {{ checkboxLabel }}
+      </span>
     </label>
   </div>
 </template>
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     // both this and checkboxValue needed to avoid vue issue
     value: {
@@ -67,6 +75,14 @@ export default {
   methods: {
     check (value) {
       this.$emit('input', this.checkedModel)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
     }
   }
 }

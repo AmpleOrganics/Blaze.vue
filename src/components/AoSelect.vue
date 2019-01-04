@@ -1,29 +1,44 @@
 <template>
-  <div class="ao-form-group">
+  <div :class="['ao-form-group', {'ao-form-group--disabled': disableAll}, {'ao-form-group--has-feedback': hasFeedbackText }]">
     <div
       v-show="showLabel"
-      class="ao-form-group__label">
-      <label
-        :for="name">{{ label }}</label>
-      <slot name="tooltip"/>
+      class="ao-form-group__label"
+    >
+      <label :for="name">
+        {{ label }}
+      </label>
+      <slot name="tooltip" />
     </div>
-    <div :class="{ 'ao-input-group': hasInputGroup }">
+    <div class="ao-input">
       <select
         :value="selected"
         :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
-        :disabled="disabled"
-        @change="updateInput">
+        :disabled="disabled || disableAll"
+        @change="emitChange"
+        @blur="emitBlur"
+        @focus="emitFocus"
+      >
         <option
           v-if="placeholder"
           :value="null"
           disabled
-          selected>{{ placeholder }}</option>
-        <slot/>
+          selected
+        >
+          {{ placeholder }}
+        </option>
+        <slot />
       </select>
     </div>
     <span
+      v-show="invalidMessage && invalid"
+      class="ao-form-group__invalid-message"
+    >
+      {{ invalidMessage }}
+    </span>
+    <span
       v-if="instructionText"
-      class="ao-form-group__instruction-text">
+      class="ao-form-group__instruction-text"
+    >
       {{ instructionText }}
     </span>
   </div>
@@ -35,7 +50,7 @@ import { filterClasses } from './utils/component_utilities.js'
 export default {
   props: {
     value: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       default: null
     },
 
@@ -52,6 +67,11 @@ export default {
     invalid: {
       type: Boolean,
       default: false
+    },
+
+    invalidMessage: {
+      type: String,
+      default: null
     },
 
     disabled: {
@@ -75,6 +95,11 @@ export default {
     instructionText: {
       type: String,
       default: null
+    },
+
+    disableAll: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -90,17 +115,33 @@ export default {
         'ao-form-control--small': this.size === 'small'
       }
       return filterClasses(activeClasses)
+    },
+
+    hasFeedbackText () {
+      return this.instructionText || (this.invalidMessage && this.invalid)
     }
   },
 
-  created () {
-    this.selected = this.value
+  watch: {
+    value: {
+      handler (val) {
+        this.selected = val
+      },
+      immediate: true
+    }
   },
 
   methods: {
-    updateInput (e) {
-      this.selected = e.target.value
-      this.$emit('input', e.target.value)
+    emitChange (event) {
+      this.$emit('input', event.target.value)
+    },
+
+    emitBlur (event) {
+      this.$emit('blur', event)
+    },
+
+    emitFocus (event) {
+      this.$emit('focus', event)
     }
   }
 

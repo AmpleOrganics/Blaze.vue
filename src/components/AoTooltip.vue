@@ -1,12 +1,13 @@
 <template>
-  <div
-    :class="[computedClasses, `ao-tooltip--${this.position}`]">
+  <div :class="[computedClasses, `ao-tooltip--${this.position}`]">
     <slot>
-      <i class="ao-tooltip__default-icon glyphicon glyphicon-info-sign"/>
+      <i class="ao-tooltip__default-icon glyphicon glyphicon-info-sign" />
     </slot>
     <div class="ao-tooltip__tip-container">
-      <span class="ao-tooltip__text">{{ text }}</span>
-      <div class="ao-tooltip__triangle"/>
+      <span class="ao-tooltip__text">
+        {{ text }}
+      </span>
+      <div class="ao-tooltip__triangle" />
     </div>
   </div>
 </template>
@@ -89,7 +90,7 @@ $tooltip-transition: opacity .2s ease-in-out;
   }
 
   &__default-icon {
-    color: $color-gray-40;
+    color: $color-gray-50;
     font-size: $font-size-sm;
   }
 

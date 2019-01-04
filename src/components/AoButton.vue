@@ -1,10 +1,9 @@
 <template>
   <button
     :type="type"
-    :form="formName"
     :class="computedButtonClass"
-    :disabled="disabled">
-    <slot/>
+  >
+    <slot />
   </button>
 </template>
 
@@ -20,11 +19,6 @@ export default {
       validator: function (buttonType) {
         return ['button', 'submit'].indexOf(buttonType) !== -1
       }
-    },
-
-    formName: {
-      type: String,
-      default: null
     },
 
     small: {
@@ -68,11 +62,6 @@ export default {
     },
 
     textOnly: {
-      type: Boolean,
-      default: false
-    },
-
-    disabled: {
       type: Boolean,
       default: false
     },
@@ -154,17 +143,17 @@ export default {
 
 /* Default styles, overridden by special classes */
  background-color: $color-white;
- border-color: $color-gray-50;
+ border-color: $color-gray-60;
  color: $font-color-base;
 
 /* Default hover/active styles, overridden by special classes */
  &:active {
-   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+   box-shadow: $shadow-inset;
  }
 
  &:active, &:hover:not([disabled]) {
    background-color: darken($color-white, 3%);
-   border-color: darken($color-gray-50, 3%);
+   border-color: darken($color-gray-60, 3%);
    color: darken($font-color-base, 3%);
  }
 
@@ -195,7 +184,7 @@ export default {
  }
 
  &--subtle {
-   @include ao-button-colors($font-color-base, $color-gray-90, $color-gray-60, 5%);
+   @include ao-button-colors($font-color-base, $color-gray-90, $color-gray-70, 5%);
  }
 
  &--naked {

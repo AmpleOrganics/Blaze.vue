@@ -1,8 +1,7 @@
 <template>
   <Layout>
-
     <template slot="description">
-      <span v-html="description"/>
+      <span v-html="description" />
     </template>
 
     <div slot="example">
@@ -11,7 +10,9 @@
           :label="labelText"
           :show-label="showLabel"
           :disabled="disabled"
+          :disable-all="disableAll"
           :invalid="invalid"
+          :invalid-message="invalidMessage"
           name="'file'"
         />
       </div>
@@ -21,6 +22,13 @@
             v-model="labelText"
             :type="'text'"
             :label="'File Upload Label Text'"
+          />
+        </div>
+        <div class="component-controls__group">
+          <ao-input
+            v-model="invalidMessage"
+            :type="'text'"
+            :label="'Invalid Message'"
           />
         </div>
         <div class="component-controls__group">
@@ -35,6 +43,11 @@
             checkbox-label="disabled"
           />
           <ao-checkbox
+            v-model="disableAll"
+            :checkbox-value="true"
+            checkbox-label="disable all"
+          />
+          <ao-checkbox
             v-model="invalid"
             :checkbox-value="true"
             checkbox-label="invalid"
@@ -42,11 +55,11 @@
         </div>
       </div>
     </div>
-    <template slot="snippet">{{ snippet }}</template>
+    <template slot="snippet">
+      {{ snippet }}
+    </template>
     <template slot="api">
-      <ApiTable
-        :rows="apiRows"
-      />
+      <ApiTable :rows="apiRows" />
     </template>
   </Layout>
 </template>
@@ -67,7 +80,9 @@ export default {
       labelText: 'Upload File',
       showLabel: true,
       disabled: false,
-      invalid: false
+      disableAll: false,
+      invalid: false,
+      invalidMessage: 'INVALID!'
     }
   }
 }

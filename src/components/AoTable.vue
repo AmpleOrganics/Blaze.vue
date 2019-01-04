@@ -1,14 +1,16 @@
 <template>
-  <table
-    :class="[computedClasses, computedVAlign]">
+  <table :class="[computedClasses, computedVAlign]">
     <thead>
       <tr>
         <th
           v-for="columnHeader in headers"
           :key="columnHeader.field"
           :class="isSortableClass(columnHeader.sortable)"
-          @click="sortByHeader(columnHeader.field, columnHeader.sortable)">
-          <span class="ao-table__header">{{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)"/></span>
+          @click="sortByHeader(columnHeader.field, columnHeader.sortable)"
+        >
+          <span class="ao-table__header">
+            {{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)" />
+          </span>
         </th>
       </tr>
     </thead>
@@ -16,14 +18,15 @@
       <slot />
       <tr
         v-if="showNoDataText"
-        class="ao-table__nodata">
+        class="ao-table__nodata"
+      >
         <td :colspan="headers.length">
           {{ noDataText }}
         </td>
       </tr>
     </tbody>
     <tfoot v-if="hasTableFooterSlot">
-      <slot name="table-footer"/>
+      <slot name="table-footer" />
     </tfoot>
   </table>
 </template>
@@ -159,6 +162,10 @@ $table-row-background-shaded: $color-gray-90;
   background: transparent;
   overflow-x: auto;
   min-height: 0.01%;
+
+  tr {
+    border-bottom: 1px solid $color-gray-70;
+  }
 
   th, td {
     padding: $table-cell-padding;

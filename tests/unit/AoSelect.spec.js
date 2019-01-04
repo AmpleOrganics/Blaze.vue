@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import Select from '@/components/AoSelect.vue'
 import instructionText from './helpers/instructionText'
+import invalidMessage from './helpers/invalidMessage'
 
 describe('Select', () => {
   it('create', () => {
@@ -21,7 +22,9 @@ describe('Select', () => {
       }
     })
     expect(select.text()).toBe('label')
-    expect(select.find('.ao-form-control').attributes().disabled).toBe('disabled')
+    expect(select.find('.ao-form-control').attributes().disabled).toBe(
+      'disabled'
+    )
   })
 
   it('options', () => {
@@ -30,11 +33,16 @@ describe('Select', () => {
         label: 'test'
       },
       slots: {
-        default: '<option value="red">red</option><option value="green">green</option>'
+        default:
+          '<option value="red">red</option><option value="green">green</option>'
       }
     })
 
-    select.find('.ao-form-control').findAll('option').at(1).setSelected()
+    select
+      .find('.ao-form-control')
+      .findAll('option')
+      .at(1)
+      .setSelected()
     expect(select.emitted().input[0][0]).toBe('green')
   })
 
@@ -47,7 +55,12 @@ describe('Select', () => {
     })
 
     expect(select.findAll('option').at(0).element.value).toBe('')
-    expect(select.findAll('option').at(0).html()).toContain('Select One')
+    expect(
+      select
+        .findAll('option')
+        .at(0)
+        .html()
+    ).toContain('Select One')
   })
 
   it('size', () => {
@@ -58,7 +71,9 @@ describe('Select', () => {
       }
     })
 
-    expect(select.find('.ao-form-control').classes()).toContain('ao-form-control--small')
+    expect(select.find('.ao-form-control').classes()).toContain(
+      'ao-form-control--small'
+    )
   })
 
   it('instruction text', () => {
@@ -69,5 +84,67 @@ describe('Select', () => {
     })
 
     instructionText.assert(select)
+  })
+
+  it('emit blur', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'label'
+      }
+    })
+
+    select.find('.ao-form-control').trigger('blur')
+    expect(select.emitted().blur).toBeTruthy()
+  })
+
+  it('emit focus', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'label'
+      }
+    })
+
+    select.find('.ao-form-control').trigger('focus')
+    expect(select.emitted().focus).toBeTruthy()
+  })
+
+  it('invalid message', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'test'
+      }
+    })
+
+    invalidMessage.assert(select)
+  })
+
+  it('select initial value', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'test',
+        value: 'tester'
+      },
+      slots: {
+        default: ['<option value="blaze">blaze</option><option value="tester">tester</option>']
+      }
+    })
+
+    select.setProps({ value: 'tester' })
+    expect(select.find('.ao-form-control').element.value).toBe('tester')
+  })
+
+  it('reselect when value changes', () => {
+    const select = mount(Select, {
+      propsData: {
+        label: 'test',
+        value: 'tester'
+      },
+      slots: {
+        default: ['<option value="blaze">blaze</option><option value="tester">tester</option><option value="foo">foo</option>']
+      }
+    })
+
+    select.setProps({ value: 'foo' })
+    expect(select.find('.ao-form-control').element.value).toBe('foo')
   })
 })

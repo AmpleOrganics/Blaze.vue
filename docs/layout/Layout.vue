@@ -3,8 +3,9 @@
     <div class="layout__header-toolbar">
       <ao-header-toolbar
         :title="title"
+        :title-clicked="titleClicked"
         fixed
-        @click.native="$router.push('/')"/>
+      />
     </div>
 
     <div class="layout__container">
@@ -17,16 +18,20 @@
       <div class="layout__content-container">
         <ao-card
           :title="$route.meta && $route.meta.title"
-          class="layout__content">
+          class="layout__content"
+        >
           <slot name="content">
-
             <div class="layout__section layout__description">
-              <slot name="description">description</slot>
+              <slot name="description">
+                description
+              </slot>
             </div>
 
             <div class="layout__section layout__examples">
               <h2>Examples</h2>
-              <slot name="example">example</slot>
+              <slot name="example">
+                example
+              </slot>
             </div>
 
             <div class="layout__section">
@@ -36,7 +41,17 @@
 
             <div class="layout__section">
               <h2>Props</h2>
-              <slot name="api">api</slot>
+              <slot name="api">
+                api
+              </slot>
+            </div>
+
+            <div
+              v-if="isEventsSectionVisible"
+              class="layout__section"
+            >
+              <h2>Events</h2>
+              <slot name="events" />
             </div>
           </slot>
         </ao-card>
@@ -55,9 +70,14 @@ export default {
   data: () => ({
     title: 'Blaze Documentation'
   }),
+  computed: {
+    isEventsSectionVisible () {
+      return Object.keys(this.$slots).includes('events')
+    }
+  },
   methods: {
-    onClick () {
-      console.log('clicked')
+    titleClicked () {
+      this.$router.push('/')
     }
   }
 }
@@ -99,10 +119,6 @@ export default {
   &__description {
     color: $color-gray-30;
     font-size: $font-size-lg;
-  }
-
-  &__header-toolbar {
-    cursor: pointer;
   }
 
   .component-example {

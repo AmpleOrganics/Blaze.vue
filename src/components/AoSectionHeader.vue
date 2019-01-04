@@ -5,18 +5,22 @@
         v-if="hasIcon"
         :class="iconClass"
         class="ao-section-header__icon"
-        v-html="iconHtml"/>
-      <h1 class="ao-section-header__title">{{ title }}</h1>
+        v-html="iconHtml"
+      />
+      <h1 class="ao-section-header__title">
+        {{ title }}
+      </h1>
       <div class="ao-section-header__toolbar">
-        <slot name="section-header-toolbar"/>
+        <slot name="section-header-toolbar" />
       </div>
     </div>
     <div
       v-if="subtitle"
-      class="ao-section-header__subtitle">
+      class="ao-section-header__subtitle"
+    >
       <p>{{ subtitle }}</p>
     </div>
-    <slot name="section-header-navbar"/>
+    <slot name="section-header-navbar" />
   </div>
 </template>
 
@@ -56,7 +60,7 @@ export default {
 
 .ao-section-header {
   background-color: $color-white;
-  border: 1px solid $color-gray-60;
+  border: 1px solid $color-gray-70;
   border-radius: $border-radius-base;
   padding: $spacer;
   margin-bottom: $spacer;

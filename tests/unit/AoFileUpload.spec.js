@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import FileUpload from '@/components/AoFileUpload.vue'
 import instructionText from './helpers/instructionText'
+import invalidMessage from './helpers/invalidMessage'
 
 describe('FileUpload', () => {
   it('create', () => {
@@ -38,7 +39,7 @@ describe('FileUpload', () => {
     expect(fileUpload.contains(':disabled')).toBe(true)
   })
 
-  it('emit', () => {
+  it('emit change', () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
         label: 'label',
@@ -50,6 +51,30 @@ describe('FileUpload', () => {
     expect(fileUpload.emitted().change).toBeTruthy()
   })
 
+  it('emit blur', () => {
+    const fileUpload = mount(FileUpload, {
+      propsData: {
+        label: 'label',
+        name: 'test1'
+      }
+    })
+
+    fileUpload.find('.ao-form-control').trigger('blur')
+    expect(fileUpload.emitted().blur).toBeTruthy()
+  })
+
+  it('emit focus', () => {
+    const fileUpload = mount(FileUpload, {
+      propsData: {
+        label: 'label',
+        name: 'test1'
+      }
+    })
+
+    fileUpload.find('.ao-form-control').trigger('focus')
+    expect(fileUpload.emitted().focus).toBeTruthy()
+  })
+
   it('instruction text', () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
@@ -59,5 +84,16 @@ describe('FileUpload', () => {
     })
 
     instructionText.assert(fileUpload)
+  })
+
+  it('invalid message', () => {
+    const fileUpload = mount(FileUpload, {
+      propsData: {
+        name: 'text',
+        label: 'test'
+      }
+    })
+
+    invalidMessage.assert(fileUpload)
   })
 })
