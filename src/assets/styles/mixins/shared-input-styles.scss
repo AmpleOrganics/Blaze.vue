@@ -40,11 +40,6 @@
         box-shadow: $input-focus-shadow-error;
       }
     }
-    &--small {
-      height: $input-height-sm;
-      padding: $spacer-micro;
-      font-size: $font-size-sm;
-    }
   }
   
   .ao-input{
@@ -85,6 +80,17 @@
         border-top-left-radius: 0;
       }
     }
+    
+    &--small > .ao-form-control {
+      height: $input-height-sm;
+      padding: $spacer-micro/2 $spacer-micro;
+      font-size: $font-size-sm;
+    }
+  }
+  .ao-input--small.ao-input--has-addon > .ao-input__addon {
+    line-height: 1;
+    height: $input-height-sm;
+    padding: $spacer-micro/2 $spacer-sm/2;
   }
 
   .ao-form-group {

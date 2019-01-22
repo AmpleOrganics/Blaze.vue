@@ -6,19 +6,26 @@
 
     <div slot="example">
       <div class="component-example">
-        <ao-button
-          :primary="activateProp('primary')"
-          :destructive="activateProp('destructive')"
-          :caution="activateProp('caution')"
-          :subtle="activateProp('subtle')"
-          :naked="activateProp('naked')"
-          :small="activateProp('small')"
-          :large="activateProp('large')"
-          :jumbo="activateProp('jumbo')"
-          :disabled="disabled"
-        >
-          {{ buttonText }}
-        </ao-button>
+        <ao-info-pair label="Hello!">
+          first text <br>
+          This is editable
+          <ao-button
+            :primary="activateProp('primary')"
+            :destructive="activateProp('destructive')"
+            :caution="activateProp('caution')"
+            :subtle="activateProp('subtle')"
+            :naked="activateProp('naked')"
+            :small="activateProp('small')"
+            :large="activateProp('large')"
+            :jumbo="activateProp('jumbo')"
+            :inline-action="activateProp('inlineAction')"
+            :disabled="disabled"
+          >
+            <span class="glyphicon glyphicon-pencil" />
+          </ao-button>
+          <br>
+          More Test
+        </ao-info-pair>
       </div>
       <div class="component-controls">
         <div class="component-controls__group">
@@ -101,7 +108,8 @@ export default {
         { name: 'Default', value: 'default' },
         { name: 'Small', value: 'small' },
         { name: 'Large', value: 'large' },
-        { name: 'Jumbo', value: 'jumbo' }
+        { name: 'Jumbo', value: 'jumbo' },
+        { name: 'Inline Action', value: 'inlineAction' }
       ],
       selectedSize: 'default',
       disabled: false

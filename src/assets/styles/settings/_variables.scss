@@ -128,9 +128,9 @@ $header-icon-height:          24px;
 //
 
 $input-color:                 $color-gray-20;
-$input-height-base:           2.25rem;
-$input-height-sm:             2rem;
-$input-height-lg:             2.5rem;
+$input-height-base:           36px;
+$input-height-sm:             28px;
+$input-height-lg:             40px;
 // ^ This value will help us ensure consistent heights of inputs and buttons
 $input-border-width:          1px;
 $input-border-color:          $color-gray-60;
@@ -148,6 +148,13 @@ $input-label-margin:          0 0 $spacer-xs;
 // Tables
 //
 
+$table-font-size:             $font-size-sm;
+$table-line-height:           $line-height-base;
 $table-cell-padding:          $font-size-base/2;
 $table-border-color:          $color-gray-70;
+$table-row-background-shaded: $color-gray-90;
 
+// Inputs/buttons are taller than text, so it messes up our vertical alignment. To compensate:
+// Calculate the size difference (take input height subtract the text height (font size * line height)).
+// Divide it by 2 and subtract thatfrom the default cell padding.
+$table-input-vertical-cell-padding: round($table-cell-padding - (($input-height-sm - ($table-font-size * $table-line-height))/2));

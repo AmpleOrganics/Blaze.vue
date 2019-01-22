@@ -69,6 +69,16 @@ export default {
     jumbo: {
       type: Boolean,
       default: false
+    },
+
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+
+    inlineAction: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -85,7 +95,8 @@ export default {
         'ao-button--large': this.large,
         'ao-button--link': this.link,
         'ao-button--text-only': this.textOnly,
-        'ao-button--jumbo': this.jumbo
+        'ao-button--jumbo': this.jumbo,
+        'ao-button--inline-action': this.inlineAction
       }
       return filterClasses(activeClasses)
     }
@@ -155,10 +166,6 @@ export default {
    background-color: darken($color-white, 3%);
    border-color: darken($color-gray-60, 3%);
    color: darken($font-color-base, 3%);
- }
-
- & + &:not(.ao-btn--block) {
-   margin-left: $spacer-micro;
  }
 
  &[disabled] {
@@ -248,6 +255,33 @@ export default {
 
     &:hover, :active {
       @include naked-hover-shared;
+    }
+  }
+
+  &--inline-action {
+    color: $color-gray-30;
+    background: transparent;
+    border-color: transparent;
+
+    box-shadow: $shadow-none;
+    font-size: $font-size-base;
+    min-height: auto;
+    height: $input-height-sm;
+    min-width: $input-height-sm;
+    padding: $spacer-micro/2;
+    font-weight: normal;
+    border-radius: 0;
+
+    &:hover:not([disabled]) {
+      color: $color-gray-10;
+      border-color: transparent;
+      background: rgba(0,0,0,0.10);
+    }
+  }
+
+  &--inline-action.ao-button--destructive {
+    &:hover:not([disabled]) {
+      color: $color-red;
     }
   }
 }

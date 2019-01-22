@@ -23,6 +23,21 @@
             <td>{{ user.id }}</td>
             <td>{{ user.first_name }}</td>
             <td>{{ user.last_name }}</td>
+            <td class="ao-table__input-cell">
+              <ao-input
+                label="Input"
+                size="small"
+                :show-label="false"
+                type="text"
+              />
+            </td>
+            <td class="ao-table__row-actions">
+              <ao-tooltip text="Actions">
+                <ao-button inline-action>
+                  <span class="glyphicon glyphicon-option-horizontal" />
+                </ao-button>
+              </ao-tooltip>
+            </td>
           </tr>
         </ao-table>
       </div>
@@ -79,8 +94,10 @@ export default {
       ...TableDocumentation,
       headers: [
         { field: 'id', title: 'ID', sortable: true },
-        { field: 'first_name', title: 'First Name', sortable: true },
-        { field: 'last_name', title: 'Last Name', sortable: true }
+        { field: 'first_name', title: 'First Name', sortable: false },
+        { field: 'last_name', title: 'Last Name', sortable: false },
+        { field: 'nickname', title: 'Nickname', sortable: false },
+        { field: 'actions', title: 'Actions', sortable: false, alignRight: true, visible: false }
       ],
       users: [
         { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons' },

@@ -5,10 +5,10 @@
         <th
           v-for="columnHeader in headers"
           :key="columnHeader.field"
-          :class="isSortableClass(columnHeader.sortable)"
+          :class="['ao-table__header', isSortableClass(columnHeader.sortable), {'ao-table__header--text-right' : columnHeader.alignRight}]"
           @click="sortByHeader(columnHeader.field, columnHeader.sortable)"
         >
-          <span class="ao-table__header">
+          <span class="ao-table__header-text">
             {{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)" />
           </span>
         </th>
@@ -144,12 +144,10 @@ export default {
 
 <style lang="scss">
 
-$table-row-background-shaded: $color-gray-90;
-
 .ao-table {
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: $font-size-sm;
+  font-size: $table-font-size;
   width: 100%;
   max-width: 100%;
   margin-bottom: $spacer;
@@ -157,17 +155,26 @@ $table-row-background-shaded: $color-gray-90;
   overflow-x: auto;
   min-height: 0.01%;
 
+  table {
+    line-height: $table-line-height;
+  }
+
   tr {
     border-bottom: 1px solid $color-gray-70;
   }
 
   th, td {
     padding: $table-cell-padding;
+    vertical-align: middle;
   }
 
   th {
     font-weight: $font-weight-bold;
     text-align: left;
+
+    &.ao-table__header--text-right {
+      text-align: right;
+    }
   }
 
   &--condensed {
@@ -176,8 +183,16 @@ $table-row-background-shaded: $color-gray-90;
     }
   }
 
+  & > thead > tr {
+    background-color: $color-white;
+  }
+
+  & > tbody > tr:nth-of-type(even) {
+    background-color: $color-white;
+  }
+
   & > tbody > tr:nth-of-type(odd) {
-    background-color: $color-gray-90;
+    background-color: $table-row-background-shaded;
   }
 
   &.ao-table--clickable {
@@ -200,11 +215,6 @@ $table-row-background-shaded: $color-gray-90;
     td {
       vertical-align: middle;
     }
-  }
-
-  & tr > td {
-    padding: .5rem;
-    vertical-align: middle;
   }
 
   & > tbody tr > td {
@@ -255,6 +265,48 @@ $table-row-background-shaded: $color-gray-90;
       cursor: inherit !important;
       background-color: $table-row-background-shaded !important;
     }
+  }
+
+  td.ao-table__input-cell {
+    padding-top: $table-input-vertical-cell-padding;
+    padding-bottom: $table-input-vertical-cell-padding;
+  }
+
+  td.ao-table__row-actions {
+    text-align: right;
+    padding-top: $table-input-vertical-cell-padding;
+    padding-bottom: $table-input-vertical-cell-padding;
+  }
+
+  td.ao-table__row-actions > * {
+    &:first-child,
+    &:first-child .ao-button {
+      border-top-left-radius: $border-radius-base;
+      border-bottom-left-radius: $border-radius-base;
+      border-right: 0;
+    }
+    &:last-child,
+    &:last-child .ao-button {
+      border-top-right-radius: $border-radius-base;
+      border-bottom-right-radius: $border-radius-base;
+    }
+  }
+  td.ao-table__row-actions > * + * {
+    // margin-left: 2px;
+  }
+
+  // @media (hover: hover) {
+  //   td.ao-table__row-actions > * {
+  //     opacity: 0;
+  //   }
+
+  //   & > tbody > tr:hover > &__row-actions > * {
+  //     opacity: 1;
+  //   }
+  // }
+
+  & td > *:last-child {
+    margin-bottom: 0;
   }
 }
 </style>

@@ -9,7 +9,7 @@
       </label>
       <slot name="tooltip" />
     </div>
-    <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup }]">
+    <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup }, computedSize]">
       <input
         v-bind="$attrs"
         :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
@@ -153,7 +153,7 @@ export default {
 
     computedSize () {
       const activeClasses = {
-        'ao-form-control--small': this.size === 'small'
+        'ao-input--small': this.size === 'small'
       }
       return filterClasses(activeClasses)
     }
