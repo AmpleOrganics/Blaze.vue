@@ -8,7 +8,7 @@
       <div class="component-example">
         <ao-paginate
           :total-pages="totalPages"
-          @paginate="paginate"
+          :current-page.sync="currentPage"
         />
         <p>Current Page: {{ currentPage }}</p>
         <p>Total Pages: {{ totalPages }}</p>
@@ -45,7 +45,7 @@ export default {
   data () {
     return {
       ...PaginateDocumentation,
-      totalPages: 3,
+      totalPages: 10,
       currentPage: 1
     }
   },

@@ -6,7 +6,7 @@ module.exports = {
     loaderOptions: {
       sass: {
         data: fs.readFileSync(
-          './src/assets/styles/settings/_variables.scss',
+          './src/assets/styles/settings/_blazevariables.scss',
           'utf-8'
         )
       }
