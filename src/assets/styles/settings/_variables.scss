@@ -8,6 +8,8 @@
 // Color system
 //
 
+
+
 $color-primary:               #00a38b;
 $color-primary-dark:          darken($color-primary, 5);
 $color-dark:                  #292F3B;
@@ -55,11 +57,11 @@ $color-gray-90:               #f7f7f9;
 //
 
 $spacer-px:                   15px;
-$spacer:                      1rem;
-$spacer-sm:                   .75rem;
-$spacer-xs:                   .5rem;
-$spacer-lg:                   1.5rem;
 $spacer-micro:                .25rem;
+$spacer-xs:                   .5rem;
+$spacer-sm:                   .75rem;
+$spacer:                      1rem;
+$spacer-lg:                   1.5rem;
 
 //
 // Typography
@@ -145,9 +147,14 @@ $input-focus-shadow-error:    0 0 1px transparentize($color-destructive, 0.1);
 
 $input-label-margin:          0 0 $spacer-xs;
 
+//
 // Tables
 //
 
 $table-cell-padding:          $font-size-base/2;
 $table-border-color:          $color-gray-70;
+
+//
+// Material Design Icons
+//
 
