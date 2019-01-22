@@ -1,0 +1,11 @@
+$material-design-icons-font-path: '~material-design-icons-iconfont/dist/fonts/';
+@import '~material-design-icons-iconfont/src/material-design-icons';
+@import '~@/assets/styles/settings/_variables.scss';
+
+.left-chevron {
+  @include material-icon('chevron_left');
+}
+
+.right-chevron {
+  @include material-icon('chevron_right');
+}
