@@ -210,20 +210,19 @@ $table-row-background-shaded: $color-gray-90;
   }
 
   &--vertical-align-top {
-    td {
+    & > tr > td {
       vertical-align: top;
     }
   }
 
   &--vertical-align-middle {
-    td {
+    & > tr > td {
       vertical-align: middle;
     }
   }
 
   & tr > td {
     padding: .5rem;
-    vertical-align: middle;
   }
 
   & > tbody tr > td {

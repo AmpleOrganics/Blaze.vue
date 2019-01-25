@@ -19,8 +19,8 @@ describe('Checkbox', () => {
         currentPage: 1
       }
     })
-    expect(paginate.find('.right-chevron').isVisible()).toBe(true)
-    expect(paginate.find('.left-chevron').isVisible()).toBe(false)
+    expect(paginate.find('.md-icon__right-chevron').isVisible()).toBe(true)
+    expect(paginate.find('.md-icon__left-chevron').isVisible()).toBe(false)
   })
 
   it('shows left chevron', () => {
@@ -30,8 +30,8 @@ describe('Checkbox', () => {
         currentPage: 10
       }
     })
-    expect(paginate.find('.left-chevron').isVisible()).toBe(true)
-    expect(paginate.find('.right-chevron').exists()).toBe(false)
+    expect(paginate.find('.md-icon__left-chevron').isVisible()).toBe(true)
+    expect(paginate.find('.md-icon__right-chevron').exists()).toBe(false)
   })
 
   it('shows both chevrons', () => {
@@ -41,8 +41,8 @@ describe('Checkbox', () => {
         currentPage: 2
       }
     })
-    expect(paginate.find('.left-chevron').isVisible()).toBe(true)
-    expect(paginate.find('.right-chevron').isVisible()).toBe(true)
+    expect(paginate.find('.md-icon__left-chevron').isVisible()).toBe(true)
+    expect(paginate.find('.md-icon__right-chevron').isVisible()).toBe(true)
   })
 
   it('firstDots', () => {
@@ -109,7 +109,7 @@ describe('Checkbox', () => {
       }
     })
 
-    paginate.find('.right-chevron').trigger('click')
+    paginate.find('.md-icon__right-chevron').trigger('click')
     expect(paginate.emitted()['update:currentPage'][0][0]).toEqual(6)
   })
 })
