@@ -5,11 +5,14 @@
         <th
           v-for="columnHeader in headers"
           :key="columnHeader.field"
-          :class="isSortableClass(columnHeader.sortable)"
-          @click="sortByHeader(columnHeader.field, columnHeader.sortable)"
+          :class="['ao-table__header', isSortableClass(columnHeader.sortable), {'ao-table__header--text-right' : columnHeader.alignRight}]"
         >
-          <span class="ao-table__header">
-            {{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable)" />
+          <span
+            v-show="!columnHeader.hidden"
+            class="ao-table__header-text"
+            @click="sortByHeader(columnHeader.field, columnHeader.sortable, columnHeader.hidden)"
+          >
+            {{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable, columnHeader.hidden)" />
           </span>
         </th>
       </tr>
@@ -111,9 +114,8 @@ export default {
   },
 
   methods: {
-    sortByHeader (header, sortable) {
-      // undefined is used so you do not have to set searchable
-      if (sortable === true || sortable === undefined) {
+    sortByHeader (header, sortable = true, hidden = false) {
+      if (this.isSortable(sortable, hidden)) {
         if (header === this.lastSelectedHeader) {
           this.orderProxy = this.toggleOrder(this.orderProxy)
         } else {
@@ -125,18 +127,22 @@ export default {
       }
     },
 
-    isSortableClass (sortable) {
-      return sortable === true || sortable === undefined ? 'ao-table__th--sortable' : null
+    isSortableClass (sortable = true, hidden = false) {
+      return this.isSortable(sortable, hidden) ? 'ao-table__th--sortable' : null
     },
 
-    isChevroned (name, sortable) {
-      if (name === this.sortProxy && (sortable === true || sortable === undefined)) {
+    isChevroned (name, sortable = true, hidden = false) {
+      if (name === this.sortProxy && this.isSortable(sortable, hidden)) {
         return this.orderProxy === 'desc' ? 'glyphicon glyphicon-chevron-down ao-table__sort-icon' : 'glyphicon glyphicon-chevron-up ao-table__sort-icon'
       }
     },
 
     toggleOrder (order) {
       return order === 'asc' ? 'desc' : 'asc'
+    },
+
+    isSortable (sortable, hidden) {
+      return sortable === true && hidden === false
     }
   }
 }
@@ -165,9 +171,22 @@ $table-row-background-shaded: $color-gray-90;
     padding: $table-cell-padding;
   }
 
+  &__th--sortable > span {
+    cursor: pointer;
+    border-bottom: 1px dotted $color-gray-10;
+  }
+
   th {
     font-weight: $font-weight-bold;
     text-align: left;
+
+    &.ao-table__header--text-right {
+      text-align: right;
+    }
+
+    &.ao-table__header--hidden > span {
+      display: none;
+    }
   }
 
   &--condensed {
@@ -218,11 +237,6 @@ $table-row-background-shaded: $color-gray-90;
 
   & tfoot tr > td {
     border-top-width: 2px;
-  }
-
-  &__th--sortable > span {
-    cursor: pointer;
-    border-bottom: 1px dotted $color-gray-10;
   }
 
   &__sort-icon {
