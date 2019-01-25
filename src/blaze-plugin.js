@@ -20,6 +20,7 @@ import AoSectionHeader from './components/AoSectionHeader.vue'
 import AoSelect from './components/AoSelect.vue'
 import AoSpinner from './components/AoSpinner.vue'
 import AoTable from './components/AoTable.vue'
+import AoTableCell from './components/AoTableCell.vue'
 import AoTextArea from './components/AoTextArea.vue'
 import AoTextStyle from './components/AoTextStyle.vue'
 import AoTooltip from './components/AoTooltip.vue'
@@ -48,6 +49,7 @@ const Blaze = {
     Vue.component('AoSelect', AoSelect)
     Vue.component('AoSpinner', AoSpinner)
     Vue.component('AoTable', AoTable)
+    Vue.component('AoTableCell', AoTableCell)
     Vue.component('AoTextArea', AoTextArea)
     Vue.component('AoTextStyle', AoTextStyle)
     Vue.component('AoTooltip', AoTooltip)

@@ -1,11 +1,45 @@
+// Material Design Icons
 $material-design-icons-font-path: '~material-design-icons-iconfont/dist/fonts/';
+$md-icon-font-size-base: 18px;
 @import '~material-design-icons-iconfont/src/material-design-icons';
 @import '~@/assets/styles/settings/_variables.scss';
 
-.left-chevron {
+.md-icon__add {
+  @include material-icon('add');
+}
+
+.md-icon__archive {
+  @include material-icon('archive');
+}
+
+.md-icon__close {
+  @include material-icon('close');
+}
+
+.md-icon__delete_forever {
+  @include material-icon('delete_forever');
+}
+
+.md-icon__get_app {
+  @include material-icon('get_app');
+}
+
+.md-icon__left-chevron {
   @include material-icon('chevron_left');
 }
 
-.right-chevron {
+.md-icon__more_horiz {
+  @include material-icon('more_horiz');
+}
+
+.md-icon__print {
+  @include material-icon('print');
+}
+
+.md-icon__right-chevron {
   @include material-icon('chevron_right');
+}
+
+.md-icon__undo {
+  @include material-icon('undo');
 }
