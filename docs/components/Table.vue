@@ -79,8 +79,8 @@ export default {
       ...TableDocumentation,
       headers: [
         { field: 'id', title: 'ID', sortable: true },
-        { field: 'first_name', title: 'First Name', sortable: true },
-        { field: 'last_name', title: 'Last Name', sortable: true }
+        { field: 'first_name', title: 'First Name', sortable: true, hidden: true },
+        { field: 'last_name', title: 'Last Name', sortable: true, alignRight: true }
       ],
       users: [
         { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons' },
@@ -101,11 +101,13 @@ export default {
       noDataText: 'No Data'
     }
   },
+
   computed: {
     filteredUsers () {
       return this.showNoDataText ? [] : this.users
     }
   },
+
   methods: {
     sortTable (sortBy, order) {
       this.users = orderBy(this.users, sortBy, order)
