@@ -23,6 +23,7 @@ import SectionHeader from '../docs/components/SectionHeader.vue'
 import Select from '../docs/components/Select.vue'
 import Spinner from '../docs/components/Spinner.vue'
 import Table from '../docs/components/Table.vue'
+import TableCell from '../docs/components/TableCell.vue'
 import TextArea from '../docs/components/TextArea.vue'
 import TextStyle from '../docs/components/TextStyle.vue'
 import Tooltip from '../docs/components/Tooltip.vue'
@@ -62,6 +63,7 @@ export default new Router({
     { name: 'select', path: '/select', component: Select, meta: { title: 'Select' } },
     { name: 'spinner', path: '/spinner', component: Spinner, meta: { title: 'Spinner' } },
     { name: 'table', path: '/table', component: Table, meta: { title: 'Table' } },
+    { name: 'tablecell', path: '/tablecell', component: TableCell, meta: { title: 'Table Cell' } },
     { name: 'textarea', path: '/textarea', component: TextArea, meta: { title: 'Text Area' } },
     { name: 'textstyle', path: '/textstyle', component: TextStyle, meta: { title: 'Text Style' } },
     { name: 'tooltip', path: '/tooltip', component: Tooltip, meta: { title: 'Tooltip' } }

@@ -5,7 +5,7 @@
       class="ao-paginate__button"
       @click="changePage(currentPage - 1)"
     >
-      <i class="left-chevron ao-paginate__chevron" />
+      <i class="md-icon__left-chevron ao-paginate__chevron" />
     </button>
     <button
       v-if="totalPages > 6"
@@ -49,7 +49,7 @@
       class="ao-paginate__button"
       @click="changePage(currentPage + 1)"
     >
-      <i class="right-chevron ao-paginate__chevron" />
+      <i class="md-icon__right-chevron ao-paginate__chevron" />
     </button>
   </div>
 </template>

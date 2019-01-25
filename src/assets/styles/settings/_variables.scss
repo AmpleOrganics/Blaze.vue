@@ -151,10 +151,10 @@ $input-label-margin:          0 0 $spacer-xs;
 // Tables
 //
 
+$table-font-size:             $font-size-sm;
+$table-line-height:           $line-height-base;
 $table-cell-padding:          $font-size-base/2;
 $table-border-color:          $color-gray-70;
+$table-row-background-shaded: $color-gray-90;
 
-//
-// Material Design Icons
-//
-
+$table-input-vertical-cell-padding: 0.25rem;
