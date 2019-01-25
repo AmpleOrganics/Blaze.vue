@@ -34,9 +34,12 @@
             <td class="ao-table__row-actions">
               <ao-tooltip text="Actions">
                 <ao-button inline-action>
-                  <span class="glyphicon glyphicon-option-horizontal" />
+                  <span class="glyphicon glyphicon-remove" />
                 </ao-button>
               </ao-tooltip>
+              <ao-button inline-action>
+                <span class="glyphicon glyphicon-option-horizontal" />
+              </ao-button>
             </td>
           </tr>
         </ao-table>
