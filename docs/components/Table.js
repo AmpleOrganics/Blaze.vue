@@ -2,7 +2,8 @@ export default {
   header: 'Table',
   description: 'This is a customizable table component.',
   snippet:
-`<ao-table
+`
+<ao-table
   :headers="headers"
   :is-clickable="isClickable"
   :show-no-data-text="showNoDataText"
@@ -59,7 +60,7 @@ methods: {
   apiRows: [
     { name: 'condensed', type: 'Boolean', default: 'false', description: 'When set to true, this prop reduces appropriate styling to make table look condensed.' },
     { name: 'headers', type: 'Array', default: 'null', description: 'This prop contains an array of objects with header title, field and a sortable boolean to determine if your data should be sorted by that header.' },
-    { name: 'header props', type: 'Boolean', default: 'false', description: '\'alignRight\' aligns the header to the right side of the space givin and \'hidden\' hides a given th header' },
+    { name: 'headers > alignRight,<br /> hidden', type: 'Boolean', default: 'false', description: 'Include the <strong>alignRight</strong> property to align the header to the right side of the space given. <br />Include a <strong>hidden</strong> property to hide a given \'th\' header.' },
     { name: 'isClickable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to signify that the table and table rows are clickable.' },
     { name: 'noDataText', type: 'String', default: '', description: 'Text to show when table has no data.' },
     { name: 'order', type: 'String ("asc" or "desc")', default: 'desc', description: 'This prop defines which order (ascending or decending) is the default.' },
