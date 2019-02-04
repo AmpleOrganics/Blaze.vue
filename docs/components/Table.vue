@@ -38,6 +38,24 @@
       <div class="component-controls">
         <div class="component-controls__group">
           <ao-checkbox
+            v-model="hidden"
+            :checkbox-value="false"
+            checkbox-label="hidden (First Name column)"
+          />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="alignRight"
+            :checkbox-value="false"
+            checkbox-label="alignRight (Last Name column)"
+          />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-checkbox
             v-model="showNoDataText"
             :checkbox-value="false"
             checkbox-label="showNoDataText"
@@ -77,11 +95,6 @@ export default {
   data () {
     return {
       ...TableDocumentation,
-      headers: [
-        { field: 'id', title: 'ID', sortable: true },
-        { field: 'first_name', title: 'First Name', sortable: true, hidden: true },
-        { field: 'last_name', title: 'Last Name', sortable: true, alignRight: true }
-      ],
       users: [
         { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons' },
         { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs' },
@@ -97,6 +110,8 @@ export default {
       sortBy: 'id',
       order: 'asc',
       isClickable: true,
+      alignRight: true,
+      hidden: true,
       showNoDataText: false,
       noDataText: 'No Data'
     }
@@ -105,6 +120,13 @@ export default {
   computed: {
     filteredUsers () {
       return this.showNoDataText ? [] : this.users
+    },
+    headers () {
+      return [
+        { field: 'id', title: 'ID', sortable: true },
+        { field: 'first_name', title: 'First Name', sortable: true, hidden: this.hidden },
+        { field: 'last_name', title: 'Last Name', sortable: true, alignRight: this.alignRight }
+      ]
     }
   },
 

@@ -7,10 +7,10 @@
       v-for="(row, index) in rows"
       :key="index"
     >
-      <td>{{ row.name }}</td>
+      <td v-html="row.name" />
       <td>{{ row.type }}</td>
       <td>{{ row.default }}</td>
-      <td>{{ row.description }}</td>
+      <td v-html="row.description" />
     </tr>
   </ao-table>
   <div v-else>
