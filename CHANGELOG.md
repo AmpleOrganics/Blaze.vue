@@ -1,3 +1,16 @@
+# 2.0.0 (2018-02-03)
+
+## Breaking changes
+
+Pagination: New pagination component has been implemented [53a4ec4](https://github.com/AmpleOrganics/Blaze.vue/pull/287/commits/53a4ec49efd274fc6d753b3a79928b98e6aae9f9)
+Table: must click actual span inside th to trigger sort [ed91910](https://github.com/AmpleOrganics/Blaze.vue/pull/287/commits/ed9191063f31d32927f9b962253aaff81bd8963c)
+
+## New
+
+Table Cell: new optional component, can be used to style elements such as buttons and inputs to fit a more table aesthetic, it's essentially a td with props and styles [8c341c5](https://github.com/AmpleOrganics/Blaze.vue/pull/287/commits/8c341c576eea4fc799149777e42a75e0633f29eb)
+
+Table: headers can now be right aligned and/or hidden (uses v-show under the hood), using header keys. Check documentation for examples [ed91910](https://github.com/AmpleOrganics/Blaze.vue/pull/287/commits/ed9191063f31d32927f9b962253aaff81bd8963c)
+
 # 1.5.0 (2018-12-07)
 
 ## Fixes
