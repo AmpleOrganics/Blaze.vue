@@ -14,7 +14,7 @@ export default {
     { name: 'titleClicked', type: 'Function', default: 'null', description: 'Callback function to invoke when header toolbar title is clicked.' },
     { name: 'iconHtml', type: 'String', default: 'null', description: 'Accepts html elements or html codes for icons.' },
     { name: 'iconUrl', type: 'String', default: 'null', description: 'Accepts an image URL.' },
-    { name: 'iconClass', type: 'String', default: 'null', description: 'Accepts icon class components e.g. glyphicons.' },
+    { name: 'iconClass', type: 'String', default: 'null', description: 'Accepts icon class components e.g. material icons.' },
     { name: 'fixed', type: 'Boolean', default: 'false', description: 'Adds a class to fix the header toolbar in position.' }
   ]
 }

@@ -20,10 +20,10 @@ describe('HeaderToolbar', () => {
       propsData: {
         title: 'Test',
         iconHtml: "'🐸'",
-        iconClass: 'custom-glyphicon-ok'
+        iconClass: 'md-icon__check'
       }
     })
-    expect(headerToolbar.find('.custom-glyphicon-ok').exists()).toBe(true)
+    expect(headerToolbar.find('.md-icon__check').exists()).toBe(true)
   })
 
   it('applies a fixed class', () => {

@@ -10,7 +10,7 @@
         :class="{ active: activeTab}"
         @click="toggleDropdown"
       >
-        <span :class="'glyphicon glyphicon-menu-hamburger icon'" />
+        <span :class="'md-icon__menu icon'" />
         <ao-dropdown :show-dropdown="showDropdown">
           <a
             v-for="(link, index) in links"
@@ -514,7 +514,7 @@
           I am a card callout! I am passed into the cardCallout slot and am flush with the card.
         </ao-callout>
         <ao-callout
-          :icon-class="'glyphicon glyphicon-ok'"
+          :icon-class="'md-icon__check'"
           :show-callout.sync="showCallout"
           dismissible
           success

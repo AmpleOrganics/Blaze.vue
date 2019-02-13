@@ -133,7 +133,7 @@ export default {
 
     isChevroned (name, sortable = true, hidden = false) {
       if (name === this.sortProxy && this.isSortable(sortable, hidden)) {
-        return this.orderProxy === 'desc' ? 'glyphicon glyphicon-chevron-down ao-table__sort-icon' : 'glyphicon glyphicon-chevron-up ao-table__sort-icon'
+        return this.orderProxy === 'desc' ? 'md-icon__arrow_drop_down ao-table__sort-icon' : 'md-icon__arrow_drop_up ao-table__sort-icon'
       }
     },
 
@@ -239,8 +239,7 @@ $table-row-background-shaded: $color-gray-90;
   }
 
   &__sort-icon {
-    margin-left: 0.5rem;
-    font-size: 11px;
+    margin-left: $spacer-micro;
     top: 0;
   }
 

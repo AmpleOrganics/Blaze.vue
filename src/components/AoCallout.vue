@@ -14,7 +14,7 @@
         v-if="dismissible"
         @click="dismissCallout"
       >
-        <i class="glyphicon glyphicon-remove" />
+        <i class="md-icon__close" />
       </button>
     </div>
   </div>

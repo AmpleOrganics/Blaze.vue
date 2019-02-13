@@ -12,6 +12,18 @@ $md-icon-font-size-base: 18px;
   @include material-icon('archive');
 }
 
+.md-icon__arrow_drop_down {
+  @include material-icon('arrow_drop_down');
+}
+
+.md-icon__arrow_drop_up {
+  @include material-icon('arrow_drop_up');
+}
+
+.md-icon__check {
+  @include material-icon('check');
+}
+
 .md-icon__close {
   @include material-icon('close');
 }
@@ -24,8 +36,16 @@ $md-icon-font-size-base: 18px;
   @include material-icon('get_app');
 }
 
+.md-icon__info {
+  @include material-icon('info');
+}
+
 .md-icon__left-chevron {
   @include material-icon('chevron_left');
+}
+
+.md-icon__menu {
+  @include material-icon('menu');
 }
 
 .md-icon__more_horiz {

@@ -6,12 +6,12 @@ export default {
       v-if="showCallout"
       success
       dismissible
-      :icon-class="'glyphicon glyphicon-ok'"
+      :icon-class="'md-icon__check'"
       @hideCallout="hideCallout">
       Callout text goes here
     </ao-callout>`,
   apiRows: [
-    { name: 'iconClass', type: 'String', default: 'null', description: 'Displays icon components eg. glyphicons.' },
+    { name: 'iconClass', type: 'String', default: 'null', description: 'Displays icon components eg. material icons.' },
     { name: 'dismissible', type: 'Boolean', default: 'false', description: 'Displays a close icon on right side of callout' },
     { name: 'destructive', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a destructive action eg. deletion, permanent irreversible action.' },
     { name: 'caution', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a cautious action eg. reversible powerful change.' },
