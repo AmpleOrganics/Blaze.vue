@@ -1,8 +1,19 @@
+# 2.0.1 (2019-02-13)
+
+## New
+
+Docs: Table Documentation now supports alignRight and hidden prop toggles [2623432](https://github.com/AmpleOrganics/Blaze.vue/pull/292/commits/2623432d4d78a107351121d22400b7c25071d098)
+
+## Fix
+
+Changelog: formatting and correct year
+
 # 2.0.0 (2019-02-03)
 
 ## Breaking changes
 
 Pagination: New pagination component has been implemented [53a4ec4](https://github.com/AmpleOrganics/Blaze.vue/pull/287/commits/53a4ec49efd274fc6d753b3a79928b98e6aae9f9)
+
 Table: must click actual span inside th to trigger sort [ed91910](https://github.com/AmpleOrganics/Blaze.vue/pull/287/commits/ed9191063f31d32927f9b962253aaff81bd8963c)
 
 ## New
