@@ -97,6 +97,7 @@ $ao-alert-height: 3.75rem;
     width: $ao-alert-height;
     background-color: $color-success;
     color: $color-white;
+    font-size: $font-size-xl;
 
     &--destructive {
       background-color: $color-destructive;

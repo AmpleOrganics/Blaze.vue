@@ -97,7 +97,7 @@ export default {
     return {
       ...CalloutDocumentation,
       showCallout: true,
-      iconClass: 'glyphicon glyphicon-ok',
+      iconClass: 'md-icon__check',
       calloutStyles: [
         { name: 'success', value: 'success' },
         { name: 'destructive', value: 'destructive' },

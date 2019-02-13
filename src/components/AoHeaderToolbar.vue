@@ -7,19 +7,21 @@
       :class="{ 'clickable': isClickable }"
       class="ao-header-toolbar__title"
     >
-      <span
-        v-if="hasIconAddon"
-        :class="iconClass"
-        class="ao-header-toolbar__icon"
-        @click="onTitleClick"
-        v-html="iconHtml"
-      />
-      <img
-        v-if="hasIconUrlAddon"
-        :src="iconUrl"
+      <div
+        v-if="hasIconAddon || hasIconUrlAddon"
         class="ao-header-toolbar__icon"
         @click="onTitleClick"
       >
+        <span
+          v-if="hasIconAddon"
+          :class="iconClass"
+          v-html="iconHtml"
+        />
+        <img
+          v-if="hasIconUrlAddon"
+          :src="iconUrl"
+        >
+      </div>
       <span
         :class="iconClass"
         class="ao-header-toolbar__title-text"
@@ -101,10 +103,18 @@ export default {
   }
 
   &__icon {
-    max-height: $header-icon-height;
     padding-right: $spacer/2;
-    font-size: $font-size-xxl;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+
+    img {
+      max-height: $header-icon-height;
+    }
+
+    span {
+      font-size: $font-size-xxl;
+      vertical-align: middle;
+    }
   }
 
   &__title-text {
@@ -127,10 +137,6 @@ export default {
       text-decoration: none;
       border-radius: 0;
       font-size: $font-size-base;
-
-      .glyphicon {
-        font-size: 18px;
-      }
 
       &.active {
         color: $color-gray-10;

@@ -29,7 +29,7 @@ export default {
     { name: 'name', type: 'String', default: 'null', description: 'Defines the html name property and has no functional purpose on its own.' },
     { name: 'placeholder', type: 'String', default: 'null', description: 'Defines the placeholder text inside of the input.' },
     { name: 'iconHtml', type: 'String', default: 'null', description: 'Accepts html elements or html codes for icons.' },
-    { name: 'iconClass', type: 'String', default: 'null', description: 'Accepts icon class components e.g. glyphicons.' },
+    { name: 'iconClass', type: 'String', default: 'null', description: 'Accepts icon class components e.g. material icons.' },
     { name: 'addOn', type: 'String', default: 'null', description: 'Appends text to the input.' },
     { name: 'step', type: 'Number', default: '1', description: 'Valid for input type "number". Defines the amount of changes per click.' },
     { name: 'disabled', type: 'Boolean', default: 'false', description: 'Disables interaction with the component.' },

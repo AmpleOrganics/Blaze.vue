@@ -56,10 +56,10 @@ describe('Callout', () => {
   it('has an icon', () => {
     const callout = mount(Callout, {
       propsData: {
-        iconClass: 'glyphicon'
+        iconClass: 'test'
       }
     })
-    expect(callout.contains('glyphicon'))
+    expect(callout.contains('test'))
   })
 
   it('emits an update', () => {

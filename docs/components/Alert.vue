@@ -11,7 +11,7 @@
           :show-alert="showAlert"
           :destructive="activateProp('destructive')"
           :caution="activateProp('caution')"
-          :icon-class="'glyphicon glyphicon-ok'"
+          :icon-class="'md-icon__check'"
         >
           {{ alertText }}
         </ao-alert>
