@@ -2,7 +2,7 @@
 Ample Organics Component Library
 
 ## Documentation
-Documentation goes here!
+Run `yarn serve` the documentation should open in your broswer at `http://localhost:8080/`
 
 ## Install
 Install the package using npm/yarn:
