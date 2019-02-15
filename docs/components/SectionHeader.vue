@@ -10,7 +10,13 @@
           :title="title"
           :subtitle="subtitle"
           :icon-html="iconHtml"
-        />
+        >
+          <template slot="section-header-title">
+            <span class="icon">
+              🍔
+            </span>
+          </template>
+        </ao-section-header>
       </div>
       <div class="component-controls">
         <div class="component-controls__group">
