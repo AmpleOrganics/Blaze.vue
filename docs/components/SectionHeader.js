@@ -6,7 +6,13 @@ export default {
   :icon-class="'custom-glyph-clients'"
   :title="'This is the section header title'"
   :subtitle="'The subtitle goes here'"
-/>`,
+>
+  <template slot="section-header-title">
+    <span class="icon">
+      🍔
+    </span>
+  </template>
+</ao-section-header>`,
   apiRows: [
     { name: 'title', type: 'String, required', default: 'null', description: 'Defines the title of the section header.' },
     { name: 'subtitle', type: 'String', default: 'null', description: 'Defines the subtitle of the section header.' },

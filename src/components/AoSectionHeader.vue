@@ -7,9 +7,12 @@
         class="ao-section-header__icon"
         v-html="iconHtml"
       />
-      <h1 class="ao-section-header__title">
-        {{ title }}
-      </h1>
+      <div>
+        <h1 class="ao-section-header__title">
+          {{ title }}
+        </h1>
+        <slot name="section-header-title" />
+      </div>
       <div class="ao-section-header__toolbar">
         <slot name="section-header-toolbar" />
       </div>
