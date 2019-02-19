@@ -1,3 +1,9 @@
+# 2.1.0 (2019-02-19)
+
+## New
+
+SectionHeader: added a slot adjacent to the header text [01342bc](https://github.com/AmpleOrganics/Blaze.vue/pull/297/commits/01342bcca14426e56a132b96c29a105ae4c6b97f)
+
 # 2.0.1 (2019-02-13)
 
 ## New
