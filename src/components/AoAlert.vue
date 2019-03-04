@@ -10,6 +10,13 @@
       <div class="ao-alert__message">
         <slot />
       </div>
+      <div class="ao-alert__dismiss">
+        <button
+          @click="closeAlert"
+        >
+          <i class="md-icon__close" />
+        </button>
+      </div>
     </div>
   </transition>
 </template>
@@ -59,9 +66,13 @@ export default {
   methods: {
     autoCloseAlert () {
       setTimeout(() => {
-        this.$emit('update:showAlert', false)
+        this.closeAlert()
       }, 4000)
+    },
+    closeAlert () {
+      this.$emit('update:showAlert', false)
     }
+
   }
 }
 </script>
@@ -106,6 +117,26 @@ $ao-alert-height: 3.75rem;
     &--caution {
       background-color: $color-caution;
     }
+  }
+
+  &__dismiss {
+    display: flex;
+      flex-direction: column;
+
+      button {
+        background: transparent;
+        border: 0;
+        height: auto;
+        width: auto;
+        flex-grow: 0;
+        opacity: .6;
+        font-size: $font-size-sm;
+        padding: 0.5rem;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
   }
 }
 </style>

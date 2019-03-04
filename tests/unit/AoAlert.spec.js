@@ -55,4 +55,15 @@ describe('Alert', () => {
     jest.runAllTimers()
     expect(alert.emitted()['update:showAlert']).toBeTruthy()
   })
+
+  it('is dismissible', () => {
+    const alert = mount(Alert, {
+      propsData: {
+        showAlert: true
+      }
+    })
+    expect(alert.contains('ao-alert__dismiss'))
+    alert.find('.ao-alert__dismiss button').trigger('click')
+    expect(alert.emitted()['update:showAlert']).toBeTruthy()
+  })
 })
