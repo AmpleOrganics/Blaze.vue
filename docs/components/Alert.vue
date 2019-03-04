@@ -8,7 +8,7 @@
       <div class="component-example component-example__alert">
         <ao-alert
           v-if="showAlert"
-          :show-alert="showAlert"
+          :show-alert.sync="showAlert"
           :destructive="activateProp('destructive')"
           :caution="activateProp('caution')"
           :icon-class="'md-icon__check'"
@@ -39,11 +39,9 @@
           </ao-select>
         </div>
         <div class="component-controls__group">
-          <ao-checkbox
-            v-model="showAlert"
-            :checkbox-value="true"
-            checkbox-label="showAlert"
-          />
+          <ao-button @click.native="displayAlert">
+            Display Alert
+          </ao-button>
         </div>
       </div>
     </div>
@@ -82,6 +80,9 @@ export default {
   methods: {
     activateProp (compare) {
       return compare === this.selectedType
+    },
+    displayAlert () {
+      this.showAlert = true
     }
   }
 }
