@@ -12,6 +12,8 @@
           :caution="activateProp('caution')"
           :subtle="activateProp('subtle')"
           :naked="activateProp('naked')"
+          :link="activateProp('link') || activateProp('text-only-link')"
+          :text-only="activateProp('text-only') || activateProp('text-only-link')"
           :small="activateProp('small')"
           :large="activateProp('large')"
           :jumbo="activateProp('jumbo')"
@@ -35,6 +37,20 @@
           >
             <option
               v-for="(prop, index) in contextProps"
+              :key="index"
+              :value="prop.value"
+            >
+              {{ prop.name }}
+            </option>
+          </ao-select>
+        </div>
+        <div class="component-controls__group">
+          <ao-select
+            v-model="selectedStyle"
+            label="Style"
+          >
+            <option
+              v-for="(prop, index) in styleProps"
               :key="index"
               :value="prop.value"
             >
@@ -104,13 +120,20 @@ export default {
         { name: 'Jumbo', value: 'jumbo' }
       ],
       selectedSize: 'default',
+      styleProps: [
+        { name: 'Default', value: 'default' },
+        { name: 'Link', value: 'link' },
+        { name: 'Text Only', value: 'text-only' },
+        { name: 'Text Only & Link', value: 'text-only-link' }
+      ],
+      selectedStyle: 'default',
       disabled: false
     }
   },
 
   methods: {
     activateProp (compare) {
-      return compare === this.selectedContext || compare === this.selectedSize
+      return [this.selectedContext, this.selectedSize, this.selectedStyle].includes(compare)
     }
   }
 }

@@ -228,7 +228,7 @@ export default {
     color: $font-color-link;
     font-weight: normal;
 
-    &:hover, :active {
+   &:active, &:hover:not([disabled]) {
       @include naked-hover-shared;
       color: $font-color-link-hover;
       text-decoration: underline;
@@ -246,7 +246,7 @@ export default {
     min-height: auto;
     vertical-align: baseline;
 
-    &:hover, :active {
+    &:active, &:hover:not([disabled]) {
       @include naked-hover-shared;
     }
   }
