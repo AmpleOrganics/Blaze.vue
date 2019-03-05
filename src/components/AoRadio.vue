@@ -1,5 +1,5 @@
 <template>
-  <label class="ao-checkbox">
+  <label class="ao-radio">
     <input
       v-model="checked"
       v-bind="$attrs"
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss">
-.ao-checkbox {
+.ao-radio {
   &:not(:last-of-type) {
     margin-right: $spacer-sm;
   }
