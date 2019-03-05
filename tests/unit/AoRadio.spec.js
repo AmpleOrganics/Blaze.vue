@@ -11,7 +11,7 @@ describe('Radio', () => {
         label: 'label'
       }
     })
-    expect(radio.classes()).toContain('ao-checkbox')
+    expect(radio.classes()).toContain('ao-radio')
   })
 
   it('disabled', () => {
