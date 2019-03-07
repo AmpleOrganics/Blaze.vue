@@ -10,7 +10,7 @@
           :show-label="showLabel"
           :disabled="disabled"
           :checkbox-value="true"
-          checkbox-label="checkboxLabel"
+          :checkbox-label="checkboxLabel"
         />
       </div>
       <div class="component-controls">
