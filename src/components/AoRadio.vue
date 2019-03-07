@@ -5,11 +5,14 @@
       v-bind="$attrs"
       :value="val"
       type="radio"
+      class="ao-radio__input"
       @change="toggle"
       @blur="emitBlur"
       @focus="emitFocus"
     >
-    <span>{{ label }}</span>
+    <span class="ao-radio__text">
+      {{ label }}
+    </span>
   </label>
 </template>
 
@@ -67,9 +70,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/styles/mixins/shared-checkbox-styles.scss';
+@include shared-checkbox-styles;
+
 .ao-radio {
-  &:not(:last-of-type) {
-    margin-right: $spacer-sm;
+  &__input {
+    margin-right: 0.5rem;
   }
 }
+
 </style>

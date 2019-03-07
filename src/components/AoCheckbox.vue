@@ -16,7 +16,10 @@
         @blur="emitBlur"
         @focus="emitFocus"
       >
-      <span v-show="showLabel">
+      <span
+        v-show="showLabel"
+        class="ao-checkbox__text"
+      >
         {{ checkboxLabel }}
       </span>
     </label>
@@ -89,23 +92,6 @@ export default {
 </script>
 
 <style lang='scss'>
-
-.ao-checkbox {
-  position: relative;
-  display: block;
-  margin-bottom: 10px;
-
-  &__label {
-    min-height: 22px;
-    margin-bottom: 0;
-    font-weight: normal;
-    cursor: pointer;
-  }
-
-  &__input {
-    line-height: normal;
-    box-sizing: border-box;
-    padding: 0;
-  }
-}
+@import '../assets/styles/mixins/shared-checkbox-styles.scss';
+@include shared-checkbox-styles;
 </style>

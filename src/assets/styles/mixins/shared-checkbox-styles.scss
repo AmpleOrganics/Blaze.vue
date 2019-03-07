@@ -1,0 +1,33 @@
+// Mixin for shared input styles
+
+@mixin shared-checkbox-styles {
+  .ao-checkbox, .ao-radio {
+    position: relative;
+    display: block;
+    margin-bottom: 2px;
+    line-height: $line-height-base;
+  
+    &__label {
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+    
+    &__text {
+      font-weight: normal;
+    }
+  
+    &__input {
+      box-sizing: border-box;
+      line-height: normal;  
+      padding: 0;
+      margin: 0;
+      margin-right: 0.25rem;
+      position: relative;
+      top: -1px;
+    }
+    
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
+  }
+}
