@@ -5,6 +5,7 @@ export default {
 `<ao-table
   :headers="headers"
   :is-clickable="isClickable"
+  :is-scrollable="isScrollable"
   :show-no-data-text="showNoDataText"
   :no-data-text="noDataText"
   :sort-by="sortBy"
@@ -28,6 +29,7 @@ export default {
     <td>{{ user.id }}</td>
     <td>{{ user.first_name }}</td>
     <td>{{ user.last_name }}</td>
+    <td>{{ user.friends }}</td>
   </tr>
 </ao-table>
 data () {
@@ -35,23 +37,25 @@ data () {
     headers: [
       { field: 'id', title: 'ID', sortable: true },
       { field: 'first_name', title: 'First Name', sortable: true, hidden: true },
-      { field: 'last_name', title: 'Last Name', sortable: true, alignRight: true }
+      { field: 'last_name', title: 'Last Name', sortable: true, alignRight: true },
+      { field: 'friends', title: 'Friends', sortable: true }
     ],
     users: [
-      { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', selected: false },
-      { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', selected: false },
-      { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', selected: false },
-      { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', selected: false },
-      { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', selected: false },
-      { 'id': 6, 'first_name': 'Rick', 'last_name': 'Potter', selected: false },
-      { 'id': 7, 'first_name': 'Harry', 'last_name': 'Sanchez', selected: false },
-      { 'id': 8, 'first_name': 'Joy', 'last_name': 'Mann', selected: false },
-      { 'id': 9, 'first_name': 'Adam', 'last_name': 'Hansen', selected: false },
-      { 'id': 10, 'first_name': 'Marge', 'last_name': 'Grey', selected: false }
+      { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'friends': '44', selected: false },
+      { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'friends': '5', selected: false },
+      { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', 'friends': '2', selected: false },
+      { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', 'friends': '8', selected: false },
+      { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'friends': '10', selected: false },
+      { 'id': 6, 'first_name': 'Rick', 'last_name': 'Potter', 'friends': '102', selected: false },
+      { 'id': 7, 'first_name': 'Harry', 'last_name': 'Sanchez', 'friends': '23', selected: false },
+      { 'id': 8, 'first_name': 'Joy', 'last_name': 'Mann', 'friends': '1', selected: false },
+      { 'id': 9, 'first_name': 'Adam', 'last_name': 'Hansen', 'friends': '0', selected: false },
+      { 'id': 10, 'first_name': 'Marge', 'last_name': 'Grey', 'friends': '55', selected: false }
     ],
     sortBy: 'id',
     order: 'asc',
     isClickable: true,
+    isScrollable: false,
     showNoDataText: false,
     noDataText: 'No Data',
     selectableTable: false
@@ -80,6 +84,7 @@ methods: {
     { name: 'headers', type: 'Array', default: 'null', description: 'This prop contains an array of objects with header title, field and a sortable boolean to determine if your data should be sorted by that header.' },
     { name: 'headers > alignRight,<br /> hidden', type: 'Boolean', default: 'false', description: 'Include the <strong>alignRight</strong> property to align the header to the right side of the space given. <br />Include a <strong>hidden</strong> property to hide a given \'th\' header.' },
     { name: 'isClickable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to signify that the table and table rows are clickable.' },
+    { name: 'isScrollable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to make table body scroll on the y-axis if it hits a max-height.' },
     { name: 'noDataText', type: 'String', default: '', description: 'Text to show when table has no data.' },
     { name: 'order', type: 'String ("asc" or "desc")', default: 'desc', description: 'This prop defines which order (ascending or decending) is the default.' },
     { name: 'showNoDataText', type: 'Boolean', default: 'false', description: 'When set to true, this prop displays the value of prop noDataText.' },
