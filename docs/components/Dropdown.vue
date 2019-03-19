@@ -7,15 +7,14 @@
     <div slot="example">
       <div class="component-example">
         <ao-dropdown :show-dropdown="showDropdown">
-          <a
+          <ao-dropdown-item
             v-for="(link, index) in links"
             slot="dropdown-items"
             :key="index"
             :href="link.url"
-            class="ao-dropdown__link"
           >
             {{ link.title }}
-          </a>
+          </ao-dropdown-item>
         </ao-dropdown>
       </div>
       <div class="component-controls">

@@ -33,19 +33,6 @@ export default {
   right: 0px;
   margin-top: 3px;
   white-space: nowrap;
-
-  & * {
-    color: $color-gray-30;
-    padding: $spacer/2 $spacer;
-    text-decoration: none !important;
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      background: $color-gray-90;
-      color: $color-gray-10;
-    }
-  }
 }
 
 .ao-header-toolbar__controls > * > .ao-dropdown {

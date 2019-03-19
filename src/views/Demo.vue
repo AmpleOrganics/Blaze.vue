@@ -17,7 +17,7 @@
             slot="dropdown-items"
             :key="index"
             :href="link.url"
-            class="ao-dropdown__link"
+            class="ao-dropdown__item"
           >
             {{ link.title }}
           </a>
