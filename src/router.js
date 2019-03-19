@@ -10,6 +10,7 @@ import Card from '../docs/components/Card.vue'
 import Checkbox from '../docs/components/Checkbox.vue'
 import Callout from '../docs/components/Callout.vue'
 import Dropdown from '../docs/components/Dropdown.vue'
+import DropdownItem from '../docs/components/DropdownItem.vue'
 import FileUpload from '../docs/components/FileUpload.vue'
 import HeaderToolbar from '../docs/components/HeaderToolbar.vue'
 import InfoPair from '../docs/components/InfoPair.vue'
@@ -50,6 +51,7 @@ export default new Router({
     { name: 'card', path: '/card', component: Card, meta: { title: 'Card' } },
     { name: 'checkbox', path: '/checkbox', component: Checkbox, meta: { title: 'Checkbox' } },
     { name: 'dropdown', path: '/dropdown', component: Dropdown, meta: { title: 'Dropdown' } },
+    { name: 'DropdownItem', path: '/DropdownItem', component: DropdownItem, meta: { title: 'Dropdown Item' } },
     { name: 'fileupload', path: '/fileupload', component: FileUpload, meta: { title: 'File Upload' } },
     { name: 'headertoolbar', path: '/headertoolbar', component: HeaderToolbar, meta: { title: 'Header Toolbar' } },
     { name: 'infopair', path: '/infopair', component: InfoPair, meta: { title: 'Info Pair' } },
