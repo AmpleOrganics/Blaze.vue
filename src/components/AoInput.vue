@@ -24,8 +24,9 @@
       >
       <span
         v-if="hasIconAddon"
-        :class="iconClass"
+        :class="[iconClass, { 'ao-input__icon--clickable': hasIconClickableClass }]"
         class="ao-input__addon"
+        @click="emitIconClicked"
         v-html="iconHtml"
       />
       <span
@@ -35,6 +36,7 @@
         {{ addOn }}
       </span>
     </div>
+    <slot name="below-input" />
     <span
       v-show="invalidMessage && invalid"
       class="ao-form-group__invalid-message"
@@ -95,6 +97,11 @@ export default {
       default: null
     },
 
+    isIconClickable: {
+      type: Boolean,
+      default: false
+    },
+
     addOn: {
       type: String,
       default: null
@@ -151,6 +158,10 @@ export default {
       return this.instructionText || (this.invalidMessage && this.invalid)
     },
 
+    hasIconClickableClass () {
+      return this.isIconClickable && !(this.disabled || this.disableAll)
+    },
+
     computedSize () {
       const activeClasses = {
         'ao-form-control--small': this.size === 'small'
@@ -174,6 +185,10 @@ export default {
 
     emitChange (event) {
       this.$emit('change', event.target.value)
+    },
+
+    emitIconClicked (event) {
+      this.hasIconClickableClass && this.$emit('icon-clicked')
     }
   }
 }
@@ -183,4 +198,8 @@ export default {
 
 @import '../assets/styles/mixins/shared-input-styles.scss';
 @include shared-input-styles;
+
+.ao-input__icon--clickable {
+  cursor: pointer;
+}
 </style>

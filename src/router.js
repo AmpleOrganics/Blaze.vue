@@ -15,6 +15,7 @@ import FileUpload from '../docs/components/FileUpload.vue'
 import HeaderToolbar from '../docs/components/HeaderToolbar.vue'
 import InfoPair from '../docs/components/InfoPair.vue'
 import Input from '../docs/components/Input.vue'
+import DatePicker from '../docs/components/DatePicker.vue'
 import Navbar from '../docs/components/Navbar.vue'
 import Modal from '../docs/components/Modal.vue'
 import Paginate from '../docs/components/Paginate.vue'
@@ -50,6 +51,7 @@ export default new Router({
     { name: 'callout', path: '/callout', component: Callout, meta: { title: 'Callout' } },
     { name: 'card', path: '/card', component: Card, meta: { title: 'Card' } },
     { name: 'checkbox', path: '/checkbox', component: Checkbox, meta: { title: 'Checkbox' } },
+    { name: 'datepicker', path: '/datepicker', component: DatePicker, meta: { title: 'Date Picker' } },
     { name: 'dropdown', path: '/dropdown', component: Dropdown, meta: { title: 'Dropdown' } },
     { name: 'DropdownItem', path: '/DropdownItem', component: DropdownItem, meta: { title: 'Dropdown Item' } },
     { name: 'fileupload', path: '/fileupload', component: FileUpload, meta: { title: 'File Upload' } },

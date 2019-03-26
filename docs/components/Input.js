@@ -3,11 +3,18 @@ export default {
   description: 'This is a customizable input component.',
   snippet:
         `<ao-input
-  type="text"
-  :label="'Enter your name'"
-  :placeholder="'e.g. Tandy Miller'"
-  :show-label="true"
-  :icon-html="'&#10004;'"
+  :label="textLabel"
+  :placeholder="textPlaceholder"
+  :show-label="showLabel"
+  :icon-html="iconHtml"
+  :disabled="disabled"
+  :disable-all="disableAll"
+  :invalid="invalid"
+  :invalid-message="invalidMessage"
+  :instruction-text="instructionText"
+  :min="minDate"
+  :is-icon-clickable="isIconClickable"
+  @icon-clicked="onIconClicked"
 />
 
 <ao-input
@@ -30,6 +37,7 @@ export default {
     { name: 'placeholder', type: 'String', default: 'null', description: 'Defines the placeholder text inside of the input.' },
     { name: 'iconHtml', type: 'String', default: 'null', description: 'Accepts html elements or html codes for icons.' },
     { name: 'iconClass', type: 'String', default: 'null', description: 'Accepts icon class components e.g. material icons.' },
+    { name: 'isIconClickable', type: 'Boolean', default: 'false', description: 'Makes icon clickable or non-clickable.' },
     { name: 'addOn', type: 'String', default: 'null', description: 'Appends text to the input.' },
     { name: 'step', type: 'Number', default: '1', description: 'Valid for input type "number". Defines the amount of changes per click.' },
     { name: 'disabled', type: 'Boolean', default: 'false', description: 'Disables interaction with the component.' },

@@ -12,6 +12,7 @@ import AoFileUpload from './components/AoFileUpload.vue'
 import AoHeaderToolbar from './components/AoHeaderToolbar.vue'
 import AoInfoPair from './components/AoInfoPair.vue'
 import AoInput from './components/AoInput.vue'
+import AoDatePicker from './components/AoDatePicker/AoDatePicker.vue'
 import AoModal from './components/AoModal.vue'
 import AoNavbar from './components/AoNavbar.vue'
 import AoPaginate from './components/AoPaginate.vue'
@@ -42,6 +43,7 @@ const Blaze = {
     Vue.component('AoHeaderToolbar', AoHeaderToolbar)
     Vue.component('AoInfoPair', AoInfoPair)
     Vue.component('AoInput', AoInput)
+    Vue.component('AoDatePicker', AoDatePicker)
     Vue.component('AoModal', AoModal)
     Vue.component('AoNavbar', AoNavbar)
     Vue.component('AoPaginate', AoPaginate)
