@@ -438,6 +438,19 @@
             :label="radio.value"
           />
 
+          <ao-date-picker
+            v-model="date1"
+            label="Date One"
+          />
+
+          <ao-date-picker
+            v-model="date2"
+            label="Date Two"
+          />
+
+          <p>Date One is: {{ date1 }} </p>
+          <p>Date Two is: {{ date2 }} </p>
+
           <p>When I'm at my desk I prefer to {{ selectedRadio }}</p>
 
           <ao-select
@@ -656,6 +669,8 @@ export default {
       likeBooks: false,
       nicePets: null,
       file: '',
+      date1: null,
+      date2: null,
       pets: [
         { name: 'Dog', value: 'dog' },
         { name: 'Cat', value: 'cat' },

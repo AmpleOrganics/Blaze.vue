@@ -26,6 +26,18 @@ describe('Input', () => {
     expect(input.contains('.custom-glyph-clients')).toBe(true)
   })
 
+  it('isIconClickable', () => {
+    const input = mount(Input, {
+      propsData: {
+        label: 'label',
+        iconClass: 'some-icon',
+        isIconClickable: true
+      }
+    })
+    input.find('.ao-input__icon--clickable').trigger('click')
+    expect(input.emitted()['icon-clicked']).toBeTruthy()
+  })
+
   it('invalid', () => {
     const input = mount(Input, {
       propsData: {
