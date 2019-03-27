@@ -1,3 +1,25 @@
+# 3.0.0 (2019-03-27)
+
+## Breaking changes
+
+Remove glyphicons in favor of material icons [21518f6](https://github.com/AmpleOrganics/Blaze.vue/commit/21518f6a2602b3b3a73eda09c68a70c4595d6501)
+
+## New
+
+Alert: add a close button to ao-alert to allow early dismissal [6555e6e](https://github.com/AmpleOrganics/Blaze.vue/commit/6555e6ee916e1ad825c5312dad94058b866310a8)
+
+DatePicker: new Date Picker component checkout the docs for a Demo and usage instructions [1be3d65](https://github.com/AmpleOrganics/Blaze.vue/commit/1be3d65493de6a289e204ba3012c6b2e30fcf61c)
+
+Dropdown Item: new Dropdown Item functional component checkout the docs for a Demo and usage instructions [cd662f2](https://github.com/AmpleOrganics/Blaze.vue/commit/cd662f286ef14625071dc37c7d765e47b1e43bbc)
+
+## Fixes
+
+Button: fix hover styles when using `link` class [d152a37](https://github.com/AmpleOrganics/Blaze.vue/commit/d152a37f0322e4a8767ef2cac7b48976e2804c0f)
+
+Radio: style/naming css fixes [83bd2a7](https://github.com/AmpleOrganics/Blaze.vue/commit/83bd2a786eb1836ef5e914fb9e67d1efb6069dd8) [506fb61](https://github.com/AmpleOrganics/Blaze.vue/commit/506fb6109fa5c06ac7ae7fba30bdb113f28f2abd)
+
+Alert: set max width [306fe54](https://github.com/AmpleOrganics/Blaze.vue/commit/306fe54f5af06e8df28951fa320f75dc9b0d090c)
+
 # 2.1.0 (2019-02-19)
 
 ## New
