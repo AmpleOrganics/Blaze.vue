@@ -6,6 +6,7 @@
     >
       <div :class="computedAlertIconClass">
         <span :class="iconClass" />
+        <slot name="icon" />
       </div>
       <div class="ao-alert__message">
         <slot />
