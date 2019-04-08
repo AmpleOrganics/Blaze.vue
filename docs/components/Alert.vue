@@ -11,8 +11,13 @@
           :show-alert.sync="showAlert"
           :destructive="activateProp('destructive')"
           :caution="activateProp('caution')"
-          :icon-class="'md-icon__check'"
         >
+          <i
+            slot="icon"
+            class="material-icons"
+          >
+            check
+          </i>
           {{ alertText }}
         </ao-alert>
       </div>
