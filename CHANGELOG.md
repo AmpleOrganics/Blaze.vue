@@ -1,3 +1,9 @@
+# 3.0.1 (2019-04-09)
+
+## Fixes
+
+Alert: Add a named slot for icons called `icon` for when you want to pass in an icon via `i` tags [3f82377](https://github.com/AmpleOrganics/Blaze.vue/commit/3f8237795dd9edbee0ee1fba76f8681a12c2e573)
+
 # 3.0.0 (2019-03-27)
 
 ## Breaking changes
