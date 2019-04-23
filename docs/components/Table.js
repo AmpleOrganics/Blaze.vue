@@ -2,8 +2,7 @@ export default {
   header: 'Table',
   description: 'This is a customizable table component.',
   snippet:
-`
-<ao-table
+`<ao-table
   :headers="headers"
   :is-clickable="isClickable"
   :show-no-data-text="showNoDataText"
@@ -11,10 +10,12 @@ export default {
   :sort-by="sortBy"
   :order="order"
   class="component-example-table"
-  @sortTable="sortTable">
+  @sortTable="sortTable"
+>
   <tr
     v-for="user in filteredUsers"
-    :key="user.id">
+    :key="user.id"
+  >
     <td>{{ user.id }}</td>
     <td>{{ user.first_name }}</td>
     <td>{{ user.last_name }}</td>

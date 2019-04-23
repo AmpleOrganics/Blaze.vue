@@ -5,10 +5,12 @@ export default {
         `<ao-select
   v-model="selected"
   :label="'Label'"
-  :placeholder="'Placeholder'">
+  :placeholder="'Placeholder'"
+>
   <option
     v-for="option in options"
-    :value="option.value">
+    :value="option.value"
+  >
     {{option.name}}
   </option>
 </ao-select>

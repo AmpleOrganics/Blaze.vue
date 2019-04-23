@@ -5,7 +5,8 @@ export default {
         `<ao-navbar>
   <li
     v-for="route in routes"
-    :key="route.path">
+    :key="route.path"
+  >
     <router-link :to="route.path" >{{ route.name }}</router-link>
   </li>
 </ao-navbar>

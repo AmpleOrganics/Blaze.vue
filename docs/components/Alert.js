@@ -5,7 +5,8 @@ export default {
         `<ao-alert
   v-if="showAlert"
   :show-alert="true"
-  :icon-class="'md-icon__check'">
+  :icon-class="'md-icon__check'"
+>
   <i
     slot="icon"
     class="material-icons"

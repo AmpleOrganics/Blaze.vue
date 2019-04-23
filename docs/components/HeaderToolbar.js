@@ -5,7 +5,8 @@ export default {
     `<ao-header-toolbar
   :title="'Ribbitting Technologies'"
   :icon-html="'🐸'"
-  fixed>
+  fixed
+>
   <span>🍔</span>
   <span>Logout</span>
 </ao-header-toolbar>`,

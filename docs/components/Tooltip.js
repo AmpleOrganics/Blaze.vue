@@ -5,7 +5,8 @@ export default {
         `<ao-tooltip
   position="bottom"
   text="Tooltip text goes here"
-  multiline>
+  multiline
+>
   <ao-button primary>Hover over me</ao-button>
 </ao-tooltip>`,
   apiRows: [

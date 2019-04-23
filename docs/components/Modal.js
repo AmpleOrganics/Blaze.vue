@@ -5,14 +5,16 @@ export default {
         `<ao-modal
   v-if="showModal"
   :header-text="'This is the modal title'"
-  @modalClose="toggleModal">
+  @modalClose="toggleModal"
+>
   <div slot="modal-body">
     <p>And I live in the body of the modal</p>
   </div>
   <div slot="modal-footer">
     <ao-button
       primary
-      @click.native="toggleModal">
+      @click.native="toggleModal"
+    >
       Close
     </ao-button>
   </div>
