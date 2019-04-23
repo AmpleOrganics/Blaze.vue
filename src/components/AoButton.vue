@@ -127,7 +127,9 @@ export default {
 }
 
 .ao-button {
- display: inline-block;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
  margin-bottom: 0;
  text-align: center;
  font-weight: $font-weight-bold;

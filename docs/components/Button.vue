@@ -19,6 +19,12 @@
           :jumbo="activateProp('jumbo')"
           :disabled="disabled"
         >
+          <i
+            v-if="materialIcon"
+            class="material-icons"
+          >
+            get_app
+          </i>
           {{ buttonText }}
         </ao-button>
       </div>
@@ -74,6 +80,11 @@
         </div>
         <div class="component-controls__group">
           <ao-checkbox
+            v-model="materialIcon"
+            :checkbox-value="true"
+            checkbox-label="Material Icon"
+          />
+          <ao-checkbox
             v-model="disabled"
             :checkbox-value="true"
             checkbox-label="disabled"
@@ -127,7 +138,8 @@ export default {
         { name: 'Text Only & Link', value: 'text-only-link' }
       ],
       selectedStyle: 'default',
-      disabled: false
+      disabled: false,
+      materialIcon: false
     }
   },
 
