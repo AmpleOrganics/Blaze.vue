@@ -2,8 +2,7 @@ export default {
   header: 'Paginate',
   description: 'This is a pagination component allowing you to navigate between pages.',
   snippet:
-  `
-<ao-paginate
+  `<ao-paginate
   :total-pages="3"
   :current-page.sync="currentPage"
 />

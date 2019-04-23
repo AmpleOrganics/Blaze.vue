@@ -3,13 +3,14 @@ export default {
   description: 'This is a customizable callout component.',
   snippet:
         `<ao-callout
-      v-if="showCallout"
-      success
-      dismissible
-      :icon-class="'md-icon__check'"
-      @hideCallout="hideCallout">
-      Callout text goes here
-    </ao-callout>`,
+  v-if="showCallout"
+  success
+  dismissible
+  :icon-class="'md-icon__check'"
+  @hideCallout="hideCallout"
+>
+  Callout text goes here
+</ao-callout>`,
   apiRows: [
     { name: 'iconClass', type: 'String', default: 'null', description: 'Displays icon components eg. material icons.' },
     { name: 'dismissible', type: 'Boolean', default: 'false', description: 'Displays a close icon on right side of callout' },

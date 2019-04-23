@@ -48,7 +48,7 @@
       </div>
     </div>
     <template slot="snippet">
-      {{ snippet }}
+      <code>{{ snippet }}</code>
     </template>
     <template slot="api">
       <ApiTable :rows="apiRows" />

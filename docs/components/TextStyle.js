@@ -4,7 +4,8 @@ export default {
   snippet:
         `<ao-text-style
   error
-  small>
+  small
+>
   This is some sample text
 </ao-text-style>`,
   apiRows: [

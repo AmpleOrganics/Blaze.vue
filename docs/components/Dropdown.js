@@ -8,21 +8,21 @@ export default {
     v-for="(link, index) in links"
     class="ao-dropdown__link"
     :key="index"
-    :href="link.url">
+    :href="link.url"
+  >
     {{ link.title }}
   </ao-dropdown-item>
 </ao-dropdown>
 
-    data () {
-      return {
-        links: [
-          { url: "https://google.com", title: "Google" },
-          { url: "https://facebook.com", title: "Facebook" }
-        ],
-
-        showDropdown: true
-      }
-    }`,
+data () {
+  return {
+    links: [
+      { url: "https://google.com", title: "Google" },
+      { url: "https://facebook.com", title: "Facebook" }
+    ],
+    showDropdown: true
+  }
+}`,
   apiRows: [
     { name: 'showDropdown', type: 'Boolean', default: 'false', description: 'Hides or un-hides the dropdown.' }
   ]

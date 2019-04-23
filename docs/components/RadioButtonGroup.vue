@@ -17,7 +17,7 @@
       </div>
     </div>
     <template slot="snippet">
-      {{ snippet }}
+      <code>{{ snippet }}</code>
     </template>
     <template slot="api">
       <ApiTable :rows="apiRows" />
@@ -44,7 +44,7 @@ export default {
         { name: 'Other Guy', value: 'Other' },
         { name: 'Todd', value: 'Todd' }
       ],
-      selectedRadio: null
+      selectedRadio: ''
     }
   }
 }
