@@ -29,6 +29,7 @@ data () {
   apiRows: [
     { name: 'value', type: 'String, Number, Boolean', default: 'null', description: 'This prop defines the selected value.' },
     { name: 'label', type: 'String, required', default: 'null', description: 'This prop defines the label of the select.' },
+    { name: 'name', type: 'String', default: 'null', description: 'This prop defines the name of the select.' },
     { name: 'showLabel', type: 'Boolean', default: 'true', description: 'This prop defines if the select label will be shown or not.' },
     { name: 'instructionText', type: 'String', default: 'null', description: 'Instruction text to show below the input.' },
     { name: 'invalid', type: 'Boolean', default: 'false', description: 'This prop defines the select to be invalid.' },
