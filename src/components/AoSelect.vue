@@ -14,6 +14,7 @@
         :value="selected"
         :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
         :disabled="disabled || disableAll"
+        :name="name"
         @change="emitChange"
         @blur="emitBlur"
         @focus="emitFocus"
@@ -62,6 +63,11 @@ export default {
     showLabel: {
       type: Boolean,
       default: true
+    },
+
+    name: {
+      type: String,
+      default: null
     },
 
     invalid: {

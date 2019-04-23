@@ -14,6 +14,7 @@
       :class="{'ao-form-control--invalid': invalid }"
       :value="value"
       :disabled="disabled || disableAll"
+      :name="name"
       class="ao-form-control"
       @input="emitInput"
       @blur="emitBlur"
@@ -45,6 +46,11 @@ export default {
     },
 
     label: {
+      type: String,
+      default: null
+    },
+
+    name: {
       type: String,
       default: null
     },
