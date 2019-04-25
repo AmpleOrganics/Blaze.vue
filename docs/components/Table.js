@@ -9,19 +9,27 @@ export default {
   :no-data-text="noDataText"
   :sort-by="sortBy"
   :order="order"
+  :selectable-table="selectableTable"
+  :is-partially-selected="partialSelection"
   class="component-example-table"
   @sortTable="sortTable"
+  @selectAll="selectAll($event)"
 >
   <tr
     v-for="user in filteredUsers"
     :key="user.id"
   >
+    <td v-if="selectableTable">
+      <input
+        v-model="user.selected"
+        type="checkbox"
+      >
+    </td>
     <td>{{ user.id }}</td>
     <td>{{ user.first_name }}</td>
     <td>{{ user.last_name }}</td>
   </tr>
 </ao-table>
-
 data () {
   return {
     headers: [
@@ -30,32 +38,41 @@ data () {
       { field: 'last_name', title: 'Last Name', sortable: true, alignRight: true }
     ],
     users: [
-      { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons' },
-      { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs' },
-      { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert' },
-      { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores' },
-      { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee' },
-      { 'id': 6, 'first_name': 'Rick', 'last_name': 'Potter' },
-      { 'id': 7, 'first_name': 'Harry', 'last_name': 'Sanchez' },
-      { 'id': 8, 'first_name': 'Joy', 'last_name': 'Mann' },
-      { 'id': 9, 'first_name': 'Adam', 'last_name': 'Hansen' },
-      { 'id': 10, 'first_name': 'Marge', 'last_name': 'Grey' }
+      { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', selected: false },
+      { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', selected: false },
+      { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', selected: false },
+      { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', selected: false },
+      { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', selected: false },
+      { 'id': 6, 'first_name': 'Rick', 'last_name': 'Potter', selected: false },
+      { 'id': 7, 'first_name': 'Harry', 'last_name': 'Sanchez', selected: false },
+      { 'id': 8, 'first_name': 'Joy', 'last_name': 'Mann', selected: false },
+      { 'id': 9, 'first_name': 'Adam', 'last_name': 'Hansen', selected: false },
+      { 'id': 10, 'first_name': 'Marge', 'last_name': 'Grey', selected: false }
     ],
     sortBy: 'id',
     order: 'asc',
     isClickable: true,
     showNoDataText: false,
-    noDataText: 'No Data'
+    noDataText: 'No Data',
+    selectableTable: false
   }
 },
 computed: {
   filteredUsers () {
     return this.showNoDataText ? [] : this.users
+  },
+  partialSelection () {
+    return [...new Set(this.users.map(user => user.selected))].length > 1
   }
 },
 methods: {
   sortTable (sortBy, order) {
     this.users = orderBy(this.users, sortBy, order)
+  },
+  selectAll (select) {
+    for (let user of this.users) {
+      user['selected'] = select
+    }
   }
 }`,
   apiRows: [
@@ -67,6 +84,8 @@ methods: {
     { name: 'order', type: 'String ("asc" or "desc")', default: 'desc', description: 'This prop defines which order (ascending or decending) is the default.' },
     { name: 'showNoDataText', type: 'Boolean', default: 'false', description: 'When set to true, this prop displays the value of prop noDataText.' },
     { name: 'sortBy', type: 'String', default: 'null', description: 'This prop defines the default header to sort by.' },
-    { name: 'vAlign', type: 'String ("top" or "middle")', default: 'top', description: 'This prop defines which vertical alignment (top or middle) is the default.' }
+    { name: 'vAlign', type: 'String ("top" or "middle")', default: 'top', description: 'This prop defines which vertical alignment (top or middle) is the default.' },
+    { name: 'selectableTable', type: 'Boolean', default: 'false', description: 'This prop determines if the table header contains a checkbox to emit selectAll events.' },
+    { name: 'isPartiallySelected', type: 'Boolean', default: 'false', description: 'When true, overrides the header checkbox to display the indeterminate value (hyphen).' }
   ]
 }

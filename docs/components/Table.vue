@@ -13,13 +13,22 @@
           :no-data-text="noDataText"
           :sort-by="sortBy"
           :order="order"
+          :selectable-table="selectableTable"
+          :is-partially-selected="partialSelection"
           class="component-example-table"
           @sortTable="sortTable"
+          @selectAll="selectAll($event)"
         >
           <tr
             v-for="user in filteredUsers"
             :key="user.id"
           >
+            <td v-if="selectableTable">
+              <input
+                v-model="user.selected"
+                type="checkbox"
+              >
+            </td>
             <td>{{ user.id }}</td>
             <td>{{ user.first_name }}</td>
             <td>{{ user.last_name }}</td>
@@ -50,6 +59,15 @@
             v-model="alignRight"
             :checkbox-value="false"
             checkbox-label="alignRight (Last Name column)"
+          />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="selectableTable"
+            :checkbox-value="false"
+            checkbox-label="selectableTable"
           />
         </div>
       </div>
@@ -96,16 +114,16 @@ export default {
     return {
       ...TableDocumentation,
       users: [
-        { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons' },
-        { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs' },
-        { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert' },
-        { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores' },
-        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee' },
-        { 'id': 6, 'first_name': 'Rick', 'last_name': 'Potter' },
-        { 'id': 7, 'first_name': 'Harry', 'last_name': 'Sanchez' },
-        { 'id': 8, 'first_name': 'Joy', 'last_name': 'Mann' },
-        { 'id': 9, 'first_name': 'Adam', 'last_name': 'Hansen' },
-        { 'id': 10, 'first_name': 'Marge', 'last_name': 'Grey' }
+        { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'selected': false },
+        { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'selected': false },
+        { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', 'selected': false },
+        { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', 'selected': false },
+        { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'selected': false },
+        { 'id': 6, 'first_name': 'Rick', 'last_name': 'Potter', 'selected': false },
+        { 'id': 7, 'first_name': 'Harry', 'last_name': 'Sanchez', 'selected': false },
+        { 'id': 8, 'first_name': 'Joy', 'last_name': 'Mann', 'selected': false },
+        { 'id': 9, 'first_name': 'Adam', 'last_name': 'Hansen', 'selected': false },
+        { 'id': 10, 'first_name': 'Marge', 'last_name': 'Grey', 'selected': false }
       ],
       sortBy: 'id',
       order: 'asc',
@@ -113,7 +131,8 @@ export default {
       alignRight: true,
       hidden: true,
       showNoDataText: false,
-      noDataText: 'No Data'
+      noDataText: 'No Data',
+      selectableTable: false
     }
   },
 
@@ -127,12 +146,20 @@ export default {
         { field: 'first_name', title: 'First Name', sortable: true, hidden: this.hidden },
         { field: 'last_name', title: 'Last Name', sortable: true, alignRight: this.alignRight }
       ]
+    },
+    partialSelection () {
+      return [...new Set(this.users.map(user => user.selected))].length > 1
     }
   },
 
   methods: {
     sortTable (sortBy, order) {
       this.users = orderBy(this.users, sortBy, order)
+    },
+    selectAll (select) {
+      for (let user of this.users) {
+        user['selected'] = select
+      }
     }
   }
 }
