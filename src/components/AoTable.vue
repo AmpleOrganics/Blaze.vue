@@ -3,6 +3,17 @@
     <thead>
       <tr>
         <th
+          v-if="selectableTable"
+          class="ao-table__header--select-all"
+        >
+          <input
+            v-model="selectAll"
+            type="checkbox"
+            :indeterminate.prop="isPartiallySelected"
+            @change="$emit('selectAll', selectAll)"
+          >
+        </th>
+        <th
           v-for="columnHeader in headers"
           :key="columnHeader.field"
           :class="['ao-table__header', isSortableClass(columnHeader.sortable), {'ao-table__header--text-right' : columnHeader.alignRight}]"
@@ -83,6 +94,16 @@ export default {
       validator: function (order) {
         return ['asc', 'desc'].includes(order)
       }
+    },
+
+    selectableTable: {
+      type: Boolean,
+      default: false
+    },
+
+    isPartiallySelected: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -90,7 +111,8 @@ export default {
     return {
       lastSelectedHeader: this.sortBy,
       sortProxy: this.sortBy,
-      orderProxy: this.order
+      orderProxy: this.order,
+      selectAll: false
     }
   },
 
@@ -267,6 +289,10 @@ $table-row-background-shaded: $color-gray-90;
       cursor: inherit !important;
       background-color: $table-row-background-shaded !important;
     }
+  }
+
+  .ao-table__header--select-all {
+    width: 2rem;
   }
 }
 </style>
