@@ -6,7 +6,10 @@
 
     <div slot="example">
       <div class="component-example">
-        <ao-info-pair :label="label">
+        <ao-info-pair
+          :label="label"
+          :label-html="labelHtml"
+        >
           {{ info }}
         </ao-info-pair>
       </div>
@@ -16,6 +19,15 @@
             v-model="label"
             :type="'text'"
             :label="'Info Pair Label Text'"
+          />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-input
+            v-model="labelHtml"
+            :type="'text'"
+            :label="'Info Pair Label HTML'"
           />
         </div>
       </div>
@@ -52,8 +64,16 @@ export default {
     return {
       ...InfoPairDocumentation,
       label: 'Info Label',
+      labelHtml: '- Area (m<sup>2</sup>)',
       info: 'Information goes here'
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+/deep/ sup {
+  font-size: 10px;
+  vertical-align: super;
+}
+</style>
