@@ -1,3 +1,15 @@
+# 3.1.0 (2019-05-06)
+
+## New
+
+InfoPair: add support for html label [f89faa1](https://github.com/AmpleOrganics/Blaze.vue/pull/327/commits/f89faa1351ebcfedb47f365bf965292e942742f4)
+
+Button: align material icons vertically with text [6d19334](https://github.com/AmpleOrganics/Blaze.vue/pull/321/commits/6d193347bfd1bdf96db5b140b0440226c632a120)
+
+## Fixes
+
+Docs: adjust code snippet spacing formatting [9957169](https://github.com/AmpleOrganics/Blaze.vue/pull/323/commits/9957169e1f9caeef9f1da82cbf37fde37fd9c247)
+
 # 3.0.1 (2019-04-09)
 
 ## Fixes
