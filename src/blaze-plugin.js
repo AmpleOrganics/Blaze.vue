@@ -14,6 +14,7 @@ import AoInfoPair from './components/AoInfoPair.vue'
 import AoInput from './components/AoInput.vue'
 import AoDatePicker from './components/AoDatePicker/AoDatePicker.vue'
 import AoModal from './components/AoModal.vue'
+import AoMultiSelect from './components/AoMultiSelect.vue'
 import AoNavbar from './components/AoNavbar.vue'
 import AoPaginate from './components/AoPaginate.vue'
 import AoRadio from './components/AoRadio.vue'
@@ -45,6 +46,7 @@ const Blaze = {
     Vue.component('AoInput', AoInput)
     Vue.component('AoDatePicker', AoDatePicker)
     Vue.component('AoModal', AoModal)
+    Vue.component('AoMultiSelect', AoMultiSelect)
     Vue.component('AoNavbar', AoNavbar)
     Vue.component('AoPaginate', AoPaginate)
     Vue.component('AoRadio', AoRadio)
