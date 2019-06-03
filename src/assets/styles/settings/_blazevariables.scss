@@ -67,3 +67,7 @@ $md-icon-font-size-base: 18px;
 .md-icon__undo {
   @include material-icon('undo');
 }
+
+.md-icon__unfold-more {
+  @include material-icon('unfold_more');
+}

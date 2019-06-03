@@ -23,6 +23,7 @@ import Radio from '../docs/components/Radio.vue'
 import RadioButtonGroup from '../docs/components/RadioButtonGroup.vue'
 import SectionHeader from '../docs/components/SectionHeader.vue'
 import Select from '../docs/components/Select.vue'
+import MultiSelect from '../docs/components/MultiSelect.vue'
 import Spinner from '../docs/components/Spinner.vue'
 import Table from '../docs/components/Table.vue'
 import TableCell from '../docs/components/TableCell.vue'
@@ -59,6 +60,7 @@ export default new Router({
     { name: 'infopair', path: '/infopair', component: InfoPair, meta: { title: 'Info Pair' } },
     { name: 'input', path: '/input', component: Input, meta: { title: 'Input' } },
     { name: 'modal', path: '/modal', component: Modal, meta: { title: 'Modal' } },
+    { name: 'multiselect', path: '/multiselect', component: MultiSelect, meta: { title: 'Multi Select' } },
     { name: 'navbar', path: '/navbar', component: Navbar, meta: { title: 'Navbar' } },
     { name: 'paginate', path: '/paginate', component: Paginate, meta: { title: 'Paginate' } },
     { name: 'radio', path: '/radio', component: Radio, meta: { title: 'Radio' } },
