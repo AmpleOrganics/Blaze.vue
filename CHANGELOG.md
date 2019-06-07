@@ -1,3 +1,17 @@
+# 3.2.0 (2019-06-07)
+
+## New
+
+Table: add select and selectAll checkboxes [507d390](https://github.com/AmpleOrganics/Blaze.vue/commit/507d390a9d036e05668ee5242ce012a3f94e2903)
+
+MultiSelect: added ao-multi-select component [4cd3c31](https://github.com/AmpleOrganics/Blaze.vue/commit/4cd3c310cfd7c9e536c19440659112b47af504a6)
+
+## Fixes
+
+Update dependancies june 5th 2019 [3031dad](https://github.com/AmpleOrganics/Blaze.vue/commit/3031dad25beaf1ffe92a3ce4a91f5c1267009866)
+
+Docs: Select & TextArea: Name prop inclusion. Name prop was being used but was not defined in props for components [973b997](https://github.com/AmpleOrganics/Blaze.vue/commit/973b997434fbfceb3f7bffa50cb4b2c658179362)
+
 # 3.1.0 (2019-05-06)
 
 ## New
