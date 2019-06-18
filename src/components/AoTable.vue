@@ -28,7 +28,10 @@
         </th>
       </tr>
     </thead>
-    <tbody :class=" { clickable: isClickable }">
+    <tbody
+      :class=" { clickable: isClickable }"
+      :style="getMaxHeight(maxHeight)"
+    >
       <slot />
       <tr
         v-if="showNoDataText"
@@ -109,6 +112,11 @@ export default {
     isScrollable: {
       type: Boolean,
       default: false
+    },
+
+    maxHeight: {
+      type: String,
+      default: 'none'
     }
   },
 
@@ -171,6 +179,12 @@ export default {
 
     isSortable (sortable, hidden) {
       return sortable === true && hidden === false
+    },
+
+    getMaxHeight () {
+      return {
+        'max-height': this.maxHeight
+      }
     }
   }
 }

@@ -10,6 +10,7 @@
           :headers="headers"
           :is-clickable="isClickable"
           :is-scrollable="isScrollable"
+          :max-height="maxHeight"
           :show-no-data-text="showNoDataText"
           :no-data-text="noDataText"
           :sort-by="sortBy"
@@ -110,6 +111,15 @@
           />
         </div>
       </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-input
+            v-model="maxHeight"
+            :type="'text'"
+            label="maxHeight"
+          />
+        </div>
+      </div>
     </div>
     <template slot="snippet">
       <code>{{ snippet }}</code>
@@ -154,7 +164,8 @@ export default {
       hidden: true,
       showNoDataText: false,
       noDataText: 'No Data',
-      selectableTable: false
+      selectableTable: false,
+      maxHeight: '200px'
     }
   },
 

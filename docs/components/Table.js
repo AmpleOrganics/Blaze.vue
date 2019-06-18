@@ -6,6 +6,7 @@ export default {
   :headers="headers"
   :is-clickable="isClickable"
   :is-scrollable="isScrollable"
+  :max-height="maxHeight"
   :show-no-data-text="showNoDataText"
   :no-data-text="noDataText"
   :sort-by="sortBy"
@@ -58,7 +59,8 @@ data () {
     isScrollable: false,
     showNoDataText: false,
     noDataText: 'No Data',
-    selectableTable: false
+    selectableTable: false,
+    maxHeight: '200px'
   }
 },
 computed: {
@@ -85,6 +87,7 @@ methods: {
     { name: 'headers > alignRight,<br /> hidden', type: 'Boolean', default: 'false', description: 'Include the <strong>alignRight</strong> property to align the header to the right side of the space given. <br />Include a <strong>hidden</strong> property to hide a given \'th\' header.' },
     { name: 'isClickable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to signify that the table and table rows are clickable.' },
     { name: 'isScrollable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to make table body scroll on the y-axis if it hits a max-height.' },
+    { name: 'maxHeight', type: 'String', default: '', description: 'Defines the max height of a table in pixels when <strong>isScrollable</strong> is true.' },
     { name: 'noDataText', type: 'String', default: '', description: 'Text to show when table has no data.' },
     { name: 'order', type: 'String ("asc" or "desc")', default: 'desc', description: 'This prop defines which order (ascending or decending) is the default.' },
     { name: 'showNoDataText', type: 'Boolean', default: 'false', description: 'When set to true, this prop displays the value of prop noDataText.' },
