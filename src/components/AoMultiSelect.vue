@@ -185,6 +185,8 @@ export default {
 @include shared-input-styles;
 
 .ao-multi-select {
+  position: relative;
+
   &__summary {
     display: flex !important;
     justify-content: space-between;
@@ -209,6 +211,8 @@ export default {
     text-align: left;
     margin-top: 3px;
     white-space: nowrap;
+    position: absolute;
+    width: 100%;
 
     .ao-checkbox:last-of-type {
       margin-bottom: 0 !important;
