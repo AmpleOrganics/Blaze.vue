@@ -1,3 +1,11 @@
+# 3.4.0 (2019-06-20)
+
+## New
+
+Table: Create a maxHeight property for scrollable tables [b91c76f](https://github.com/AmpleOrganics/Blaze.vue/commit/b91c76f8daf67a5237b4985b9a28474503dd16dd)
+
+MultiSelect: Add absolute positioning for dropdown [6b59095](https://github.com/AmpleOrganics/Blaze.vue/commit/6b59095e7d095632379698a30889acc3a24e8597)
+
 # 3.3.0 (2019-06-18)
 
 ## Fixes
