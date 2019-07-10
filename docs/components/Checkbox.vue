@@ -11,6 +11,7 @@
           :disabled="disabled"
           :checkbox-value="true"
           :checkbox-label="checkboxLabel"
+          info-text="This is some informative text"
         />
       </div>
       <div class="component-controls">

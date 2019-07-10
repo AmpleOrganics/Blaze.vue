@@ -1,19 +1,33 @@
 <template>
-  <label class="ao-radio">
-    <input
-      v-model="checked"
-      v-bind="$attrs"
-      :value="val"
-      type="radio"
-      class="ao-radio__input"
-      @change="toggle"
-      @blur="emitBlur"
-      @focus="emitFocus"
-    >
-    <span class="ao-radio__text">
-      {{ label }}
-    </span>
-  </label>
+  <div class="ao-radio">
+    <label class="ao-radio__label">
+      <input
+        v-model="checked"
+        v-bind="$attrs"
+        :value="val"
+        :disabled="disabled"
+        type="radio"
+        class="ao-radio__input"
+        @change="toggle"
+        @blur="emitBlur"
+        @focus="emitFocus"
+      >
+      <div
+        v-show="showLabel"
+        class="ao-radio__content"
+      >
+        <span class="ao-radio__label-text">
+          {{ label }}
+        </span>
+        <p
+          v-if="infoText"
+          class="ao-radio__info-text"
+        >
+          {{ infoText }}
+        </p>
+      </div>
+    </label>
+  </div>
 </template>
 
 <script>
@@ -34,6 +48,22 @@ export default {
     label: {
       type: String,
       required: true
+    },
+
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+
+    showLabel: {
+      type: Boolean,
+      default: true
+    },
+
+    infoText: {
+      default: null,
+      type: String,
+      required: false
     }
   },
 
@@ -72,11 +102,5 @@ export default {
 <style lang="scss">
 @import '../assets/styles/mixins/shared-checkbox-styles.scss';
 @include shared-checkbox-styles;
-
-.ao-radio {
-  &__input {
-    margin-right: 0.5rem;
-  }
-}
 
 </style>
