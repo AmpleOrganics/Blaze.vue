@@ -16,12 +16,20 @@
         @blur="emitBlur"
         @focus="emitFocus"
       >
-      <span
+      <div
         v-show="showLabel"
-        class="ao-checkbox__text"
+        class="ao-checkbox__content"
       >
-        {{ checkboxLabel }}
-      </span>
+        <span class="ao-checkbox__label-text">
+          {{ checkboxLabel }}
+        </span>
+        <p
+          v-if="infoText"
+          class="ao-checkbox__info-text"
+        >
+          {{ infoText }}
+        </p>
+      </div>
     </label>
   </div>
 </template>
@@ -54,6 +62,12 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+
+    infoText: {
+      default: null,
+      type: String,
+      required: false
     }
   },
 

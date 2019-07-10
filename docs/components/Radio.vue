@@ -6,17 +6,24 @@
 
     <div slot="example">
       <div class="component-example">
-        <div class="component-example__display">
-          My favourite character is {{ selectedRadio }}
+        <label>
+          My Favourite Character
+        </label>
+        <div>
+          <ao-radio
+            v-for="radio in radios"
+            :id="radio.label"
+            :key="radio.value"
+            v-model="selectedRadio"
+            :val="radio.value"
+            name="favouriteCharacter"
+            :label="radio.label"
+            :info-text="radio.infoText"
+          />
         </div>
-        <ao-radio
-          v-for="radio in radios"
-          :key="radio.value"
-          v-model="selectedRadio"
-          :val="radio.value"
-          :name="radio.name"
-          :label="radio.name"
-        />
+        <ao-info-pair label="Output">
+          {{ selectedRadio }}
+        </ao-info-pair>
       </div>
     </div>
     <template slot="snippet">
@@ -42,11 +49,11 @@ export default {
     return {
       ...RadioDocumentation,
       radios: [
-        { name: 'Tandy', value: 'Tandy' },
-        { name: 'Carol', value: 'Carol' },
-        { name: 'Gail', value: 'Gail' },
-        { name: 'Erica', value: 'Erica' },
-        { name: 'Todd', value: 'Todd' }
+        { id: 'tandy', label: 'Tandy', value: 'Tandy', infoText: 'Tandy is the original Phil Miller' },
+        { id: 'carol', label: 'Carol', value: 'Carol', infoText: "Carol is Tandy's wife" },
+        { id: 'gail', label: 'Gail', value: 'Gail' },
+        { id: 'erica', label: 'Erica', value: 'Erica' },
+        { id: 'todd', label: 'Todd', value: 'Todd' }
       ],
       selectedRadio: 'Tandy'
     }
