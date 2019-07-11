@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="showDropdown"
-    :class="['ao-dropdown', computedDropdownDirection]"
+    :class="['ao-dropdown', computedSize, computedDropdownDirection]"
   >
     <slot name="dropdown-items" />
   </div>
@@ -10,6 +10,10 @@
 <script>
 export default {
   props: {
+    size: {
+      type: String,
+      default: 'medium'
+    },
     showDropdown: {
       type: Boolean,
       default: false
@@ -27,6 +31,9 @@ export default {
   computed: {
     computedDropdownDirection () {
       return `ao-dropdown--${this.direction}`
+    },
+    computedSize () {
+      return `ao-dropdown--${this.size}`
     }
   }
 }
@@ -37,15 +44,16 @@ export default {
   z-index: $zindex-dropdown;
   background: $color-white;
   box-shadow: $shadow, $shadow-subtle;
-  display: flex;
-  flex-direction: column;
   border: $border-gray-50;
-  min-width: 140px;
+  min-width: 144px;
   text-align: left;
   position: absolute;
   top: 100%;
   margin-top: 3px;
   white-space: nowrap;
+  border-radius: $border-radius-base;
+  padding-top: $spacer-xs;
+  padding-bottom: $spacer-xs;
 
   &--left {
     right: 0;
@@ -53,6 +61,22 @@ export default {
 
   &--right {
     left: 0;
+
+  }
+
+  &--medium {
+    width: 240px;
+  }
+
+  &--large {
+    width: 320px;
+  }
+
+  & > hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    height: 1px;
+    border-top: 1px solid $border-gray-50;
   }
 }
 
