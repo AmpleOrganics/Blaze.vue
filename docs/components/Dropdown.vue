@@ -6,14 +6,25 @@
 
     <div slot="example">
       <div class="component-example">
-        <ao-dropdown :show-dropdown="showDropdown">
+        <ao-dropdown
+          size="large"
+          :show-dropdown="showDropdown"
+        >
           <ao-dropdown-item
             v-for="(link, index) in links"
             slot="dropdown-items"
             :key="index"
             :href="link.url"
+            :info-text="link.infoText"
           >
             {{ link.title }}
+          </ao-dropdown-item>
+          <hr slot="dropdown-items">
+          <ao-dropdown-item
+            slot="dropdown-items"
+            disabled
+          >
+            Not Me
           </ao-dropdown-item>
         </ao-dropdown>
       </div>
@@ -51,7 +62,7 @@ export default {
       ...DropdownDocumentation,
       links: [
         { url: 'https://google.com', title: 'Google' },
-        { url: 'https://facebook.com', title: 'Facebook' }
+        { url: 'https://facebook.com', title: 'Facebook', infoText: 'This is a really fun website, you will love it.' }
       ],
 
       showDropdown: true
@@ -64,7 +75,6 @@ export default {
 .component-example {
   .ao-dropdown {
     position: inherit;
-    max-width: 200px;
   }
 }
 </style>
