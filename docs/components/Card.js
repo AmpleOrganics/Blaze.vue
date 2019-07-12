@@ -2,7 +2,26 @@ export default {
   header: 'Card',
   description: 'The Card component allows you to group and organize related content - text, actions, even other Blaze components - into one seamless display.',
   snippet:
-        `<ao-card :title="'Title goes here'">
+`<ao-card title="Seashell Day">
+  <ao-button
+    slot="card-header-action"
+    subtle
+    small
+  >
+    <i class="material-icons">more_horiz</i>
+  </ao-button>
+  <ao-callout
+    slot="card-callout"
+    success
+  >
+    Great day for seashells
+  </ao-callout>
+  <div slot="card-header-toolbar">
+    <ao-checkbox
+      :checkbox-value="true"
+      checkbox-label="filter"
+    />
+  </div>
   <p>She sells seashells by the sea shore</p>
   <template slot="cardFooter">
     <ao-button primary>
