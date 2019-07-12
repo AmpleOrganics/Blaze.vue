@@ -9,6 +9,30 @@
         <ao-card
           :title="titleText"
         >
+          <ao-button
+            v-if="showCardAction"
+            slot="card-header-action"
+            subtle
+            small
+          >
+            <i class="material-icons">more_horiz</i>
+          </ao-button>
+          <ao-callout
+            v-if="showCardCallout"
+            slot="card-callout"
+            success
+          >
+            {{ calloutText }}
+          </ao-callout>
+          <div
+            v-if="showCardToolbar"
+            slot="card-header-toolbar"
+          >
+            <ao-checkbox
+              :checkbox-value="true"
+              checkbox-label="filter"
+            />
+          </div>
           <p>{{ slotText }}</p>
           <template slot="cardFooter">
             <ao-button primary>
@@ -31,6 +55,27 @@
           :type="'text'"
           label="Card Content Text"
         />
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="showCardAction"
+            :checkbox-value="true"
+            checkbox-label="Show Card Action Slot"
+          />
+        </div>
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="showCardToolbar"
+            :checkbox-value="true"
+            checkbox-label="Show Card Toolbar Slot"
+          />
+        </div>
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="showCardCallout"
+            :checkbox-value="true"
+            checkbox-label="Show Card Callout Slot"
+          />
+        </div>
       </div>
     </div>
     <template slot="snippet">
@@ -55,8 +100,12 @@ export default {
   data () {
     return {
       ...CardDocumentation,
-      titleText: 'Title goes here',
-      slotText: 'She sells seashells by the sea shore'
+      titleText: 'Seashell Day',
+      calloutText: 'Great day for seashells',
+      slotText: 'She sells seashells by the sea shore',
+      showCardAction: true,
+      showCardToolbar: true,
+      showCardCallout: true
     }
   }
 }

@@ -6,6 +6,7 @@
     >
       <h2 class="ao-card__title">
         {{ title }}
+        <slot name="card-header-action" />
       </h2>
       <div class="ao-card__toolbar">
         <slot name="card-header-toolbar" />
@@ -83,6 +84,10 @@ export default {
     font-size: $font-size-xl;
     font-weight: $font-weight-light;
     display: inline-block;
+
+    & > * {
+      vertical-align: bottom;
+    }
   }
 
   &__toolbar {
