@@ -39,7 +39,7 @@ data () {
       { field: 'id', title: 'ID', sortable: true },
       { field: 'first_name', title: 'First Name', sortable: true, hidden: true },
       { field: 'last_name', title: 'Last Name', sortable: true, alignRight: true },
-      { field: 'friends', title: 'Friends', sortable: true }
+      { field: 'friends', title: 'Friends', sortable: true, tooltip: { text: 'Friendly friends', multiline: false, position: 'top' } }
     ],
     users: [
       { 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'friends': '44', selected: false },
@@ -84,7 +84,7 @@ methods: {
   apiRows: [
     { name: 'condensed', type: 'Boolean', default: 'false', description: 'When set to true, this prop reduces appropriate styling to make table look condensed.' },
     { name: 'headers', type: 'Array', default: 'null', description: 'This prop contains an array of objects with header title, field and a sortable boolean to determine if your data should be sorted by that header.' },
-    { name: 'headers > alignRight,<br /> hidden', type: 'Boolean', default: 'false', description: 'Include the <strong>alignRight</strong> property to align the header to the right side of the space given. <br />Include a <strong>hidden</strong> property to hide a given \'th\' header.' },
+    { name: 'headers > alignRight,<br /> hidden,<br /> tooltip', type: 'Boolean, Boolean, Object', default: 'false', description: 'Include the <strong>alignRight</strong> property to align the header to the right side of the space given. <br />Include a <strong>hidden</strong> property to hide a given \'th\' header. <br />Include the <strong>tooltip</strong> component beside the header with its own props.' },
     { name: 'isClickable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to signify that the table and table rows are clickable.' },
     { name: 'isScrollable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to make table body scroll on the y-axis if it hits a max-height.' },
     { name: 'maxHeight', type: 'String', default: '', description: 'Defines the max height of a table in pixels when <strong>isScrollable</strong> is true.' },
