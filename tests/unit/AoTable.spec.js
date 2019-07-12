@@ -132,6 +132,22 @@ describe('Table', () => {
     expect(table.emitted().sortTable.length).toBe(5)
   })
 
+  it('tooltip', () => {
+    const tooltip = '.ao-table__tooltip-icon'
+    const table = mount(Table, {
+      propsData: {
+        headers: [
+          { field: 'field', title: 'Table Header', sortable: true, tooltip: { text: 'Tooltip Text', multiline: false, position: 'top' } }
+        ]
+      }
+    })
+    expect(
+      table
+        .find(tooltip)
+        .isVisible()
+    )
+  })
+
   it('nodata', () => {
     const noDataSelector = '.ao-table__nodata'
     const table = mount(Table, {

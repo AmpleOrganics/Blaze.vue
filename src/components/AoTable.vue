@@ -25,6 +25,13 @@
           >
             {{ columnHeader.title }}<span :class="isChevroned(columnHeader.field, columnHeader.sortable, columnHeader.hidden)" />
           </span>
+          <ao-tooltip
+            v-if="hasTooltip(columnHeader.tooltip)"
+            class="ao-table__tooltip-icon"
+            :text="columnHeader.tooltip.text"
+            :position="columnHeader.tooltip.position"
+            :multiline="columnHeader.tooltip.multiline"
+          />
         </th>
       </tr>
     </thead>
@@ -50,8 +57,13 @@
 
 <script>
 import { filterClasses } from './utils/component_utilities.js'
+import AoTooltip from './AoTooltip.vue'
 
 export default {
+  components: {
+    AoTooltip
+  },
+
   props: {
     headers: {
       type: Array,
@@ -181,6 +193,10 @@ export default {
       return sortable === true && hidden === false
     },
 
+    hasTooltip (tooltip) {
+      return tooltip && tooltip['text']
+    },
+
     getMaxHeight () {
       return {
         'max-height': this.maxHeight
@@ -275,6 +291,11 @@ $table-row-background-shaded: $color-gray-90;
   &__sort-icon {
     margin-left: $spacer-micro;
     top: 0;
+  }
+
+  &__tooltip-icon {
+    margin-left: $spacer-micro;
+    top: .2rem;
   }
 
   &__action-column {

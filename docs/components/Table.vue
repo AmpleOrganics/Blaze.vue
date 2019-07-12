@@ -178,7 +178,7 @@ export default {
         { field: 'id', title: 'ID', sortable: true },
         { field: 'first_name', title: 'First Name', sortable: true, hidden: this.hidden },
         { field: 'last_name', title: 'Last Name', sortable: true, alignRight: this.alignRight },
-        { field: 'friends', title: 'Friends', sortable: true }
+        { field: 'friends', title: 'Friends', sortable: true, tooltip: { text: 'Friendly friends', multiline: false, position: 'top' } }
       ]
     },
     partialSelection () {
