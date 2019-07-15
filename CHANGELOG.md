@@ -1,3 +1,14 @@
+# 3.5.0 (2019-07-16)
+
+## New
+
+Card: add new slot for actions [d3e21e](https://github.com/AmpleOrganics/Blaze.vue/commit/d3e21e176bcb8a586cbd773e119575cee7581f63)
+
+CheckBox and Radio: Added optional infoText prop to provide more details [936dd8](https://github.com/AmpleOrganics/Blaze.vue/commit/936dd8f9fc25db13e362a48e8a853d7ec03b2638)
+
+Table: Added ability to add tooltips to headers [6806fc](https://github.com/AmpleOrganics/Blaze.vue/commit/6806fc151d1c929b866ea52b6c2288a63c85d881)
+
+
 # 3.4.0 (2019-06-20)
 
 ## New
