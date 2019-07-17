@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="showDropdown"
-    class="ao-dropdown"
+    :class="['ao-dropdown', computedDropdownDirection]"
   >
     <slot name="dropdown-items" />
   </div>
@@ -13,6 +13,20 @@ export default {
     showDropdown: {
       type: Boolean,
       default: false
+    },
+
+    direction: {
+      type: String,
+      default: 'left',
+      validator: (value) => {
+        return ['left', 'right'].indexOf(value) !== -1
+      }
+    }
+  },
+
+  computed: {
+    computedDropdownDirection () {
+      return `ao-dropdown--${this.direction}`
     }
   }
 }
@@ -30,9 +44,16 @@ export default {
   text-align: left;
   position: absolute;
   top: 100%;
-  right: 0px;
   margin-top: 3px;
   white-space: nowrap;
+
+  &--left {
+    right: 0;
+  }
+
+  &--right {
+    left: 0;
+  }
 }
 
 .ao-header-toolbar__controls > * > .ao-dropdown {
