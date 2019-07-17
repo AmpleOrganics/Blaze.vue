@@ -24,6 +24,7 @@ data () {
   }
 }`,
   apiRows: [
-    { name: 'showDropdown', type: 'Boolean', default: 'false', description: 'Hides or un-hides the dropdown.' }
+    { name: 'showDropdown', type: 'Boolean', default: 'false', description: 'Hides or un-hides the dropdown.' },
+    { name: 'direction', type: 'String (left or right)', default: 'left', description: 'Shows dropdown on left or right side' }
   ]
 }

@@ -6,8 +6,10 @@
     >
       <h2 class="ao-card__title">
         {{ title }}
-        <slot name="card-header-action" />
       </h2>
+      <div class="ao-card__action">
+        <slot name="card-header-action" />
+      </div>
       <div class="ao-card__toolbar">
         <slot name="card-header-toolbar" />
       </div>
@@ -79,11 +81,17 @@ export default {
     }
   }
 
+  &__action {
+    position: relative;
+    display: inline-block;
+  }
+
   &__title {
     margin: 0;
     font-size: $font-size-xl;
     font-weight: $font-weight-light;
     display: inline-block;
+    padding-right: $spacer;
 
     & > * {
       vertical-align: bottom;
@@ -94,6 +102,8 @@ export default {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
 
     & .form-group {
       display: inline-block;

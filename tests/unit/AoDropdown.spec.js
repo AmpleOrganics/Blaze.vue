@@ -10,5 +10,18 @@ describe('dropdown', () => {
       }
     })
     expect(wrapper.classes()).toContain('ao-dropdown')
+    expect(wrapper.classes()).toContain('ao-dropdown--left')
+  })
+
+  it('right direction', () => {
+    const wrapper = shallowMount(Dropdown, {
+      propsData: {
+        links: [],
+        showDropdown: true,
+        direction: 'right'
+      }
+    })
+    expect(wrapper.classes()).toContain('ao-dropdown')
+    expect(wrapper.classes()).toContain('ao-dropdown--right')
   })
 })
