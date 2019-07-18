@@ -130,7 +130,7 @@ $tooltip-transition: opacity .2s ease-in-out;
   }
 
   &--multiline &__text {
-    white-space: pre-wrap;
+    white-space: normal;
     width: 200px;
   }
 
