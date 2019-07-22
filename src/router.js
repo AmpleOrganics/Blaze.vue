@@ -19,6 +19,7 @@ import DatePicker from '../docs/components/DatePicker.vue'
 import Navbar from '../docs/components/Navbar.vue'
 import Modal from '../docs/components/Modal.vue'
 import Paginate from '../docs/components/Paginate.vue'
+import Popover from '../docs/components/Popover.vue'
 import Radio from '../docs/components/Radio.vue'
 import RadioButtonGroup from '../docs/components/RadioButtonGroup.vue'
 import SectionHeader from '../docs/components/SectionHeader.vue'
@@ -63,6 +64,7 @@ export default new Router({
     { name: 'multiselect', path: '/multiselect', component: MultiSelect, meta: { title: 'Multi Select' } },
     { name: 'navbar', path: '/navbar', component: Navbar, meta: { title: 'Navbar' } },
     { name: 'paginate', path: '/paginate', component: Paginate, meta: { title: 'Paginate' } },
+    { name: 'popover', path: '/popover', component: Popover, meta: { title: 'Popover' } },
     { name: 'radio', path: '/radio', component: Radio, meta: { title: 'Radio' } },
     { name: 'radio button group', path: '/radio-button-group', component: RadioButtonGroup, meta: { title: 'Radio Button Group' } },
     { name: 'sectionheader', path: '/sectionheader', component: SectionHeader, meta: { title: 'Section Header' } },
