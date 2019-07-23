@@ -34,9 +34,7 @@
               v-if="hasSlot('modal-footer')"
               class="ao-modal__footer"
             >
-              <div class="row">
-                <slot name="modal-footer" />
-              </div>
+              <slot name="modal-footer" />
             </div>
           </div>
         </div>
