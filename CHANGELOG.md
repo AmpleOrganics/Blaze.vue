@@ -1,3 +1,22 @@
+# 3.6.0 (2019-07-23)
+
+## New
+
+New 'Popover' component [abd97e](https://github.com/AmpleOrganics/Blaze.vue/commit/abd97e9ba725b861a54dca833bd1fb1be07055bd) 
+
+Dropdown Item: Info Text prop that allows subtext per drop, size prop as well [86a05e154](https://github.com/AmpleOrganics/Blaze.vue/commit/86a05e154e4bf65dd5692b071c2ba016dc6ad303)
+
+Dropdown: allow direction for dropdown to come down from [4bd4cd8](https://github.com/AmpleOrganics/Blaze.vue/commit/4bd4cd8db09323208c58ee8259c2f3f7a2b0dcfb)
+
+Tooltip: new svg icon [da017af](https://github.com/AmpleOrganics/Blaze.vue/commit/da017af965e4a4f1d3518c5435675152faa81dfd)
+
+
+## Fix
+
+Modal: remove ".row" from classes on ao-modal [b1c2fa70](https://github.com/AmpleOrganics/Blaze.vue/commit/b1c2fa70ebce805bf9178a7dfcbfeb7a9c265a88)
+
+Tooltip: remove whitespace from multiline tooltips [da017af](https://github.com/AmpleOrganics/Blaze.vue/commit/da017af965e4a4f1d3518c5435675152faa81dfd)
+
 # 3.5.0 (2019-07-16)
 
 ## New
