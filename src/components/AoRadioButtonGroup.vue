@@ -20,6 +20,7 @@
       <label
         :for="option.value"
         class="ao-radio-button-group__option-input-label"
+        @click="select(option.value)"
       >
         {{ option.name }}
       </label>
