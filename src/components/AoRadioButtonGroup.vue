@@ -104,9 +104,9 @@ export default {
     min-height: $input-height-base;
     box-shadow: $shadow-subtle;
     cursor: pointer;
-    background-color: $color-white;
+    background-color: $color-gray-90;
     border-color: $color-gray-60;
-    color: $font-color-base;
+    color: $font-color-secondary;
   }
 
   &__option:first-of-type > &__option-input-label {
