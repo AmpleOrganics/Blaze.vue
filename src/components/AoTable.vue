@@ -44,7 +44,7 @@
         v-if="showNoDataText"
         class="ao-table__nodata"
       >
-        <td :colspan="headers.length">
+        <td :colspan="totalColumns">
           {{ noDataText }}
         </td>
       </tr>
@@ -158,6 +158,9 @@ export default {
 
     computedVAlign () {
       return `ao-table--vertical-align-${this.vAlign}`
+    },
+    totalColumns () {
+      return this.headers.length + Number(this.selectableTable)
     }
   },
 
