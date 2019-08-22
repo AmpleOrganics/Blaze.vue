@@ -36,11 +36,15 @@
             <td>{{ user.last_name }}</td>
             <td>{{ user.friends }}</td>
           </tr>
-          <tr slot="table-footer">
+          <tr
+            v-if="!showNoDataText"
+            slot="table-footer"
+          >
             <td>
               <strong>Total</strong>
             </td>
             <td />
+            <td v-if="selectableTable" />
             <td />
             <td>
               <strong>230</strong>
