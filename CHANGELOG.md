@@ -1,3 +1,13 @@
+# 3.6.2 (2019-08-26)
+
+## New
+
+Checkbox: add prop called `emitValue` to emit checkbox value instead or just false/true [ccb9f0d](https://github.com/AmpleOrganics/Blaze.vue/commit/ccb9f0d621811d385db599a1310cc03b82caacab)
+
+## Fix
+
+Table: fix header count to include selection column [aa93ca5](https://github.com/AmpleOrganics/Blaze.vue/commit/aa93ca50b882f548f339c04fa628b6dd36c27d11)
+
 # 3.6.0 (2019-07-23)
 
 ## New
