@@ -49,6 +49,11 @@ export default {
       required: true
     },
 
+    emitCheckboxValue: {
+      type: Boolean,
+      default: false
+    },
+
     showLabel: {
       type: Boolean,
       default: true
@@ -91,7 +96,7 @@ export default {
 
   methods: {
     check (value) {
-      this.$emit('input', this.checkedModel)
+      this.$emit('input', this.emitCheckboxValue ? this.checkboxValue : this.checkedModel)
     },
 
     emitFocus (event) {
