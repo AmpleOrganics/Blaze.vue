@@ -10,10 +10,10 @@
     &__label {
       margin-bottom: 0;
       cursor: pointer;
+      display: flex;
     }
     
     &__content {
-      display: inline-block;
       font-weight: normal;
       vertical-align: top;
     }
