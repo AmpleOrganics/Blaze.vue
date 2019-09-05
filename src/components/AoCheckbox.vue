@@ -96,7 +96,11 @@ export default {
 
   methods: {
     check (value) {
-      this.$emit('input', this.emitCheckboxValue ? this.checkboxValue : this.checkedModel)
+      if (this.emitCheckboxValue) {
+        this.$emit('input', this.checkedModel ? this.checkboxValue : null)
+      } else {
+        this.$emit('input', this.checkedModel)
+      }
     },
 
     emitFocus (event) {
