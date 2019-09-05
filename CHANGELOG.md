@@ -1,3 +1,9 @@
+# 3.6.3 (2019-09-05)
+
+## Fix
+
+Checkbox: emit null when deselecting when emitValue is set to `true` [f51d521](https://github.com/AmpleOrganics/Blaze.vue/tree/f51d5217e8e8d5e37c660db2255bb3b41aa0169b) 
+
 # 3.6.2 (2019-08-26)
 
 ## New
