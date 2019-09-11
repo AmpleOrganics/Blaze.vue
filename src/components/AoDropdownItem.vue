@@ -47,6 +47,7 @@ export default {
   font-size: $font-size-base;
   display: block;
   width: 100%;
+  white-space: normal;
 
   &:hover,
   &:focus {
