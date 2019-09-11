@@ -1,3 +1,9 @@
+# 3.6.5 (2019-09-11)
+
+## Fix
+
+Dropdown-item: fix text wrapping when there is not enough space horizontally [00e237](https://github.com/AmpleOrganics/Blaze.vue/commit/00e237399384565aeb9c56c076fab2358f2a4d88)
+
 # 3.6.4 (2019-09-11)
 
 ## Fix
