@@ -10,12 +10,14 @@
     &__label {
       margin-bottom: 0;
       cursor: pointer;
+      display: flex;
     }
     
     &__content {
       display: inline-block;
       font-weight: normal;
       vertical-align: top;
+      margin-left: 5px;
     }
     
     &__label-text {
@@ -26,6 +28,7 @@
       line-height: normal;  
       padding: 0;
       margin: 0;
+      margin-top: 0.2rem;
       margin-right: 0.5rem;
       position: relative;
       top: -1px;
