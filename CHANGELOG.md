@@ -1,3 +1,9 @@
+# 3.6.4 (2019-09-11)
+
+## Fix
+
+Radio: fix component wrapping when there is not enough space horizontally [fdee036](https://github.com/AmpleOrganics/Blaze.vue/commit/fdee0363ccb2cff9b0611a3aec0c6395182c16ab) 
+
 # 3.6.3 (2019-09-05)
 
 ## Fix
