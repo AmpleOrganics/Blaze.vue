@@ -46,25 +46,31 @@
       font-size: $font-size-sm;
     }
   }
-  
+
   .ao-input{
-  
-    &--has-addon {
+
+    &--has-addon, &--has-prepend {
       display: table;
       border-collapse: separate;
     }
-    
-    &--has-addon > .ao-form-control {
+
+    &--has-addon > .ao-form-control, &--has-prepend > .ao-form-control {
       display: table-cell;
       width: 100%;
       margin-bottom: 0;
-      &:first-child {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-      }
     }
-    
-    &--has-addon > &__addon {
+
+    &--has-prepend > .ao-form-control {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &--has-addon > .ao-form-control {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &--has-addon > &__addon, &--has-prepend > &__prepend {
       align-items: center;
       height: $input-height-base;
       padding: $spacer-micro $spacer-sm;
@@ -79,54 +85,61 @@
       white-space: nowrap;
       vertical-align: middle;
       display: table-cell;
-      &:last-child {
-        border-left: 0;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
+    }
+
+    &--has-addon > &__addon {
+      border-left: 0;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &--has-prepend > &__prepend {
+      border-right: 0;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 
   .ao-form-group {
     margin-bottom: $spacer;
-    
+
     label {
       display: inline-block;
       max-width: 100%;
       margin: $input-label-margin;
       font-weight: $font-weight-bold;
     }
-    
+
     &__label {
       & .ao-tooltip {
         margin-left: $spacer-micro;
       }
     }
-  
+
     &--has-feedback {
       .ao-input {
         margin-bottom: $spacer-micro;
       }
     }
-    
+
     &__instruction-text {
       display: block;
       font-size: $font-size-xs;
       color: $color-gray-30;
       margin-top: $spacer-micro
     }
-  
+
     &__invalid-message {
       display: block;
       font-size: $font-size-xs;
       color: $font-color-error;
       margin-top: $spacer-micro
     }
-  
+
     &__instruction-text {
       margin-top: 0;
     }
-  
+
     &--disabled {
       opacity: 0.6;
     }

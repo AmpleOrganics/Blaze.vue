@@ -9,7 +9,19 @@
       </label>
       <slot name="tooltip" />
     </div>
-    <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup }]">
+    <div :class="['ao-input', { 'ao-input--has-addon': hasInputGroup, 'ao-input--has-prepend': hasPrependGroup }]">
+      <span
+        v-if="hasIconPrepend"
+        :class="prependClass"
+        class="ao-input__prepend"
+        v-html="prependHtml"
+      />
+      <span
+        v-if="hasPrepend"
+        class="ao-input__prepend"
+      >
+        {{ prepend }}
+      </span>
       <input
         v-bind="$attrs"
         :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
@@ -107,6 +119,21 @@ export default {
       default: null
     },
 
+    prepend: {
+      type: String,
+      default: null
+    },
+
+    prependHtml: {
+      type: String,
+      default: null
+    },
+
+    prependClass: {
+      type: String,
+      default: null
+    },
+
     disabled: {
       type: Boolean,
       default: false
@@ -152,6 +179,18 @@ export default {
 
     hasAddOn () {
       return this.addOn
+    },
+
+    hasPrependGroup () {
+      return this.hasIconPrepend || this.hasPrepend
+    },
+
+    hasIconPrepend () {
+      return this.prependHtml || this.prependClass
+    },
+
+    hasPrepend () {
+      return this.prepend
     },
 
     hasFeedbackText () {
