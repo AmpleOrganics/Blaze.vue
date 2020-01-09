@@ -26,6 +26,28 @@ describe('Input', () => {
     expect(input.contains('.custom-glyph-clients')).toBe(true)
   })
 
+  it('prepend', () => {
+    const input = mount(Input, {
+      propsData: {
+        label: 'label',
+        prepend: 'Prepend Text'
+      }
+    })
+    expect(input.find('.ao-input__prepend').exists()).toBe(true)
+    expect(input.find('.ao-input__prepend').text()).toBe('Prepend Text')
+  })
+
+  it('addOn', () => {
+    const input = mount(Input, {
+      propsData: {
+        label: 'label',
+        addOn: 'Addon Text'
+      }
+    })
+    expect(input.find('.ao-input__addon').exists()).toBe(true)
+    expect(input.find('.ao-input__addon').text()).toBe('Addon Text')
+  })
+
   it('isIconClickable', () => {
     const input = mount(Input, {
       propsData: {

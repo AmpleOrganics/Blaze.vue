@@ -18,6 +18,7 @@
           :invalid-message="invalidMessage"
           :instruction-text="instructionText"
           :min="minDate"
+          :prepend="prependLabel"
           :is-icon-clickable="isIconClickable"
           @icon-clicked="onIconClicked"
         />
@@ -37,6 +38,15 @@
             v-model="textPlaceholder"
             :type="'text'"
             :label="'Placeholder Text'"
+          />
+        </div>
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-input
+            v-model="prependLabel"
+            :type="'text'"
+            :label="'Prepend Label'"
           />
         </div>
       </div>
@@ -205,7 +215,8 @@ export default {
       invalidMessage: 'INVALID!',
       instructionText: 'Must be 16 characters',
       minDate: null,
-      isIconClickable: false
+      isIconClickable: false,
+      prependLabel: 'Name'
     }
   },
   methods: {
