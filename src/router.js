@@ -26,6 +26,7 @@ import SectionHeader from '../docs/components/SectionHeader.vue'
 import Select from '../docs/components/Select.vue'
 import MultiSelect from '../docs/components/MultiSelect.vue'
 import Spinner from '../docs/components/Spinner.vue'
+import Switch from '../docs/components/Switch.vue'
 import Table from '../docs/components/Table.vue'
 import TableCell from '../docs/components/TableCell.vue'
 import TextArea from '../docs/components/TextArea.vue'
@@ -70,6 +71,7 @@ export default new Router({
     { name: 'sectionheader', path: '/sectionheader', component: SectionHeader, meta: { title: 'Section Header' } },
     { name: 'select', path: '/select', component: Select, meta: { title: 'Select' } },
     { name: 'spinner', path: '/spinner', component: Spinner, meta: { title: 'Spinner' } },
+    { name: 'switch', path: '/switch', component: Switch, meta: { title: 'Switch' } },
     { name: 'table', path: '/table', component: Table, meta: { title: 'Table' } },
     { name: 'tablecell', path: '/tablecell', component: TableCell, meta: { title: 'Table Cell' } },
     { name: 'textarea', path: '/textarea', component: TextArea, meta: { title: 'Text Area' } },
