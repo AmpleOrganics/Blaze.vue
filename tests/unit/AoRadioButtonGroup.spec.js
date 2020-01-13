@@ -30,6 +30,19 @@ describe('Radio', () => {
     expect(radioButtonGroup.find('.ao-radio-button-group__option-input:checked').element.value).toBe(selectedOptionValue)
   })
 
+  it('subtle', () => {
+    const selectedOptionValue = options[1].value
+    const radioButtonGroup = mount(RadioButtonGroup, {
+      propsData: {
+        options: options,
+        value: selectedOptionValue,
+        name: 'name',
+        subtle: true
+      }
+    })
+    expect(radioButtonGroup.find('.ao-radio-button-group__option-input-label--subtle').isVisible()).toBe(true)
+  })
+
   it('emits on option selection', () => {
     const selectedOptionValue = options[1].value
     const radioButtonGroup = mount(RadioButtonGroup, {

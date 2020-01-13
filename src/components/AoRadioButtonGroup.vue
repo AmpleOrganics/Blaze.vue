@@ -19,7 +19,7 @@
       >
       <label
         :for="option.value"
-        class="ao-radio-button-group__option-input-label"
+        :class="computedLabelClass"
         @click="select(option.value)"
       >
         {{ option.name }}
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { filterClasses } from './utils/component_utilities.js'
+
 export default {
   inheritAttrs: false,
   props: {
@@ -45,12 +47,27 @@ export default {
     value: {
       type: [Number, String, Boolean],
       required: true
+    },
+
+    subtle: {
+      type: Boolean,
+      default: false
     }
   },
 
   data () {
     return {
       currentValue: null
+    }
+  },
+
+  computed: {
+    computedLabelClass () {
+      const activeClasses = {
+        'ao-radio-button-group__option-input-label': true,
+        'ao-radio-button-group__option-input-label--subtle': this.subtle
+      }
+      return filterClasses(activeClasses)
     }
   },
 
@@ -107,6 +124,12 @@ export default {
     background-color: $color-gray-90;
     border-color: $color-gray-60;
     color: $font-color-secondary;
+
+    &--subtle {
+      font-weight: inherit;
+      font-size: $font-size-sm;
+      min-height: 1em;
+    }
   }
 
   &__option:first-of-type > &__option-input-label {
@@ -138,13 +161,20 @@ export default {
       cursor: not-allowed !important;
     }
 
-    &:checked + &-label,
-    &:checked:active + &-label,
-    &:checked:hover + &-label {
-      background-color: $color-success;
-      border-color: $color-success;
-      box-shadow: $shadow-none;
-      color: white;
+    &:checked, &:checked:active, &:checked:hover {
+
+      + .ao-radio-button-group__option-input-label {
+        background-color: $color-success;
+        border-color: $color-success;
+        box-shadow: $shadow-none;
+        color: white;
+
+        &--subtle {
+          background-color: $color-gray-80;
+          border-color: $color-gray-60;
+          color: $font-color-secondary;
+        }
+      }
     }
   }
 }

@@ -22,7 +22,8 @@ data () {
 }`,
   apiRows: [
     { name: 'options', type: 'Array, required', description: 'this props provides radio options for the radio buttons, check the example for how they should be structured' },
-    { name: 'name', type: 'String, required', description: 'this prop links each radio button together' }
+    { name: 'name', type: 'String, required', description: 'this prop links each radio button together' },
+    { name: 'subtle', type: 'Boolean', default: false, description: 'Displays a more subtle version of the default radio button group.' }
   ]
 
 }

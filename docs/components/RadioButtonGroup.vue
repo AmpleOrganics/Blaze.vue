@@ -12,8 +12,18 @@
         <ao-radio-button-group
           v-model="selectedRadio"
           :options="radioButtons"
+          :subtle="subtle"
           name="test"
         />
+      </div>
+      <div class="component-controls">
+        <div class="component-controls__group">
+          <ao-checkbox
+            v-model="subtle"
+            :checkbox-value="true"
+            checkbox-label="Subtle"
+          />
+        </div>
       </div>
     </div>
     <template slot="snippet">
@@ -41,10 +51,11 @@ export default {
       ...RadioButtonGroupDocumentation,
       radioButtons: [
         { name: 'Tandy', value: 'Tandy' },
-        { name: 'Other Guy', value: 'Other' },
+        { name: 'Other Guy', value: 'Other Guy' },
         { name: 'Todd', value: 'Todd' }
       ],
-      selectedRadio: ''
+      selectedRadio: '',
+      subtle: false
     }
   }
 }
