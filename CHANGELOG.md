@@ -1,3 +1,11 @@
+# 3.6.6 (2020-01-14)
+
+## New
+
+New 'Switch' component (a styled alternative to single checkboxes) [#378](https://github.com/AmpleOrganics/Blaze.vue/pull/378)
+
+Input component now supports prepended addons alongside appended addons [#377](https://github.com/AmpleOrganics/Blaze.vue/pull/377)
+
 # 3.6.5 (2019-09-11)
 
 ## Fix
