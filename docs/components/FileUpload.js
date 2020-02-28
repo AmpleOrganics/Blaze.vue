@@ -7,8 +7,8 @@ export default {
   :name="'File'"
 />`,
   apiRows: [
-    { name: 'label', type: 'String, required', default: '-', description: 'Displays a text label above the button to describe the action.' },
-    { name: 'name', type: 'String, required', default: '-', description: 'Specifies the name of the &lt;label&gt; element.' },
+    { name: 'label', type: 'String', required: true, default: '', description: 'Displays a text label above the button to describe the action.' },
+    { name: 'name', type: 'String', required: true, default: '', description: 'Specifies the name of the &lt;label&gt; element.' },
     { name: 'showLabel', type: 'Boolean', default: 'true', description: 'Hide or unhide the text label.' },
     { name: 'disabled', type: 'Boolean', default: 'false', description: 'Disables interaction with the component.' },
     { name: 'disableAll', type: 'Boolean', default: 'false', description: 'Disables interaction with the component, greys out label.' },

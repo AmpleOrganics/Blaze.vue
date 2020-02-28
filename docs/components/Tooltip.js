@@ -10,8 +10,8 @@ export default {
   <ao-button primary>Hover over me</ao-button>
 </ao-tooltip>`,
   apiRows: [
-    { name: 'position', type: 'String (bottom, left, top, right)', default: 'bottom', description: 'Shows tooltip at selected position.' },
-    { name: 'text', type: 'String', default: 'null', description: 'Text for tool tip.' },
+    { name: 'position', type: 'String (bottom, left, top or right)', default: 'bottom', description: 'Shows tooltip at selected position.' },
+    { name: 'text', type: 'String', required: true, default: 'null', description: 'Text for tool tip.' },
     { name: 'multiline', type: 'Boolean', default: 'false', description: 'Configure tooltip to be single line or multiline.' }
   ]
 }

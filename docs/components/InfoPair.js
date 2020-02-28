@@ -9,7 +9,7 @@ export default {
   {{ info }}
 </ao-info-pair>`,
   apiRows: [
-    { name: 'label', type: 'String', default: '-', description: 'Label for info pair.' },
-    { name: 'label-html', type: 'String', default: '-', description: 'HTML label for info pair.' }
+    { name: 'label', type: 'String', default: '', description: 'Label for info pair.' },
+    { name: 'labelHtml', type: 'String', default: '', description: 'HTML label for info pair.' }
   ]
 }

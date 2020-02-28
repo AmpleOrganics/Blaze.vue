@@ -6,7 +6,10 @@
 
     <div slot="example">
       <div class="component-example">
-        <ao-dropdown-item :disabled="isDisabled">
+        <ao-dropdown-item
+          :disabled="isDisabled"
+          :info-text="infoText"
+        >
           This is an item
         </ao-dropdown-item>
       </div>
@@ -16,6 +19,13 @@
             v-model="isDisabled"
             :checkbox-value="false"
             checkbox-label="isDisabled"
+          />
+        </div>
+        <div class="component-controls__group">
+          <ao-input
+            v-model="infoText"
+            :type="'text'"
+            :label="'Drop Down Item Information Text'"
           />
         </div>
       </div>
@@ -42,7 +52,8 @@ export default {
   data () {
     return {
       ...DropdownItemDocumentation,
-      isDisabled: false
+      isDisabled: false,
+      infoText: 'Help text'
     }
   }
 }

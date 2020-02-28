@@ -33,6 +33,6 @@ export default {
   </template>
 </ao-card>`,
   apiRows: [
-    { name: 'title', type: 'String, required', default: 'null', description: 'Displays title text within the card header.' }
+    { name: 'title', type: 'String', default: 'null', description: 'Displays title text within the card header.' }
   ]
 }

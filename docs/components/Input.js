@@ -30,8 +30,8 @@ export default {
 />`,
   apiRows: [
     { name: 'type', type: 'String', default: 'text', description: 'Defines the input type. <br /><strong>Accepted types: text, number, email, password, date, search.</strong>' },
-    { name: 'value', type: '[String, Number]', default: 'null', description: 'Defines the value of the input.' },
-    { name: 'label', type: 'String, required', default: '-', description: 'Displays the text label above the input.' },
+    { name: 'value', type: 'String, Number', default: '', description: 'Defines the value of the input.' },
+    { name: 'label', type: 'String', required: true, default: '', description: 'Displays the text label above the input.' },
     { name: 'showLabel', type: 'Boolean', default: 'true', description: 'Hide or unhide the text label.' },
     { name: 'name', type: 'String', default: 'null', description: 'Defines the html name property and has no functional purpose on its own.' },
     { name: 'placeholder', type: 'String', default: 'null', description: 'Defines the placeholder text inside of the input.' },
@@ -49,6 +49,6 @@ export default {
     { name: 'invalid', type: 'Boolean', default: 'false', description: 'Adds a class to display a red border around the component to indicate an invalid entry.' },
     { name: 'invalidMessage', type: 'String', default: 'null', description: 'Adds invalid messages below input' },
     { name: 'size', type: 'String (null or small)', default: 'null', description: 'Pass in \'small\' to decrease the size of the input field.' },
-    { name: 'min', type: '[String, Number]', default: 'null', description: 'Min date or min number' }
+    { name: 'min', type: 'String, Number', default: 'null', description: 'Min date or min number' }
   ]
 }

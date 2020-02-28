@@ -18,7 +18,7 @@ export default {
 />`,
   apiRows: [
     { name: 'value', type: 'String', default: 'null', description: 'Defines the value of the date picker.' },
-    { name: 'label', type: 'String, required', default: '-', description: 'Displays the text label above the date picker.' },
+    { name: 'label', type: 'String', required: true, default: '', description: 'Displays the text label above the date picker.' },
     { name: 'showLabel', type: 'Boolean', default: 'true', description: 'Hide or unhide the text label.' },
     { name: 'name', type: 'String', default: 'null', description: 'Defines the html name property and has no functional purpose on its own.' },
     { name: 'placeholder', type: 'String', default: 'null', description: 'Defines the placeholder text inside of the date picker.' },

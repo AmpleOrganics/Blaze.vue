@@ -16,7 +16,7 @@ export default {
   Alert text goes here
 </ao-alert>`,
   apiRows: [
-    { name: 'showAlert', type: 'Boolean', default: 'false', description: 'Shows or hides the alert.' },
+    { name: 'showAlert', type: 'Boolean', required: true, default: 'false', description: 'Shows or hides the alert.' },
     { name: 'iconClass', type: 'String', default: 'null', description: 'Displays icon components eg. material icons. You can also use the name slot of "icon" as well' },
     { name: 'destructive', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a destructive action eg. deletion, permanent irreversible action.' },
     { name: 'caution', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a cautious action eg. reversible powerful change.' }
