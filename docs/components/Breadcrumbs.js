@@ -14,7 +14,7 @@ export default {
   }
 }`,
   apiRows: [
-    { name: 'separator', type: 'String', default: 'null', description: 'Divides the different paths by whatever string you would like!' },
-    { name: 'paths', type: 'Array, required', default: 'false', description: 'Array of Objects that contain name, path and active props for each path. Check the Code Example for more info.' }
+    { name: 'separator', type: 'String', default: "'/'", description: 'Divides the different paths by whatever string you would like!' },
+    { name: 'paths', type: 'Array', required: true, default: '', description: 'Array of Objects that contain name, path and active props for each path. Check the Code Example for more info.' }
   ]
 }

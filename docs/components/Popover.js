@@ -14,7 +14,7 @@ export default {
   />
 </ao-popover>`,
   apiRows: [
-    { name: 'position', type: 'String (bottom, left, top, right)', default: 'bottom', description: 'Shows popover at selected position.' },
-    { name: 'text', type: 'String', default: 'null', description: 'Text for popover.' }
+    { name: 'position', type: 'String (bottom, left, top or right)', default: 'bottom', description: 'Shows popover at selected position.' },
+    { name: 'text', type: 'String', required: true, default: 'null', description: 'Text for popover.' }
   ]
 }

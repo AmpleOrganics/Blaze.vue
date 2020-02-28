@@ -7,7 +7,7 @@
     <div slot="example">
       <div class="component-example">
         <ao-dropdown
-          size="large"
+          :size="size"
           :show-dropdown="showDropdown"
         >
           <ao-dropdown-item
@@ -35,6 +35,20 @@
             :checkbox-value="true"
             checkbox-label="showDropdown"
           />
+        </div>
+        <div class="component-controls__group">
+          <ao-select
+            v-model="dropdownSize"
+            label="Size"
+          >
+            <option
+              v-for="size in sizes"
+              :key="size.name"
+              :value="size.value"
+            >
+              {{ size.name }}
+            </option>
+          </ao-select>
         </div>
       </div>
     </div>
@@ -64,7 +78,11 @@ export default {
         { url: 'https://google.com', title: 'Google' },
         { url: 'https://facebook.com', title: 'Facebook', infoText: 'This is a really fun website, you will love it.' }
       ],
-
+      dropdownSize: 'large',
+      sizes: [
+        { value: 'medium', name: 'Medium' },
+        { value: 'large', name: 'Large' }
+      ],
       showDropdown: true
     }
   }

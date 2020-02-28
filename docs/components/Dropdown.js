@@ -2,7 +2,11 @@ export default {
   header: 'Dropdown',
   description: 'This is a customizable dropdown component.',
   snippet:
-        `<ao-dropdown :show-dropdown="showDropdown">
+        `<ao-dropdown
+  :show-dropdown="showDropdown"
+  :size="'large'"
+  :direction="'left'"
+>
   <ao-dropdown-item
     slot="dropdown-items"
     v-for="(link, index) in links"
@@ -25,6 +29,7 @@ data () {
 }`,
   apiRows: [
     { name: 'showDropdown', type: 'Boolean', default: 'false', description: 'Hides or un-hides the dropdown.' },
+    { name: 'size', type: 'String (medium or large)', default: 'medium', description: 'Adjusts size of dropdown.' },
     { name: 'direction', type: 'String (left or right)', default: 'left', description: 'Shows dropdown on left or right side' }
   ]
 }

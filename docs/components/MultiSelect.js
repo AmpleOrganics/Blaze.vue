@@ -54,10 +54,10 @@ methods: {
   }
 }`,
   apiRows: [
-    { name: 'label', type: 'String, required', default: 'null', description: 'This prop defines the label of the multi select.' },
+    { name: 'label', type: 'String', required: true, default: '', description: 'This prop defines the label of the multi select.' },
     { name: 'selected', type: 'Array', default: '[]', description: 'This prop defines the selected options.' },
     { name: 'showLabel', type: 'Boolean', default: 'true', description: 'This prop defines if the multi select label will be shown or not.' },
-    { name: 'clearAllSelectionsLabel', type: 'String, optional', default: 'Clear all selections', description: 'This prop defines the label of the clear all selections button.' },
+    { name: 'clearAllSelectionsLabel', type: 'String', default: 'Clear all selections', description: 'This prop defines the label of the clear all selections button.' },
     { name: 'instructionText', type: 'String', default: 'null', description: 'Instruction text to show below the input.' },
     { name: 'invalid', type: 'Boolean', default: 'false', description: 'This prop defines the multi select to be invalid.' },
     { name: 'invalidMessage', type: 'String', default: 'false', description: 'Adds invalid messages below multi select' },

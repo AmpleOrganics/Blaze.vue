@@ -14,7 +14,7 @@ export default {
   </template>
 </ao-section-header>`,
   apiRows: [
-    { name: 'title', type: 'String, required', default: 'null', description: 'Defines the title of the section header.' },
+    { name: 'title', type: 'String', required: true, default: '', description: 'Defines the title of the section header.' },
     { name: 'subtitle', type: 'String', default: 'null', description: 'Defines the subtitle of the section header.' },
     { name: 'iconHtml', type: 'String', default: 'null', description: 'Accepts html elements or html codes for icons.' },
     { name: 'iconClass', type: 'String', default: 'null', description: 'Accepts icon class components e.g. material icons.' }

@@ -20,7 +20,7 @@ export default {
   </div>
 </ao-modal>`,
   apiRows: [
-    { name: 'headerText', type: 'String, required', default: 'null', description: 'Defines the modal title.' },
+    { name: 'headerText', type: 'String', required: true, default: '', description: 'Defines the modal title.' },
     { name: 'destructive', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a destructive action eg. deletion, permanent irreversible action.' },
     { name: 'caution', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a cautious action eg. reversible powerful change.' },
     { name: 'size', type: 'String (small, medium or large)', default: 'medium', description: 'Defines the modal size.' }

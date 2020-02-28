@@ -11,7 +11,7 @@
           :disabled="disabled"
           :checkbox-value="true"
           :checkbox-label="checkboxLabel"
-          info-text="This is some informative text"
+          :info-text="infoText"
         />
       </div>
       <div class="component-controls">
@@ -20,6 +20,11 @@
             v-model="checkboxLabel"
             :type="'text'"
             :label="'Checkbox Label Text'"
+          />
+          <ao-input
+            v-model="infoText"
+            :type="'text'"
+            :label="'Checkbox Informational Text'"
           />
         </div>
         <div class="component-controls__group">
@@ -62,6 +67,7 @@ export default {
       ...CheckboxDocumentation,
       disabled: false,
       showLabel: true,
+      infoText: 'This is some informative text',
       checkboxLabel: 'This is the checkbox label'
     }
   },

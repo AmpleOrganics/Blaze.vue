@@ -87,13 +87,16 @@ methods: {
     { name: 'headers > alignRight,<br /> hidden,<br /> tooltip', type: 'Boolean, Boolean, Object', default: 'false', description: 'Include the <strong>alignRight</strong> property to align the header to the right side of the space given. <br />Include a <strong>hidden</strong> property to hide a given \'th\' header. <br />Include the <strong>tooltip</strong> component beside the header with its own props.' },
     { name: 'isClickable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to signify that the table and table rows are clickable.' },
     { name: 'isScrollable', type: 'Boolean', default: 'false', description: 'When set to true, this prop adds appropriate styling to make table body scroll on the y-axis if it hits a max-height.' },
-    { name: 'maxHeight', type: 'String', default: '', description: 'Defines the max height of a table in pixels when <strong>isScrollable</strong> is true.' },
+    { name: 'maxHeight', type: 'String', default: 'none', description: 'Defines the max height of a table in pixels when <strong>isScrollable</strong> is true.' },
     { name: 'noDataText', type: 'String', default: '', description: 'Text to show when table has no data.' },
     { name: 'order', type: 'String ("asc" or "desc")', default: 'desc', description: 'This prop defines which order (ascending or decending) is the default.' },
     { name: 'showNoDataText', type: 'Boolean', default: 'false', description: 'When set to true, this prop displays the value of prop noDataText.' },
     { name: 'sortBy', type: 'String', default: 'null', description: 'This prop defines the default header to sort by.' },
     { name: 'vAlign', type: 'String ("top" or "middle")', default: 'top', description: 'This prop defines which vertical alignment (top or middle) is the default.' },
     { name: 'selectableTable', type: 'Boolean', default: 'false', description: 'This prop determines if the table header contains a checkbox to emit selectAll events.' },
-    { name: 'isPartiallySelected', type: 'Boolean', default: 'false', description: 'When true, overrides the header checkbox to display the indeterminate value (hyphen).' }
+    { name: 'isPartiallySelected', type: 'Boolean', default: 'false', description: 'When true, overrides the header checkbox to display the indeterminate value (hyphen).' },
+    { name: 'sortTable', type: 'Event', default: '', description: 'Event trigger to adjust sorting and ordering of entities.' },
+    { name: 'selectAll', type: 'Boolean', default: 'false', description: 'Event trigger to allow selection of all entities.' }
+
   ]
 }

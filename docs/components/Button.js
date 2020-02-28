@@ -6,8 +6,7 @@ export default {
   I'm a button
 </ao-button>`,
   apiRows: [
-    { name: 'formName', type: 'String', default: 'null', description: 'Binds to a form.' },
-    { name: 'type', type: 'String (button or submit)', default: 'button', description: 'Defines type of button.' },
+    { name: 'type', type: 'String (button or submit)', default: "'button'", description: 'Defines type of button.' },
     { name: 'primary', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a primary action eg. submission, confirmation.' },
     { name: 'destructive', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a destructive action eg. deletion, permanent irreversible action.' },
     { name: 'caution', type: 'Boolean', default: 'false', description: 'Adds a class to indicate a cautious action eg. reversible powerful change.' },

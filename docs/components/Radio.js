@@ -26,8 +26,8 @@ data() {
   }
 }`,
   apiRows: [
-    { name: 'val', type: '[String, Number, Boolean], required', default: 'null', description: 'This prop defines the actual value of a radio button.' },
-    { name: 'label', type: 'Boolean', default: 'false', description: 'This prop defines the label of the radio button.' },
+    { name: 'val', type: 'String, Number, Boolean', required: true, default: 'null', description: 'This prop defines the actual value of a radio button.' },
+    { name: 'label', type: 'Boolean', required: true, default: '', description: 'This prop defines the label of the radio button.' },
     { name: 'showLabel', type: 'Boolean', default: 'true', description: 'Allows hiding the label text' },
     { name: 'infoText', type: 'string', default: 'null', description: 'For instructional UI copy pertaining to the radio option' },
     { name: 'disabled', type: 'Boolean', default: 'false', description: 'Disables interaction with the component.' }
