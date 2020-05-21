@@ -176,7 +176,7 @@ $datepicker-arrow-button-width: 1.625rem;
     margin-bottom: 0.2rem;
     text-transform: uppercase;
     font-weight: $font-weight-bold;
-    color: $color-gray-40;
+    color: $color-gray-30;
     font-size: .75rem;
   }
 
@@ -195,7 +195,7 @@ $datepicker-arrow-button-width: 1.625rem;
     }
 
     &--outside {
-      color: $color-gray-40;
+      color: $color-gray-30;
     }
 
     &--today {
