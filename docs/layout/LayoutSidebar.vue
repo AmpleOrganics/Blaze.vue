@@ -39,7 +39,7 @@ export default {
   }
 
   &__item-link {
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   .router-link-active {

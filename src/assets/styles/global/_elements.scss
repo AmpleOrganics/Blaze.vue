@@ -39,11 +39,10 @@ small {
 
 a {
   color: $font-color-link;
-  text-decoration: none;
+  text-decoration: underline;
 
   &:hover {
     color: $font-color-link-hover;
-    text-decoration: underline;
   }
 }
 

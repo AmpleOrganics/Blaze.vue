@@ -60,11 +60,12 @@ export default {
   }
 
   &__crumb {
-    text-decoration: none;
+    text-decoration: underline;
     font-size: $font-size-xs;
     text-transform: uppercase;
 
     &--active {
+      text-decoration: none;
       color: $color-gray-30;
     }
 

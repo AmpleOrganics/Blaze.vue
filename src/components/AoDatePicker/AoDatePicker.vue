@@ -187,7 +187,7 @@ export default {
     background-color: transparent;
     font-size: $font-size-lg;
     line-height: 1;
-    color: $color-gray-40;
+    color: $color-gray-30;
 
     &:hover {
       color: $color-gray-10;
@@ -195,7 +195,7 @@ export default {
   }
 
   & > .ao-form-control[disabled="disabled"] + .ao-input__addon:hover {
-    color: $color-gray-40;
+    color: $color-gray-30;
     cursor: not-allowed;
   }
 }

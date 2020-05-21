@@ -229,11 +229,11 @@ export default {
     @include naked-shared;
     color: $font-color-link;
     font-weight: normal;
+    text-decoration: underline;
 
    &:active, &:hover:not([disabled]) {
       @include naked-hover-shared;
       color: $font-color-link-hover;
-      text-decoration: underline;
     }
   }
 

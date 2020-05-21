@@ -10,23 +10,23 @@
 
 
 
-$color-primary:               #00a38b;
-$color-primary-dark:          darken($color-primary, 5);
-$color-dark:                  #292F3B;
-
 $color-white:                 #fff;
-$color-green:                 #17a66c;
+$color-green:                 #007866;
 $color-green-light:           #def7ed;
 $color-green-dark:            #08774a;
-$color-blue:                  #00b0e4;
+$color-blue:                  #0081A2;
 $color-blue-light:            #e7f8fd;
 $color-blue-dark:             #007598;
 $color-yellow:                #f9c228;
 $color-yellow-light:          #fff8e4;
 $color-yellow-dark:           #906a01;
-$color-red:                   #d93240;
+$color-red:                   #E50606;
 $color-red-light:             #ffe1e3;
 $color-red-dark:              #a11e29;
+
+$color-primary:               $color-green;
+$color-primary-dark:          darken($color-green, 5);
+$color-dark:                  #292F3B;
 
 $color-success:               $color-green;
 $color-success-light:         $color-green-light;
@@ -44,7 +44,7 @@ $color-destructive-dark:      $color-red-dark;
 // Ample Shades of Gray
 $color-gray-10:               #474a4c;
 $color-gray-20:               #5e6366;
-$color-gray-30:               #757b80;
+$color-gray-30:               #6F717F;
 $color-gray-40:               #8d9499;
 $color-gray-50:               #aaadb3;
 $color-gray-60:               #c6c9cc;

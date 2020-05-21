@@ -52,19 +52,19 @@ export default {
   &:hover,
   &:focus {
     text-decoration: none;
-    color: $color-gray-10;
+    color: $color-gray-30;
     background: $color-gray-90;
   }
 
   &.disabled,
   &:disabled,
   &[disabled] {
-    color: $color-gray-60;
+    color: $color-gray-50;
     cursor: not-allowed;
 
     &:hover,
     &:focus {
-      background: transparent;
+      background-color: $color-gray-80;
     }
   }
 
