@@ -1,3 +1,9 @@
+# 3.6.7 (2020-06-02)
+
+## Changes
+
+To improve accessibility, link style has been changed to underline and some colours have been adjusted for increased contrast [#382](https://github.com/AmpleOrganics/Blaze.vue/pull/382)
+
 # 3.6.6 (2020-01-14)
 
 ## New
