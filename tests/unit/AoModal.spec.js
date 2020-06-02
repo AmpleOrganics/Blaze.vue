@@ -9,7 +9,7 @@ describe('Modal', () => {
       }
     })
     expect(modal.text()).toBe('test')
-    expect(modal.classes()).toContain('ao-modal-mask') // will need to change
+    expect(modal.contains('.ao-modal-mask')).toBe(true)
     expect(modal.contains('.ao-modal--medium')).toBe(true)
   })
 
