@@ -1,3 +1,9 @@
+# 3.6.8 (2020-06-09)
+
+## Changes
+
+Link underlines have been removed from some link styles. Breadcrumbs remain underlined as they are always presented alongside non-clickable text elements. [#385](https://github.com/AmpleOrganics/Blaze.vue/pull/385)
+
 # 3.6.7 (2020-06-02)
 
 ## Changes
