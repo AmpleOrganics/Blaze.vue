@@ -45,6 +45,9 @@
       padding: $spacer-micro;
       font-size: $font-size-sm;
     }
+    &::placeholder {
+      color: $color-gray-40;
+    }
   }
 
   .ao-input{
