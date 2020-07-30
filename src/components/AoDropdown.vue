@@ -45,7 +45,7 @@ export default {
   background: $color-white;
   box-shadow: $shadow, $shadow-subtle;
   border: $border-gray-50;
-  min-width: 144px;
+  min-width: 9rem;
   text-align: left;
   position: absolute;
   top: 100%;
@@ -65,11 +65,11 @@ export default {
   }
 
   &--medium {
-    width: 240px;
+    width: 15rem;
   }
 
   &--large {
-    width: 320px;
+    width: 20rem;
   }
 
   & > hr {

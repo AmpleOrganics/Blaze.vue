@@ -90,6 +90,6 @@ export default {
 
 <style lang="scss" scoped>
 .component-example__file-upload {
-  height: 100px;
+  height: 6.25rem;
 }
 </style>

@@ -56,7 +56,6 @@ $color-gray-90:               #f7f7f9;
 // Spacing & Sizing
 //
 
-$spacer-px:                   15px;
 $spacer-micro:                .25rem;
 $spacer-xs:                   .5rem;
 $spacer-sm:                   .75rem;
@@ -69,12 +68,12 @@ $spacer-lg:                   1.5rem;
 
 $font-family-primary:         'Lato', arial, sans-serif;
 
-$font-size-base:              16px; // This becomes 1rem
-$font-size-xs:                12px;
-$font-size-sm:                14px;
-$font-size-lg:                20px;
-$font-size-xl:                28px;
-$font-size-xxl:               34px;
+$font-size-base:              1rem;
+$font-size-xs:                0.75rem;
+$font-size-sm:                0.875rem;
+$font-size-lg:                1.25rem;
+$font-size-xl:                1.75rem;
+$font-size-xxl:               2.125rem;
 
 $font-weight-light:           200;
 $font-weight-bold:            700;
@@ -104,7 +103,7 @@ $zindex-spinner:              1050;
 $zindex-tooltip:              1060;
 $zindex-popover:              1060;
 
-$header-toolbar-height:       60px;
+$header-toolbar-height:       3.75rem;
 
 //
 // General UI Styles
@@ -124,9 +123,9 @@ $shadow-inset:                inset 0 2px 3px rgba(0, 0, 0, 0.05);
 
 $transition-base:             0.2s ease;
 
-$header-icon-height:          24px;
+$header-icon-height:          1.5rem;
 
-$browser-scrollbar-width:     17px; // https://codepen.io/sambible/post/browser-scrollbar-widths
+$browser-scrollbar-width:     1.0625rem; // https://codepen.io/sambible/post/browser-scrollbar-widths
 
 //
 // Inputs & Buttons

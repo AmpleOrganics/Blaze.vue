@@ -167,15 +167,15 @@ export default {
   }
 
   &--large &__content {
-    max-width: 800px;
+    max-width: 50rem;
   }
 
   &--medium &__content {
-    max-width: 600px;
+    max-width: 37.5rem;
   }
 
   &--small &__content {
-    max-width: 400px;
+    max-width: 25rem;
   }
 }
 

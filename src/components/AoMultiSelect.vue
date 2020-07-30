@@ -207,7 +207,7 @@ export default {
     display: flex;
     flex-direction: column;
     border: $border-gray-50;
-    min-width: 140px;
+    min-width: 8.75rem;
     text-align: left;
     margin-top: 3px;
     white-space: nowrap;
