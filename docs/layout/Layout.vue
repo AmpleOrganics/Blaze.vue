@@ -92,21 +92,21 @@ export default {
   &__container {
     display: flex;
     width: 100%;
-    max-width: 1170px;
+    max-width: 73.125rem;
     margin-right: auto;
   }
 
   &__sidebar-container {
     width: 25%;
     padding: $spacer;
-    padding-top: $header-toolbar-height + $spacer-px;
+    padding-top: $header-toolbar-height + $spacer;
   }
 
   &__content-container {
     width: 75%;
     max-width: 75rem;
     padding: $spacer;
-    padding-top: $header-toolbar-height + $spacer-px;
+    padding-top: $header-toolbar-height + $spacer;
     > * {
       margin-bottom: 1rem;
     }

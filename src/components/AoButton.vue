@@ -215,7 +215,7 @@ export default {
 
  &--jumbo {
    width: 100%;
-   height: 80px;
+   height: 5rem;
    margin-left: 0;
  }
 

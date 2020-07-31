@@ -17,7 +17,7 @@ export default {
 
 #router-container {
   padding: $spacer;
-  padding-top: $header-toolbar-height + $spacer-px;
+  padding-top: $header-toolbar-height + $spacer;
 }
 
 #app {

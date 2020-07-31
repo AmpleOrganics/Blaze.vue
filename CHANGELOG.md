@@ -1,3 +1,9 @@
+# 3.6.9 (2020-07-31)
+
+## Changes
+
+Converting heights and widths to use rem rather than px; Resizing text using browser accessibility features causes overlap and other visual issues when sized in pixels.
+
 # 3.6.8 (2020-06-09)
 
 ## Changes
