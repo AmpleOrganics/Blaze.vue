@@ -378,8 +378,10 @@ $fake-scrollbar-color: $color-gray-90;
 .ao-table.ao-table--clickable {
   tbody > tr {
     cursor: pointer;
+    td > a{
+      color: $color-gray-10;
+    }
   }
-
   & > tbody > tr:hover {
     background: $color-gray-80;
   }
