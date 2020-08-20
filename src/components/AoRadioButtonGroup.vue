@@ -6,7 +6,7 @@
       class="ao-radio-button-group__option"
     >
       <input
-        :id="option.value"
+        :id="uniqId"
         v-bind="$attrs"
         :value="option.value"
         :checked="isChecked(option.value)"
@@ -18,7 +18,7 @@
         @focus="emitFocus"
       >
       <label
-        :for="option.value"
+        :for="uniqId"
         class="ao-radio-button-group__option-input-label"
         @click="select(option.value)"
       >
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import uniqueId from 'lodash.uniqueid'
+
 export default {
   inheritAttrs: false,
   props: {
@@ -51,6 +53,12 @@ export default {
   data () {
     return {
       currentValue: null
+    }
+  },
+
+  computed: {
+    uniqId () {
+      return this.name ? uniqueId(`${this.name}_`) : uniqueId()
     }
   },
 
