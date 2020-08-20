@@ -22,18 +22,20 @@
       >
         {{ prepend }}
       </span>
-      <input
-        v-bind="$attrs"
-        :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
-        :disabled="disabled || disableAll"
-        :value="value"
-        :type="type"
-        :name="name"
-        @change="emitChange"
-        @input="emitInput"
-        @blur="emitBlur"
-        @focus="emitFocus"
-      >
+      <label>
+        <input
+          v-bind="$attrs"
+          :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
+          :disabled="disabled || disableAll"
+          :value="value"
+          :type="type"
+          :name="name"
+          @change="emitChange"
+          @input="emitInput"
+          @blur="emitBlur"
+          @focus="emitFocus"
+        >
+      </label>
       <span
         v-if="hasIconAddon"
         :class="[iconClass, { 'ao-input__icon--clickable': hasIconClickableClass }]"
