@@ -10,25 +10,27 @@
       <slot name="tooltip" />
     </div>
     <div class="ao-input">
-      <select
-        :value="selected"
-        :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
-        :disabled="disabled || disableAll"
-        :name="name"
-        @change="emitChange"
-        @blur="emitBlur"
-        @focus="emitFocus"
-      >
-        <option
-          v-if="placeholder"
-          :value="null"
-          disabled
-          selected
+      <label>
+        <select
+          :value="selected"
+          :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
+          :disabled="disabled || disableAll"
+          :name="name"
+          @change="emitChange"
+          @blur="emitBlur"
+          @focus="emitFocus"
         >
-          {{ placeholder }}
-        </option>
-        <slot />
-      </select>
+          <option
+            v-if="placeholder"
+            :value="null"
+            disabled
+            selected
+          >
+            {{ placeholder }}
+          </option>
+          <slot />
+        </select>
+      </label>
     </div>
     <span
       v-show="invalidMessage && invalid"

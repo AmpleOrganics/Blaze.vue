@@ -9,18 +9,20 @@
       </label>
       <slot name="tooltip" />
     </div>
-    <textarea
-      v-bind="$attrs"
-      :class="{'ao-form-control--invalid': invalid }"
-      :value="value"
-      :disabled="disabled || disableAll"
-      :name="name"
-      class="ao-form-control"
-      @input="emitInput"
-      @blur="emitBlur"
-      @focus="emitFocus"
-      @change="emitChange"
-    />
+    <label>
+      <textarea
+        v-bind="$attrs"
+        :class="{'ao-form-control--invalid': invalid }"
+        :value="value"
+        :disabled="disabled || disableAll"
+        :name="name"
+        class="ao-form-control"
+        @input="emitInput"
+        @blur="emitBlur"
+        @focus="emitFocus"
+        @change="emitChange"
+      />
+    </label>
     <span
       v-show="invalidMessage && invalid"
       class="ao-form-group__invalid-message"
