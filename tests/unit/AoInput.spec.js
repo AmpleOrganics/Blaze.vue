@@ -16,6 +16,17 @@ describe('Input', () => {
     expect(input.classes()).toContain('ao-form-group')
   })
 
+  it('label for & input id', () => {
+    const input = mount(Input, {
+      propsData: {
+        label: 'label',
+        name: 'name'
+      }
+    })
+    expect(getFormControlElement(input).attributes('id')).toBe('name_2')
+    expect(input.find('.ao-form-group__label label').attributes('for')).toBe('name_2')
+  })
+
   it('iconClass', () => {
     const input = mount(Input, {
       propsData: {
