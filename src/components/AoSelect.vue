@@ -10,29 +10,27 @@
       <slot name="tooltip" />
     </div>
     <div class="ao-input">
-      <label>
-        <select
-          :id="uniqId"
-          :value="selected"
-          :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
-          :disabled="disabled || disableAll"
-          :name="name"
-          :aria-label="showLabel ? null : label"
-          @change="emitChange"
-          @blur="emitBlur"
-          @focus="emitFocus"
+      <select
+        :id="uniqId"
+        :value="selected"
+        :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
+        :disabled="disabled || disableAll"
+        :name="name"
+        :aria-label="showLabel ? null : label"
+        @change="emitChange"
+        @blur="emitBlur"
+        @focus="emitFocus"
+      >
+        <option
+          v-if="placeholder"
+          :value="null"
+          disabled
+          selected
         >
-          <option
-            v-if="placeholder"
-            :value="null"
-            disabled
-            selected
-          >
-            {{ placeholder }}
-          </option>
-          <slot />
-        </select>
-      </label>
+          {{ placeholder }}
+        </option>
+        <slot />
+      </select>
     </div>
     <span
       v-show="invalidMessage && invalid"
