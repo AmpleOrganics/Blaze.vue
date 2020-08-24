@@ -1,3 +1,9 @@
+# 3.6.11 (2020-08-24)
+
+## Changes
+
+Removing redundant label tag from ao-select component [#397](https://github.com/AmpleOrganics/Blaze.vue/pull/397)
+
 # 3.6.10 (2020-08-24)
 
 ## Changes
