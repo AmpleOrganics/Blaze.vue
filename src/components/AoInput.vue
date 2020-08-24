@@ -4,7 +4,7 @@
       v-show="showLabel"
       class="ao-form-group__label"
     >
-      <label :for="name">
+      <label :for="uniqId">
         {{ label }}
       </label>
       <slot name="tooltip" />
@@ -22,20 +22,20 @@
       >
         {{ prepend }}
       </span>
-      <label>
-        <input
-          v-bind="$attrs"
-          :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
-          :disabled="disabled || disableAll"
-          :value="value"
-          :type="type"
-          :name="name"
-          @change="emitChange"
-          @input="emitInput"
-          @blur="emitBlur"
-          @focus="emitFocus"
-        >
-      </label>
+      <input
+        :id="uniqId"
+        v-bind="$attrs"
+        :class="['ao-form-control', {'ao-form-control--invalid': invalid }, computedSize]"
+        :disabled="disabled || disableAll"
+        :value="value"
+        :type="type"
+        :name="name"
+        :aria-label="showLabel ? null : label"
+        @change="emitChange"
+        @input="emitInput"
+        @blur="emitBlur"
+        @focus="emitFocus"
+      >
       <span
         v-if="hasIconAddon"
         :class="[iconClass, { 'ao-input__icon--clickable': hasIconClickableClass }]"
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { filterClasses } from './utils/component_utilities.js'
+import { filterClasses, getUniqId } from './utils/component_utilities.js'
 
 export default {
   inheritAttrs: false,
@@ -171,6 +171,9 @@ export default {
   },
 
   computed: {
+    uniqId () {
+      return getUniqId(this.name)
+    },
     hasInputGroup () {
       return this.hasIconAddon || this.hasAddOn
     },

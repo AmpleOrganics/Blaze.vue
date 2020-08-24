@@ -4,7 +4,7 @@
       v-show="showLabel"
       class="ao-form-group__label"
     >
-      <label :for="name">
+      <label :for="uniqId">
         {{ label }}
       </label>
       <slot name="tooltip" />
@@ -12,10 +12,12 @@
     <div class="ao-input">
       <label>
         <select
+          :id="uniqId"
           :value="selected"
           :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control', computedSize]"
           :disabled="disabled || disableAll"
           :name="name"
+          :aria-label="showLabel ? null : label"
           @change="emitChange"
           @blur="emitBlur"
           @focus="emitFocus"
@@ -48,7 +50,7 @@
 </template>
 
 <script>
-import { filterClasses } from './utils/component_utilities.js'
+import { filterClasses, getUniqId } from './utils/component_utilities.js'
 
 export default {
   props: {
@@ -118,6 +120,10 @@ export default {
   },
 
   computed: {
+    uniqId () {
+      return getUniqId(this.name)
+    },
+
     computedSize () {
       const activeClasses = {
         'ao-form-control--small': this.size === 'small'

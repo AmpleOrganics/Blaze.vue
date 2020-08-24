@@ -4,15 +4,17 @@
       v-show="showLabel"
       class="ao-form-group__label"
     >
-      <label :for="name">
+      <label :for="uniqId">
         {{ label }}
       </label>
       <slot name="fileUploadLabelTooltip" />
     </div>
     <input
+      :id="uniqId"
       v-bind="$attrs"
       :class="[{'ao-form-control--invalid': invalid }, 'ao-form-control']"
       :name="name"
+      :aria-label="showLabel ? null : label"
       :disabled="disabled || disableAll"
       type="file"
       @change="emitChange"
@@ -35,6 +37,8 @@
 </template>
 
 <script>
+import { getUniqId } from './utils/component_utilities.js'
+
 export default {
   inheritAttrs: false,
   props: {
@@ -80,6 +84,10 @@ export default {
   },
 
   computed: {
+    uniqId () {
+      return getUniqId(this.name)
+    },
+
     hasFeedbackText () {
       return this.instructionText || (this.invalidMessage && this.invalid)
     }
