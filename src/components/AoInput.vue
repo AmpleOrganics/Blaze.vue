@@ -67,8 +67,7 @@
 </template>
 
 <script>
-import { filterClasses } from './utils/component_utilities.js'
-import uniqueId from 'lodash.uniqueid'
+import { filterClasses, getUniqId } from './utils/component_utilities.js'
 
 export default {
   inheritAttrs: false,
@@ -173,9 +172,8 @@ export default {
 
   computed: {
     uniqId () {
-      return this.name ? uniqueId(`${this.name}_`) : uniqueId()
+      return getUniqId(this.name)
     },
-
     hasInputGroup () {
       return this.hasIconAddon || this.hasAddOn
     },

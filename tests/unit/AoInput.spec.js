@@ -23,8 +23,9 @@ describe('Input', () => {
         name: 'name'
       }
     })
-    expect(getFormControlElement(input).attributes('id')).toBe('name_2')
-    expect(input.find('.ao-form-group__label label').attributes('for')).toBe('name_2')
+    console.log(getFormControlElement(input).attributes())
+    expect(getFormControlElement(input).attributes('id')).toBe('blaze_input_name_2')
+    expect(input.find('.ao-form-group__label label').attributes('for')).toBe('blaze_input_name_2')
   })
 
   it('iconClass', () => {

@@ -1,4 +1,6 @@
 import { startOfMonth, addDays, getDate, getDay, isSunday, subDays, getMonth, isToday, isEqual, format } from 'date-fns'
+import uniqueId from 'lodash.uniqueid'
+
 const dateRegex = /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/
 
 export function filterClasses (classes) {
@@ -7,6 +9,10 @@ export function filterClasses (classes) {
 
 export function isValidDate (value) {
   return dateRegex.test(value)
+}
+
+export function getUniqId (value) {
+  return value ? uniqueId(`blaze_input_${value}_`) : uniqueId('blaze_input_')
 }
 
 export function getCalendarDatesForMonth (dateValue, inputDate) {

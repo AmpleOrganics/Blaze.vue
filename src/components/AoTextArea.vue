@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import uniqueId from 'lodash.uniqueid'
+import { getUniqId } from './utils/component_utilities.js'
 
 export default {
   inheritAttrs: false,
@@ -92,7 +92,7 @@ export default {
 
   computed: {
     uniqId () {
-      return this.name ? uniqueId(`${this.name}_`) : uniqueId()
+      return getUniqId(this.name)
     },
 
     hasFeedbackText () {
