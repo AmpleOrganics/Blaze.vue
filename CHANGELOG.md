@@ -1,3 +1,9 @@
+# 3.6.10 (2020-08-24)
+
+## Changes
+
+To improve accessibility, form elements must have labels [#394](https://github.com/AmpleOrganics/Blaze.vue/pull/394)
+
 # 3.6.9 (2020-07-31)
 
 ## Changes
@@ -34,13 +40,13 @@ Dropdown-item: fix text wrapping when there is not enough space horizontally [00
 
 ## Fix
 
-Radio: fix component wrapping when there is not enough space horizontally [fdee036](https://github.com/AmpleOrganics/Blaze.vue/commit/fdee0363ccb2cff9b0611a3aec0c6395182c16ab) 
+Radio: fix component wrapping when there is not enough space horizontally [fdee036](https://github.com/AmpleOrganics/Blaze.vue/commit/fdee0363ccb2cff9b0611a3aec0c6395182c16ab)
 
 # 3.6.3 (2019-09-05)
 
 ## Fix
 
-Checkbox: emit null when deselecting when emitValue is set to `true` [f51d521](https://github.com/AmpleOrganics/Blaze.vue/tree/f51d5217e8e8d5e37c660db2255bb3b41aa0169b) 
+Checkbox: emit null when deselecting when emitValue is set to `true` [f51d521](https://github.com/AmpleOrganics/Blaze.vue/tree/f51d5217e8e8d5e37c660db2255bb3b41aa0169b)
 
 # 3.6.2 (2019-08-26)
 
@@ -56,7 +62,7 @@ Table: fix header count to include selection column [aa93ca5](https://github.com
 
 ## New
 
-New 'Popover' component [abd97e](https://github.com/AmpleOrganics/Blaze.vue/commit/abd97e9ba725b861a54dca833bd1fb1be07055bd) 
+New 'Popover' component [abd97e](https://github.com/AmpleOrganics/Blaze.vue/commit/abd97e9ba725b861a54dca833bd1fb1be07055bd)
 
 Dropdown Item: Info Text prop that allows subtext per drop, size prop as well [86a05e154](https://github.com/AmpleOrganics/Blaze.vue/commit/86a05e154e4bf65dd5692b071c2ba016dc6ad303)
 
