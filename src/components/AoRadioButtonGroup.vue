@@ -137,6 +137,7 @@ export default {
       background-color: darken($color-white, 3%);
       border-color: darken($color-gray-60, 3%);
       color: darken($font-color-base, 3%);
+      outline: auto -webkit-focus-ring-color; /* fix chrome for focus adding ring color */
     }
 
     &:disabled + &-label {
