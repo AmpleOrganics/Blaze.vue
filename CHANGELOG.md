@@ -1,3 +1,9 @@
+# 3.6.12 (2020-08-25)
+
+## Changes
+
+Adding ring color for focus on ao-radio-button-group component for chrome [#399](https://github.com/AmpleOrganics/Blaze.vue/pull/399)
+
 # 3.6.11 (2020-08-24)
 
 ## Changes
