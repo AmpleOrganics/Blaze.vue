@@ -1,12 +1,12 @@
 <template>
   <div class="ao-radio-button-group">
     <div
-      v-for="option in options"
+      v-for="(option, index) in options"
       :key="option.value"
       class="ao-radio-button-group__option"
     >
       <input
-        :id="uniqId"
+        :id="`${uniqId}_${index}`"
         v-bind="$attrs"
         :value="option.value"
         :checked="isChecked(option.value)"
@@ -18,7 +18,7 @@
         @focus="emitFocus"
       >
       <label
-        :for="uniqId"
+        :for="`${uniqId}_${index}`"
         class="ao-radio-button-group__option-input-label"
         @click="select(option.value)"
       >
