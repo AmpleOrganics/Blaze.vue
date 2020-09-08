@@ -2,7 +2,7 @@
 
 ## Changes
 
-Fixing error makes ao-radio-button-group component does not work [#401](https://github.com/AmpleOrganics/Blaze.vue/pull/401)
+Fix an issue in radio button group caused by duplicated element IDs [#401](https://github.com/AmpleOrganics/Blaze.vue/pull/401)
 
 # 3.6.12 (2020-08-25)
 
