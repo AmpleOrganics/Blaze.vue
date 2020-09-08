@@ -1,3 +1,9 @@
+# 3.6.13 (2020-09-08)
+
+## Changes
+
+Fix an issue in radio button group caused by duplicated element IDs [#401](https://github.com/AmpleOrganics/Blaze.vue/pull/401)
+
 # 3.6.12 (2020-08-25)
 
 ## Changes
