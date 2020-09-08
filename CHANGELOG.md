@@ -1,3 +1,9 @@
+# 3.6.13 (2020-09-08)
+
+## Changes
+
+Fixing error makes ao-radio-button-group component does not work [#401](https://github.com/AmpleOrganics/Blaze.vue/pull/401)
+
 # 3.6.12 (2020-08-25)
 
 ## Changes
