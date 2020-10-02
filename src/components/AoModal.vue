@@ -58,7 +58,7 @@ export default {
       type: String,
       default: 'medium',
       validator: function (value) {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1
+        return ['small', 'medium', 'large', 'extra-large'].indexOf(value) !== -1
       }
     },
 
@@ -164,6 +164,10 @@ export default {
     padding: $spacer;
     text-align: right;
     border-top: 1px solid $color-gray-70;
+  }
+
+  &--extra-large &__content {
+    max-width: 65rem;
   }
 
   &--large &__content {
