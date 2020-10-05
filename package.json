@@ -1,6 +1,6 @@
 {
   "name": "blaze-vue",
-  "version": "3.6.13",
+  "version": "3.6.14",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve --open",

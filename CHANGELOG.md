@@ -1,3 +1,9 @@
+# 3.6.14 (2020-10-05)
+
+## Changes
+
+Adding extra-large size to ao-modal [#406](https://github.com/AmpleOrganics/Blaze.vue/pull/406)
+
 # 3.6.13 (2020-09-08)
 
 ## Changes
