@@ -15,7 +15,7 @@ describe('TextArea', () => {
         disabled: true
       }
     })
-    expect(textArea.contains(':disabled')).toBe(true)
+    expect(textArea.find(':disabled').exists()).toBe(true)
   })
 
   it('emit input', () => {
@@ -68,9 +68,9 @@ describe('TextArea', () => {
     instructionText.assert(textArea)
   })
 
-  it('invalid message', () => {
+  it('invalid message', async () => {
     const textArea = mount(TextArea)
 
-    invalidMessage.assert(textArea)
+    await invalidMessage.assert(textArea)
   })
 })

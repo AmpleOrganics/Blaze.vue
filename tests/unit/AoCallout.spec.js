@@ -50,7 +50,7 @@ describe('Callout', () => {
         showCallout: true
       }
     })
-    expect(callout.contains('ao-callout__dismiss-icon'))
+    expect(callout.find('ao-callout__dismiss-icon').exists())
   })
 
   it('has an icon', () => {
@@ -59,7 +59,7 @@ describe('Callout', () => {
         iconClass: 'test'
       }
     })
-    expect(callout.contains('test'))
+    expect(callout.find('test').exists())
   })
 
   it('emits an update', () => {

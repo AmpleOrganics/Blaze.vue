@@ -23,7 +23,6 @@ describe('Input', () => {
         name: 'name'
       }
     })
-    console.log(getFormControlElement(input).attributes())
     expect(getFormControlElement(input).attributes('id')).toBe('blaze_input_name_2')
     expect(input.find('.ao-form-group__label label').attributes('for')).toBe('blaze_input_name_2')
   })
@@ -35,7 +34,7 @@ describe('Input', () => {
         iconClass: 'custom-glyph-clients'
       }
     })
-    expect(input.contains('.custom-glyph-clients')).toBe(true)
+    expect(input.find('.custom-glyph-clients').exists()).toBe(true)
   })
 
   it('prepend', () => {
@@ -72,7 +71,7 @@ describe('Input', () => {
     expect(input.emitted()['icon-clicked']).toBeTruthy()
   })
 
-  it('invalid', () => {
+  it('invalid', async () => {
     const input = mount(Input, {
       propsData: {
         label: 'label'
@@ -85,6 +84,7 @@ describe('Input', () => {
     ).toBe(false)
 
     input.setProps({ invalid: true })
+    await input.vm.$nextTick()
     expect(getFormControlElement(input).classes()).toContain(
       'ao-form-control--invalid'
     )
@@ -166,7 +166,7 @@ describe('Input', () => {
     instructionText.assert(input)
   })
 
-  it('invalid message', () => {
+  it('invalid message', async () => {
     const input = mount(Input, {
       propsData: {
         type: 'text',
@@ -174,6 +174,6 @@ describe('Input', () => {
       }
     })
 
-    invalidMessage.assert(input)
+    await invalidMessage.assert(input)
   })
 })

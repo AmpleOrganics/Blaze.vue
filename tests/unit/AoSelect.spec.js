@@ -108,17 +108,17 @@ describe('Select', () => {
     expect(select.emitted().focus).toBeTruthy()
   })
 
-  it('invalid message', () => {
+  it('invalid message', async () => {
     const select = mount(Select, {
       propsData: {
         label: 'test'
       }
     })
 
-    invalidMessage.assert(select)
+    await invalidMessage.assert(select)
   })
 
-  it('select initial value', () => {
+  it('select initial value', async () => {
     const select = mount(Select, {
       propsData: {
         label: 'test',
@@ -130,10 +130,11 @@ describe('Select', () => {
     })
 
     select.setProps({ value: 'tester' })
+    await select.vm.$nextTick()
     expect(select.find('.ao-form-control').element.value).toBe('tester')
   })
 
-  it('reselect when value changes', () => {
+  it('reselect when value changes', async () => {
     const select = mount(Select, {
       propsData: {
         label: 'test',
@@ -145,6 +146,7 @@ describe('Select', () => {
     })
 
     select.setProps({ value: 'foo' })
+    await select.vm.$nextTick()
     expect(select.find('.ao-form-control').element.value).toBe('foo')
   })
 })

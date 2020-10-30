@@ -5,7 +5,7 @@ describe('Breadcrumb', () => {
   it('creates a breadcrumb component', () => {
     const breadcrumb = mount(Breadcrumbs, {
       stubs: {
-        routerLink: `<a></a>`
+        routerLink: { template: `<a></a>` }
       },
       propsData: {
         paths: [
@@ -46,7 +46,7 @@ describe('Breadcrumb', () => {
   it('changes separator', () => {
     const breadcrumb = mount(Breadcrumbs, {
       stubs: {
-        routerLink: `<a></a>`
+        routerLink: { template: `<a></a>` }
       },
       propsData: {
         separator: '>',

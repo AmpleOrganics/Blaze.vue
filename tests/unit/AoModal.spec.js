@@ -9,8 +9,8 @@ describe('Modal', () => {
       }
     })
     expect(modal.text()).toBe('test')
-    expect(modal.classes()).toContain('ao-modal-mask') // will need to change
-    expect(modal.contains('.ao-modal--medium')).toBe(true)
+    expect(modal.find('.ao-modal-mask').exists()).toBe(true)
+    expect(modal.find('.ao-modal--medium').exists()).toBe(true)
   })
 
   it('small size', () => {
@@ -21,7 +21,7 @@ describe('Modal', () => {
       }
     })
     expect(modal.text()).toBe('test0')
-    expect(modal.contains('.ao-modal--small')).toBe(true)
+    expect(modal.find('.ao-modal--small').exists()).toBe(true)
   })
 
   it('medium size', () => {
@@ -32,7 +32,7 @@ describe('Modal', () => {
       }
     })
     expect(modal.text()).toBe('test1')
-    expect(modal.contains('.ao-modal--medium')).toBe(true)
+    expect(modal.find('.ao-modal--medium').exists()).toBe(true)
   })
 
   it('large size', () => {
@@ -43,7 +43,7 @@ describe('Modal', () => {
       }
     })
     expect(modal.text()).toBe('test1')
-    expect(modal.contains('.ao-modal--large')).toBe(true)
+    expect(modal.find('.ao-modal--large').exists()).toBe(true)
   })
 
   it('destructive', () => {
@@ -54,7 +54,7 @@ describe('Modal', () => {
       }
     })
     expect(modal.text()).toBe('test2')
-    expect(modal.contains('.ao-modal__header--destructive')).toBe(true)
+    expect(modal.find('.ao-modal__header--destructive').exists()).toBe(true)
   })
 
   it('caution', () => {
@@ -65,7 +65,7 @@ describe('Modal', () => {
       }
     })
     expect(modal.text()).toBe('test3')
-    expect(modal.contains('.ao-modal__header--caution')).toBe(true)
+    expect(modal.find('.ao-modal__header--caution').exists()).toBe(true)
   })
 
   it('emit', () => {

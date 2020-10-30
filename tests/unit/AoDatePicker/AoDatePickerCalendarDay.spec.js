@@ -5,7 +5,7 @@ describe('AoDatePickerCalendarDay', () => {
   const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-  it('render', () => {
+  it('render', async () => {
     const calendar = mount(AoDatePickerCalendarDay, {
       propsData: {
         inputDate: null,
@@ -15,10 +15,11 @@ describe('AoDatePickerCalendarDay', () => {
     })
 
     calendar.setProps({ inputDate: '2018-02-01' })
+    await calendar.vm.$nextTick()
     expect(calendar.classes()).toContain('ao-datepickercalendarday')
   })
 
-  it('show next month', () => {
+  it('show next month', async () => {
     const calendar = mount(AoDatePickerCalendarDay, {
       propsData: {
         inputDate: '2018-02-01',
@@ -28,10 +29,11 @@ describe('AoDatePickerCalendarDay', () => {
     })
 
     calendar.findAll('.ao-datepickercalendarday__header-action').at(1).trigger('click')
+    await calendar.vm.$nextTick()
     expect(calendar.find('.ao-datepickercalendarday__date').text()).toContain('25')
   })
 
-  it('show previous month', () => {
+  it('show previous month', async () => {
     const calendar = mount(AoDatePickerCalendarDay, {
       propsData: {
         inputDate: '2018-02-01',
@@ -41,10 +43,11 @@ describe('AoDatePickerCalendarDay', () => {
     })
 
     calendar.findAll('.ao-datepickercalendarday__header-action').at(0).trigger('click')
+    await calendar.vm.$nextTick()
     expect(calendar.find('.ao-datepickercalendarday__date').text()).toContain('31')
   })
 
-  it('select a date', () => {
+  it('select a date', async () => {
     const calendar = mount(AoDatePickerCalendarDay, {
       propsData: {
         inputDate: '2018-02-01',

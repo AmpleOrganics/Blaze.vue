@@ -10,7 +10,7 @@ describe('Alert', () => {
         showAlert: true
       }
     })
-    expect(alert.classes()).toContain('ao-alert')
+    expect(alert.find('.ao-alert').exists()).toBe(true)
     expect(setTimeout).toHaveBeenCalledTimes(1)
   })
 
@@ -21,7 +21,7 @@ describe('Alert', () => {
         destructive: true
       }
     })
-    expect(alert.contains('.ao-alert__icon--destructive')).toBe(true)
+    expect(alert.find('.ao-alert__icon--destructive').exists()).toBe(true)
   })
 
   it('caution', () => {
@@ -32,7 +32,7 @@ describe('Alert', () => {
       }
     })
 
-    expect(alert.contains('.ao-alert__icon--caution')).toBe(true)
+    expect(alert.find('.ao-alert__icon--caution').exists()).toBe(true)
   })
 
   it('iconClass', () => {
@@ -42,7 +42,7 @@ describe('Alert', () => {
         iconClass: 'custom-glyph-clients'
       }
     })
-    expect(alert.contains('.custom-glyph-clients')).toBe(true)
+    expect(alert.find('.custom-glyph-clients').exists()).toBe(true)
   })
 
   it('emit', () => {
@@ -62,7 +62,7 @@ describe('Alert', () => {
         showAlert: true
       }
     })
-    expect(alert.contains('ao-alert__dismiss'))
+    expect(alert.find('ao-alert__dismiss').exists())
     alert.find('.ao-alert__dismiss button').trigger('click')
     expect(alert.emitted()['update:showAlert']).toBeTruthy()
   })

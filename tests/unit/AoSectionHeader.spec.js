@@ -23,6 +23,6 @@ describe('SectionHeader', () => {
         iconClass: 'custom-glyph-clients'
       }
     })
-    expect(sectionHeader.contains('.custom-glyph-clients')).toBe(true)
+    expect(sectionHeader.find('.custom-glyph-clients').exists()).toBe(true)
   })
 })

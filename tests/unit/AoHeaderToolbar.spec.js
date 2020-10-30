@@ -36,7 +36,7 @@ describe('HeaderToolbar', () => {
     expect(headerToolbar.find('.ao-header-toolbar--fixed').exists()).toBe(true)
   })
 
-  it('raise onTitleClick event', () => {
+  it('raise onTitleClick event', async () => {
     const titleClicked = jest.fn()
     const headerToolbar = mount(HeaderToolbar, {
       propsData: {
@@ -54,6 +54,7 @@ describe('HeaderToolbar', () => {
     expect(titleClicked.mock.calls.length).toBe(2)
 
     headerToolbar.setProps({ iconHtml: '', iconUrl: '#' })
+    await headerToolbar.vm.$nextTick()
     headerToolbar.find('.ao-header-toolbar__icon').trigger('click')
     expect(titleClicked.mock.calls.length).toBe(3)
   })
