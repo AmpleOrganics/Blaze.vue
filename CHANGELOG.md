@@ -1,3 +1,9 @@
+# 3.6.15 (2020-11-03)
+
+## Changes
+
+Increasing colour contrast in paginate buttons [#412](https://github.com/AmpleOrganics/Blaze.vue/pull/412)
+
 # 3.6.14 (2020-10-05)
 
 ## Changes
