@@ -125,13 +125,13 @@ export default {
 
     &--active,
     &--active:hover {
-      background: $color-gray-40;
+      background: $color-gray-30;
       color: $color-white;
       padding-right: $spacer-xs;
       padding-left: $spacer-xs;
       font-size: $font-size-sm;
       min-width: 2rem;
-      border: 1px solid $color-gray-40;
+      border: 1px solid $color-gray-30;
       cursor: default;
     }
   }
