@@ -19,7 +19,7 @@ describe('directives/clickOutside', () => {
       },
       {
         localVue,
-        attachToDocument: true
+        attachToDocument: true // replace with `attachTo: document.body` once 1.1.1 or whatever is released: https://github.com/vuejs/vue-test-utils/issues/1578
       }
     )
 

@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import DatePicker from '@/components/AoDatePicker/AoDatePicker.vue'
 
 describe('DatePicker', () => {
-  it('show and hide calendar', () => {
+  it('show and hide calendar', async () => {
     const datePicker = mount(DatePicker, {
       propsData: {
         label: '',
@@ -11,16 +11,18 @@ describe('DatePicker', () => {
       stubs: ['AoDatePickerCalendar']
     })
 
-    expect(datePicker.contains('.ao-datepicker')).toBe(true)
+    expect(datePicker.find('.ao-datepicker').exists()).toBe(true)
 
     datePicker.find('.ao-input__icon--clickable').trigger('click')
-    expect(datePicker.contains('.ao-datepicker__calendar')).toBe(true)
+    await datePicker.vm.$nextTick()
+    expect(datePicker.find('.ao-datepicker__calendar').exists()).toBe(true)
 
     datePicker.find('.ao-input__icon--clickable').trigger('click')
-    expect(datePicker.contains('.ao-datepicker__calendar')).toBe(false)
+    await datePicker.vm.$nextTick()
+    expect(datePicker.find('.ao-datepicker__calendar').exists()).toBe(false)
   })
 
-  it('select date', () => {
+  it('select date', async () => {
     const datePicker = mount(DatePicker, {
       propsData: {
         label: '',
@@ -35,8 +37,10 @@ describe('DatePicker', () => {
     })
 
     datePicker.find('.ao-input__icon--clickable').trigger('click')
+    await datePicker.vm.$nextTick()
     datePicker.find('.ao-datepickercalendar').trigger('selected')
-    expect(datePicker.contains('.ao-datepicker__calendar')).toBe(false)
+    await datePicker.vm.$nextTick()
+    expect(datePicker.find('.ao-datepicker__calendar').exists()).toBe(false)
   })
 
   it('emit blur', () => {
@@ -98,6 +102,6 @@ describe('DatePicker', () => {
       }
     })
 
-    expect(input.contains('.ao-datepicker__calendar')).toBe(false)
+    expect(input.find('.ao-datepicker__calendar').exists()).toBe(false)
   })
 })

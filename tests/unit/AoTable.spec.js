@@ -53,7 +53,7 @@ describe('Table', () => {
     ).toContain('Gender')
   })
 
-  it('sortable', () => {
+  it('sortable', async () => {
     const table = mount(Table, {
       propsData: {
         headers: [
@@ -87,6 +87,7 @@ describe('Table', () => {
         { field: 'first_name', title: 'First Name', sortable: false, hidden: false }
       ]
     })
+    await table.vm.$nextTick()
     triggerSort()
 
     table.setProps({
@@ -95,6 +96,7 @@ describe('Table', () => {
         { field: 'first_name', title: 'First Name', sortable: true, hidden: false }
       ]
     })
+    await table.vm.$nextTick()
     triggerSort()
 
     table.setProps({
@@ -103,6 +105,7 @@ describe('Table', () => {
         { field: 'first_name', title: 'First Name', sortable: false, hidden: true }
       ]
     })
+    await table.vm.$nextTick()
     triggerSort()
 
     table.setProps({
@@ -111,6 +114,7 @@ describe('Table', () => {
         { field: 'first_name', title: 'First Name', hidden: true }
       ]
     })
+    await table.vm.$nextTick()
     triggerSort()
 
     table.setProps({
@@ -119,6 +123,7 @@ describe('Table', () => {
         { field: 'first_name', title: 'First Name' }
       ]
     })
+    await table.vm.$nextTick()
     triggerSort()
 
     table.setProps({
@@ -127,6 +132,7 @@ describe('Table', () => {
         { field: 'first_name', title: 'First Name', sortable: true, hidden: true }
       ]
     })
+    await table.vm.$nextTick()
     triggerSort()
 
     expect(table.emitted().sortTable.length).toBe(5)
@@ -148,7 +154,7 @@ describe('Table', () => {
     )
   })
 
-  it('nodata', () => {
+  it('nodata', async () => {
     const noDataSelector = '.ao-table__nodata'
     const table = mount(Table, {
       propsData: {
@@ -161,13 +167,15 @@ describe('Table', () => {
       }
     })
 
-    expect(table.contains(noDataSelector)).toBe(false)
+    expect(table.find(noDataSelector).exists()).toBe(false)
 
     table.setProps({ showNoDataText: true })
-    expect(table.contains(noDataSelector)).toBe(true)
+    await table.vm.$nextTick()
+    expect(table.find(noDataSelector).exists()).toBe(true)
     expect(table.find(noDataSelector).text()).toBe('')
 
     table.setProps({ showNoDataText: true, noDataText: 'test' })
+    await table.vm.$nextTick()
     expect(table.find(noDataSelector).text()).toBe('test')
   })
 

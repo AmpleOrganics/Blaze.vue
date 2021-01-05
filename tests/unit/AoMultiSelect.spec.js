@@ -43,7 +43,7 @@ describe('MultiSelect', () => {
     )
   })
 
-  it('show and hide options', () => {
+  it('show and hide options', async () => {
     const multiselect = mount(MultiSelect, {
       propsData: {
         label: 'test'
@@ -58,9 +58,13 @@ describe('MultiSelect', () => {
     })
 
     expect(multiselect.findAll('.test-option').length).toBe(0)
+
     multiselect.find('.ao-form-control').trigger('click')
+    await multiselect.vm.$nextTick()
     expect(multiselect.findAll('.test-option').length).toBe(2)
+
     multiselect.find('.ao-form-control').trigger('click')
+    await multiselect.vm.$nextTick()
     expect(multiselect.findAll('.test-option').length).toBe(0)
   })
 
@@ -124,7 +128,7 @@ describe('MultiSelect', () => {
     expect(multiselect.emitted().focus).toBeTruthy()
   })
 
-  it('emit clear', () => {
+  it('emit clear', async () => {
     const multiselect = mount(MultiSelect, {
       propsData: {
         label: 'label'
@@ -135,18 +139,19 @@ describe('MultiSelect', () => {
     })
 
     multiselect.find('.ao-form-control').trigger('click')
+    await multiselect.vm.$nextTick()
     multiselect.find('.ao-multi-select__clear').trigger('click')
     expect(multiselect.emitted().clear).toBeTruthy()
   })
 
-  it('invalid message', () => {
+  it('invalid message', async () => {
     const multiselect = mount(MultiSelect, {
       propsData: {
         label: 'test'
       }
     })
 
-    invalidMessage.assert(multiselect)
+    await invalidMessage.assert(multiselect)
   })
 
   it('multiselect summary', () => {
@@ -174,6 +179,6 @@ describe('MultiSelect', () => {
       }
     })
 
-    expect(input.contains('.ao-multi-select__option')).toBe(false)
+    expect(input.find('.ao-multi-select__option').exists()).toBe(false)
   })
 })

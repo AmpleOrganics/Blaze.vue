@@ -22,7 +22,7 @@ describe('Checkbox', () => {
       }
     })
     expect(checkbox.text()).toBe('test0')
-    expect(checkbox.contains(':disabled')).toBe(true)
+    expect(checkbox.find(':disabled').exists()).toBe(true)
   })
 
   it('showLabel', () => {

@@ -24,7 +24,7 @@ describe('FileUpload', () => {
       }
     })
     expect(fileUpload.text()).toBe('test0')
-    expect(fileUpload.contains('.ao-form-control--invalid')).toBe(true)
+    expect(fileUpload.find('.ao-form-control--invalid').exists()).toBe(true)
   })
 
   it('disabled', () => {
@@ -36,7 +36,7 @@ describe('FileUpload', () => {
       }
     })
     expect(fileUpload.text()).toBe('test1')
-    expect(fileUpload.contains(':disabled')).toBe(true)
+    expect(fileUpload.find(':disabled').exists()).toBe(true)
   })
 
   it('emit change', () => {
@@ -75,7 +75,7 @@ describe('FileUpload', () => {
     expect(fileUpload.emitted().focus).toBeTruthy()
   })
 
-  it('instruction text', () => {
+  it('instruction text', async () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
         label: 'test',
@@ -83,10 +83,10 @@ describe('FileUpload', () => {
       }
     })
 
-    instructionText.assert(fileUpload)
+    await instructionText.assert(fileUpload)
   })
 
-  it('invalid message', () => {
+  it('invalid message', async () => {
     const fileUpload = mount(FileUpload, {
       propsData: {
         name: 'text',
@@ -94,6 +94,6 @@ describe('FileUpload', () => {
       }
     })
 
-    invalidMessage.assert(fileUpload)
+    await invalidMessage.assert(fileUpload)
   })
 })

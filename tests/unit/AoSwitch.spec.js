@@ -22,7 +22,7 @@ describe('Switch', () => {
       }
     })
     expect(switchComponent.text()).toBe('test0')
-    expect(switchComponent.contains(':disabled')).toBe(true)
+    expect(switchComponent.find(':disabled').exists()).toBe(true)
   })
 
   it('showLabel', () => {
