@@ -113,6 +113,7 @@ export default {
 @import '../assets/styles/mixins/shared-checkbox-styles.scss';
 @include shared-checkbox-styles;
 .ao-radio__label-text-default{
-  font-size: 0
+  font-size: 0;
+  margin-bottom: 0;
 }
 </style>
