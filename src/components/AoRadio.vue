@@ -1,36 +1,43 @@
 <template>
   <div class="ao-radio">
-    <label class="ao-radio__label">
-      <input
-        v-model="checked"
-        v-bind="$attrs"
-        :value="val"
-        :disabled="disabled"
-        type="radio"
-        class="ao-radio__input"
-        @change="toggle"
-        @blur="emitBlur"
-        @focus="emitFocus"
-      >
-      <div
-        v-show="showLabel"
-        class="ao-radio__content"
-      >
-        <span class="ao-radio__label-text">
-          {{ label }}
-        </span>
-        <p
-          v-if="infoText"
-          class="ao-radio__info-text"
-        >
-          {{ infoText }}
-        </p>
-      </div>
+    <input
+      :id="uniqId"
+      v-model="checked"
+      v-bind="$attrs"
+      :value="val"
+      :disabled="disabled"
+      type="radio"
+      class="ao-radio__input"
+      @change="toggle"
+      @blur="emitBlur"
+      @focus="emitFocus"
+    >
+    <label
+      :for="uniqId"
+      class="ao-radio__label-text-default"
+    >
+      {{ label }}
     </label>
+    <div
+      v-show="showLabel"
+      class="ao-radio__content"
+    >
+      <span class="ao-radio__label-text">
+        {{ label }}
+      </span>
+      <p
+        v-if="infoText"
+        class="ao-radio__info-text"
+      >
+        {{ infoText }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+import { getUniqId } from './utils/component_utilities.js'
+
 export default {
   inheritAttrs: false,
   props: {
@@ -74,6 +81,9 @@ export default {
   },
 
   computed: {
+    uniqId () {
+      return getUniqId()
+    },
     checked: {
       get () { return this.value },
       set (val) {
@@ -102,5 +112,7 @@ export default {
 <style lang="scss">
 @import '../assets/styles/mixins/shared-checkbox-styles.scss';
 @include shared-checkbox-styles;
-
+.ao-radio__label-text-default{
+  font-size: 0
+}
 </style>
