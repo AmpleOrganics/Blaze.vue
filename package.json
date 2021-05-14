@@ -17,6 +17,8 @@
     "dist"
   ],
   "dependencies": {
+    "focus-trap": "^6.4.0",
+    "focus-trap-vue": "^1.1.1",
     "vue": "^2.5.16"
   },
   "devDependencies": {
