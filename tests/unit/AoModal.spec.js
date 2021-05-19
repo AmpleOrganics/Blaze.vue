@@ -1,9 +1,9 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import Modal from '@/components/AoModal.vue'
 
 describe('Modal', () => {
   it('create', () => {
-    const modal = mount(Modal, {
+    const modal = shallowMount(Modal, {
       propsData: {
         headerText: 'test'
       }
@@ -14,7 +14,7 @@ describe('Modal', () => {
   })
 
   it('small size', () => {
-    const modal = mount(Modal, {
+    const modal = shallowMount(Modal, {
       propsData: {
         headerText: 'test0',
         size: 'small'
@@ -25,7 +25,7 @@ describe('Modal', () => {
   })
 
   it('medium size', () => {
-    const modal = mount(Modal, {
+    const modal = shallowMount(Modal, {
       propsData: {
         headerText: 'test1',
         size: 'medium'
@@ -36,7 +36,7 @@ describe('Modal', () => {
   })
 
   it('large size', () => {
-    const modal = mount(Modal, {
+    const modal = shallowMount(Modal, {
       propsData: {
         headerText: 'test1',
         size: 'large'
@@ -47,7 +47,7 @@ describe('Modal', () => {
   })
 
   it('destructive', () => {
-    const modal = mount(Modal, {
+    const modal = shallowMount(Modal, {
       propsData: {
         headerText: 'test2',
         destructive: true
@@ -58,7 +58,7 @@ describe('Modal', () => {
   })
 
   it('caution', () => {
-    const modal = mount(Modal, {
+    const modal = shallowMount(Modal, {
       propsData: {
         headerText: 'test3',
         caution: true
@@ -69,7 +69,7 @@ describe('Modal', () => {
   })
 
   it('emit', () => {
-    const modal = mount(Modal, {
+    const modal = shallowMount(Modal, {
       propsData: {
         headerText: 'test'
       }
