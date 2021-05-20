@@ -1,5 +1,13 @@
 const fs = require('fs')
 
+// Only define as externals for production builds
+const webpackProductionConfig = {
+  externals: {
+    'focus-trap': 'focus-trap',
+    'focus-trap-vue': 'focus-trap-vue'
+  }
+}
+
 module.exports = {
   lintOnSave: undefined,
   css: {
@@ -12,5 +20,6 @@ module.exports = {
       }
     }
   },
+  configureWebpack: process.env.NODE_ENV === 'production' ? webpackProductionConfig : {},
   parallel: true
 }

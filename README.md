@@ -2,19 +2,20 @@
 Ample Organics Component Library
 
 ## Documentation
-Run `yarn serve` the documentation should open in your broswer at `http://localhost:8080/`
+Run `yarn serve`, the documentation will open in your browser at `http://localhost:8080/`.
 
 ## Install
 Install the package using npm/yarn:
 
 ``` sh
-  yarn add blaze-vue
+  yarn add blaze-vue focus-trap focus-trap-vue
 ```
 ``` sh
-  npm i blaze-vue
+  npm i blaze-vue focus-trap focus-trap-vue
 ```
 
 ## Using in your application
+
 In your main.js/index.js add the following lines:
 
 ```javascript

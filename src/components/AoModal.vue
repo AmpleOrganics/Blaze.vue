@@ -1,52 +1,62 @@
 <template>
   <transition name="slide-fade">
     <div class="ao-modal-mask">
-      <div
-        ref="modal"
-        class="ao-modal"
-        tabindex="0"
-        @click.self="closeModal"
-        @keyup.esc.stop="closeModal"
+      <focus-trap
+        v-model="trapActive"
+        :escape-deactivates="false"
       >
         <div
-          :class="computedModalSize"
+          ref="modal"
+          class="ao-modal"
+          tabindex="-1"
           @click.self="closeModal"
+          @keyup.esc.stop="closeModal"
         >
-          <div class="ao-modal__content">
-            <div :class="computedHeaderClass">
-              <h2 class="ao-modal__header-text">
-                {{ headerText }}
-              </h2>
-            </div>
-            <div
-              v-if="hasSlot('modal-toolbar')"
-              class="ao-modal__toolbar"
-            >
-              <slot name="modal-toolbar" />
-            </div>
-            <div
-              v-if="hasSlot('modal-body')"
-              class="ao-modal__body"
-            >
-              <slot name="modal-body" />
-            </div>
-            <div
-              v-if="hasSlot('modal-footer')"
-              class="ao-modal__footer"
-            >
-              <slot name="modal-footer" />
+          <div
+            :class="computedModalSize"
+            @click.self="closeModal"
+          >
+            <div class="ao-modal__content">
+              <div :class="computedHeaderClass">
+                <h2 class="ao-modal__header-text">
+                  {{ headerText }}
+                </h2>
+              </div>
+              <div
+                v-if="hasSlot('modal-toolbar')"
+                class="ao-modal__toolbar"
+              >
+                <slot name="modal-toolbar" />
+              </div>
+              <div
+                v-if="hasSlot('modal-body')"
+                class="ao-modal__body"
+              >
+                <slot name="modal-body" />
+              </div>
+              <div
+                v-if="hasSlot('modal-footer')"
+                class="ao-modal__footer"
+              >
+                <slot name="modal-footer" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </focus-trap>
     </div>
   </transition>
 </template>
 
 <script>
 import { filterClasses } from './utils/component_utilities.js'
+import { FocusTrap } from 'focus-trap-vue'
 
 export default {
+  components: {
+    FocusTrap
+  },
+
   props: {
     headerText: {
       type: String,
@@ -73,6 +83,12 @@ export default {
     }
   },
 
+  data () {
+    return {
+      trapActive: false
+    }
+  },
+
   computed: {
     computedHeaderClass () {
       const activeClasses = {
@@ -89,8 +105,12 @@ export default {
   },
 
   mounted () {
-    // this sets focus on the modal so that the onEsc() functions as expected
-    this.$refs.modal.focus()
+    // focus-trap handles focusing the modal (and returning focus when it closes).
+    this.trapActive = true
+  },
+
+  beforeDestroy () {
+    this.trapActive = false
   },
 
   methods: {
@@ -98,9 +118,9 @@ export default {
       return !!this.$slots[slotName]
     },
     closeModal () {
-      // This only affects clicking outside the modal and pressing 'esc' key
-      // if you want to close the modal, the parent of the component shoud maniupulate a showModal
-      // variable that is linked to a v-if and :show
+      // This only affects clicking outside the modal and pressing 'esc' key.
+      // If you want to close the modal, the parent of the component should manipulate a showModal
+      // variable that is linked to a v-if and :show.
       this.$emit('modalClose')
     }
   }
