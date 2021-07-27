@@ -194,6 +194,7 @@ export default {
 
   &__info-text {
     margin-bottom: $spacer-micro;
+    margin-top: 0;
     font-size: $font-size-sm;
     color: $color-gray-30;
   }
