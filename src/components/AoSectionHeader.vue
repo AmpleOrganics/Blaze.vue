@@ -91,6 +91,7 @@ export default {
 
   &__subtitle > p {
     margin-bottom: 0;
+    margin-top: 0;
     font-style: italic;
     color: $color-gray-30;
   }
