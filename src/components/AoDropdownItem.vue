@@ -70,7 +70,7 @@ export default {
 
   &__label {
     font-weight: normal;
-    margin-bottom: 0;
+    margin: 0;
   }
 
   &__info-text {

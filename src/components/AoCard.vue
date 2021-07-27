@@ -51,6 +51,10 @@ export default {
 
   &__body {
     padding: $spacer;
+
+    & >:first-child {
+      margin-top: 0;
+    }
   }
 
   &__header {

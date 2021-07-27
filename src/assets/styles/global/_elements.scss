@@ -74,3 +74,8 @@ hr {
   border: 0;
   border-top: 1px solid $ui-border-color-base;
 }
+
+i[class^=md-icon__] {
+  // where is the base style for this?
+  font-style: normal;
+}
