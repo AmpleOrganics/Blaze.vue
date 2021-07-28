@@ -1,3 +1,9 @@
+# 3.7.0 (2021-07-28)
+
+## Changes
+
+Removed CSS Reset and adjusted some component styles to compensate [#427](https://github.com/AmpleOrganics/Blaze.vue/pull/427)
+
 # 3.6.15 (2020-11-03)
 
 ## Changes
