@@ -45,5 +45,11 @@ export default {
   .router-link-active {
     font-weight: 700;
   }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 </style>

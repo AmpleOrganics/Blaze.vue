@@ -110,6 +110,8 @@ export default {
       margin-right: $spacer;
       font-size: $font-size-xl;
       opacity: 0.2;
+      line-height: 1.3;
+      vertical-align: baseline;
     }
 
     &__body {
@@ -117,6 +119,10 @@ export default {
       flex-direction: column;
       justify-content: center;
       flex-grow: 1;
+
+      p {
+        margin: 0 0 1rem 0;
+      }
     }
 
     &__dismiss-icon {

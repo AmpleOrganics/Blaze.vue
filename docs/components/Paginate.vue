@@ -62,4 +62,5 @@ export default {
 .ao-pagination {
   width: fit-content !important;
 }
+
 </style>

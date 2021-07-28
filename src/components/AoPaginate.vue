@@ -116,6 +116,7 @@ export default {
     font-family: $font-family-primary;
     font-size: $font-size-sm;
     color: $font-color-base;
+    vertical-align: middle;
 
     &:hover {
       background-color: darken($color-white, 3%);
