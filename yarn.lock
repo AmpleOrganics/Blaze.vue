@@ -7035,10 +7035,10 @@ matcher@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.4"
 
-material-design-icons-iconfont@^4.0.4:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-4.0.5.tgz#4107ba3b8a9d688a3d9325fc7363af51b17d3aee"
-  integrity sha512-ByJJ1yz8+RfCx2uNiC5WjVCR7K3UWRb8ytWV3RMaoFRzQLNr/J5x7+Wg1+3OlIZahNXrId9Hu+BfXfQIo01v7g==
+material-design-icons-iconfont@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-6.5.0.tgz#1e19c88da085aefd9464e526be1a3b52e9daf601"
+  integrity sha512-ImxSGnW7o5InRxgpL1UUuTPkBsgjzdQ8m7YBe5SdLfyjfcbIYVSHNHzBablNEVuliRdM8efa6mqiFtt8BQyMwA==
 
 math-random@^1.0.1:
   version "1.0.4"
