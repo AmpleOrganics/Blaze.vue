@@ -4,70 +4,79 @@ $md-icon-font-size-base: 18px;
 @import '~material-design-icons-iconfont/src/material-design-icons';
 @import '~@/assets/styles/settings/_variables.scss';
 
+@mixin material-icon-pseudo-before($name) {
+  $codepoint: map-get($material-icons-codepoints, $name);
+
+  &:before {
+    font-family: 'Material Icons';
+    content: material-icons-content($codepoint)
+  }
+}
+
 .md-icon__add {
-  @include material-icon('add');
+  @include material-icon-pseudo-before('add');
 }
 
 .md-icon__archive {
-  @include material-icon('archive');
+  @include material-icon-pseudo-before('archive');
 }
 
 .md-icon__arrow_drop_down {
-  @include material-icon('arrow_drop_down');
+  @include material-icon-pseudo-before('arrow_drop_down');
 }
 
 .md-icon__arrow_drop_up {
-  @include material-icon('arrow_drop_up');
+  @include material-icon-pseudo-before('arrow_drop_up');
 }
 
 .md-icon__date_range {
-  @include material-icon('date_range');
+  @include material-icon-pseudo-before('date_range');
 }
 
 .md-icon__check {
-  @include material-icon('check');
+  @include material-icon-pseudo-before('check');
 }
 
 .md-icon__close {
-  @include material-icon('close');
+  @include material-icon-pseudo-before('close');
 }
 
 .md-icon__delete_forever {
-  @include material-icon('delete_forever');
+  @include material-icon-pseudo-before('delete_forever');
 }
 
 .md-icon__get_app {
-  @include material-icon('get_app');
+  @include material-icon-pseudo-before('get_app');
 }
 
 .md-icon__info {
-  @include material-icon('info');
+  @include material-icon-pseudo-before('info');
 }
 
 .md-icon__left-chevron {
-  @include material-icon('chevron_left');
+  @include material-icon-pseudo-before('chevron_left');
 }
 
 .md-icon__menu {
-  @include material-icon('menu');
+  @include material-icon-pseudo-before('menu');
 }
 
 .md-icon__more_horiz {
-  @include material-icon('more_horiz');
+  @include material-icon-pseudo-before('more_horiz');
 }
 
 .md-icon__print {
-  @include material-icon('print');
+  @include material-icon-pseudo-before('print');
 }
 
 .md-icon__right-chevron {
-  @include material-icon('chevron_right');
+  @include material-icon-pseudo-before('chevron_right');
 }
 
 .md-icon__undo {
-  @include material-icon('undo');
+  @include material-icon-pseudo-before('undo');
 }
 
 .md-icon__unfold-more {
-  @include material-icon('unfold_more');
+  @include material-icon-pseudo-before('unfold_more');
 }
